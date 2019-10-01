@@ -1,40 +1,3 @@
-import io
-import sys
-sys.stdout = io.TextIoWrapper(sys.stdout.buffer,encoding= 'utf-8')
-Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> 6\5
-SyntaxError: unexpected character after line continuation character
->>> 3/2
-1.5
->>> 3%2
-1
->>> 0.2+0.2
-0.4
->>> 0.2+0.1
-0.30000000000000004
->>> print('hello '+str(23)+'age')
-hello 23age
->>> print('hello '+str(23)+' age')
-hello 23 age
->>> a = list['me','i','mine']
-Traceback (most recent call last):
-  File "<pyshell#7>", line 1, in <module>
-    a = list['me','i','mine']
-TypeError: 'type' object is not subscriptable
->>> a =['me','i','mine']
->>> print(a[-1])
-mine
->>> print('i love '+a[2])
-i love mine
->>> 4//2
-2
->>> 8/2
-4.0
->>> 8//2
-4
->>> 16//2
-8
 >>> 14//3
 4
 >>> 14/3
@@ -50,6 +13,60 @@ i love mine
 2.0
 >>> type(a)
 <class 'complex'>
+>>> 6\5
+SyntaxError: unexpected character after line continuation character
+>>> 3/2
+1.5
+>>> 3%2
+1
+>>> 0.2+0.2
+0.4
+>>> 0.2+0.1
+0.30000000000000004
+>>> print(f'{a} are {b} years old')
+you are 23 years old
+>>> print('{0:.3f}'.format(1.0/3))
+0.333
+>>> print('{0:_^11}'.format('hello'))
+___hello___
+>>> print('hello '+str(23)+'age')
+hello 23age
+>>> print('hello '+str(23)+' age')
+hello 23 age
+>>> '{0} love {1}.{2}'.format('i','fishc','com')
+'i love fishc.com'
+>>> '{a} love {b}.{c}'.format(a='i',b='fishc',c='com')
+'i love fishc.com'
+>>> '{0} love {b}.{c}'.format('i',b='fishc',c='com')
+'i love fishc.com'
+>>> '{0}'.format('hhh')
+'hhh'
+>>> '{{0}}'.format('hhh')
+'{0}'
+>>> '{0:1f}{1}'.format(17.77,'gb')
+'17.770000gb'
+>>> '%c'%97
+'a'
+>>> '%c %c %c'%(97,98,99)
+'a b c'
+>>> '%c'%100
+'d'
+>>> '%s'%'i love you'
+'i love you'
+>>> '%d + %d = %d'% (4,5,4+5)
+'4 + 5 = 9'
+
+
+>>> a = list['me','i','mine']
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    a = list['me','i','mine']
+TypeError: 'type' object is not subscriptable
+>>> a =['me','i','mine']
+>>> print(a[-1])
+mine
+>>> print('i love '+a[2])
+i love mine
 >>> a = ['i','me','mine']
 >>> a
 ['i', 'me', 'mine']
@@ -106,321 +123,6 @@ NameError: name 'b' is not defined
 ['i', 'me', 'mine', 'you']
 >>> dir (list)
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
->>> '{0} love {1}.{2}'.format('i','fishc','com')
-'i love fishc.com'
->>> '{a} love {b}.{c}'.format(a='i',b='fishc',c='com')
-'i love fishc.com'
->>> '{0} love {b}.{c}'.format('i',b='fishc',c='com')
-'i love fishc.com'
->>> '{0}'.format('hhh')
-'hhh'
->>> '{{0}}'.format('hhh')
-'{0}'
->>> '{0:1f}{1}'.format(17.77,'gb')
-'17.770000gb'
->>> '%c'%97
-'a'
->>> '%c %c %c'%(97,98,99)
-'a b c'
->>> '%c'%100
-'d'
->>> '%s'%'i love you'
-'i love you'
->>> '%d + %d = %d'% (4,5,4+5)
-'4 + 5 = 9'
->>> def myfirstfunction(name):
-	#函数定义过程中的name叫形参
-	#因为这是一个形式，表示占据一个参数位置
-	print('传递进来的'+name+'叫做实参，因为这是具体的参数值')
-
-	
->>> myfirstfunction('me')
-传递进来的me叫做实参，因为这是具体的参数值
->>> myfirstfunction.__doc__
->>> print.__doc__
-"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
->>> help(print)
-Help on built-in function print in module builtins:
-
-print(...)
-    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-    
-    Prints the values to a stream, or to sys.stdout by default.
-    Optional keyword arguments:
-    file:  a file-like object (stream); defaults to the current sys.stdout.
-    sep:   string inserted between values, default a space.
-    end:   string appended after the last value, default a newline.
-    flush: whether to forcibly flush the stream.
-
->>> def saysome(name,words):
-	print(name+'->'+words)
-
-	
->>> saysome('i','love you')
-i->love you
->>> saysome('love you','i')
-love you->i
->>> saysome(words='love you',name='i')    #其中name,words为关键字参数,给定一个值
-i->love you
->>> saysome()
-Traceback (most recent call last):
-  File "<pyshell#15>", line 1, in <module>
-    saysome()
-TypeError: saysome() missing 2 required positional arguments: 'name' and 'words'
->>> def saysome(name='i',words='love you'):    #其中name,words为默认参数,i,love you为默认值
-	print(name+'->'+words)
-
-	
->>> saysome()
-i->love you
->>> saysome('me')
-me->love you
->>> saysome('she','love me')
-she->love me
->>> def test(*params):    #形参前面加一个乘号为收集参数
-	print('参数的长度是:',len(params));
-	print('第二个参数是:',params[1]);
-
-	
->>> test(1,'小和尚',3.14,5,6,7,8)
-参数的长度是: 7
-第二个参数是: 小和尚
->>> def test(*params,exp):     #python默认会将乘号后面全当做收集参数
-	print('参数的长度是:',len(params));
-	print('第二个参数是:',params[1]);
-
-	
->>> test(1,'小和尚',3.14,5,6,7,8)
-Traceback (most recent call last):
-  File "<pyshell#28>", line 1, in <module>
-    test(1,'小和尚',3.14,5,6,7,8)
-TypeError: test() missing 1 required keyword-only argument: 'exp'
->>> test(1,'小和尚',3.14,5,6,7,8,exp=8)      #解决方法为加一个默认参数
-参数的长度是: 7
-第二个参数是: 小和尚
->>> def test(exp,*params):     #或者将形式参数放在前面
-	print('参数的长度是:',len(params));
-	print('第二个参数是:',params[1]);
-
-	
->>> test(1,'小和尚',3.14,5,6,7,8)
-参数的长度是: 6
-第二个参数是: 3.14
->>> def hello():
-	print('hello fishc!')
-
-	
->>> temp = hello()
-hello fishc!
->>> temp
->>> print(temp)
-None
->>> type(temp)
-<class 'NoneType'>
->>> def back():
-	return [q1,'i',3]
-
->>> back()
-Traceback (most recent call last):
-  File "<pyshell#43>", line 1, in <module>
-    back()
-  File "<pyshell#42>", line 2, in back
-    return [q1,'i',3]
-NameError: name 'q1' is not defined
->>> def back():
-	return [1,'i',3.14]
-
->>> back()
-[1, 'i', 3.14]
->>> def back():
-	return 1,'i',3.14
-
->>> back()
-(1, 'i', 3.14)
-#函数定义过程中的局部变量出了函数定义过程就不可使用，而函数定义过程外的变量为全局变量
-#在函数里面可以访问全局变量但不可以修改
->>> count = 5
->>> def myfun():
-	count = 10
-	print(10)
-
-	
->>> print(count)
-5
->>> def myfun():
-	global count#如果一定要改全局变量则用global关键字
-	count = 10
-	print(10)
-
-	
->>> myfun()
-10
->>> print(count)
-10
->>> def fun1():
-	print('fun1()正在被调用...')
-	def fun2():
-		print('fun2()正在被调用...')
-	fun2()
-
-	
->>> fun1()
-fun1()正在被调用...
-fun2()正在被调用...
->>> fun2()
-Traceback (most recent call last):
-  File "<pyshell#37>", line 1, in <module>#内嵌函数出了定义的函数之后就不能被调用了
-    fun2()
-NameError: name 'fun2' is not defined
->>> def funx(x):
-	def funy(y):
-		return x*y  #在内部函数funy()里，引用外部作用域的变量x,则称funy()为闭包
-	return funy
-
->>> funx(1)(3)
-3
->>> i = funx(8)
->>> type(i)
-<class 'function'>
->>> def fun1():
-	x = 5
-	def fun2():
-		x*=x
-		return x  #闭包里面不可以用外部作用域的变量去赋值同样的变量名
-	return fun2()
-
->>> fun1()
-Traceback (most recent call last):
-  File "<pyshell#55>", line 1, in <module>
-    fun1()
-  File "<pyshell#54>", line 6, in fun1
-    return fun2()
-  File "<pyshell#54>", line 4, in fun2
-    x*=x
-UnboundLocalError: local variable 'x' referenced before assignment
->>> def abc():
-	x = 1
-	def bcd():
-		x = 2
-		return x   #但是可以直接赋值新的值
-	return bcd()
-
->>> abc()
-2
->>> def fun1():
-	x = 5
-	def fun2():
-		global x   #可以用global关键字改变
-		x = 1
-		return x
-	return fun2()
-
->>> fun1()
-1
->>> def fun1():
-	x = [5]
-	def fun2():
-		x[0] *= x[0]   #也可以将变量改为元组
-		return x[0]
-	return fun2()
-
->>> fun1()
-25
->>> def fun1():
-	x = 5
-	def fun2():
-		nonlocal x   #也可以运用nonlocal关键字
-		x *=x
-		return x
-	return fun2()
-
->>> fun1()
-25
->>> lambda x :2*x+1
-<function <lambda> at 0x000001F7A96F2438>#lambda表达式可以简化函数定义过程
->>> g = lambda x :2*x+1
->>> g(5)
-11
->>> h = lambda x: x%2
->>> list(filter(h,range(1,10)))#filter可以通过函数筛选可迭代区间中的值，默认筛选正数
-[1, 3, 5, 7, 9]
->>> list(filter(None,[0,False,True]))
-[True]
->>> list(filter(None,[0,1]))
-[1]
->>> list(map(lambda x:x*2,range(10)))
-[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]#map可以将范围中的值带入函数中再返回值
->>> def recursion():
-	return recursion()
-
->>> import sys
->>> sys.setrecursionlimit(100)#不可以轻易使用递归，要限制位数之后再使用
->>> def fib(n):
-	if n == 0 or n==1:
-		return 1
-	else:
-		return n*fib(n-1)#求阶乘可用递归
-
-	
->>> fib(5)
-120
->>> def fab(n):
-	i = 1
-	x = 1
-	while i!=n:#也可用while循环
-		i += 1
-		x = x*i
-	return x
-
->>> fab(5)
-120
->>> def fib(n):
-	result = n
-	for i in range(1,n):#也可用for循环
-		result *= i
-	return result
-
->>> fib(5)
-120
->>> def fib(n):    #用迭代算斐波那契
-	n1 = 1
-	n2 = 1
-	n3 = 1
-	if n == 2 or n == 1:
-		return 1
-	while (n-2)>0:
-		n3 = n2 + n1
-		n1 = n2
-		n2 = n3
-		n = n-1
-	return n3
-
->>> fib(8)
-21
->>> def fib(n):
-	if n == 1 or n == 2:
-		return 1
-	else:
-		return fib(n-1)+fib(n-2)
-
-	
->>> fib(8)
-21
->>> def hanoi(n,x,y,z):
-	if n == 1:
-		print(x,'-->',z)   
-	else:
-		hanoi(n-1,x,z,y)#将前n-1个盘子从x移动到y上 中间的z是借助针 xy分别为初始针和目的针
-		print(x,'-->',z)#将最底下的最后一个盘子从x移动到z上
-		hanoi(n-1,y,x,z)#将y上的n-1个移动到z上 x是借助针
->>> hanoi(3,'x','y','z')
-x --> z
-x --> y
-z --> y
-x --> z
-y --> x
-y --> z
-x --> z
 >>> brand = ['li','nai','a','lang']#键key
 >>> slogan = ['any','just','impossible','program']#值value
 >>> print('lang的口号是:',slogan[brand.index('lang')])
@@ -615,7 +317,6 @@ TypeError: 'set' object is not subscriptable
 >>> for each in set1:
 	if each not in temp:
 		temp.append(each)
-
 		
 >>> temp
 [1, 2, 3, 4, 5, 0]
@@ -634,6 +335,299 @@ Traceback (most recent call last):
   File "<pyshell#32>", line 1, in <module>
     num3.add(4)
 AttributeError: 'frozenset' object has no attribute 'add'
+
+
+
+>>> def myfirstfunction(name):
+	'''函数定义过程中的name叫形参
+	因为这是一个形式，表示占据一个参数位置'''
+	print('传递进来的'+name+'叫做实参，因为这是具体的参数值')
+
+>>> myfirstfunction('me')
+传递进来的me叫做实参，因为这是具体的参数值
+>>> myfirstfunction.__doc__
+'函数定义过程中的name叫形参\n\t 因为这是一个形式，表示占据一个参数位置'
+>>> print.__doc__
+"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
+>>> help(print)
+Help on built-in function print in module builtins:
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+>>> def saysome(name,words):
+	print(name+'->'+words)	
+>>> saysome('i','love you')#传递(调用)参数的方法有两种,这是位置参数,即按照默认位置来调用
+i->love you
+>>> saysome('love you','i') 
+love you->i
+>>> saysome(words='love you',name='i')    #其中name,words为关键字参数,给定一个值
+i->love you
+>>> saysome()
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    saysome()
+TypeError: saysome() missing 2 required positional arguments: 'name' and 'words'
+>>> def saysome(name='i',words='love you'):    #其中name,words为默认参数,i,love you为默认值
+	print(name+'->'+words)	
+>>> saysome()
+i->love you
+>>> saysome('me')
+me->love you
+>>> saysome('she','love me')
+she->love me
+>>> def test(*params):    #形参前面加一个乘号为收集参数
+	print('参数的长度是:',len(params));
+	print('第二个参数是:',params[1]);	
+>>> test(1,'小和尚',3.14,5,6,7,8)
+参数的长度是: 7
+第二个参数是: 小和尚
+>>> def test(*params,exp):     #python默认会将乘号后面全当做收集参数
+	print('参数的长度是:',len(params));
+	print('第二个参数是:',params[1]);	
+>>> test(1,'小和尚',3.14,5,6,7,8)
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    test(1,'小和尚',3.14,5,6,7,8)
+TypeError: test() missing 1 required keyword-only argument: 'exp'
+>>> test(1,'小和尚',3.14,5,6,7,8,exp=8)      #解决方法为加一个默认参数
+参数的长度是: 7
+第二个参数是: 小和尚
+>>> def test(exp,*params):     #或者将形式参数放在前面
+	print('参数的长度是:',len(params));
+	print('第二个参数是:',params[1]);
+	
+>>> test(1,'小和尚',3.14,5,6,7,8)
+参数的长度是: 6
+第二个参数是: 3.14
+>>> def hello():
+	print('hello fishc!')
+	
+>>> temp = hello()
+hello fishc!
+>>> temp
+>>> print(temp)
+None
+>>> type(temp)
+<class 'NoneType'>
+>>> def back():
+	return [q1,'i',3]
+
+>>> back()
+Traceback (most recent call last):
+  File "<pyshell#43>", line 1, in <module>
+    back()
+  File "<pyshell#42>", line 2, in back
+    return [q1,'i',3]
+NameError: name 'q1' is not defined
+>>> def back():
+	return [1,'i',3.14]
+
+>>> back()
+[1, 'i', 3.14]
+>>> def back():
+	return 1,'i',3.14
+
+>>> back()
+(1, 'i', 3.14)
+#函数定义过程中的局部变量出了函数定义过程就不可使用，而函数定义过程外的变量为全局变量
+#在函数里面可以访问全局变量但不可以修改
+>>> count = 5
+>>> def myfun():
+	count = 10
+	print(10)
+	
+>>> print(count)
+5
+>>> def myfun():
+	global count#如果一定要改全局变量则用global关键字
+	count = 10
+	print(10)
+	
+>>> myfun()
+10
+>>> print(count)
+10
+>>> def fun1():
+	print('fun1()正在被调用...')
+	def fun2():
+		print('fun2()正在被调用...')
+	fun2()
+
+	
+>>> fun1()
+fun1()正在被调用...
+fun2()正在被调用...
+>>> fun2()
+Traceback (most recent call last):
+  File "<pyshell#37>", line 1, in <module>#内嵌函数出了定义的函数之后就不能被调用了
+    fun2()
+NameError: name 'fun2' is not defined
+>>> def funx(x):
+	def funy(y):
+		return x*y  #在内部函数funy()里，引用外部作用域的变量x,则称funy()为闭包
+	return funy
+
+>>> funx(1)(3)
+3
+>>> i = funx(8)
+>>> type(i)
+<class 'function'>
+>>> def fun1():
+	x = 5
+	def fun2():
+		x*=x
+		return x  #闭包里面不可以用外部作用域的变量去赋值同样的变量名
+	return fun2()
+
+>>> fun1()
+Traceback (most recent call last):
+  File "<pyshell#55>", line 1, in <module>
+    fun1()
+  File "<pyshell#54>", line 6, in fun1
+    return fun2()
+  File "<pyshell#54>", line 4, in fun2
+    x*=x
+UnboundLocalError: local variable 'x' referenced before assignment
+>>> def abc():
+	x = 1
+	def bcd():
+		x = 2
+		return x   #但是可以直接赋值新的值
+	return bcd()
+
+>>> abc()
+2
+>>> def fun1():
+	x = 5
+	def fun2():
+		global x   #可以用global关键字改变
+		x = 1
+		return x
+	return fun2()
+
+>>> fun1()
+1
+>>> def fun1():
+	x = [5]
+	def fun2():
+		x[0] *= x[0]   #也可以将变量改为元组
+		return x[0]
+	return fun2()
+
+>>> fun1()
+25
+>>> def fun1():
+	x = 5
+	def fun2():
+		nonlocal x   #也可以运用nonlocal关键字
+		x *=x
+		return x
+	return fun2()
+
+>>> fun1()
+25
+>>> lambda x :2*x+1
+<function <lambda> at 0x000001F7A96F2438>#lambda表达式可以简化函数定义过程
+>>> g = lambda x :2*x+1
+>>> g(5)
+11
+>>> h = lambda x: x%2
+>>> list(filter(h,range(1,10)))#filter可以通过函数筛选可迭代区间中的值，默认筛选正数
+[1, 3, 5, 7, 9]
+>>> list(filter(None,[0,False,True]))
+[True]
+>>> list(filter(None,[0,1]))
+[1]
+>>> list(map(lambda x:x*2,range(10)))
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]#map可以将范围中的值带入函数中再返回值
+>>> def recursion():
+	return recursion()
+
+>>> import sys
+>>> sys.setrecursionlimit(100)#不可以轻易使用递归，要限制位数之后再使用
+>>> def fib(n):
+	if n == 0 or n==1:
+		return 1
+	else:
+		return n*fib(n-1)#求阶乘可用递归
+
+	
+>>> fib(5)
+120
+>>> def fab(n):
+	i = 1
+	x = 1
+	while i!=n:#也可用while循环
+		i += 1
+		x = x*i
+	return x
+
+>>> fab(5)
+120
+>>> def fib(n):
+	result = n
+	for i in range(1,n):#也可用for循环
+		result *= i
+	return result
+
+>>> fib(5)
+120
+>>> def fib(n):    #用迭代算斐波那契
+	n1 = 1
+	n2 = 1
+	n3 = 1
+	if n == 2 or n == 1:
+		return 1
+	while (n-2)>0:
+		n3 = n2 + n1
+		n1 = n2
+		n2 = n3
+		n = n-1
+	return n3
+
+>>> fib(8)
+21
+>>> def fib(n):
+	if n == 1 or n == 2:
+		return 1
+	else:
+		return fib(n-1)+fib(n-2)
+
+	
+>>> fib(8)
+21
+>>> def hanoi(n,x,y,z):
+	if n == 1:
+		print(x,'-->',z)   
+	else:
+		hanoi(n-1,x,z,y)#将前n-1个盘子从x移动到y上 中间的z是借助针 xy分别为初始针和目的针
+		print(x,'-->',z)#将最底下的最后一个盘子从x移动到z上
+		hanoi(n-1,y,x,z)#将y上的n-1个移动到z上 x是借助针
+>>> hanoi(3,'x','y','z')
+x --> z
+x --> y
+z --> y
+x --> z
+y --> x
+y --> z
+x --> z
+>>> def creatfile(name,content,censored_word='hello',changed_word='goodbye'):
+	name = 'D:\\Users\\向致承\\Documents\\python\\'+name
+	content = str(content.replace(censored_word,changed_word))		   
+	f = open(name,'w')
+	f.write(content)
+	print('done')
+>>> creatfile('new2','hello word')#最后结果为goodbye world
+done
+
+
+
 >>> f = open('D:\\Users\\向致承\\Documents\\python\\8-29game.py')
 >>> f
 <_io.TextIOWrapper name='D:\\Users\\向致承\\Documents\\python\\8-29game.py' mode='r' encoding='cp936'>
@@ -664,7 +658,6 @@ AttributeError: 'frozenset' object has no attribute 'add'
 >>> line = list(f)
 >>> for each in line:
 	print(each)
-
 	
 锘縤mport random
 
@@ -758,7 +751,7 @@ print ('                Game Over                   ')
 	print(each)
 
 	
-锘縤mport random
+import random
 
 secret = random.randint(1,10)
 
@@ -849,11 +842,4 @@ print ('                Game Over                   ')
 >>> f.close()
 >>> f
 <_io.TextIOWrapper name='D:\\Users\\向致承\\Documents\\python\\new.txt' mode='w' encoding='cp936'>
->>> def creatfile(name,content,censored_word='hello',changed_word='goodbye'):
-	name = 'D:\\Users\\向致承\\Documents\\python\\'+name
-	content = str(content.replace(censored_word,changed_word))		   
-	f = open(name,'w')
-	f.write(content)
-	print('done')
->>> creatfile('new2','hello word')#最后结果为goodbye world
-done
+
