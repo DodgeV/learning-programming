@@ -23,12 +23,22 @@ SyntaxError: unexpected character after line continuation character
 0.4
 >>> 0.2+0.1
 0.30000000000000004
+>>> a = 'you'
+>>> b = 23
 >>> print(f'{a} are {b} years old')
 you are 23 years old
 >>> print('{0:.3f}'.format(1.0/3))
 0.333
 >>> print('{0:_^11}'.format('hello'))
 ___hello___
+>>> print(f'{a} love me');pass #pass语句无意义，只用于占一行的位置
+you love me
+>>> eval('234+234')
+468
+>>> eval('a')
+'you'
+>>> eval('b')
+23
 >>> print('hello '+str(23)+'age')
 hello 23age
 >>> print('hello '+str(23)+' age')
@@ -55,6 +65,7 @@ hello 23 age
 'i love you'
 >>> '%d + %d = %d'% (4,5,4+5)
 '4 + 5 = 9'
+
 
 
 >>> a = list['me','i','mine']
