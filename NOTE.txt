@@ -33,12 +33,6 @@ you are 23 years old
 ___hello___
 >>> print(f'{a} love me');pass #pass语句无意义，只用于占一行的位置
 you love me
->>> eval('234+234')
-468
->>> eval('a')
-'you'
->>> eval('b')
-23
 >>> print('hello '+str(23)+'age')
 hello 23age
 >>> print('hello '+str(23)+' age')
@@ -65,14 +59,60 @@ hello 23 age
 'i love you'
 >>> '%d + %d = %d'% (4,5,4+5)
 '4 + 5 = 9'
+>>> eval('234+234')
+468
+>>> eval('a')
+'you'
+>>> eval('b')
+23
+>>> print(r"Newlines are indicated by \n")
+Newlines are indicated by \n
+>>> print('newlines are indicated by \n')
+newlines are indicated by 
+>>> print(bool)
+<class 'bool'>
+>>> print(bool(False))
+False
+>>> print(bool(3>2))
+True
+>>> print(bool('3'))
+True
+>>> print(bool(0))
+False
+>>> print(bool(-23))
+True
+>>> print(bool(23))
+True
+>>> print(bool(None))
+False
+>>> print(bool([]))
+False
+>>> print(bool([23]))
+True
+>>> word = 'helloworld'
+>>> newword = ','.join(word)
+>>> newword
+'h,e,l,l,o,w,o,r,l,d'
+>>> print(u'书写national word') 
+书写national word #Unicode是书写国际文本的标准方法。如果你想要用你的母语如北印度语或阿拉伯语写文本，那么你需要有一个支持Unicode的编辑器.
+>>> print('书写national word')
+书写national word
+>>>try:
+	a = int('0.5')
+	print(a)
+   except:
+	print('error: convert "0.5" to int') %异常处理
+   print('Done')
+error: convert "0.5" to int
+Done
 
 
 
->>> a = list['me','i','mine']
-Traceback (most recent call last):
-  File "<pyshell#7>", line 1, in <module>
-    a = list['me','i','mine']
-TypeError: 'type' object is not subscriptable
+>>> s = ';'
+>>> li = ['apple','pear','banana']
+>>> fruit = s.join(li)
+>>> fruit
+'apple;pear;banana'
 >>> a =['me','i','mine']
 >>> print(a[-1])
 mine
@@ -134,11 +174,11 @@ NameError: name 'b' is not defined
 ['i', 'me', 'mine', 'you']
 >>> dir (list)
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
->>> brand = ['li','nai','a','lang']#键key
->>> slogan = ['any','just','impossible','program']#值value
+>>> brand = ['li','nai','a','lang'] #键key
+>>> slogan = ['any','just','impossible','program'] #值value
 >>> print('lang的口号是:',slogan[brand.index('lang')])
 lang的口号是: program
->>> dict1 = {'li':'any','nai':'just','a':'impossible','lang':'program'}#每一个键值组合称为项
+>>> dict1 = {'li':'any','nai':'just','a':'impossible','lang':'program'} #每一个键值组合称为项
 >>> print('li的口号是：',dict1['li'])
 li的口号是： any
 >>> dict2 = {1:'one',2:'two',3:'three'}   #字典不是数据类型 是映射类型 可以直接用大括号创建
