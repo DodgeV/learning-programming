@@ -1,7 +1,49 @@
+>>> 2 << 2  #将2往左移动两位,即200(二进制)转为10进制既是8
+8
+>>> 3 << 2
+12
+>>> 4 << 2
+16
+>>> 2 << 3
+16
+>>> 10 << 2 #即10*4
+40
+>>> 10 >> 2 #即10/4取整
+2
+>>> 2 << 1
+4
+>>> 11 >> 2 #即11/4取整
+2
+>>> 5&3
+1
+>>> 5&7  #数字的按位与
+5
+>>> 8 | 2  #数字的按位或
+10
+>>> 10 | 2
+10
+>>> 3 > 2 and 3 > 1
+True
+>>> 3 > 2 & 3> 8
+False
+>>> 0 & 7
+0
+>>> 10 & 11111
+2
+>>> ~2 
+-3
+>>> x = 100
+>>> ~x  #按位反转
+-101
+>>> 5 ^ 2 #数字的按位XOR
+7
+>>> 5 ^ 3
+6
 >>> 14//3
 4
 >>> 14/3
 4.666666666666667
+
 >>> 14%3
 2
 >>> 8%2
@@ -396,7 +438,7 @@ AttributeError: 'frozenset' object has no attribute 'add'
 
 >>> myfirstfunction('me')
 传递进来的me叫做实参，因为这是具体的参数值
->>> myfirstfunction.__doc__
+>>> myfirstfunction.__doc__  #调用文档字符串
 '函数定义过程中的name叫形参\n\t 因为这是一个形式，表示占据一个参数位置'
 >>> print.__doc__
 "print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
@@ -456,6 +498,25 @@ TypeError: test() missing 1 required keyword-only argument: 'exp'
 >>> test(1,'小和尚',3.14,5,6,7,8)
 参数的长度是: 6
 第二个参数是: 3.14
+>>> def total(a=5, *numbers, **phonebook):  #也可用双星号
+	    print('a', a)
+
+	    #iterate through all the items in tuple
+	    for single_item in numbers:
+		print('single_item', single_item)
+
+	    #iterate through all the items in dictionary    
+	    for first_part, second_part in phonebook.items():
+		print(first_part,second_part)
+
+>>> total(10,1,2,3,Jack=1123,John=2231,Inge=1560)
+>>> a 10
+single_item 1
+single_item 2
+single_item 3
+Inge 1560
+John 2231
+Jack 1123
 >>> def hello():
 	print('hello fishc!')
 	
@@ -679,13 +740,43 @@ done
 
 
 
+>>> import sys
+>>> sys.path
+['', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\idlelib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']
+>>> print(sys.argv)
+['']
+>>> from math import sqrt
+>>> print('square root of 16 is',sqrt(16))
+square root of 16 is 4.0
+>>> sys.__name__
+'sys'
+>>> import __main__
+>>> __main__.sys
+<module 'sys' (built-in)>
+>>> import random
+>>> import math
+>>> import sys
+>>> import os
+>>> import __main__ #该模块整合了所有已经导入的模块，表示该模块由用户独立运行
+>>> __main__.sqrt(144)
+12.0
+>>> if __name__ == '__main__':
+    print('This program is being run by itself')  #该模块导入后可验证是否是用户独立运行的模块
+else:
+    print('I am being imported from another module')
+
+    
+This program is being run by itself #自己直接写一个模块直接运行就是自己的模块
+
+
+
 >>> f = open('D:\\Users\\向致承\\Documents\\python\\8-29game.py')
 >>> f
 <_io.TextIOWrapper name='D:\\Users\\向致承\\Documents\\python\\8-29game.py' mode='r' encoding='cp936'>
 >>> f.encoding
 'cp936'
 >>> f.read()
-"锘縤mport random\nsecret = random.randint(1,10)\nprint ('                  Game Begin                 ')\ntemp = input ('please guess a number from 1 to 10:')\np = int(temp)\nif p == secret:\n    print ('Bingo')\nelif 1<= p <= secret:\n    print ('be bigger')\nelif secret <= p <= 10:\n    print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nwhile p < 1 or p > 10:\n    temp = input ('try it again from 1 to 10:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nprint ('                Game Over                   ')\n"
+"import random\nsecret = random.randint(1,10)\nprint ('                  Game Begin                 ')\ntemp = input ('please guess a number from 1 to 10:')\np = int(temp)\nif p == secret:\n    print ('Bingo')\nelif 1<= p <= secret:\n    print ('be bigger')\nelif secret <= p <= 10:\n    print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nwhile p < 1 or p > 10:\n    temp = input ('try it again from 1 to 10:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nprint ('                Game Over                   ')\n"
 >>> f.read()
 ''
 >>> f.close ()
@@ -703,14 +794,14 @@ done
 >>> f.read()
 "print ('                  Game Begin                 ')\ntemp = input ('please guess a number from 1 to 10:')\np = int(temp)\nif p == secret:\n    print ('Bingo')\nelif 1<= p <= secret:\n    print ('be bigger')\nelif secret <= p <= 10:\n    print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nwhile p < 1 or p > 10:\n    temp = input ('try it again from 1 to 10:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\nwhile 1 <= p <= 10 and p != secret:\n    temp = input ('try it again:')\n    p = int(temp)\n    if p == secret:\n        print ('Bingo')\n    elif 1<= p <= secret:\n        print ('be bigger')\n    elif secret <= p <= 10:\n        print ('be smaller')\n    else:\n        print ('please guess from 1 to 10')\nprint ('                Game Over                   ')\n"
 >>> list(f)
-['锘縤mport random\n', 'secret = random.randint(1,10)\n', "print ('                  Game Begin                 ')\n", "temp = input ('please guess a number from 1 to 10:')\n", 'p = int(temp)\n', 'if p == secret:\n', "    print ('Bingo')\n", 'elif 1<= p <= secret:\n', "    print ('be bigger')\n", 'elif secret <= p <= 10:\n', "    print ('be smaller')\n", 'while 1 <= p <= 10 and p != secret:\n', "    temp = input ('try it again:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", '    else:\n', "        print ('please guess from 1 to 10')\n", 'while p < 1 or p > 10:\n', "    temp = input ('try it again from 1 to 10:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", 'while 1 <= p <= 10 and p != secret:\n', "    temp = input ('try it again:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", '    else:\n', "        print ('please guess from 1 to 10')\n", "print ('                Game Over                   ')\n"]
+['import random\n', 'secret = random.randint(1,10)\n', "print ('                  Game Begin                 ')\n", "temp = input ('please guess a number from 1 to 10:')\n", 'p = int(temp)\n', 'if p == secret:\n', "    print ('Bingo')\n", 'elif 1<= p <= secret:\n', "    print ('be bigger')\n", 'elif secret <= p <= 10:\n', "    print ('be smaller')\n", 'while 1 <= p <= 10 and p != secret:\n', "    temp = input ('try it again:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", '    else:\n', "        print ('please guess from 1 to 10')\n", 'while p < 1 or p > 10:\n', "    temp = input ('try it again from 1 to 10:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", 'while 1 <= p <= 10 and p != secret:\n', "    temp = input ('try it again:')\n", '    p = int(temp)\n', '    if p == secret:\n', "        print ('Bingo')\n", '    elif 1<= p <= secret:\n', "        print ('be bigger')\n", '    elif secret <= p <= 10:\n', "        print ('be smaller')\n", '    else:\n', "        print ('please guess from 1 to 10')\n", "print ('                Game Over                   ')\n"]
 >>> f.close()
 >>> f = open('D:\\Users\\向致承\\Documents\\python\\8-29game.py')
 >>> line = list(f)
 >>> for each in line:
 	print(each)
 	
-锘縤mport random
+import random
 
 secret = random.randint(1,10)
 
