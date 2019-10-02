@@ -764,9 +764,14 @@ square root of 16 is 4.0
     print('This program is being run by itself')  #该模块导入后可验证是否是用户独立运行的模块
 else:
     print('I am being imported from another module')
-
-    
+   
 This program is being run by itself #自己直接写一个模块直接运行就是自己的模块
+>>> import pickle
+>>> f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
+>>> m = ['asf',234]
+>>> pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
+>>> f.close()
+
 
 
 
