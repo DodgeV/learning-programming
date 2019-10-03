@@ -990,3 +990,42 @@ print ('                Game Over                   ')
 >>> f
 <_io.TextIOWrapper name='D:\\Users\\向致承\\Documents\\python\\new.txt' mode='w' encoding='cp936'>
 
+
+
+>>> try:
+	f = open('wenjian.txt')
+except OSError as reason:
+	print('出错了，理由是'+str(reason)) #可以不加'as reason'
+
+	
+出错了，理由是[Errno 2] No such file or directory: 'wenjian.txt'
+>>> try:
+	sum = 1 + '1'
+	f = open('me')
+except (TypeError,OSError):
+	print('出错了')
+
+	
+出错了
+>>> try:
+	f = open('wenjian.txt')
+except TypeError as reason:
+	print('出错了，理由是'+str(reason))  #如果错误类型没找到，还是会报错
+
+	
+Traceback (most recent call last):
+  File "<pyshell#40>", line 2, in <module>
+    f = open('wenjian.txt')
+FileNotFoundError: [Errno 2] No such file or directory: 'wenjian.txt'
+>>> try:
+	f = open('wenjian.txt')
+except TypeError as reason:
+	print('出错了，理由是'+str(reason))  #如果错误类型没找到，还是会报错
+finally :
+	print('这一行不管是否出错都会执行')  #finally后的语句不过是否出错的会执行
+	
+这一行不管是否出错都会执行	
+Traceback (most recent call last):
+  File "<pyshell#40>", line 2, in <module>
+    f = open('wenjian.txt')
+FileNotFoundError: [Errno 2] No such file or directory: 'wenjian.txt'
