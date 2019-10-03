@@ -65,7 +65,9 @@ SyntaxError: unexpected character after line continuation character
 0.4
 >>> 0.2+0.1
 0.30000000000000004
->>> a = 'you'
+>>> text = 'asdfasdf'  #返回'回文'
+>>> text[::-1]
+'fdsafdsa'
 >>> b = 23
 >>> print(f'{a} are {b} years old')
 you are 23 years old
@@ -745,9 +747,12 @@ done
 ['', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\idlelib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']
 >>> print(sys.argv)
 ['']
->>> from math import sqrt
+>>> from math import sqrt 
 >>> print('square root of 16 is',sqrt(16))
 square root of 16 is 4.0
+>>> from math import sqrt as math_sqrt
+>>> math_sqrt(144)
+12.0
 >>> sys.__name__
 'sys'
 >>> import __main__
@@ -771,6 +776,7 @@ This program is being run by itself #自己直接写一个模块直接运行就�
 >>> m = ['asf',234]
 >>> pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
 >>> f.close()
+
 
 
 
