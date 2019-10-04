@@ -216,8 +216,18 @@ NameError: name 'b' is not defined
 ['i', 'me', 'mine', 'you']
 >>> a
 ['i', 'me', 'mine', 'you']
->>> dir (list)
-['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> m = ('sd','dd')
+>>> a,b = m
+>>> a
+'sd'
+>>> b
+'dd'
+>>> user = ['王二狗', 25, '1994-1-1']  #这玩意儿叫unpacking(解包)
+>>> user_name,user_age,user_birthday = user
+>>> user_name
+'王二狗'
+>>> user_age
+25
 >>> brand = ['li','nai','a','lang'] #键key
 >>> slogan = ['any','just','impossible','program'] #值value
 >>> print('lang的口号是:',slogan[brand.index('lang')])
@@ -1035,3 +1045,39 @@ Traceback (most recent call last):
   File "<pyshell#40>", line 2, in <module>
     f = open('wenjian.txt')
 FileNotFoundError: [Errno 2] No such file or directory: 'wenjian.txt'
+
+
+
+>>> class student(object):
+...     pass
+...
+>>> bart = student()  #加个对象
+>>> bart
+<__main__.student object at 0x000001EF7EC3DBC8>
+>>> bart.name = 'jack'  #加个属性
+>>> print(bart.name)
+jack
+>>> type(student)
+<class 'type'>
+>>> type(list)
+<class 'type'>
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> dir(student)  #没有定义其他内置函数
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> class student:
+...     def __init__(self):
+...             print('__init__ is run')  #利用init方法时,第一个参数始终是self,
+...
+>>> jack = student()  #也就是说没有其他参数也会自动调用自己
+__init__ is run
+>>> class teacher(object):
+...     def __init__(self,name,score):
+...         self.name = name  # 因此,在__init__方法内部,就可以把各种属性绑定到self,因为self就指向创建的实例本身
+...         self.score = score
+...
+>>> m = teacher('mark',23)
+>>> m.name
+'mark'
+>>> m.score
+23
