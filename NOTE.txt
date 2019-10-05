@@ -43,7 +43,6 @@ False
 4
 >>> 14/3
 4.666666666666667
-
 >>> 14%3
 2
 >>> 8%2
@@ -752,15 +751,15 @@ done
 
 
 
->>> import sys
->>> sys.path
+>>> import sys as s
+>>> s.path
 ['', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\idlelib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\python37.zip', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\DLLs', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37', 'C:\\Users\\向致承\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages']
 >>> print(sys.argv)
 ['']
 >>> from math import sqrt 
 >>> print('square root of 16 is',sqrt(16))
 square root of 16 is 4.0
->>> from math import sqrt as math_sqrt
+>>> from math import sqrt as math_sqrt #用as重新命名模块的属性
 >>> math_sqrt(144)
 12.0
 >>> sys.__name__
@@ -773,7 +772,7 @@ square root of 16 is 4.0
 >>> import sys
 >>> import os
 >>> import __main__ #该模块整合了所有已经导入的模块，表示该模块由用户独立运行
->>> __main__.sqrt(144)
+>>> __main__.sqrt(144)  #每个模块都有一个name属性，当其值是'__main__'时，表明该模块自身在运行，否则是被import导入的。
 12.0
 >>> if __name__ == '__main__':
     print('This program is being run by itself')  #该模块导入后可验证是否是用户独立运行的模块
@@ -1081,3 +1080,52 @@ __init__ is run
 'mark'
 >>> m.score
 23
+>>> class Student(object):
+	    def __init__(self, name, score):
+		self.__name = name
+		self.__score = score
+#直接在Student类的内部定义访问数据的函数，这样，就把“数据”给封装起来了。
+	    def print_score(self):
+		print('%s: %s' % (self.__name, self.__score))
+>>> bart = Student('Bart Simpson', 59)
+>>> bart.__name  #限制访问,就在属性前面加__
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Student' object has no attribute '__name'
+>>> class Student(object):
+	    def __init__(self, name, score):
+		self.__name = name
+		self.__score = score
+	    def print_score(self):
+		print('%s: %s' % (self.__name, self.__score))
+	    def get_name(self):  #要想访问已被限制的属性,可以创建新函数
+	        return self.__name
+	    def set_name(self,name):
+	        self.__name = name
+>>> jack = student('jack',23)
+>>> print(jack.get_name())
+>>> jack
+>>> jack.set_name('pony')
+>>> print(jack.get_name())
+>>> pony
+>>> class good(student): #定义的子类完全可以继承父类的所有属性,私有属性除外
+	    def goodboy(self):
+		print('good is %d'%(234))
+>>> lucy = good('lucy',88)
+>>> lucy.goodboy()
+good is 234
+>>> lucy.set_name('yatasha')
+>>> lucy.print_score()
+yatasha:8
+>>> class bad(student):
+	    def badboy(self):
+		print('bad is %d'%(123))8
+	    def print_score(self): #新定义的属性会覆盖父类的属性
+       	        print('new name is %s'%(self.get_name()))#在子类里面调用父类的私有属性时,需使用定义的方法来调用
+	    def new(self):
+	        print('this is a new func')
+>>> susan = bad('susan',67)
+>>> susan.new()
+this is a new func
+>>> susan.print_score()
+new name is susan
