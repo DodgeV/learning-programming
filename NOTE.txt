@@ -1065,6 +1065,37 @@ jack
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 >>> dir(student)  #没有定义其他内置函数
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> class Robot:
+    population = 0  #population是类变量
+    def __init__(self, name):  #name是对象变量
+        """Initializes the data."""
+        self.name = name
+        print("(Initializing {})".format(self.name))
+
+        # When this person is created, the robot
+        # adds to the population
+        Robot.population += 1
+
+    def die(self):
+        """I am dying."""
+        print("{} is being destroyed!".format(self.name))
+
+        Robot.population -= 1
+
+        if Robot.population == 0:
+            print("{} was the last one.".format(self.name))
+        else:
+            print("There are still {:d} robots working.".format(
+                Robot.population))
+
+    def say_hi(self):
+        """Greeting by the robot.
+
+        Yeah, they can do that."""
+        print("Greetings, my masters call me {}.".format(self.name))
+    def how_many(cls):# 这是类方法(classmethod)
+        """Prints the current population."""
+        print("We have {:d} robots.".format(cls.population))
 >>> class student:
 ...     def __init__(self):
 ...             print('__init__ is run')  #利用init方法时,第一个参数始终是self,
