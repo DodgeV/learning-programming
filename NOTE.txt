@@ -786,7 +786,13 @@ This program is being run by itself #自己直接写一个模块直接运行就�
 >>> pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
 >>> f.close()
 #python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。python3.3之后可以不需要了，当然如果要使用一些初始化的数据还是要添加__init__.py文件的。调用包的方法同调用模块的方法。
-
+>>> import io
+>>> f = io.open("abc.txt", "wt", encoding="utf-8")
+>>> f.write(u"Imagine non-English language here")
+>>> f.close()
+>>> text = io.open("abc.txt", encoding="utf-8").read()
+>>> print(text)
+Imagine non-English language here
 
 
 
@@ -1045,6 +1051,43 @@ Traceback (most recent call last):
   File "<pyshell#40>", line 2, in <module>
     f = open('wenjian.txt')
 FileNotFoundError: [Errno 2] No such file or directory: 'wenjian.txt'
+>>> class ShortInputException(Exception):  #创建我们自己的异常类型
+...     '''A user-defined exception class.'''
+...     def __init__(self, length, atleast):
+...         Exception.__init__(self)
+...         self.length = length
+...         self.atleast = atleast
+...
+>>> try:
+...     text = input('Enter something --> ')
+...     if len(text) < 3:
+...         raise ShortInputException(len(text), 3) # Other work can continue as usual here
+... except EOFError:
+...     print('Why did you do an EOF on me?')
+... except ShortInputException as ex:  #错误类别ShortInputException存储在as变量名中
+...     print(('ShortInputException: The input was ' +
+...            '{0} long, expected at least {1}')
+...           .format(ex.length, ex.atleast))
+... else:
+...     print('No exception was raised.')
+...
+Enter something --> 'jlkjlkjk'
+No exception was raised.
+>>> try:
+...     text = input('Enter something --> ')
+...     if len(text) < 3:
+...         raise ShortInputException(len(text), 3) # Other work can continue as usual here
+... except EOFError:
+...     print('Why did you do an EOF on me?')
+... except ShortInputException as ex:
+...     print(('ShortInputException: The input was ' +
+...            '{0} long, expected at least {1}')
+...           .format(ex.length, ex.atleast))
+... else:
+...     print('No exception was raised.')
+...
+Enter something --> a
+ShortInputException: The input was 1 long, expected at least 3
 
 
 
@@ -1161,3 +1204,23 @@ yatasha:8
 this is a new func
 >>> susan.print_score()
 new name is susan
+>>> def reverse(text):
+...     return text[::-1]
+...
+>>> def is_palindrome(text):
+...     return text == reverse(text)
+...
+>>> something = 'str'
+>>> if is_palindrome(something):
+...     print('yes, it is a palindrome')
+... else:
+...     print('no, it is not a palindrome')
+...
+no, it is not a palindrome
+>>> something = 'madam'
+>>> if is_palindrome(something):
+...     print('yes, it is a palindrome')
+... else:
+...     print('no, it is not a palindrome')
+...
+yes, it is a palindrome
