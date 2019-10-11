@@ -67,6 +67,9 @@ SyntaxError: unexpected character after line continuation character
 >>> text = 'asdfasdf'  #返回'回文'
 >>> text[::-1]
 'fdsafdsa'
+>>> x = '     a   s  fdf  '
+>>> x.replace(' ','')
+'asfdf'
 >>> b = 23
 >>> print(f'{a} are {b} years old')
 you are 23 years old
@@ -441,14 +444,17 @@ Traceback (most recent call last):
 AttributeError: 'frozenset' object has no attribute 'add'
 
 
-
->>> def myfirstfunction(name):
-	'''函数定义过程中的name叫形参
+>>> def even_or_odd(number):
+    	return 'Odd' if number % 2 else 'Even'
+>>> import math
+>>> def is_square(n):
+	'''函数定义过程中的n叫形参
 	因为这是一个形式，表示占据一个参数位置'''
-	print('传递进来的'+name+'叫做实参，因为这是具体的参数值')
-
->>> myfirstfunction('me')
-传递进来的me叫做实参，因为这是具体的参数值
+	print('传递进来的'+n+'叫做实参，因为这是具体的参数值')
+        return n > -1 and math.sqrt(n) % 1 == 0 #验证是否有整数平方根的重要方法
+>>> is_sqrare(5)
+传递进来的+5+叫做实参，因为这是具体的参数值
+False
 >>> myfirstfunction.__doc__  #调用文档字符串
 '函数定义过程中的name叫形参\n\t 因为这是一个形式，表示占据一个参数位置'
 >>> print.__doc__
@@ -748,6 +754,7 @@ x --> z
 	print('done')
 >>> creatfile('new2','hello word')#最后结果为goodbye world
 done
+
 
 
 
