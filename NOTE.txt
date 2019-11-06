@@ -449,8 +449,23 @@ Traceback (most recent call last):
 AttributeError: 'frozenset' object has no attribute 'add'
 
 
->>> def even_or_odd(number):
-    	return 'Odd' if number % 2 else 'Even'
+
+>>> def add_end(L=[]):
+        L.append('END')
+        return L
+>>> add_end()
+['END']
+>>> add_end()
+['END', 'END']
+>>> def add_end(L=None):  #定义默认参数要牢记一点：默认参数必须指向不变对象！
+    	if L is None:
+            L = []
+    	L.append('END')
+    	    return 
+>>> add_end()
+['END']
+>>> add_end()
+['END']
 >>> import math
 >>> def is_square(n):
 	'''函数定义过程中的n叫形参
@@ -464,17 +479,6 @@ False
 '函数定义过程中的name叫形参\n\t 因为这是一个形式，表示占据一个参数位置'
 >>> print.__doc__
 "print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
->>> help(print)
-Help on built-in function print in module builtins:
-print(...)
-    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-    
-    Prints the values to a stream, or to sys.stdout by default.
-    Optional keyword arguments:
-    file:  a file-like object (stream); defaults to the current sys.stdout.
-    sep:   string inserted between values, default a space.
-    end:   string appended after the last value, default a newline.
-    flush: whether to forcibly flush the stream.
 >>> def saysome(name,words):
 	print(name+'->'+words)	
 >>> saysome('i','love you')#传递(调用)参数的方法有两种,这是位置参数,即按照默认位置来调用
@@ -483,11 +487,6 @@ i->love you
 love you->i
 >>> saysome(words='love you',name='i')    #其中name,words为关键字参数,给定一个值
 i->love you
->>> saysome()
-Traceback (most recent call last):
-  File "<pyshell#15>", line 1, in <module>
-    saysome()
-TypeError: saysome() missing 2 required positional arguments: 'name' and 'words'
 >>> def saysome(name='i',words='love you'):    #其中name,words为默认参数,i,love you为默认值
 	print(name+'->'+words)	
 >>> saysome()
