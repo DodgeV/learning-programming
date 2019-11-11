@@ -1,4 +1,7 @@
->>> for i in range(6,15):
+>>> s = 'hello quant'
+>>> repr(s)     #repr()： 产生一个解释器易读的表达形式。
+"'hello quant'"
+>>> for i in range(6,15): #换成八进制数字
 ...     print('%o'%i)
 ...
 6
@@ -10,7 +13,7 @@
 14
 15
 16
->>> for i in range(9,20):
+>>> for i in range(9,20):  #换成十六进制数字
 ...     print('%x'%i)
 ...
 9
@@ -293,6 +296,19 @@ class enumerate(object)
  |
  |  __new__(*args, **kwargs) from builtins.type
  |      Create and return a new object.  See help(type) for accurate signature.
+>>> from collections import deque
+>>> queue = deque(range(10))
+>>> queue.append(88)
+>>> queue
+deque([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 88]) # 队列，先进先出
+>>> queue.popleft()
+0
+>>> ll = [1,2,3,4]
+>>> ll.append(8) #堆栈，后进先出
+>>> ll
+[1, 2, 3, 4, 8]
+>>> ll.pop()
+8
 >>> user = ['王二狗', 25, '1994-1-1']  #这玩意儿叫unpacking(解包)
 >>> user_name,user_age,user_birthday = user
 >>> user_name
