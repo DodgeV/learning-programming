@@ -1,3 +1,29 @@
+>>> for i in range(6,15):
+...     print('%o'%i)
+...
+6
+7
+10
+11
+12
+13
+14
+15
+16
+>>> for i in range(9,20):
+...     print('%x'%i)
+...
+9
+a
+b
+c
+d
+e
+f
+10
+11
+12
+13
 >>> a = bytes('中国',encoding = 'utf-8')
 >>> a
 b'\xe4\xb8\xad\xe5\x9b\xbd' #利用decode将之转换回中文
