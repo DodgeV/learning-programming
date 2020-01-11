@@ -1,32 +1,6 @@
 >>> s = 'hello quant'
 >>> repr(s)     #repr()： 产生一个解释器易读的表达形式。
 "'hello quant'"
->>> for i in range(6,15): #换成八进制数字
-...     print('%o'%i)
-...
-6
-7
-10
-11
-12
-13
-14
-15
-16
->>> for i in range(9,20):  #换成十六进制数字
-...     print('%x'%i)
-...
-9
-a
-b
-c
-d
-e
-f
-10
-11
-12
-13
 >>> a = bytes('中国',encoding = 'utf-8')
 >>> a
 b'\xe4\xb8\xad\xe5\x9b\xbd' #利用decode将之转换回中文
@@ -88,8 +62,6 @@ False
 2.0
 >>> type(a)
 <class 'complex'>
->>> 6\5
-SyntaxError: unexpected character after line continuation character
 >>> 3/2
 1.5
 >>> 3%2
@@ -98,9 +70,6 @@ SyntaxError: unexpected character after line continuation character
 0.4
 >>> 0.2+0.1
 0.30000000000000004
->>> text = 'asdfasdf'  #返回'回文'
->>> text[::-1]
-'fdsafdsa'
 >>> x = '     a   s  fdf  '
 >>> x.replace(' ','')
 'asfdf'
@@ -111,7 +80,7 @@ you are 23 years old
 0.333
 >>> print('{0:_^11}'.format('hello'))
 ___hello___
->>> print(f'{a} love me');pass #pass语句无意义，只用于占一行的位置
+>>> print(f'{a} love me')
 you love me
 >>> print('hello '+str(23)+'age')
 hello 23age
