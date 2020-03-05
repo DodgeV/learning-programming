@@ -9,3 +9,4 @@
 + [awesome-windows](https://github.com/Awesome-Windows/Awesome)
 + [all kinds of books](https://github.com/justjavac/free-programming-books-zh_CN)
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
++ [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
