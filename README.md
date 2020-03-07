@@ -11,3 +11,4 @@
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
++ [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
