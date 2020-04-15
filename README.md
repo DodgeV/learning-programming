@@ -7,6 +7,9 @@
 + [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
 + [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
 
+## some projects
++ [A list of practical projects](https://github.com/karan/Projects)
+
 ## some books
 * 语言无关类
   * [操作系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#操作系统)
@@ -74,7 +77,8 @@
 
 ## some websites
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
-+ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
++ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)]
++ [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
 
 ## python
 ### books
@@ -88,7 +92,15 @@
 
 ### [python-patterns](https://github.com/faif/python-patterns)
 
+### tutorials
+* [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
+* [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
+* [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
+
 ### demo
 * [python projects](https://github.com/MiracleYoung/You-are-Pythonista)
+* [Python 练习册](https://github.com/Yixiaohan/show-me-the-code)
 * [Scrapy爬虫实战](https://github.com/Jaysong2012/tutorial)
 * [大众点评评论文本挖掘项目](https://github.com/py-bin/dianping_textmining)
+* [Some interesting Python crawlers and data analysis project](https://github.com/Alfred1984/interesting-python)
+* [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
