@@ -93,6 +93,7 @@
 ### [python-patterns](https://github.com/faif/python-patterns)
 
 ### tutorials
+- [List of Algorithms implemented in Python](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
 * [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
 * [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
 * [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
