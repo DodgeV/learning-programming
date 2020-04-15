@@ -92,6 +92,9 @@
 
 ### [python-patterns](https://github.com/faif/python-patterns)
 
+### videos
+* [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
+
 ### tutorials
 - [List of Algorithms implemented in Python](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
 * [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
