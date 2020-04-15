@@ -56,10 +56,6 @@
   * [Perl](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#perl)
   * [PHP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#php)
   * [Prolog](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#prolog)
-  * [Python](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
-  > + [Official doc](https://docs.python.org/3/)
-  > + [用python进行科学计算](https://github.com/DodgeV/demo1/blob/master/package_DA/%E7%94%A8Python%E5%81%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97.pdf)
-  > + [Python for Data Analysis](https://github.com/wesm/pydata-book)[视频](https://www.bilibili.com/video/av80675432)
   * [R](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#r)
   * [Ruby](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ruby)
   * [Rust](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#rust)
@@ -79,3 +75,21 @@
 ## some websites
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
 + [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
+
+## python
+### books
+* [Python's books](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
++ [Official doc](https://docs.python.org/3/)
++ [用python进行科学计算](https://github.com/DodgeV/demo1/blob/master/package_DA/%E7%94%A8Python%E5%81%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97.pdf)
++ [Python for Data Analysis](https://github.com/wesm/pydata-book)[视频](https://www.bilibili.com/video/av80675432)
++ [菜鸟教程--python](https://www.runoob.com/python3/python3-stdlib.html)
++ [廖雪峰python](https://www.liaoxuefeng.com/wiki/1016959663602400)
++ [scrapy 白皮书](https://scrapy-cookbook.readthedocs.io/zh_CN/latest/scrapy-01.html#scrapy)
+
+### [python-patterns](https://github.com/faif/python-patterns)
+
+### demo
+* [python projects](https://github.com/MiracleYoung/You-are-Pythonista)
+* [Scrapy爬虫实战](https://github.com/Jaysong2012/tutorial)
+* [大众点评评论文本挖掘项目](https://github.com/py-bin/dianping_textmining)
+* 
