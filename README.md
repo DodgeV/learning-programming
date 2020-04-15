@@ -8,14 +8,9 @@
 + [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
 
 ## some books
-+ [Official doc](https://docs.python.org/3/)
-+ [用python进行科学计算](https://github.com/DodgeV/demo1/blob/master/package_DA/%E7%94%A8Python%E5%81%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97.pdf)
-+ [Python for Data Analysis](https://github.com/wesm/pydata-book)[视频](https://www.bilibili.com/video/av80675432)
-+ [awesome-windows](https://github.com/Awesome-Windows/Awesome)
-
-+ [all kinds of books](https://github.com/justjavac/free-programming-books-zh_CN)
 * 语言无关类
   * [操作系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#操作系统)
+  * [awesome-windows](https://github.com/Awesome-Windows/Awesome)
   * [智能系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#智能系统)
   * [分布式系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#分布式系统)
   * [编译原理](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编译原理)
@@ -62,6 +57,9 @@
   * [PHP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#php)
   * [Prolog](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#prolog)
   * [Python](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
+  * [Official doc](https://docs.python.org/3/)
+  * [用python进行科学计算](https://github.com/DodgeV/demo1/blob/master/package_DA/%E7%94%A8Python%E5%81%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97.pdf)
+  * [Python for Data Analysis](https://github.com/wesm/pydata-book)[视频](https://www.bilibili.com/video/av80675432)
   * [R](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#r)
   * [Ruby](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ruby)
   * [Rust](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#rust)
