@@ -92,4 +92,3 @@
 * [python projects](https://github.com/MiracleYoung/You-are-Pythonista)
 * [Scrapy爬虫实战](https://github.com/Jaysong2012/tutorial)
 * [大众点评评论文本挖掘项目](https://github.com/py-bin/dianping_textmining)
-* 
