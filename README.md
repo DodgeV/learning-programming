@@ -104,6 +104,7 @@
 * [Scrapy爬虫实战](https://github.com/Jaysong2012/tutorial)
 * [大众点评评论文本挖掘项目](https://github.com/py-bin/dianping_textmining)
 * [Some interesting Python crawlers and data analysis project](https://github.com/Alfred1984/interesting-python)
+* [Super Mario Bros made with Python and Pygame](https://github.com/justinmeister/Mario-Level-1)
 * [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
 * [Zipline, a Pythonic Algorithmic Trading Library](https://github.com/quantopian/zipline)
 * [阿布量化交易系统(股票，期权，期货，比特币，机器学习) 基于python的开源量化交易，量化投资架构](https://github.com/bbfamily/abu)
