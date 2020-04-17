@@ -66,19 +66,25 @@
   * [Shell](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#shell)
   * [Swift](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#swift)
 
-* [读书笔记及其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#读书笔记及其它)
-* [测试相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#测试相关)
-
++ [读书笔记及其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#读书笔记及其它)
++ [测试相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#测试相关)
 + [books for all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
-+ [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
 + [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
 
 ## some websites
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
-+ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)]
++ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
 + [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
++ [w3school](https://www.w3school.com.cn/)
++ [freecodecamp](https://www.freecodecamp.org/learn)
++ [codecademy](https://www.codecademy.com/learn)
++ [codecademy中文官网](https://www.codecademy.cn/)
++ [Web development tutorials](https://www.w3resource.com/)
++ [菜鸟教程](https://www.runoob.com/)
++ [leetcode](https://leetcode-cn.com/)
+
 
 ## python
 ### books
@@ -111,3 +117,7 @@
 * [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
 * [Zipline, a Pythonic Algorithmic Trading Library](https://github.com/quantopian/zipline)
 * [阿布量化交易系统(股票，期权，期货，比特币，机器学习) 基于python的开源量化交易，量化投资架构](https://github.com/bbfamily/abu)
+
+
+## 数学建模
++ [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
