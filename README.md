@@ -120,4 +120,11 @@
 
 
 ## 数学建模
+### books
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
+
+### videos
++ [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
++ [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
++ [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
++ [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
