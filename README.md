@@ -100,6 +100,11 @@
 
 ### videos
 * [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
+* [Python网络爬虫与信息提取--北理工](http://www.icourse163.org/learn/BIT-1001870001)
+* [Python科学计算三维可视化--北理工](http://www.icourse163.org/learn/BIT-1001871001)
+* [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
+* [用Python玩转数据--南京大学](http://www.icourse163.org/learn/NJU-1001571005)
+* [零基础学习PythonCAP--北理工](http://www.icourse163.org/learn/BIT-1002058035)
 
 ### tutorials
 - [List of Algorithms implemented in Python](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
@@ -124,6 +129,9 @@
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 
 ### videos
++ [数学建模--厦门大学](http://www.icourse163.org/learn/XMU-1001556009)
++ [科学计算与数学建模--中南大学](http://www.icourse163.org/learn/CSU-1001985002)
++ [数学建模--华中农业大学](http://www.icourse163.org/learn/HZAU-1001658002)
 + [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
 + [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
