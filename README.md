@@ -124,7 +124,16 @@
 * [阿布量化交易系统(股票，期权，期货，比特币，机器学习) 基于python的开源量化交易，量化投资架构](https://github.com/bbfamily/abu)
 
 
-## 数学建模
+## stastics
+### videos
++ [统计学--张乃岳](https://www.bilibili.com/video/BV1xW411p7np)
++ [商务与经济统计-北京师范大学-](https://www.bilibili.com/video/BV1d4411E7P6)
++ [应用统计学--东华大学](https://www.bilibili.com/video/BV1xx411C7Jk)
++ [统计学原理--上交大](https://www.bilibili.com/video/av17827429)
++ [统计学--可汗学院](https://www.bilibili.com/video/av16250706)
+
+
+## Math modeling
 ### books
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 
