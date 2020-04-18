@@ -130,7 +130,7 @@
 + [商务与经济统计-北京师范大学-](https://www.bilibili.com/video/BV1d4411E7P6)
 + [应用统计学--东华大学](https://www.bilibili.com/video/BV1xx411C7Jk)
 + [统计学原理--上交大](https://www.bilibili.com/video/av17827429)
-+ [统计学--可汗学院](https://www.bilibili.com/video/av16250706)
++ [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
 
 
 ## Math modeling
