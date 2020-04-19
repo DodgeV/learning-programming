@@ -145,6 +145,7 @@
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
 + [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
 + [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
++ [Matlab最基础纯手写教程--Taylim](https://www.bilibili.com/video/BV1q7411g7Dh)
 
 ### notebook
 * [my notebook](https://github.com/DodgeV/learning-programming/blob/master/MATLAB/README.md)
