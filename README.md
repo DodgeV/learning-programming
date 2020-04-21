@@ -1,4 +1,5 @@
 # study
++ [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
@@ -68,6 +69,9 @@
 
 + [读书笔记及其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#读书笔记及其它)
 + [测试相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#测试相关)
++ [程序人生](https://www.yuque.com/winforlife/vgzph9)
++ [从入门到精通：互联网数据分析书籍清单 ](https://mp.weixin.qq.com/s/rQTJ5NNCPgXQtoUEpTxJYg)
++ [数据分析入门学习](https://mp.weixin.qq.com/s/uYk9VEDLhJN_nsTHxiz4PQ)
 + [books for all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
@@ -87,6 +91,11 @@
 
 
 ## python
+* [Crossin的编程教室](https://crossincode.com/home/)
+* [python初学常见问题汇总 ](https://mp.weixin.qq.com/s/pC_r4VliHrn9WEVFEnVjSQ)
+* [学习数据科学的路线](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
+* [Python算法学习与机器学习算法](https://mp.weixin.qq.com/s/nsOt-uLJBegehVkGigmuow)
+* [完备的 AI 学习路线，最详细的资源整理！](https://mp.weixin.qq.com/s/KNaaWuaLjl8iSMemoEpEMQ)
 ### books
 * [Python's books](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
 + [Official doc](https://docs.python.org/3/)
@@ -113,11 +122,13 @@
 * [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
 
 ### demo
+* [GitHub Top 45：新手入门 Python，值得推荐的优质资源！](https://mp.weixin.qq.com/s/fLZdDQE_trhKRLyQKoORzg)
 * [python projects](https://github.com/MiracleYoung/You-are-Pythonista)
 * [Python 练习册](https://github.com/Yixiaohan/show-me-the-code)
 * [Scrapy爬虫实战](https://github.com/Jaysong2012/tutorial)
 * [大众点评评论文本挖掘项目](https://github.com/py-bin/dianping_textmining)
 * [Some interesting Python crawlers and data analysis project](https://github.com/Alfred1984/interesting-python)
+* [12个案例教你用Python玩转数据可视化](https://mp.weixin.qq.com/s/BqQoaWqprVlZf9y0IXJrdA)
 * [Super Mario Bros made with Python and Pygame](https://github.com/justinmeister/Mario-Level-1)
 * [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
 * [Zipline, a Pythonic Algorithmic Trading Library](https://github.com/quantopian/zipline)
@@ -125,6 +136,9 @@
 
 
 ## stastics
+* [统计学常用的数据分析方法大总结](https://mp.weixin.qq.com/s/eoBmumkd1r9eEHxRLWGOOA)
+* [【数据分析干货库】](https://mp.weixin.qq.com/s/Zms6KisnLZ2PWiS3DAHzEQ)
+* [20个安全可靠的免费数据源](https://mp.weixin.qq.com/s/0k9JDlwKpDs4VzBHT0qGKw)
 ### videos
 + [统计学--张乃岳](https://www.bilibili.com/video/BV1xW411p7np)
 + [商务与经济统计-北京师范大学-](https://www.bilibili.com/video/BV1d4411E7P6)
