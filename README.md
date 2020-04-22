@@ -144,6 +144,7 @@
 + [商务与经济统计-北京师范大学-](https://www.bilibili.com/video/BV1d4411E7P6)
 + [应用统计学--东华大学](https://www.bilibili.com/video/BV1xx411C7Jk)
 + [统计学原理--上交大](https://www.bilibili.com/video/av17827429)
++ [统计学--厦门大学](https://www.bilibili.com/video/BV1jt411M79f)
 + [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
 
 
@@ -158,6 +159,7 @@
 + [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
 + [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
++ [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
 + [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
 + [Matlab最基础纯手写教程--Taylim](https://www.bilibili.com/video/BV1q7411g7Dh)
 
