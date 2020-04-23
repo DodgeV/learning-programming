@@ -149,7 +149,7 @@
 
 
 ## Math modeling
-### books
+### codes
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 
 ### videos
