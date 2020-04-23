@@ -153,13 +153,18 @@
 + [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 
 ### videos
++ [走进数学之数学建模（中国大学mooc）](https://www.bilibili.com/video/BV1ux411G7k3)
++ [数学建模--北航牛薇](https://www.bilibili.com/video/BV1d7411T7BK)
 + [数学建模--厦门大学](http://www.icourse163.org/learn/XMU-1001556009)
 + [科学计算与数学建模--中南大学](http://www.icourse163.org/learn/CSU-1001985002)
 + [数学建模--华中农业大学](http://www.icourse163.org/learn/HZAU-1001658002)
 + [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
 + [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
++ [数学建模美赛/国赛 算法顶级培训(完)](https://www.bilibili.com/video/BV14b411v7dT)
++ [【数学建模/零基础/教程】数学建模零基础快速入门教程(附代码)](https://www.bilibili.com/video/BV1Kb41167QZ)
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
++ [数学建模比赛MATLAB教学[共23P]](https://www.bilibili.com/video/BV1db411Y7uQ)
 + [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
 + [Matlab最基础纯手写教程--Taylim](https://www.bilibili.com/video/BV1q7411g7Dh)
 
