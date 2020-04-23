@@ -149,31 +149,20 @@
 
 
 ## Math modeling
-#### 论文提交（MD5使用方法）
+### 论文提交（MD5使用方法）
 *MD5文件校验和使用说明：* [**MD5文件校验和使用说明**](https://github.com/zhanwen/MathModel/blob/master/MD5%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C%E5%92%8C%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
-#### 论文模版更新
+### 论文模版更新
 *LaTex 论文模版：* [**LaTex 论文模版**](https://github.com/zhanwen/MathModel/blob/master/2019%E5%B9%B4%E8%AE%BA%E6%96%87%E6%A8%A1%E7%89%88/2019%E5%B9%B4Latex%E6%A8%A1%E7%89%88.zip)  
 *Word 论文模版：* [**Word 论文模版（已更新最新）**](https://github.com/zhanwen/MathModel/blob/master/2019%E5%B9%B4%E8%AE%BA%E6%96%87%E6%A8%A1%E7%89%88/%E2%80%9C%E5%8D%8E%E4%B8%BA%E6%9D%AF%E2%80%9D%E7%AC%AC%E5%8D%81%E5%85%AD%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83.doc)  
 *LaTex 论文模版使用方式：* [**如何编译 Latex 文件**](https://github.com/zhanwen/MathModel/tree/master/2019%E5%B9%B4%E8%AE%BA%E6%96%87%E6%A8%A1%E7%89%88/latex_note.md)
-#### 下载方式(仓库比较大，建议单个文件下载)  
 
-<img src="./images/downloaddemo2.gif" /> 
- 
-<hr>  
-
-*主题：* [**“华为杯”中国研究生数学建模竞赛**](https://cpipc.chinadegrees.cn/cw/hp/4)
-
-<hr>  
-   
-<hr>  
-
-#### 更新/添加比赛官网地址[戳这里](https://cpipc.chinadegrees.cn/)   
+### 更新/添加比赛官网地址[戳这里](https://cpipc.chinadegrees.cn/)   
+* [**“华为杯”中国研究生数学建模竞赛**](https://cpipc.chinadegrees.cn/cw/hp/4)
 * [数学建模竞赛](https://cpipc.chinadegrees.cn/cw/hp/4)     
 * [电子设计竞赛](https://cpipc.chinadegrees.cn/cw/hp/6)     
 * [人工智能创新大赛](https://cpipc.chinadegrees.cn/cw/hp/2c9088a5696cbf370169a3f8101510bd)     
 * [机器人创新设计大赛](https://cpipc.chinadegrees.cn/cw/hp/2c9088a5696cbf370169a3f8934810be)
 
-<hr/>
 	
 ### 国赛试题
 * [2019年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2019%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
