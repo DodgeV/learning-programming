@@ -1,5 +1,6 @@
 # study
 + [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
++ [computer-science ](https://github.com/ossu/computer-science)
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
@@ -91,6 +92,7 @@
 
 
 ## python
+* [python-cheatsheet备忘录](https://github.com/gto76/python-cheatsheet)
 * [Crossin的编程教室](https://crossincode.com/home/)
 * [python初学常见问题汇总 ](https://mp.weixin.qq.com/s/pC_r4VliHrn9WEVFEnVjSQ)
 * [学习数据科学的路线](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
@@ -116,7 +118,11 @@
 * [零基础学习PythonCAP--北理工](http://www.icourse163.org/learn/BIT-1002058035)
 
 ### tutorials
+- [微软官方教程c9-python-getting-started](https://github.com/microsoft/c9-python-getting-started)
 - [List of Algorithms implemented in Python](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
+- [pcc--Resources for Python Crash Course, from No Starch Press.](https://github.com/ehmatthes/pcc)
+- [pycrumbs--Bits and bytes of Python from the Internet ](https://github.com/kirang89/pycrumbs)
+- [DataSciencePython](https://github.com/ujjwalkarn/DataSciencePython)
 * [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
 * [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
 * [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
