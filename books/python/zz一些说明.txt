@@ -1,0 +1,10 @@
+glade3-win32.zip	glade3的windows版本，需要GTK的支持
+gtk-2.10.11-win32-1.exe	gtk的windows版本，是gtk,pygtk编程需要的基础运行环境
+pygtk-2.10.3-1.win32-py2.5.exe	python gtk接口
+pygobject-2.12.3-1.win32-py2.5.exe	python gobject 接口
+pycairo-1.2.2-2.win32-py2.5.exe	python cairo（二维矢量图形库）接口
+不会glade的向帅君请教.exe	glade设计GUI的一个视频
+ 
+ 安装GTK+运行时库，在安装这个python开发包，即可
+
+glade3-win32.zip是界面设计器
