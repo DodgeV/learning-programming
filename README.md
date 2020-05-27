@@ -72,7 +72,6 @@
 + [测试相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#测试相关)
 + [程序人生](https://www.yuque.com/winforlife/vgzph9)
 + [从入门到精通：互联网数据分析书籍清单 ](https://mp.weixin.qq.com/s/rQTJ5NNCPgXQtoUEpTxJYg)
-+ [数据分析入门学习](https://mp.weixin.qq.com/s/uYk9VEDLhJN_nsTHxiz4PQ)
 + [books for all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
@@ -153,6 +152,13 @@
 + [统计学原理--上交大](https://www.bilibili.com/video/av17827429)
 + [统计学--厦门大学](https://www.bilibili.com/video/BV1jt411M79f)
 + [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
+
+
+## data analysis
+### videos
+* [数据分析师（入门）-DC学院](https://www.bilibili.com/video/BV1at411G73z)
+### books
++ [数据分析入门学习](https://mp.weixin.qq.com/s/uYk9VEDLhJN_nsTHxiz4PQ)
 
 
 ## Math modeling
