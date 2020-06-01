@@ -91,6 +91,11 @@
 + 练习正则表达式[regex](https://regex101.com)
 
 
+## Go
+* [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
+* [20个小时快速入门go语言（中）](https://www.bilibili.com/video/BV1UW411x7Ve)
+* [20个小时快速入门go语言（下）](https://www.bilibili.com/video/BV17W411W7hm)
+
 ## python
 * [python-cheatsheet备忘录](https://github.com/gto76/python-cheatsheet)
 * [Crossin的编程教室](https://crossincode.com/home/)
