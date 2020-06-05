@@ -92,6 +92,10 @@
 
 ## C
 * [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
+* [2018年最值得收藏的C语言基础教程【适合C语言小白，源码，笔记，软件，案例全】](https://www.bilibili.com/video/BV1vs411n7TH)
+* [2018年计算机全国等级考试二级c语言教程](https://www.bilibili.com/video/BV1YW411W71y)
+* [iOS基础班视频教程之C语言教程day01](https://www.bilibili.com/video/BV1ix411176A)
+* [适合自学的C语言基础视频](https://www.bilibili.com/video/BV1px411y7Yp)
 
 
 ## Go
