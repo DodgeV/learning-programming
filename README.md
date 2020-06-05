@@ -90,6 +90,9 @@
 + [leetcode](https://leetcode-cn.com/)
 + 练习正则表达式[regex](https://regex101.com)
 
+## C
+* [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
+
 
 ## Go
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
