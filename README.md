@@ -102,6 +102,8 @@
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
 * [20个小时快速入门go语言（中）](https://www.bilibili.com/video/BV1UW411x7Ve)
 * [20个小时快速入门go语言（下）](https://www.bilibili.com/video/BV17W411W7hm)
+* [Go 语法树入门](https://github.com/chai2010/go-ast-book)
+* [其他书籍](https://github.com/DodgeV/learning-programming/tree/master/books/Golang)
 
 ## python
 * [python-cheatsheet备忘录](https://github.com/gto76/python-cheatsheet)
