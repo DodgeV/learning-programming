@@ -379,7 +379,7 @@
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
 
 ### notebook
-* [my notebook](https://github.com/DodgeV/learning-programming/blob/master/MATLAB/README.md)
+* [my notebook](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
 
 ### 下载与使用（由于整个项目直接下载比较慢，可以看方式2）
 * 方式1
