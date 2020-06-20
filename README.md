@@ -156,6 +156,7 @@
 
 
 ## stastics
+* [统计学第三版教材-北师大出版](https://jsek.bnuic.com/BitsPressV2/reader/rpkptt/index?from=singlemessage)&[课后习题答案](https://wenku.baidu.com/view/e3bfe71b227916888486d76c.html)
 * [统计学常用的数据分析方法大总结](https://mp.weixin.qq.com/s/eoBmumkd1r9eEHxRLWGOOA)
 * [【数据分析干货库】](https://mp.weixin.qq.com/s/Zms6KisnLZ2PWiS3DAHzEQ)
 * [20个安全可靠的免费数据源](https://mp.weixin.qq.com/s/0k9JDlwKpDs4VzBHT0qGKw)
