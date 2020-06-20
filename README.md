@@ -4,6 +4,10 @@
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
++ [GDB ONLINE Debugger](https://www.onlinegdb.com/)
++ [T-compile C# online](https://rextester.com/)
++ [在线代码运行小工具123](http://www.gjw123.com/tools-runcode)
++ [在线代码运行](https://www.toolnb.com/dev/runCode.html)
 
 ## some videos 
 + [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
