@@ -102,6 +102,7 @@
 * [2018年计算机全国等级考试二级c语言教程](https://www.bilibili.com/video/BV1YW411W71y)
 * [iOS基础班视频教程之C语言教程day01](https://www.bilibili.com/video/BV1ix411176A)
 * [适合自学的C语言基础视频](https://www.bilibili.com/video/BV1px411y7Yp)
+* [小甲鱼C语言【新版 65讲全】--谭浩强](https://www.bilibili.com/video/BV1nA411q7P1)
 * [C语言程序设计方法及在线实践--浙江高校在线教育平台](https://www.zjooc.cn/course/2c9180886d49d103016d49ecbb2a0833)
 * [图解C编程--智慧树](https://coursehome.zhihuishu.com/courseHome/2061105#teachTeam)
 * [C&C++参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
