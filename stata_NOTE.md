@@ -44,6 +44,17 @@
 * summarize [var] [if] [in] [weight] [,option]  // sum/summ
 * summarize price,detail   //提供额外的统计量
 * summarize price,clear  
+* count if price > 10000
+* count if missing
+* isid mpg    //是否每一个都不一样
+* isid price make
+* unique mpg weight
+* codebook [var] [if] [in] [,option]    //提供变量的一些信息,各种分位
+* codebook price if price > 5000
+* codebook price in 10/20   #/#
+* codebook price in 10 #
+* codebook price in 10/l       #/l  10分位到末尾
+* codebook price in f/10       f/#  开头到10分位
 * correlate    // correlation matrices
 * ttest    // perform 1-, 2-sample and paired t-tests
 * anova    // 1-, 2-, n-way analysis of variance
@@ -69,6 +80,8 @@
 * mlogit    // multinomial logit model
 * poisson    // Poisson regression
 * heckman    // selection model
+* truncreg depvar[indepvars] [if] [in] [weight] [, options]
+* truncreg y x1 x2 x3 , ll(#)  ul(#)   // 其中选择项ll(#)表示lower limit，左侧断尾，ul(#)表示uppper limit，右侧断尾，如果同时使用这两个选择项，表示双侧断尾。
 
 #### Time series estimation commands
 * arima    // Box–Jenkins models, regressions with ARMA errors
@@ -97,21 +110,6 @@
 * xtabond    // Arellano-Bond dynamic panel data estimator
 
 
-
-* count 
-* count if price > 10000
-* count if missing
-* isid mpg #是否每一个都不一样
-* isid price make
-* unique mpg weight
-* codebook [var] [if] [in] [,option] #提供变量的一些信息,各种分位
-* codebook price if price > 5000
-* codebook price in 10/20   #/#
-* codebook price in             10 #
-* codebook price in 10/l       #/l  10分位到末尾
-* codebook price in f/10       f/#  开头到10分位
-
-
 ## 横截面分析
 #### 回归分析
 * use nerlove.dta,clear
@@ -120,6 +118,8 @@
 * predict yhat                   //  拟合被解释变量GDP
 * predict e,residual              //  计算残差
 * rvfplot  
+* tobit depvar [indepvars] [if] [in] [weight] ,ll[(#)] ul[(#)] [options]      //归并回归用到的命令，ll[(#)]表示left-censoringlimit， ul[(#)]表示right-censoring limit
+* tobit y c x1 x2x3，ll(#)  ul(#)    //其中选择项ll(#)表示左侧归并，ul(#)表示右侧归并，如果同时选择这两个，表示左右双边规定，即介于两个值之间。
 
 #### 参数检验
 * regress lntc lnpk  lnpl
@@ -184,9 +184,12 @@
 ## 面板数据
 #### 面板声明
 * use FDI.dtar, clear
-* xtset id year
+* xtset country year   //在这种情况下"country"代表实体或小组(i)，“year”表示时间变量(t)。
+* > 注意事项：如果在使用xtset后出现以下错误: varlist: country: string variable not allowed
+* > 解决方案为：encode country, gen(country1)
+* > 在xtset命令中使用“country1”而不是“country”   需要使用数值型类型
 * xtdes
-* xtline lngdp
+* xtline lngdp   //探索面板数据
 
 #### 单位根检验
 * xtunitroot llc lngdp,lags(2) trend
@@ -197,7 +200,13 @@
 #### 协整检验
 * xtwest lngdp lnfdi lni,lags(2)
 
-#### 混合回归
+#### 异方差检验
+* xttest3 
+
+#### 序列相关检验,适用于的长面板数据(20-30年以上)
+* xtserial y x1
+
+#### 混合回归/OLS回归
 * reg lngdp lnfdi lnie
 * reg lngdp lnfdi lnie,robust
 * reg lngdp lnfdi lnie,vce(cluster id)
