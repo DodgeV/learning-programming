@@ -179,6 +179,7 @@
 + [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
 ### stata
 + [Stata 统计分析软件 教程](https://www.bilibili.com/video/av36991912)
++ [连 yu 君 Stata 初级(37)+高级(48)+论文](https://www.bilibili.com/video/BV1Wb411h7gx)
 + [笔记](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
 
 
