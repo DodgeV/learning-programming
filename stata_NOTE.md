@@ -1,6 +1,6 @@
 ## 常用命令
 #### Some useful Stata commands
-* ssc install unique   //access routines from the SSC Archive
+* ssc install XXX   //access routines from the SSC Archive
 * help -search    //online help on a specific command
 * findit    //online references on a keyword or topic
 * log    //log output to an external file
@@ -41,20 +41,19 @@
 * table    // tables of summary statistics
 
 #### Statistical commands
-* summarize [var] [if] [in] [weight] [,option]  // sum/summ
-* summarize price,detail   //提供额外的统计量
-* summarize price,clear  
 * count if price > 10000
 * count if missing
-* isid mpg    //是否每一个都不一样
+* isid mpg    //变量mpg能否独特的区分每一行
 * isid price make
-* unique mpg weight
+* unique mpg weight    //需要先安装unique，检测数据集中weight和mpg都不一样的数据个数
 * codebook [var] [if] [in] [,option]    //提供变量的一些信息,各种分位
 * codebook price if price > 5000
 * codebook price in 10/20   #/#
 * codebook price in 10 #
 * codebook price in 10/l       #/l  10分位到末尾
 * codebook price in f/10       f/#  开头到10分位
+* summarize [var] [if] [in] [weight] [,option]  // 也可以简写为sum或summ
+* summarize price,detail   //提供额外的统计量 
 * correlate    // correlation matrices
 * ttest    // perform 1-, 2-sample and paired t-tests
 * anova    // 1-, 2-, n-way analysis of variance
