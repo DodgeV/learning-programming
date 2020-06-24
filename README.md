@@ -178,6 +178,7 @@
 + [统计学--厦门大学](https://www.bilibili.com/video/BV1jt411M79f)
 + [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
 ### stata
++ [医咖会Stata系列教程](https://space.bilibili.com/44532954/video)
 + [Stata 统计分析软件 教程](https://www.bilibili.com/video/av36991912)
 + [连 yu 君 Stata 初级(37)+高级(48)+论文](https://www.bilibili.com/video/BV1Wb411h7gx)
 + [笔记](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
