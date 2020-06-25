@@ -70,6 +70,18 @@
 * reg3    // three-stage least squares
 * qreg    // quantile regression
 
+#### Drawing commands
+* `histogram varname [if] [in] [weight] [, [continuous_opts | discrete_opts] options]`
+> + varname:不是varlist，因此只能有一个变量
+> + 可简写为`hist`
+> + 默认是`hist price, den`，也可改为`hist price, freq`等
+> + `hist price, freq bin(5)`改变宽度
+> + 增加密度曲线`hist price, freq bin(5) normal`
+> + 通过`foreigh`变量分组`hist price, by(foreign)`
+* `graph box  yvars [if] [in] [weight] [, options]`
+* `graph hbox yvars [if] [in] [weight] [, options]`
+
+
 #### Limited dependent variable estimation commands
 * logit, logistic    // logit model, logistic regression
 * probit    // binomial probit model
