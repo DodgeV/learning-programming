@@ -4,13 +4,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# online IDE\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "# ipython\n",
     "[详见CSDN](https://blog.csdn.net/lb245557472/article/details/80078882)\n",
     "- Ctrl-P    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令\n",
