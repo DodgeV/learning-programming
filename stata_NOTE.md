@@ -71,15 +71,38 @@
 * qreg    // quantile regression
 
 #### Drawing commands
-* `histogram varname [if] [in] [weight] [, [continuous_opts | discrete_opts] options]`
+* `histogram varname [if] [in] [weight] [, [continuous_opts | discrete_opts] options]`柱状图
 > + varname:不是varlist，因此只能有一个变量
 > + 可简写为`hist`
 > + 默认是`hist price, den`，也可改为`hist price, freq`等
 > + `hist price, freq bin(5)`改变宽度
 > + 增加密度曲线`hist price, freq bin(5) normal`
 > + 通过`foreigh`变量分组`hist price, by(foreign)`
-* `graph box  yvars [if] [in] [weight] [, options]`
-* `graph hbox yvars [if] [in] [weight] [, options]`
+* `graph box  yvars [if] [in] [weight] [, options]`箱子是竖着的
+* `graph hbox yvars [if] [in] [weight] [, options]`箱子是横着的
+> + `graph box price, over(foreigh)`根据foreign分组
+* `vioplot price, over(foreigh)`小提琴图，根据foreign分组 
+* `set scheme s1mono`stata重启前设置为s1mono主题,重启后为s2color主题
+* `set scheme s1mono, perm`stata永久设置为s1mono主题
+* `twoway plot varlist [if] [in] [, twoway_options]`
+> + `plot`可以是scatter,line,connected,area,bar等
+> + `varlist`中最后一个是x，前面不管多少个全是y
+> + `if`定义自变量的范围，`in`定义所取观测值的范围，`twoway_options`定义坐标范围、标题、注释等
+> + `twoway line y1 y2 ... x`绘制折线图
+> + `twoway connected y1 y2 ... x`绘制带数据标记点的折线图
+> + `twoway dropline y1 y2 ... x`绘制垂直线图
+> + `twoway spike y1 y2 ... x`绘制脉冲图,如果被挡住,可以选择将y和x换一下位置
+> + `twoway spike y1 y2 x,scheme(s2color)`或者换一个主题颜色
+> + `twoway area y1 y2 ... x`绘制面积图,如果被挡住,可以选择将y和x换一下位置
+> + `twoway lowess y1 y2 ... x`绘制LOWESS图,相对于散点图更平滑,如果被挡住,可以选择将y和x换一下位置
+> + `lowess y1 y2 ... x`也可直接加上散点
+> + `twoway scatter y1 y2 y3 ... x`绘制散点图的进阶形式，也可以只有一个y
+> + `twoway scatter varlist, msymbol(D) mcolor(blue) msize(medium)`
+> + `msymbol`改变形状（`help symbolstyle`）
+> + `mcolor`改变颜色（`help colorstyle`）
+> + `msize`改变大小（`help markersizestyle`）
+> + `twoway scatter mpg weight, by(foreign)`通过foreign分组，分绘两个图
+> + `twoway (scatter mpg weight if foreign == 0)(scatter mpg weight if foreign == 1), legend(label(1 "Domestic") label(2 "Foreign"))`也可以将分绘的两个图合并为一个图
 
 
 #### Limited dependent variable estimation commands
