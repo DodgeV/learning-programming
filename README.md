@@ -117,6 +117,7 @@
 * [其他书籍](https://github.com/DodgeV/learning-programming/tree/master/books/Golang)
 
 ## python
+* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/python_NOTE.md)
 * [python-cheatsheet备忘录](https://github.com/gto76/python-cheatsheet)
 * [Crossin的编程教室](https://crossincode.com/home/)
 * [python初学常见问题汇总 ](https://mp.weixin.qq.com/s/pC_r4VliHrn9WEVFEnVjSQ)
@@ -141,6 +142,7 @@
 * [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
 * [用Python玩转数据--南京大学](http://www.icourse163.org/learn/NJU-1001571005)
 * [零基础学习PythonCAP--北理工](http://www.icourse163.org/learn/BIT-1002058035)
+* [python2018就业班全集（前半部分）](https://www.bilibili.com/video/BV1b4411b74E?p=104)
 
 ### tutorials
 - [微软官方教程c9-python-getting-started](https://github.com/microsoft/c9-python-getting-started)
