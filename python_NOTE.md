@@ -1,579 +1,506 @@
-# ipython
-[详见CSDN](https://blog.csdn.net/lb245557472/article/details/80078882),
-- Ctrl-P    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令,
-- Ctrl-N   或下箭头键 前向搜索命令历史中以当前输入的文本开头的命令,
-- Ctrl-R   按行读取的反向历史搜索（部分匹配）,
-- Ctrl-Shift-v   从剪贴板粘贴文本,
-- Ctrl-C   中止当前正在执行的代码,
-- Ctrl-A   将光标移动到行首,
-- Ctrl-E   将光标移动到行尾,
-- Ctrl-K   删除从光标开始至行尾的文本,
-- Ctrl-U   清除当前行的所有文本译注12,
-- Ctrl-F   将光标向前移动一个字符,
-- Ctrl-b   将光标向后移动一个字符,
-- Ctrl-L   清屏,
-+ %quickref 显示IPython 的快速参考,
-+ %magic 显示所有魔术命令的详细文档,
-+ %debug 从最新的异常跟踪的底部进入交互式调试器,
-+ %hist 打印命令的输入历史,
-+ %reset 删除interactive命名空间中的全部变量/名称,
-+ %page OBJECT 通过分页器打印输出OBJECT,
-+ %prun 通过cProfile 执行 statement，并打印分析器的输出结果,
-+ %who、%who_ls、%whos 显示interactive 命名空间中定义的变量，信息级别/冗余度可变,
-+ %xdel variable 删除变量，并尝试清除其在ipython中的对象上的一切引用,
-+ %run + 文件名 执行文件代码,
-+ %paste %cpaste 执行剪切板里面的代码,
-+ %timeit + 函数 对此运行函数求所需时间的平均值 ,
-+ %pdb on/off [打开/关闭调试代码] p [打印出各种值] q [退出],
-+ `_`一个下划线表示上一个历史命令,`__`两个下划线代表上两个历史命令,
-+ `_34` 显示第34行的输出代码 `_i34` 显示第34行的输入代码,
-+ 输入a之后按上下方向键就只会出现啊开头的历史命令,
-+ %bookmark,
-+ func?? 函数名加两个问号可以看到函数定义的代码,
-+ a = [];a.a*? 查询a开头的方法,
-+ 直接运行ipconfig不行,需要加个叹号：!ipconfig,
-# pdb 命令
-+    1）进入命令行Debug模式，python -m pdb xxx.py,
-+    2）h：（help）帮助,
-+    3）w：（where）打印当前执行堆栈,
-+    4）d：（down）执行跳转到在当前堆栈的深一层（个人没觉得有什么用处）,
-+    5）u：（up）执行跳转到当前堆栈的上一层,
-+    6）b：（break）添加断点,
-> + 列出当前所有断点，和断点执行到统计次数,
-> + line_no：当前脚本的line_no行添加断点,
-> + filename:line_no：脚本filename的line_no行添加断点,
-> + function：在函数function的第一条可执行语句处添加断点,
-+    7）tbreak：（temporary break）临时断点,
-> + 在第一次执行到这个断点之后，就自动删除这个断点，用法和b一样,
-+    8）cl：（clear）清除断点,
-> + 清除所有断点,
-> + bpnumber1 bpnumber2... 清除断点号为bpnumber1,bpnumber2...的断点,
-> + lineno 清除当前脚本lineno行的断点,
-> + filename:line_no 清除脚本filename的line_no行的断点,
-+    9）disable：停用断点，参数为bpnumber，和cl的区别是，断点依然存在，只是不启用,
-+    10）enable：激活断点，参数为bpnumber,
-+    11）s：（step）执行下一条命令,
-> + 如果本句是函数调用，则s会执行到函数的第一句,
-+    12）n：（next）执行下一条语句,
-> + 如果本句是函数调用，则执行函数，接着执行当前执行语句的下一条。,
-+    13）r：（return）执行当前运行函数到结束,
-+    14）c：（continue）继续执行，直到遇到下一条断点,
-+    15）l：（list）列出源码,
-> + 列出当前执行语句周围11条代码,
-> + first 列出first行周围11条代码,
-> + first second 列出first--second范围的代码，如果second<first，second将被解析为行数,
-+    16）a：（args）列出当前执行函数的函数,
-+    17）p expression：（print）输出expression的值,
-+    18）pp expression：好看一点的p expression,
-+    19）run：重新启动debug，相当于restart,
-+    20）q：（quit）退出debug,
-+    21）j lineno：（jump）设置下条执行的语句函数,
-> + 只能在堆栈的最底层跳转，向后重新执行，向前可直接执行到行号,
-+    22）unt：（until）执行到下一行（跳出循环），或者当前堆栈结束,
-+    23）condition bpnumber conditon，给断点设置条件，当参数condition返回True的时候bpnumber断点有效，否则bpnumber断点无效
+## crawler
+* 通用爬虫是搜索引擎用的爬虫:百度快照也是一种爬虫可以爬存和文本相关的内容 不能爬取图片电影二进制文件等
+* 通过url访问 将域名通过DNS解析 返回给浏览器一个IP地址 再将IP地址发给服务器访问对应网站 也可以直接访问ip 就是没有经过DNS技术的转化 直接访问目标服务器
+* 新的网站诞生第一天 各大搜索引擎如何获取新网址的url：
+* 1.主动提交给百度 2.在其他网址设置网站的外链
+* 3.搜索引擎会和DNS服务商合作 快速收录新网址的url
+* Robots.txt 只是一个协议 一般只有大型的搜索引擎爬虫才会有很多限制
+* 协议://ip或域名[:端口]/路径/.../[?参数][#锚 用于跳转到网页指定锚点]
+* https协议是由SSL和HTTP共同构建的可进行加密传输、身份认证的网络协议 需要ca申请证书,一般需要收费 并由具有安全性的ssl加密传输
+* 二者端口不一样 http-80 https-443
+* http的连接很简单是无状态的 是基于tcp的一种规范、协议  规定客户端和服务器的互联
+* 发起请求的时候 请求(request)分为header和body     
+* header中至少含有GET /(要访问的文件名) HTTP/1.1    其中Host是本机IP 
+* 若没有特别的写要访问的文件 就是访问的网站的主页
+* 服务器返回给浏览器的内容(response)包括2个部分:headers和body 2者用空行分开
+* headers中含有set-cookie 即服务器给浏览器的设置，可能包含用户的浏览痕迹 还有反馈连接协议和状态的 HTTP/1.1 200 OK 以及规定解码的charset=utf-8/....
+* body中含有前端的所有html/css/js等 是浏览器要展示的东西
+* http 1.0 短链接 每一次请求都重新3次握手创建新的套接字
+* http 1.1 长链接 先得到整个页面的数据 后一次性请求所有需要的数据
+* 本机 [IP查询](http://www.ip138.com/)
+- ip地址:用来标记网络上的一台电脑 
++ windows:ipconfig linux/mac/unix:ifconfig 出现2个网卡 想与别人通信用以太网 自己联网用本地 sudo ifconfig ens40 down 把通信网关掉
++ 分类:ipv4/ipv6 v指版本  ipv6 正在发展
++ ipv4 更常用 4组数 总共有256 * 256 * 256 * 256 种
+> * C类地址前3个标记网络号 同一个局域网前3个3位数一样 最后一个标记主机号 0和255用于广播 不能随便用
+> * A类IP地址第1组当作网络号 后3组当作主机号 B类前2后2 C类前3后1
+> * D类主要用于多点广播 E类地址保留仅用于实验
+- 端口号(port)类似软件的IP 可以理解为门牌号 一个程序没有运行叫程序 运行起来叫进程
+> * 知名端口(小于1024)是众所周知的 大家默认都使用的端口 不能随便用 比如80端口分配给HTTP 21端口分给FTP
+> * 动态端口(1024到65535) 可以随意使用
+## 网络通信基础：使用网络的目的是联机
+### socket是一种进程的通信方式
+### 网络-udp 写信模型 每一封信都需要署名收信人和寄信人 但是并不安全 数据可能丢 udp是面向无连接的通信
 
+```python
+import socket # socket.socket(AddressFamilly(协议族ipv4),Type(udp/tcp))
+tcp_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # tcp套接字
+udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # udp套接字
+# 给套接字设置固定端口
+local_addr = (' ',7788) # ip一般不写,表示本机任何一个ip
+udp_socket.bind(local_addr) # 必须绑定自己电脑的IP 但不可以占用其他进程的端口 不绑定操作系统就会给一个随机端口
+dest_ip = '192.168.0.147'
+dest_sort = 7788
+recv_data = udp_socket.recvfrom(1024) # 接收数据,默认接受元组,具有阻塞的特性,操作系统收到数据会先存起来,等待程序的调用来取数据
+print(recv_data)
+data = 'hello'
+udp_socket.sendto(data.encode('utf-8'),(dest_ip,dest_sort)) #后接ip和port的元组
+#若是发不通则试一下ping 192.168.0.147
+#若是电脑有几个IP则把虚拟网卡VMware关掉
+udp_socket.close()
+```
 
++ 单工:收音机 只能收
++ 半双工:对讲机 可以收发，但同一时刻只能收或发
++ 全双工:电话 同一时刻可以同时收发 socket套接字是全双工
+
+```python
+import socket
+print('XXX聊天器'.center(50,'='))
+udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+udp_socket.bind(('192.168.0.147',7788))
+
+def send_msg(udp_socket):
+data = input('send some data:')
+udp_socket.sendto(data.encode('utf-8'),('192.168.0.147',7799))    
+
+def recv_msg(udp_socket):
+recv_data = udp_socket.recvfrom(1024)
+print(\%s:%s\ % (str(recv_data[1]),recv_data[0].decode('utf-8')))
+
+while True:
+print('1-send message')
+print('2-recieve message')
+choice = input('choose your function:')
+if choice == '1':
+    send_msg(udp_socket)
+elif choice == '2':
+    recv_msg(udp_socket)
+else:
+    break
+udp_socket.close()
+```
+
+```python
+# udp聊天器 优化版
+import socket,threading
+def send_msg(udp_socket):
+while True:
+    data = input('send some data:')
+    udp_socket.sendto(data.encode('utf-8'),('192.168.0.147',7799))    
+
+def recv_msg(udp_socket):
+while True:
+    recv_data = udp_socket.recvfrom(1024)
+    print(\%s:%s\ % (str(recv_data[1]),recv_data[0].decode('utf-8')))
+
+print('XXX聊天器'.center(50,'='))
+udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+udp_socket.bind(('192.168.0.147',7788))
+
+t1 = threading.Thread(target=send_msg,args=(udp_socket,))
+t2 = threading.Thread(target=recv_msg,args=(udp_socket,))
+
+t1.start()
+t2.start()
+
+#udp_socket.close() 将最后一行注释掉否则会报错
+```
+
+### 网络-tcp 传输控制协议 较为安全 更稳定 类似打电话 tcp是面向链接的通信
+> * 发送应答机制:在传输前必须建立链接(拨号) 发出数据后可以知道对方收到没有
+> * 超时重传
+> * 错误校验 检验是否有误
+> * 流量控制和阻塞管理 
+> * 严格区分客户端和服务器 服务器离主机越远越卡
+> * 客户端 eg:APP     
+> * 3次握手 (双方都在准备资源)客户端先发syn 服务器准备好资源后返回ack和新的syn 客户端准备好后返回ack
+> * 4次挥手 (双方都在释放资源)(全双工套接字有两个通道 收和发都要关)  客户端向服务器发close关闭发送通道\\ 服务器关闭接收通道并告诉客户端已收到 \\ 服务器再关闭发送通道并向客户端发close\\ 客户端关闭接收通道并告诉服务器已收到 
+> * 因为第2次挥手是为了确认服务器收到并对new_socket.recv解堵塞  第3次是为了服务器关闭发送通道new_socket.close  在程序中二者之间可以time.sleep()延迟 所以这2次不能简化为1次
+> * 谁先调close谁就会保留资源 一直等到超时重传时间过去了  即数据包在网络上能存活的时间的两倍  如果没有重发过来 就释放资源
+> * 服务器不能先close 因为保留的资源 会影响下一次connect 即端口被占
+> * 如果服务器想要重新利用套接字 则需要加一行代码:            
+tcp_server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+> * 客户端可以先close 原因是客户端一般不绑定端口 每一次重连都会用新的端口号
+
+### tcp客户端 一般不绑定端口 先发
+### 两台QQ客户端可以都不绑定 通过第三方服务器来交换信息
+```python
+# 模拟下载
+from socket import *
+tcp_client_socket = socket(AF_INET,SOCK_STREAM)
+server_ip = input('请输入要链接的服务器IP')
+server_port = input('请输入要链接的服务器port')
+# 链接服务器
+tcp_client_socket.connect((server_ip,server_port))
+send_data = input('输入要下载的文件:')
+tcp_client_socket.send(send_data.encode('gbk'))
+recvdata = tcp_client_socket.recv(1024) #1024个字节为1K 1024*1024为1M
+if recvdata:
+with open('[新]'+send_data,'wb') as f:
+    f.write(recv_data)
+print('接收到的数据为',recvdata.decode('utf-8'))
+tcp.client.socket.close()
+```
+
+### tcp服务器 先收
+```python
+from socket import *
+tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+address = ('',7788)
+tcp_server_socket.bind(address) # 服务器需要绑定ip和端口,方便客户端链接
+# listen使套接字变为可以被动链接,从而可以接收别人的链接
+tcp_server_socket.listen(128) # 128与同一时刻链接的客户端有关 与操作系统有关
+while True: # 循环接受客户端,为客户端服务
+print('等待新客户端连接.....')
+# accept等待客户端的链接connect,默认如果没有客户端链接则会一直等待,产生新的套接字client_socket为这个客户端服务
+# clientaddr 是这个客户端的信息IP和port
+# tcp_server_socket就可以省下来专门等待其他新客户端的链接
+client_socket,clientaddr = tcp_server_socket.accept()
+while True: # 为同一个客户端服务多次
+    print('{0}客户端连接成功'.format(clientaddr))
+    # 接收和发送数据
+    recvdata = client_socket.recv(1024)
+    print('客户端送过来的的数据为',recvdata.decode('utf-8'))
+    # 如果recv解堵塞可能是
+    # 1.客户端发送来数据
+    # 2.客户端close
+    if not recvdata:
+	client_socket.send('continue'.encode('utf-8'))
+    else:
+	client_socket.send('goodbye'.encode('utf-8'))
+	break
+
+    client_socket.close() #关闭套接字不再为这个客户端服务
+    print('已经为这个客户端服务完毕')
+
+tcp_server_socket.close() # 最后关服务器
+```
+
+```python
+from socket import *
+def send_file_2_client(new_client_socket,client_addr):
+recvdata = new_client_socket.recv(1024).decode('utf-8')
+print('客户端要下载的数据为',recvdata)
+file_content = None
+try:
+    f = open(recvdata,'rb')
+    file_content = f.read()
+    f.close()
+except Exception as e:
+    print('没有要下载的文件{}'.format(revcdata))
+if file_content:
+    client_socket.send(file_content)
+
+def main():
+tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+tcp_server_socket.bind((\\,7890)) 
+tcp_server_socket.listen(128)
+print('等待新客户端连接.....')
+while True:
+    client_socket,clientaddr = tcp_server_socket.accept()        
+    print('{0}客户端连接成功'.format(str(clientaddr)))
+    send_file_2_client(client_socket,clientaddr)
+
+    client_socket.close() #关闭套接字不再为这个客户端服务
+    print('已经为这个客户端服务完毕')
+tcp_server_socket.close() 
+main()
+```
+
+```python
+# tcp模型模拟实现http服务器 返回固定页面
+from socket import *
+tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) # 设定套接字选项 保证服务器可以先close
+address = ('',7788)
+tcp_server_socket.bind(address) 
+tcp_server_socket.listen(128) 
+while True: 
+print('等待新客户端连接.....')
+client_socket,clientaddr = tcp_server_socket.accept()
+while True: 
+    print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
+    ''' 接收请求头'''
+    request = client_socket.recv(1024) # 客户端不只是发送请求的页面 还有超链接
+    print('客户端送过来的的请求为\\n',request.decode('utf-8'))
+    ''' 返回headers和body'''
+    headers = \HTTP/1.1 200 OK\\r\\n\ # 每一行后面都有一个换行
+    konghang = \\\r\\n\   # 2者中空一行
+    f = open('baidu.html','r')
+    body = f.read()
+    f.close()
+    # body = \<h1>this is a headline</h1>\
+    response = headers + body
+    client_socket.send(response.encode('utf-8'))
+    client_socket.close() #关闭套接字不再为这个客户端服务
+    print('已经为这个客户端服务完毕')
+    break
+tcp_server_socket.close() # 最后关服务器的监听套接字
+```
+
+```python
+# 应用多进程多线程协程改进tcp模拟http服务器
+from socket import *
+import re,multiprocessing,threading
+#import gevent
+#from gevent import monkey
+#monkey.patch_all()
+def service_client(client_socket):
+''' 接收请求头'''
+request = client_socket.recv(1024).decode('utf-8')
+print(request)
+request_lines = request.splitlines()
+ret = re.search(r\/[^/1|\\D]*[^\\s]*\,request_lines[0]) if len(request_lines) else None
+file_name = ret.group(0) if ret else \baidu.html\
+print(\请求访问\,file_name)
+try:
+    f = open(file_name[1:],'rb')
+except:
+    headers = \HTTP/1.1 404 NOT FOUND\\r\\n\
+    headers = headers + \\\r\\n\
+    client_socket.send(headers.encode('utf-8'))
+else:
+    body = f.read()
+    f.close()
+    ''' 打开成功就返回状态码200'''
+    headers = \HTTP/1.1 200 OK\\r\\n\ 
+    konghang = \\\r\\n\   
+    headers = headers + konghang
+    client_socket.send(headers.encode('utf-8'))
+    client_socket.send(body)
+client_socket.close()
+def main():
+tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) 
+tcp_server_socket.bind((\192.168.0.147\,7788)) 
+tcp_server_socket.listen(128) 
+while True: 
+    print('等待新客户端连接.....')
+    client_socket,clientaddr = tcp_server_socket.accept()
+    print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
+    #gevent.spawn(service_client,client_socket) # 协程
+    #t = threading.Thread(target=service_client,args = (client_socket,)) # 多线程
+    #t.start()  # 注意多线程不会复制资源 所以不用client_socket.close()
+    p = multiprocessing.Process(target=service_client,args=(client_socket,)) # 多进程
+    p.start()
+    client_socket.close() # 多进程会复制之前定义的所有变量 这里需要先关一次主进程的 之后再关的子进程才会指向fd文件描述符 然后才会开始4次挥手
+tcp_server_socket.close() # 最后关服务器的监听套接字
+if __name__ == \__main__\:
+main()
+```
+
+```python
+# 单进程 单线程 利用列表遍历 实现同时服务多个客户端
+from socket import *
+import time
+tcp_server_tcp = socket(AF_INET,SOCK_STREAM)
+tcp_server_tcp.bind(\\,7890)
+tcp_server_tcp.listen(128)
+tcp_server_tcp.setblocking(False) # 设置套接字为非堵塞
+client_socket_list = list()
+while True:
+    time.sleep(1)
+    try:
+        new_socket, new_addr = tcp_server_tcp.accept()
+    except Exception as ret:
+        print('----没有新的客户端到来----')
+    else:
+        print('----只要没有产生异常，就意味着有新客户端连接成功')
+        new_socket.setblocking(False) # 设置套接字为非堵塞方式
+        client_socket_list.append(new_socket)
+for client_socket in client_socket_list:
+    try:
+	recv_data = client_socket.recv(1024) 
+	# 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据
+    except Exception as ret:
+	print('----这个客户端没有发送数据')
+    else:
+	if recv_data:
+	    print('----这个客户端发送来数据')
+	    print(str(recv_data))
+	else:
+	    print('客户端调用close')
+	    client_socket_list.remove(client_socket)
+	    client_socket.close()
+```
+
+```python
+# 利用单进程 单线程 遍历实现 长链接
+from socket import *
+import re
+def service_client(client_socket, request):
+    ''' 接收请求头'''
+    #request = client_socket.recv(1024).decode('utf-8')
+    #print(request)
+    request_lines = request.splitlines()
+    ret = re.search(r\/[^/1|\\D]*[^\\s]*\,request_lines[0]) if len(request_lines) else None
+    file_name = ret.group(0) if ret else \baidu.html\
+    print(\请求访问\,file_name)
+    try:
+        f = open(file_name[1:],'rb')
+    except:
+        headers = \HTTP/1.1 404 NOT FOUND\\r\\n\
+        headers = headers + \\\r\\n\
+        client_socket.send(headers.encode('utf-8'))
+    else:
+        content = f.read()
+        f.close()
+        ''' 打开成功就返回状态码200'''
+        response_body = content
+        response_header = \HTTP/1.1 200 OK\\r\\n\
+        response_header += \Content-Length:%d\\r\\n\% len(response_body) 
+    # 在长连接的链接中 规定内容长度来验证每一次的请求 是否接收完数据
+        response_header += \\\r\\n\
+        response = response_header.encode(\utf-8\) + response_body
+        client_socket.send(response)
+    #client_socket.close() # 不断开保持长连接
+def main():
+    tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+    tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) 
+    tcp_server_socket.bind((\127.0.0.1\,7788)) 
+    tcp_server_socket.listen(128) 
+    tcp_server_socket.setblocking(False)
+    client_socket_list = list()
+    while True: 
+        print('等待新客户端连接.....')
+        try:
+        client_socket,clientaddr = tcp_server_socket.accept()
+        print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
+        except Exception as ret:
+        print('----没有新的客户端到来----')
+        else:
+        print('----只要没有产生异常，就意味着有新客户端连接成功')
+        client_socket.setblocking(False) # 设置套接字为非堵塞方式
+        client_socket_list.append(client_socket)
+        for client_socket in client_socket_list:
+        try:
+            recv_data = client_socket.recv(1024).decode(\utf-8\) 
+            # 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据
+        except Exception as ret:
+            print('----这个客户端没有发送数据')
+        else:
+            if recv_data:
+            service_client(client_socket, recv_data)
+            else:
+            print('客户端调用close')
+            client_socket_list.remove(client_socket)
+            client_socket.close() 
+    tcp_server_socket.close() # 最后关服务器的监听套接字
+if __name__ == \__main__\:
+    main()
+```
     
-    "## crawler\n",
-    "* 通用爬虫是搜索引擎用的爬虫:百度快照也是一种爬虫可以爬存和文本相关的内容 不能爬取图片电影二进制文件等\n",
-    "* 通过url访问 将域名通过DNS解析 返回给浏览器一个IP地址 再将IP地址发给服务器访问对应网站 也可以直接访问ip 就是没有经过DNS技术的转化 直接访问目标服务器\n",
-    "* 新的网站诞生第一天 各大搜索引擎如何获取新网址的url：\n",
-    "* 1.主动提交给百度 2.在其他网址设置网站的外链\n",
-    "* 3.搜索引擎会和DNS服务商合作 快速收录新网址的url\n",
-    "* Robots.txt 只是一个协议 一般只有大型的搜索引擎爬虫才会有很多限制\n",
-    "* 协议://ip或域名[:端口]/路径/.../[?参数][#锚 用于跳转到网页指定锚点]\n",
-    "\n",
-    "* https协议是由SSL和HTTP共同构建的可进行加密传输、身份认证的网络协议 需要ca申请证书,一般需要收费 并由具有安全性的ssl加密传输\n",
-    "* 二者端口不一样 http-80 https-443\n",
-    "* http的连接很简单是无状态的 是基于tcp的一种规范、协议  规定客户端和服务器的互联\n",
-    "* 发起请求的时候 请求(request)分为header和body     \n",
-    "* header中至少含有GET /(要访问的文件名) HTTP/1.1    其中Host是本机IP \n",
-    "* 若没有特别的写要访问的文件 就是访问的网站的主页\n",
-    "* 服务器返回给浏览器的内容(response)包括2个部分:headers和body 2者用空行分开\n",
-    "* headers中含有set-cookie 即服务器给浏览器的设置，可能包含用户的浏览痕迹 还有反馈连接协议和状态的 HTTP/1.1 200 OK 以及规定解码的charset=utf-8/....\n",
-    "* body中含有前端的所有html/css/js等 是浏览器要展示的东西\n",
-    "* http 1.0 短链接 每一次请求都重新3次握手创建新的套接字\n",
-    "* http 1.1 长链接 先得到整个页面的数据 后一次性请求所有需要的数据\n",
-    "\n",
-    "* 本机 [IP查询](http://www.ip138.com/)\n",
-    "- ip地址:用来标记网络上的一台电脑 \n",
-    "+ windows:ipconfig linux/mac/unix:ifconfig 出现2个网卡 想与别人通信用以太网 自己联网用本地 sudo ifconfig ens40 down 把通信网关掉\n",
-    "+ 分类:ipv4/ipv6 v指版本  ipv6 正在发展\n",
-    "+ ipv4 更常用 4组数 总共有256 * 256 * 256 * 256 种\n",
-    "> * C类地址前3个标记网络号 同一个局域网前3个3位数一样 最后一个标记主机号 0和255用于广播 不能随便用\n",
-    "> * A类IP地址第1组当作网络号 后3组当作主机号 B类前2后2 C类前3后1\n",
-    "> * D类主要用于多点广播 E类地址保留仅用于实验\n",
-    "- 端口号(port)类似软件的IP 可以理解为门牌号 一个程序没有运行叫程序 运行起来叫进程\n",
-    "> * 知名端口(小于1024)是众所周知的 大家默认都使用的端口 不能随便用 比如80端口分配给HTTP 21端口分给FTP\n",
-    "> * 动态端口(1024到65535) 可以随意使用\n",
-    "\n",
-    "## 网络通信基础：使用网络的目的是联机\n",
-    "### socket是一种进程的通信方式\n",
-    "### 网络-udp 写信模型 每一封信都需要署名收信人和寄信人 但是并不安全 数据可能丢 udp是面向无连接的通信\n",
-    "\n",
-    "```python\n",
-    "import socket # socket.socket(AddressFamilly(协议族ipv4),Type(udp/tcp))\n",
-    "tcp_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # tcp套接字\n",
-    "udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # udp套接字\n",
-    "# 给套接字设置固定端口\n",
-    "local_addr = (' ',7788) # ip一般不写,表示本机任何一个ip\n",
-    "udp_socket.bind(local_addr) # 必须绑定自己电脑的IP 但不可以占用其他进程的端口 不绑定操作系统就会给一个随机端口\n",
-    "dest_ip = '192.168.0.147'\n",
-    "dest_sort = 7788\n",
-    "recv_data = udp_socket.recvfrom(1024) # 接收数据,默认接受元组,具有阻塞的特性,操作系统收到数据会先存起来,等待程序的调用来取数据\n",
-    "print(recv_data)\n",
-    "data = 'hello'\n",
-    "udp_socket.sendto(data.encode('utf-8'),(dest_ip,dest_sort)) #后接ip和port的元组\n",
-    "#若是发不通则试一下ping 192.168.0.147\n",
-    "#若是电脑有几个IP则把虚拟网卡VMware关掉\n",
-    "udp_socket.close()\n",
-    "```\n",
-    "+ 单工:收音机 只能收\n",
-    "+ 半双工:对讲机 可以收发，但同一时刻只能收或发\n",
-    "+ 全双工:电话 同一时刻可以同时收发 socket套接字是全双工\n",
-    "\n",
-    "```python\n",
-    "import socket\n",
-    "print('XXX聊天器'.center(50,'='))\n",
-    "udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)\n",
-    "\n",
-    "udp_socket.bind(('192.168.0.147',7788))\n",
-    "\n",
-    "def send_msg(udp_socket):\n",
-    "    data = input('send some data:')\n",
-    "    udp_socket.sendto(data.encode('utf-8'),('192.168.0.147',7799))    \n",
-    "\n",
-    "def recv_msg(udp_socket):\n",
-    "    recv_data = udp_socket.recvfrom(1024)\n",
-    "    print(\"%s:%s\" % (str(recv_data[1]),recv_data[0].decode('utf-8')))\n",
-    "\n",
-    "while True:\n",
-    "    print('1-send message')\n",
-    "    print('2-recieve message')\n",
-    "    choice = input('choose your function:')\n",
-    "    if choice == '1':\n",
-    "        send_msg(udp_socket)\n",
-    "    elif choice == '2':\n",
-    "        recv_msg(udp_socket)\n",
-    "    else:\n",
-    "        break\n",
-    "udp_socket.close()\n",
-    "```\n",
-    "```python\n",
-    "# udp聊天器 优化版\n",
-    "import socket,threading\n",
-    "def send_msg(udp_socket):\n",
-    "    while True:\n",
-    "        data = input('send some data:')\n",
-    "        udp_socket.sendto(data.encode('utf-8'),('192.168.0.147',7799))    \n",
-    "\n",
-    "def recv_msg(udp_socket):\n",
-    "    while True:\n",
-    "        recv_data = udp_socket.recvfrom(1024)\n",
-    "        print(\"%s:%s\" % (str(recv_data[1]),recv_data[0].decode('utf-8')))\n",
-    "\n",
-    "print('XXX聊天器'.center(50,'='))\n",
-    "udp_socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)\n",
-    "udp_socket.bind(('192.168.0.147',7788))\n",
-    "\n",
-    "t1 = threading.Thread(target=send_msg,args=(udp_socket,))\n",
-    "t2 = threading.Thread(target=recv_msg,args=(udp_socket,))\n",
-    "\n",
-    "t1.start()\n",
-    "t2.start()\n",
-    "    \n",
-    "#udp_socket.close() 将最后一行注释掉否则会报错\n",
-    "```\n",
-    "### 网络-tcp 传输控制协议 较为安全 更稳定 类似打电话 tcp是面向链接的通信\n",
-    "> * 发送应答机制:在传输前必须建立链接(拨号) 发出数据后可以知道对方收到没有\n",
-    "> * 超时重传\n",
-    "> * 错误校验 检验是否有误\n",
-    "> * 流量控制和阻塞管理 \n",
-    "> * 严格区分客户端和服务器 服务器离主机越远越卡\n",
-    "> * 客户端 eg:APP     \n",
-    "> * 3次握手 (双方都在准备资源)客户端先发syn 服务器准备好资源后返回ack和新的syn 客户端准备好后返回ack\n",
-    "> * 4次挥手 (双方都在释放资源)(全双工套接字有两个通道 收和发都要关)  客户端向服务器发close关闭发送通道\\ 服务器关闭接收通道并告诉客户端已收到 \\ 服务器再关闭发送通道并向客户端发close\\ 客户端关闭接收通道并告诉服务器已收到 \n",
-    "> * 因为第2次挥手是为了确认服务器收到并对new_socket.recv解堵塞  第3次是为了服务器关闭发送通道new_socket.close  在程序中二者之间可以time.sleep()延迟 所以这2次不能简化为1次\n",
-    "> * 谁先调close谁就会保留资源 一直等到超时重传时间过去了  即数据包在网络上能存活的时间的两倍  如果没有重发过来 就释放资源\n",
-    "> * 服务器不能先close 因为保留的资源 会影响下一次connect 即端口被占\n",
-    "> * 如果服务器想要重新利用套接字 则需要加一行代码:            \n",
-    "tcp_server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)\n",
-    "> * 客户端可以先close 原因是客户端一般不绑定端口 每一次重连都会用新的端口号\n",
-    "\n",
-    "### tcp客户端 一般不绑定端口 先发\n",
-    "### 两台QQ客户端可以都不绑定 通过第三方服务器来交换信息\n",
-    "```python\n",
-    "# 模拟下载\n",
-    "from socket import *\n",
-    "tcp_client_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "server_ip = input('请输入要链接的服务器IP')\n",
-    "server_port = input('请输入要链接的服务器port')\n",
-    "# 链接服务器\n",
-    "tcp_client_socket.connect((server_ip,server_port))\n",
-    "send_data = input('输入要下载的文件:')\n",
-    "tcp_client_socket.send(send_data.encode('gbk'))\n",
-    "recvdata = tcp_client_socket.recv(1024) #1024个字节为1K 1024*1024为1M\n",
-    "if recvdata:\n",
-    "    with open('[新]'+send_data,'wb') as f:\n",
-    "        f.write(recv_data)\n",
-    "print('接收到的数据为',recvdata.decode('utf-8'))\n",
-    "tcp.client.socket.close()\n",
-    "```\n",
-    "### tcp服务器 先收\n",
-    "```python\n",
-    "from socket import *\n",
-    "tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "address = ('',7788)\n",
-    "tcp_server_socket.bind(address) # 服务器需要绑定ip和端口,方便客户端链接\n",
-    "# listen使套接字变为可以被动链接,从而可以接收别人的链接\n",
-    "tcp_server_socket.listen(128) # 128与同一时刻链接的客户端有关 与操作系统有关\n",
-    "while True: # 循环接受客户端,为客户端服务\n",
-    "    print('等待新客户端连接.....')\n",
-    "    # accept等待客户端的链接connect,默认如果没有客户端链接则会一直等待,产生新的套接字client_socket为这个客户端服务\n",
-    "    # clientaddr 是这个客户端的信息IP和port\n",
-    "    # tcp_server_socket就可以省下来专门等待其他新客户端的链接\n",
-    "    client_socket,clientaddr = tcp_server_socket.accept()\n",
-    "    while True: # 为同一个客户端服务多次\n",
-    "        print('{0}客户端连接成功'.format(clientaddr))\n",
-    "        # 接收和发送数据\n",
-    "        recvdata = client_socket.recv(1024)\n",
-    "        print('客户端送过来的的数据为',recvdata.decode('utf-8'))\n",
-    "        # 如果recv解堵塞可能是\n",
-    "        # 1.客户端发送来数据\n",
-    "        # 2.客户端close\n",
-    "        if not recvdata:\n",
-    "            client_socket.send('continue'.encode('utf-8'))\n",
-    "        else:\n",
-    "            client_socket.send('goodbye'.encode('utf-8'))\n",
-    "            break\n",
-    "    \n",
-    "        client_socket.close() #关闭套接字不再为这个客户端服务\n",
-    "        print('已经为这个客户端服务完毕')\n",
-    "\n",
-    "tcp_server_socket.close() # 最后关服务器\n",
-    "```\n",
-    "```python\n",
-    "from socket import *\n",
-    "def send_file_2_client(new_client_socket,client_addr):\n",
-    "    recvdata = new_client_socket.recv(1024).decode('utf-8')\n",
-    "    print('客户端要下载的数据为',recvdata)\n",
-    "    file_content = None\n",
-    "    try:\n",
-    "        f = open(recvdata,'rb')\n",
-    "        file_content = f.read()\n",
-    "        f.close()\n",
-    "    except Exception as e:\n",
-    "        print('没有要下载的文件{}'.format(revcdata))\n",
-    "    if file_content:\n",
-    "        client_socket.send(file_content)\n",
-    "\n",
-    "def main():\n",
-    "    tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "    tcp_server_socket.bind((\"\",7890)) \n",
-    "    tcp_server_socket.listen(128)\n",
-    "    print('等待新客户端连接.....')\n",
-    "    while True:\n",
-    "        client_socket,clientaddr = tcp_server_socket.accept()        \n",
-    "        print('{0}客户端连接成功'.format(str(clientaddr)))\n",
-    "        send_file_2_client(client_socket,clientaddr)\n",
-    "    \n",
-    "        client_socket.close() #关闭套接字不再为这个客户端服务\n",
-    "        print('已经为这个客户端服务完毕')\n",
-    "    tcp_server_socket.close() \n",
-    "main()\n",
-    "```\n",
-    "```python\n",
-    "# tcp模型模拟实现http服务器 返回固定页面\n",
-    "from socket import *\n",
-    "tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) # 设定套接字选项 保证服务器可以先close\n",
-    "address = ('',7788)\n",
-    "tcp_server_socket.bind(address) \n",
-    "tcp_server_socket.listen(128) \n",
-    "while True: \n",
-    "    print('等待新客户端连接.....')\n",
-    "    client_socket,clientaddr = tcp_server_socket.accept()\n",
-    "    while True: \n",
-    "        print('IP端口号为{0}的客户端连接成功'.format(clientaddr))\n",
-    "        ''' 接收请求头'''\n",
-    "        request = client_socket.recv(1024) # 客户端不只是发送请求的页面 还有超链接\n",
-    "        print('客户端送过来的的请求为\\n',request.decode('utf-8'))\n",
-    "        ''' 返回headers和body'''\n",
-    "        headers = \"HTTP/1.1 200 OK\\r\\n\" # 每一行后面都有一个换行\n",
-    "        konghang = \"\\r\\n\"   # 2者中空一行\n",
-    "        f = open('baidu.html','r')\n",
-    "        body = f.read()\n",
-    "        f.close()\n",
-    "        # body = \"<h1>this is a headline</h1>\"\n",
-    "        response = headers + body\n",
-    "        client_socket.send(response.encode('utf-8'))\n",
-    "        client_socket.close() #关闭套接字不再为这个客户端服务\n",
-    "        print('已经为这个客户端服务完毕')\n",
-    "        break\n",
-    "tcp_server_socket.close() # 最后关服务器的监听套接字\n",
-    "```\n",
-    "```python\n",
-    "# 应用多进程多线程协程改进tcp模拟http服务器\n",
-    "from socket import *\n",
-    "import re,multiprocessing,threading\n",
-    "#import gevent\n",
-    "#from gevent import monkey\n",
-    "#monkey.patch_all()\n",
-    "def service_client(client_socket):\n",
-    "    ''' 接收请求头'''\n",
-    "    request = client_socket.recv(1024).decode('utf-8')\n",
-    "    print(request)\n",
-    "    request_lines = request.splitlines()\n",
-    "    ret = re.search(r\"/[^/1|\\D]*[^\\s]*\",request_lines[0]) if len(request_lines) else None\n",
-    "    file_name = ret.group(0) if ret else \"baidu.html\"\n",
-    "    print(\"请求访问\",file_name)\n",
-    "    try:\n",
-    "        f = open(file_name[1:],'rb')\n",
-    "    except:\n",
-    "        headers = \"HTTP/1.1 404 NOT FOUND\\r\\n\"\n",
-    "        headers = headers + \"\\r\\n\"\n",
-    "        client_socket.send(headers.encode('utf-8'))\n",
-    "    else:\n",
-    "        body = f.read()\n",
-    "        f.close()\n",
-    "        ''' 打开成功就返回状态码200'''\n",
-    "        headers = \"HTTP/1.1 200 OK\\r\\n\" \n",
-    "        konghang = \"\\r\\n\"   \n",
-    "        headers = headers + konghang\n",
-    "        client_socket.send(headers.encode('utf-8'))\n",
-    "        client_socket.send(body)\n",
-    "    client_socket.close()\n",
-    "def main():\n",
-    "    tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "    tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) \n",
-    "    tcp_server_socket.bind((\"192.168.0.147\",7788)) \n",
-    "    tcp_server_socket.listen(128) \n",
-    "    while True: \n",
-    "        print('等待新客户端连接.....')\n",
-    "        client_socket,clientaddr = tcp_server_socket.accept()\n",
-    "        print('IP端口号为{0}的客户端连接成功'.format(clientaddr))\n",
-    "        #gevent.spawn(service_client,client_socket) # 协程\n",
-    "        #t = threading.Thread(target=service_client,args = (client_socket,)) # 多线程\n",
-    "        #t.start()  # 注意多线程不会复制资源 所以不用client_socket.close()\n",
-    "        p = multiprocessing.Process(target=service_client,args=(client_socket,)) # 多进程\n",
-    "        p.start()\n",
-    "        client_socket.close() # 多进程会复制之前定义的所有变量 这里需要先关一次主进程的 之后再关的子进程才会指向fd文件描述符 然后才会开始4次挥手\n",
-    "    tcp_server_socket.close() # 最后关服务器的监听套接字\n",
-    "if __name__ == \"__main__\":\n",
-    "    main()\n",
-    "```\n",
-    "```python\n",
-    "# 单进程 单线程 利用列表遍历 实现同时服务多个客户端\n",
-    "from socket import *\n",
-    "import time\n",
-    "tcp_server_tcp = socket(AF_INET,SOCK_STREAM)\n",
-    "tcp_server_tcp.bind(\"\",7890)\n",
-    "tcp_server_tcp.listen(128)\n",
-    "tcp_server_tcp.setblocking(False) # 设置套接字为非堵塞\n",
-    "client_socket_list = list()\n",
-    "while True:\n",
-    "    time.sleep(1)\n",
-    "    try:\n",
-    "        new_socket, new_addr = tcp_server_tcp.accept()\n",
-    "    except Exception as ret:\n",
-    "        print('----没有新的客户端到来----')\n",
-    "    else:\n",
-    "        print('----只要没有产生异常，就意味着有新客户端连接成功')\n",
-    "        new_socket.setblocking(False) # 设置套接字为非堵塞方式\n",
-    "        client_socket_list.append(new_socket)\n",
-    "    for client_socket in client_socket_list:\n",
-    "        try:\n",
-    "            recv_data = client_socket.recv(1024) \n",
-    "            # 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据\n",
-    "        except Exception as ret:\n",
-    "            print('----这个客户端没有发送数据')\n",
-    "        else:\n",
-    "            if recv_data:\n",
-    "                print('----这个客户端发送来数据')\n",
-    "                print(str(recv_data))\n",
-    "            else:\n",
-    "                print('客户端调用close')\n",
-    "                client_socket_list.remove(client_socket)\n",
-    "                client_socket.close()\n",
-    "```\n",
-    "```python\n",
-    "# 利用单进程 单线程 遍历实现 长链接\n",
-    "from socket import *\n",
-    "import re\n",
-    "def service_client(client_socket, request):\n",
-    "    ''' 接收请求头'''\n",
-    "    #request = client_socket.recv(1024).decode('utf-8')\n",
-    "    #print(request)\n",
-    "    request_lines = request.splitlines()\n",
-    "    ret = re.search(r\"/[^/1|\\D]*[^\\s]*\",request_lines[0]) if len(request_lines) else None\n",
-    "    file_name = ret.group(0) if ret else \"baidu.html\"\n",
-    "    print(\"请求访问\",file_name)\n",
-    "    try:\n",
-    "        f = open(file_name[1:],'rb')\n",
-    "    except:\n",
-    "        headers = \"HTTP/1.1 404 NOT FOUND\\r\\n\"\n",
-    "        headers = headers + \"\\r\\n\"\n",
-    "        client_socket.send(headers.encode('utf-8'))\n",
-    "    else:\n",
-    "        content = f.read()\n",
-    "        f.close()\n",
-    "        ''' 打开成功就返回状态码200'''\n",
-    "        response_body = content\n",
-    "        response_header = \"HTTP/1.1 200 OK\\r\\n\"\n",
-    "        response_header += \"Content-Length:%d\\r\\n\"% len(response_body) \n",
-    "# 在长连接的链接中 规定内容长度来验证每一次的请求 是否接收完数据\n",
-    "        response_header += \"\\r\\n\"\n",
-    "        response = response_header.encode(\"utf-8\") + response_body\n",
-    "        client_socket.send(response)\n",
-    "    #client_socket.close() # 不断开保持长连接\n",
-    "def main():\n",
-    "    tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "    tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) \n",
-    "    tcp_server_socket.bind((\"127.0.0.1\",7788)) \n",
-    "    tcp_server_socket.listen(128) \n",
-    "    tcp_server_socket.setblocking(False)\n",
-    "    client_socket_list = list()\n",
-    "    while True: \n",
-    "        print('等待新客户端连接.....')\n",
-    "        try:\n",
-    "            client_socket,clientaddr = tcp_server_socket.accept()\n",
-    "            print('IP端口号为{0}的客户端连接成功'.format(clientaddr))\n",
-    "        except Exception as ret:\n",
-    "            print('----没有新的客户端到来----')\n",
-    "        else:\n",
-    "            print('----只要没有产生异常，就意味着有新客户端连接成功')\n",
-    "            client_socket.setblocking(False) # 设置套接字为非堵塞方式\n",
-    "            client_socket_list.append(client_socket)\n",
-    "        for client_socket in client_socket_list:\n",
-    "            try:\n",
-    "                recv_data = client_socket.recv(1024).decode(\"utf-8\") \n",
-    "                # 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据\n",
-    "            except Exception as ret:\n",
-    "                print('----这个客户端没有发送数据')\n",
-    "            else:\n",
-    "                if recv_data:\n",
-    "                    service_client(client_socket, recv_data)\n",
-    "                else:\n",
-    "                    print('客户端调用close')\n",
-    "                    client_socket_list.remove(client_socket)\n",
-    "                    client_socket.close() \n",
-    "    tcp_server_socket.close() # 最后关服务器的监听套接字\n",
-    "if __name__ == \"__main__\":\n",
-    "    main()\n",
-    "```\n",
-    "\n",
-    "* 操作系统的内存分为 内核的内存 和 普通进程使用的\n",
-    "* 每一次调用应用程序 就是把普通进程使用的内存中的内容 复制到内核内存区 查找调用相关内容\n",
-    "* 单进程单线程的效率瓶颈与 遍历一遍列表所需的时间有关 即轮询(Select)\n",
-    "* epoll ：有一个内存空间是http服务器和kernel共享的(内存映射) 减少复制的过程 并且所有套接字不通过轮询 而是通过事件通知来提高效率\n",
-    "* epoll仅支持linux 不支持Windows\n",
-    "\n",
-    "```python\n",
-    "from socket import *\n",
-    "import re\n",
-    "import select\n",
-    "def service_client(client_socket, request):\n",
-    "    ''' 接收请求头'''\n",
-    "    #request = client_socket.recv(1024).decode('utf-8')\n",
-    "    #print(request)\n",
-    "    request_lines = request.splitlines()\n",
-    "    ret = re.search(r\"/[^/1|\\D]*[^\\s]*\",request_lines[0]) if len(request_lines) else None\n",
-    "    file_name = ret.group(0) if ret else \"baidu.html\"\n",
-    "    print(\"请求访问\",file_name)\n",
-    "    try:\n",
-    "        f = open(file_name[1:],'rb')\n",
-    "    except:\n",
-    "        headers = \"HTTP/1.1 404 NOT FOUND\\r\\n\"\n",
-    "        headers = headers + \"\\r\\n\"\n",
-    "        client_socket.send(headers.encode('utf-8'))\n",
-    "    else:\n",
-    "        content = f.read()\n",
-    "        f.close()\n",
-    "        ''' 打开成功就返回状态码200'''\n",
-    "        response_body = content\n",
-    "        response_header = \"HTTP/1.1 200 OK\\r\\n\"\n",
-    "        response_header += \"Content-Length:%d\\r\\n\"% len(response_body) \n",
-    "# 在长连接的链接中 规定内容长度来验证每一次的请求 是否接收完数据\n",
-    "        response_header += \"\\r\\n\"\n",
-    "        response = response_header.encode(\"utf-8\") + response_body\n",
-    "        client_socket.send(response)\n",
-    "    #client_socket.close() # 不断开保持长连接\n",
-    "def main():\n",
-    "    tcp_server_socket = socket(AF_INET,SOCK_STREAM)\n",
-    "    tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) \n",
-    "    tcp_server_socket.bind((\"127.0.0.1\",7788)) \n",
-    "    tcp_server_socket.listen(128) \n",
-    "    tcp_server_socket.setblocking(False)\n",
-    "    # 创建一个epoll对象\n",
-    "    epl = select.epoll()\n",
-    "    epl.register(tcp_server_socket.fileno(),select.EPOLLIN)\n",
-    "    client_socket_list = list()\n",
-    "    fd_event_dict = dict()\n",
-    "    while True: \n",
-    "        fd_event_list = epl.poll() #默认堵塞 直到os检测到数据到来 通过事件通知方式告诉程序 解堵塞 返回列表中的每一个值都是元组[(fd,event),(套接字对应的文件描述符，这个文件描述符到底是什么事件 例如可以调用recv接收等)]\n",
-    "        for fd,event in fd_event_list:\n",
-    "            if fd == tcp_server_socket.fileno():\n",
-    "                client_socket,clientaddr = tcp_server_socket.accept()\n",
-    "                print('IP端口号为{0}的客户端连接成功'.format(clientaddr))\n",
-    "                epl.register(client_socket.fileno(),select.EPOLLIN)\n",
-    "                fd_event_dict[client_socket.fileno()] = client_socket\n",
-    "            elif event == select.EPOLLIN:\n",
-    "                # 判断已经连接的客户端是否有数据发送过来\n",
-    "                recv_data = fd_event_dict[fd].recv(1024).decode(\"utf-8\") \n",
-    "                if recv_data:\n",
-    "                    service_client(fd_event_dict[fd], recv_data)\n",
-    "                else:\n",
-    "                    print('客户端调用close')\n",
-    "                    fd_event_dict[fd].close()\n",
-    "                    epl.unregister(fd)\n",
-    "                    del fd_event_dict[fd]\n",
-    "    tcp_server_socket.close() # 最后关服务器的监听套接字\n",
-    "if __name__ == \"__main__\":\n",
-    "    main()\n",
-    "```\n",
-    "\n",
-    "## tcp/ip协议族  --- 一类协议的简称\n",
-    "* 应用层 HTTP协议/QQ 原始套接字可以从应用层直接到IP(网络攻击) (加请求头 包装请求体)\n",
-    "* 传输层 TCP / UDP 二者端口号可以重复 (加原/目的端口)\n",
-    "* 网际层 IP / 域名 / ICMP (加原/目的IP)\n",
-    "* 网络接口层 (加原/目的mac地址)\n",
-    "\n",
-    "## OSI协议族分7层 但还是源于tcp/ip\n",
-    "* 应用层 表示层 会话层 对应应用层\n",
-    "* 传输层 对应传输层\n",
-    "* 网络层 对应网际层\n",
-    "* 数据链路层 物理层 对应网络接口层\n",
-    "\n",
-    "## 两台电脑之间可以通过网络连接直接通信,但需要设置好IP和网络掩码,IP地址需要控制在同一网段\n",
-    "* 子网掩码用于确定网络号和主机号 确定处于同一局域网的IP\n",
-    "* 192              168                  0                147\n",
-    "* 1100 0000       1010 1000          0000 0000         1001 0011\n",
-    "* 默认生成子网掩码\n",
-    "* 255  \t           \t255 \t\t     255\t\t         0\n",
-    "* 1111 1111       1111 1111       1111 1111          0000 0000\n",
-    "* 按位与 与子网掩码的每一个二进制比较  只有全是1 才输出1 否则输出0 \n",
-    "* 1100 0000       1010 1000         0000 0000            0000 0000\n",
-    "* 192\t         \t168\t          \t    0\t            \t0\n",
-    "* 最后转为十进制就可以看出前两组数为网络号，后组为主机号\n",
-    "\n",
-    "* 想要连接多个电脑形成网络，不能拆网线，应该加设备，比如hub集线器缺点是一直在广播，容易卡\n",
-    "* 交换机更强，该广播的时候广播，该单播的时候单播、\n",
-    "* 发送数据时必须带上对方的mac地址，对方用于识别是否丢掉接收到的数据\n",
-    "* 首先看arp广播列表中有没有对方的mac地址，若没有则通过arp广播，发给交换机，然后通过共有的mac地址(ff:ff:ff:ff:ff)传给所有连接的电脑\n",
-    "* 传到IP层通过特殊方法识别出正确的目的地，对方返回给发送者，获得对方IP的mac地址，之后通过单播发送数据\n",
-    "\n",
-    "* 路由器最核心的功能是链接2个以上的网(交换机)形成1张大网，即1个路由器里面有多个网卡，分别链接多个网络\n",
-    "把具有接发数据能力的机器称为网关，一般就是路由器\n",
-    "在发送给路由器的数据包中，会带上原IP和原mac以及路由器的mac和目标IP，传到路由器之后由路由器转换为目标IP的mac地址\n",
-    "在传送的过程中，每经过1次转换mac地址就变1次，IP地址不变，因为IP地址仅仅是在逻辑上标记\n",
-    "每个大区都有自己的DNS服务器\n",
-    "浏览器向服务器发送请求大致过程如下\n",
-    "1.解析域名：先通过arp获得默认网关的mac地址-向网关发送带有域名的请求-经过一层层互联网的mac地址的转换-传到DNS服务器查找对应IP地址-回送接收\n",
-    "2.向服务器发送tcp 3次握手\n",
-    "3.发送http的请求数据以及等待服务器的应答\n",
-    "4.发送tcp 4次挥手"
-   ]
-  },
+* 操作系统的内存分为 内核的内存 和 普通进程使用的
+* 每一次调用应用程序 就是把普通进程使用的内存中的内容 复制到内核内存区 查找调用相关内容
+* 单进程单线程的效率瓶颈与 遍历一遍列表所需的时间有关 即轮询(Select)
+* epoll ：有一个内存空间是http服务器和kernel共享的(内存映射) 减少复制的过程 并且所有套接字不通过轮询 而是通过事件通知来提高效率
+* epoll仅支持linux 不支持Windows
+
+```python
+from socket import *
+import re
+import select
+def service_client(client_socket, request):
+    ''' 接收请求头'''
+    #request = client_socket.recv(1024).decode('utf-8')
+    #print(request)
+    request_lines = request.splitlines()
+    ret = re.search(r\/[^/1|\\D]*[^\\s]*\,request_lines[0]) if len(request_lines) else None
+    file_name = ret.group(0) if ret else \baidu.html\
+    print(\请求访问\,file_name)
+    try:
+        f = open(file_name[1:],'rb')
+    except:
+        headers = \HTTP/1.1 404 NOT FOUND\\r\\n\
+        headers = headers + \\\r\\n\
+        client_socket.send(headers.encode('utf-8'))
+    else:
+        content = f.read()
+        f.close()
+        ''' 打开成功就返回状态码200'''
+        response_body = content
+        response_header = \HTTP/1.1 200 OK\\r\\n\
+        response_header += \Content-Length:%d\\r\\n\% len(response_body) 
+# 在长连接的链接中 规定内容长度来验证每一次的请求 是否接收完数据
+        response_header += \\\r\\n\
+        response = response_header.encode(\utf-8\) + response_body
+        client_socket.send(response)
+    #client_socket.close() # 不断开保持长连接
+def main():
+    tcp_server_socket = socket(AF_INET,SOCK_STREAM)
+    tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) 
+    tcp_server_socket.bind((\127.0.0.1\,7788)) 
+    tcp_server_socket.listen(128) 
+    tcp_server_socket.setblocking(False)
+    # 创建一个epoll对象
+    epl = select.epoll()
+    epl.register(tcp_server_socket.fileno(),select.EPOLLIN)
+    client_socket_list = list()
+    fd_event_dict = dict()
+    while True: 
+        fd_event_list = epl.poll() #默认堵塞 直到os检测到数据到来 通过事件通知方式告诉程序 解堵塞 返回列表中的每一个值都是元组[(fd,event),(套接字对应的文件描述符，这个文件描述符到底是什么事件 例如可以调用recv接收等)]
+        for fd,event in fd_event_list:
+            if fd == tcp_server_socket.fileno():
+                client_socket,clientaddr = tcp_server_socket.accept()
+                print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
+                epl.register(client_socket.fileno(),select.EPOLLIN)
+                fd_event_dict[client_socket.fileno()] = client_socket
+            elif event == select.EPOLLIN:
+                # 判断已经连接的客户端是否有数据发送过来
+                recv_data = fd_event_dict[fd].recv(1024).decode(\utf-8\) 
+                if recv_data:
+                    service_client(fd_event_dict[fd], recv_data)
+                else:
+                    print('客户端调用close')
+                    fd_event_dict[fd].close()
+                    epl.unregister(fd)
+                    del fd_event_dict[fd]
+    tcp_server_socket.close() # 最后关服务器的监听套接字
+if __name__ == \__main__\:
+    main()
+```
+    
+## tcp/ip协议族  --- 一类协议的简称
+* 应用层 HTTP协议/QQ 原始套接字可以从应用层直接到IP(网络攻击) (加请求头 包装请求体)
+* 传输层 TCP / UDP 二者端口号可以重复 (加原/目的端口)
+* 网际层 IP / 域名 / ICMP (加原/目的IP)
+* 网络接口层 (加原/目的mac地址)
+
+## OSI协议族分7层 但还是源于tcp/ip
+* 应用层 表示层 会话层 对应应用层
+* 传输层 对应传输层
+* 网络层 对应网际层
+* 数据链路层 物理层 对应网络接口层
+
+## 两台电脑之间可以通过网络连接直接通信,但需要设置好IP和网络掩码,IP地址需要控制在同一网段
+* 子网掩码用于确定网络号和主机号 确定处于同一局域网的IP
+* 192              168                  0                147
+* 1100 0000       1010 1000          0000 0000         1001 0011
+* 默认生成子网掩码
+* 255  \t           \t255 \t\t     255\t\t         0
+* 1111 1111       1111 1111       1111 1111          0000 0000
+* 按位与 与子网掩码的每一个二进制比较  只有全是1 才输出1 否则输出0 
+* 1100 0000       1010 1000         0000 0000            0000 0000
+* 192\t         \t168\t          \t    0\t            \t0
+* 最后转为十进制就可以看出前两组数为网络号，后组为主机号
+* 想要连接多个电脑形成网络，不能拆网线，应该加设备，比如hub集线器缺点是一直在广播，容易卡
+* 交换机更强，该广播的时候广播，该单播的时候单播、
+* 发送数据时必须带上对方的mac地址，对方用于识别是否丢掉接收到的数据
+* 首先看arp广播列表中有没有对方的mac地址，若没有则通过arp广播，发给交换机，然后通过共有的mac地址(ff:ff:ff:ff:ff)传给所有连接的电脑
+* 传到IP层通过特殊方法识别出正确的目的地，对方返回给发送者，获得对方IP的mac地址，之后通过单播发送数据
+* 路由器最核心的功能是链接2个以上的网(交换机)形成1张大网，即1个路由器里面有多个网卡，分别链接多个网络
+把具有接发数据能力的机器称为网关，一般就是路由器
+在发送给路由器的数据包中，会带上原IP和原mac以及路由器的mac和目标IP，传到路由器之后由路由器转换为目标IP的mac地址
+在传送的过程中，每经过1次转换mac地址就变1次，IP地址不变，因为IP地址仅仅是在逻辑上标记
+每个大区都有自己的DNS服务器
+浏览器向服务器发送请求大致过程如下
+1.解析域名：先通过arp获得默认网关的mac地址-向网关发送带有域名的请求-经过一层层互联网的mac地址的转换-传到DNS服务器查找对应IP地址-回送接收
+2.向服务器发送tcp 3次握手
+3.发送http的请求数据以及等待服务器的应答
+4.发送tcp 4次挥手
+
   {
    "cell_type": "code",
    "execution_count": 1,
@@ -3202,3 +3129,79 @@
     "print(c.x)\n",
     "c.x = 18\n",
     "print(c.x,c.size,c.getsize)\n"]}
+
+
+
+# ipython
+[详见CSDN](https://blog.csdn.net/lb245557472/article/details/80078882),
+- Ctrl-P    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令,
+- Ctrl-N   或下箭头键 前向搜索命令历史中以当前输入的文本开头的命令,
+- Ctrl-R   按行读取的反向历史搜索（部分匹配）,
+- Ctrl-Shift-v   从剪贴板粘贴文本,
+- Ctrl-C   中止当前正在执行的代码,
+- Ctrl-A   将光标移动到行首,
+- Ctrl-E   将光标移动到行尾,
+- Ctrl-K   删除从光标开始至行尾的文本,
+- Ctrl-U   清除当前行的所有文本译注12,
+- Ctrl-F   将光标向前移动一个字符,
+- Ctrl-b   将光标向后移动一个字符,
+- Ctrl-L   清屏,
++ %quickref 显示IPython 的快速参考,
++ %magic 显示所有魔术命令的详细文档,
++ %debug 从最新的异常跟踪的底部进入交互式调试器,
++ %hist 打印命令的输入历史,
++ %reset 删除interactive命名空间中的全部变量/名称,
++ %page OBJECT 通过分页器打印输出OBJECT,
++ %prun 通过cProfile 执行 statement，并打印分析器的输出结果,
++ %who、%who_ls、%whos 显示interactive 命名空间中定义的变量，信息级别/冗余度可变,
++ %xdel variable 删除变量，并尝试清除其在ipython中的对象上的一切引用,
++ %run + 文件名 执行文件代码,
++ %paste %cpaste 执行剪切板里面的代码,
++ %timeit + 函数 对此运行函数求所需时间的平均值 ,
++ %pdb on/off [打开/关闭调试代码] p [打印出各种值] q [退出],
++ `_`一个下划线表示上一个历史命令,`__`两个下划线代表上两个历史命令,
++ `_34` 显示第34行的输出代码 `_i34` 显示第34行的输入代码,
++ 输入a之后按上下方向键就只会出现啊开头的历史命令,
++ %bookmark,
++ func?? 函数名加两个问号可以看到函数定义的代码,
++ a = [];a.a*? 查询a开头的方法,
++ 直接运行ipconfig不行,需要加个叹号：!ipconfig,
+# pdb 命令
++    1）进入命令行Debug模式，python -m pdb xxx.py,
++    2）h：（help）帮助,
++    3）w：（where）打印当前执行堆栈,
++    4）d：（down）执行跳转到在当前堆栈的深一层（个人没觉得有什么用处）,
++    5）u：（up）执行跳转到当前堆栈的上一层,
++    6）b：（break）添加断点,
+> + 列出当前所有断点，和断点执行到统计次数,
+> + line_no：当前脚本的line_no行添加断点,
+> + filename:line_no：脚本filename的line_no行添加断点,
+> + function：在函数function的第一条可执行语句处添加断点,
++    7）tbreak：（temporary break）临时断点,
+> + 在第一次执行到这个断点之后，就自动删除这个断点，用法和b一样,
++    8）cl：（clear）清除断点,
+> + 清除所有断点,
+> + bpnumber1 bpnumber2... 清除断点号为bpnumber1,bpnumber2...的断点,
+> + lineno 清除当前脚本lineno行的断点,
+> + filename:line_no 清除脚本filename的line_no行的断点,
++    9）disable：停用断点，参数为bpnumber，和cl的区别是，断点依然存在，只是不启用,
++    10）enable：激活断点，参数为bpnumber,
++    11）s：（step）执行下一条命令,
+> + 如果本句是函数调用，则s会执行到函数的第一句,
++    12）n：（next）执行下一条语句,
+> + 如果本句是函数调用，则执行函数，接着执行当前执行语句的下一条。,
++    13）r：（return）执行当前运行函数到结束,
++    14）c：（continue）继续执行，直到遇到下一条断点,
++    15）l：（list）列出源码,
+> + 列出当前执行语句周围11条代码,
+> + first 列出first行周围11条代码,
+> + first second 列出first--second范围的代码，如果second<first，second将被解析为行数,
++    16）a：（args）列出当前执行函数的函数,
++    17）p expression：（print）输出expression的值,
++    18）pp expression：好看一点的p expression,
++    19）run：重新启动debug，相当于restart,
++    20）q：（quit）退出debug,
++    21）j lineno：（jump）设置下条执行的语句函数,
+> + 只能在堆栈的最底层跳转，向后重新执行，向前可直接执行到行号,
++    22）unt：（until）执行到下一行（跳出循环），或者当前堆栈结束,
++    23）condition bpnumber conditon，给断点设置条件，当参数condition返回True的时候bpnumber断点有效，否则bpnumber断点无效
