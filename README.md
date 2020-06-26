@@ -106,6 +106,7 @@
 * [C语言程序设计方法及在线实践--浙江高校在线教育平台](https://www.zjooc.cn/course/2c9180886d49d103016d49ecbb2a0833)
 * [图解C编程--智慧树](https://coursehome.zhihuishu.com/courseHome/2061105#teachTeam)
 * [C&C++参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
+* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/C_NOTE.md)
 
 
 ## Go
