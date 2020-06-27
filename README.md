@@ -192,7 +192,7 @@
 
 ## data analysis
 ### videos
-* [数据分析师（入门）-DC学院](https://www.bilibili.com/video/BV1at411G73z)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/data_analysis/%E8%B5%84%E6%96%99%E5%8C%BA)
+* [数据分析师（入门）-DC学院](https://www.bilibili.com/video/BV1at411G73z)&[备用](https://www.bilibili.com/video/BV1Y7411v7T1?p=52)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/data_analysis/%E8%B5%84%E6%96%99%E5%8C%BA)
 ### books
 + [数据分析入门学习](https://mp.weixin.qq.com/s/uYk9VEDLhJN_nsTHxiz4PQ)
 
