@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html><html><head><title>基于HTML网页的爬虫</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+
+
+
+
+
+<h2 id="基于HTML网页的爬虫">基于HTML网页的爬虫</h2>
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com/#/index" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+<p> <br>
+&nbsp;</p>
+
+
+
+
+<h3 id="安装-beatifulsoup">安装 BeatifulSoup</h3>
+
+<blockquote>
+  <p><em>进入你创建的环境，比如课程中是执行<code>activate course_py35</code>进入之前创建的 course_py35 这个环境</em></p>
+</blockquote>
+
+<p>可以通过 pip 来安装BeautifulSoup4 <br>
+<code>pip install beautifulsoup4</code> <br>
+&nbsp;</p>
+
+
+
+<h3 id="jupyter-中实现网页的获取">Jupyter 中实现网页的获取</h3>
+
+<p>运行以下代码看BeautifulSoup 是否正常安装（若未提示错误则表示正常） <br>
+<code>from bs4 import BeautifulSoup</code> <br>
+&nbsp; <br>
+输入课程中的示例网页代码：</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-htmlbars hljs"><span class="xml">html_doc = """ <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>The Dormouse's story<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>The Dormouse's story<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"story"</span>&gt;</span>Once upon a time there were three little sisters; and their names were <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com/elsie"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sister"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"link1"</span>&gt;</span>Elsie<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com/lacie"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sister"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"link2"</span>&gt;</span>Lacie<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> and <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com/tillie"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sister"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"link3"</span>&gt;</span>Tillie<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>; and they lived at the bottom of a well.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"story"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> """</span><br></code></pre>
+
+<p>&nbsp; <br>
+使用BeautifulSoup解析HTML文档 <br>
+<code>soup = BeautifulSoup(html_doc,‘html.parser’)</code> <br>
+<em>“html_doc”表示这个文档名称，在上面的代码中已经定义，“html_parser”是解析网页所需的解析器，所以使用BeautifulSoup解析HTML文档的一般格式为<code>soup=BeautifulSoup(网页名称，'html.parser')</code></em> <br>
+&nbsp; <br>
+用 soup.prettify 打印网页 <br>
+<code>print(soup.prettify())</code>  <br>
+<em>BeautifulSoup 中 “soup.prettify” 这个方法可以让网页更加友好地打印出来 </em></p>
+
+<p>&nbsp; <br>
+<strong>BeautifulSoup 解析网页的一些基本操作</strong></p>
+
+<p>在 BeautifulSoup 中，通过<code>soup.……</code>的形式来调用一个方法 <br>
+<code>soup.title</code>：返回title部分的全部内容 <code>&lt;title&gt;The Dormouse's story&lt;/title&gt;</code></p>
+
+<p><code>soup.title.name</code>：返回title标签的名称<code>'title'</code></p>
+
+<p><code>soup.title.string</code>：返回这个标签的内容<code>"The Dormouse's story"</code></p>
+
+<p><code>soup.find_all(‘a’)</code>：返回所有超链接的元素如下： <br>
+<code>&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;, <br>
+ &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;, <br>
+ &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</code></p>
+
+<p><code>soup.find(id="link3")</code>：返回 id=link3 部分的内容，如下： <br>
+<code>&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</code></p>
+
+<p>&nbsp;</p>
+
+
+
+<h3 id="爬取national-weather的天气数据">爬取“NATIONAL WEATHER”的天气数据</h3>
+
+<p>课程示例的旧金山天气页面地址为：</p>
+
+<p><a href="http://forecast.weather.gov/MapClick.php?lat=37.77492773500046&amp;lon=-122.41941932299972#.WUnSFhN95E4" target="_blank">http://forecast.weather.gov/MapClick.php?lat=37.77492773500046&amp;lon=-122.41941932299972#.WUnSFhN95E4</a></p>
+
+<blockquote>
+  <p>可以在浏览器提供的开发者工具中查看代码：<em>更多工具 &gt; 开发者工具</em></p>
+</blockquote>
+
+<p>&nbsp; <br>
+1.通过url.request 返回网页内容</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br>weather_url=<span class="hljs-string">'http://forecast.weather.gov/MapClick.php?lat=37.77492773500046&amp;lon=-122.41941932299972'</span><br>web_page=urlrequest.urlopen(weather_url).read()<br>print(web_page)<br></code></pre>
+
+<p>&nbsp; <br>
+2.通过 BeautifulSoup 来抓取网页中的天气信息</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br>soup=BeautifulSoup(web_page,<span class="hljs-string">'html.parser'</span>)<br>print(soup.find(id=<span class="hljs-string">'seven-day-forecast-body'</span>).get_text())<br></code></pre>
+
+<p><em>当然，你可以通过prettify输出一个美观的网页代码</em></p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br>soup=BeautifulSoup(web_page,<span class="hljs-string">'html.parser'</span>)<br>print(soup.find(id=<span class="hljs-string">'seven-day-forecast-container'</span>).prettify())<br></code></pre>
+
+<p>&nbsp; <br>
+3.将天气数据完整有序地抽取出来</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs">soup_forecast=soup.find(id=<span class="hljs-string">'seven-day-forecast-container'</span>)<br>date_list=soup_forecast.find_all(class_=<span class="hljs-string">'period-name'</span>)<br>desc_list=soup_forecast.find_all(class_=<span class="hljs-string">'short-desc'</span>)<br>temp_list=soup_forecast.find_all(class_=<span class="hljs-string">'temp'</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):<br>    date=date_list[i].get_text()<br>    desc=desc_list[i].get_text()<br>    temp=temp_list[i].get_text()<br>    print(<span class="hljs-string">"{}{}{}"</span>.format(date,desc,temp))<br></code></pre>
+
+<p>&nbsp; <br>
+综合上述，这个简单爬虫的完整代码如下，注意每个步骤的作用</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-comment">#导入需要的包和模块，这里需要的是 urllib.request 和 Beautifulsoup</span><br><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-comment">#通过urllib来获取我们需要爬取的网页</span><br>weather_url=<span class="hljs-string">'http://forecast.weather.gov/MapClick.php?lat=37.77492773500046&amp;lon=-122.41941932299972'</span><br>web_page=urlrequest.urlopen(weather_url).read()<br><br><span class="hljs-comment">#用 BeautifulSoup 来解析和获取我们想要的内容块</span><br>soup=BeautifulSoup(web_page,<span class="hljs-string">'html.parser'</span>)<br>soup_forecast=soup.find(id=<span class="hljs-string">'seven-day-forecast-container'</span>)<br><br><span class="hljs-comment">#找到我们想要的那一部分内容</span><br>date_list=soup_forecast.find_all(class_=<span class="hljs-string">'period-name'</span>)<br>desc_list=soup_forecast.find_all(class_=<span class="hljs-string">'short-desc'</span>)<br>temp_list=soup_forecast.find_all(class_=<span class="hljs-string">'temp'</span>)<br><br><span class="hljs-comment">#将获取的内容更好地展示出来，用for循环来实现</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):<br>    date=date_list[i].get_text()<br>    desc=desc_list[i].get_text()<br>    temp=temp_list[i].get_text()<br>    print(<span class="hljs-string">"{}{}{}"</span>.format(date,desc,temp))<br></code></pre>
+
+<p>&nbsp; <br>
+&nbsp;</p>
+
+
+
+<h3 id="完成一个作业">完成一个作业</h3>
+
+<p>&nbsp; <br>
+将电影<a href="https://movie.douban.com/subject/26387939/" target="_blank">《摔跤吧，爸爸》</a>的豆瓣评分抓取下来。</p>
+
+<p>&nbsp;</p>
+
+<p>参考代码如下：题目很简单，务必先自己练习。</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br>douban_url=<span class="hljs-string">'https://movie.douban.com/subject/26387939/'</span><br>page=urlrequest.urlopen(douban_url).read()<br><br>soup=BeautifulSoup(page,<span class="hljs-string">'html.parser'</span>)<br>score=soup.find(class_=<span class="hljs-string">'ll rating_num'</span>).get_text()<br><br>print(score)<br></code></pre>
+
+<p>也许你也可以尝试去抓取电影的基本信息，海报等等。</p></div></body></html><br><br><br><br>
+
+<!DOCTYPE html><html><head><title>基于网页的爬虫</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+
+
+
+
+
+<h2 id="补充知识">补充知识</h2>
+
+
+
+
+
+
+<h3 id="1解析html网页">1.解析HTML网页</h3>
+
+<p>不同于API爬取得到的是JSON 格式的数据，需要用到JSON库来处理，基于网页的爬虫返回的HTML页面需要用BeautifulSoup库来解析。</p>
+
+
+
+<h4 id="beautifulsoup解析html">BeautifulSoup解析HTML</h4>
+
+<p>BeautifulSoup库的主要功能是：</p>
+
+<ul><li>通过find函数，利用tag来返回相应的代码块</li>
+<li>通过prettify函数，可以友好地打印HTML网页</li>
+<li>使用next&amp;previous函数寻求上下文的tag</li>
+</ul>
+
+<p><strong>help函数</strong> <br>
+在遇见一个陌生的Python库时，第一个就是查看帮助信息，调用help函数，如<code>help(BeautifulSoup)</code>就可以调出帮助信息，通过help文档你可以看到BeautifulSoup库中各种函数的详细用法。</p>
+
+<p><strong>链接材料</strong></p>
+
+<ul><li><a href="https://zhuanlan.zhihu.com/p/20422860" target="_blank">Python之BeautifulSoup（下）</a> <br>
+详细了解find&amp;find_all&amp;get_text函数的用法</li>
+<li>请阅读<a href="http://www.cnblogs.com/twinsclover/archive/2012/04/26/2471704.html" target="_blank">用python的BeautifulSoup分析html</a>，在认真阅读2.3基于网页的爬虫-HTML基础补充资料中的HTML各个元素所表征的信息之后，操作解析相关函数。</li>
+</ul>
+
+<p>学有余力的话，请阅读<a href="http://blog.csdn.net/wang1144/article/details/40502423?locationNum=2&amp;fps=1" target="_blank">BeautifulSoup官方文档</a>，如果能够独立操作这个文档的所有内容，相信你在爬虫高手这条路上已经甩开大部分人啦。</p>
+
+
+
+
+
+
+
+<h3 id="2format函数">2.format函数</h3>
+
+<p>仔细阅读课后复习材料，你会注意到<code>print("{}{}{}".format(date,desc,temp))</code>这样一个表达式，用format函数串联起三个字符串，format函数在Python中的作用巨大，请阅读<a href="http://blog.csdn.net/handsomekang/article/details/9183303" target="_blank">Python的format函数</a>。</p>
+
+<p>format函数可以操作字符串的强大函数，本质是将被操作对象当做一个模板，并更改传入的参数</p>
+
+<blockquote>
+  <p>{}：表示预留的位置 <br>
+  format.()：括号里表示需要传递的字符串 <br>
+  位置、关键字参数、对象属性、下标来进行参数的传递。</p>
+</blockquote>
+
+<p>示例：</p>
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><br>c = <span class="hljs-string">"{0}{1}"</span>.format(<span class="hljs-string">"hello"</span>,<span class="hljs-string">"world!"</span>)<br>print(c)<br><br>url = <span class="hljs-string">"http://www.pkbigdata.com"</span><br>sub = <span class="hljs-string">"/common/cmptIndex.html"</span><br>web = <span class="hljs-string">"{0}{1}"</span>.format(url,sub)<br>print(web)<br></code></pre>
+
+<p>输入以上代码，你将得到hello word的输出和url网址的输出，在连续爬取多个网页的信息时，这个函数就可以实现url地址的变化。</p>
+
+<p>跟着链接中的内容进行操作，你需要掌握以下内容：</p>
+
+<ul><li>使用format函数进行参数的映射</li>
+<li>调整输出的格式（精度、填充、对齐等格式）</li>
+</ul>
+
+<h2 id="扩展阅读">扩展阅读</h2>
+解析HTML还有一个重要的工具---正则表达式，学有余力的你可以尝试用不同的方法解析HTML。
+<h3 id="正则表达式解析html">正则表达式解析HTML</h3>
+
+<p><strong>正则表达式</strong> <br>
+正则表达式的原理是依次拿出表达式和文本中的字符进行比较，并有其匹配的规则，例如最简单的有：</p>
+
+<blockquote>
+  <p><code>.</code>可以匹配任意字符 <br>
+  <code>\d</code>用于匹配任意的数字 <br>
+  那么<code>.\d</code>就可以用于匹配<code>a1</code></p>
+</blockquote>
+
+<p>这里使用到的是re库，常用于解析HTML的函数有re.match,re.search等等。示例：</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> re<br>url = <span class="hljs-string">"http://www.baidu.com"</span><br>w = <span class="hljs-string">"www."</span><br>m = re.search(w,url)<br><span class="hljs-keyword">if</span> m:<br>    print(m.group())<br><span class="hljs-keyword">if</span> m == <span class="hljs-keyword">False</span>:<br>    print(<span class="hljs-string">'cannot match'</span>)<br><span class="hljs-comment">#返回：www.</span><br></code></pre>
+
+<p>爬虫返回的html页面也是字符串类型，使用re库函数，可以用正则表达式来匹配。</p>
+
+<p><strong>链接材料</strong></p>
+
+<ul><li>请阅读<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143193331387014ccd1040c814dee8b2164bb4f064cff000" target="_blank">正则表达式</a>，学习匹配方法、re模块、切分字符串、分组、贪婪匹配这五块内容。 <br>
+并独立完成末尾的小练习，进行邮箱地址的匹配</li>
+<li>请阅读<a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank">Python正则表达式指南</a>中图片的部分，了解更多关于Python正则表达式的用法</li>
+<li>请阅读<a href="http://www.th7.cn/Program/Python/201605/868309.shtml" target="_blank">[Python]爬虫，正则表达式解析网页及Json序列化</a>链接中re模块的函数match,research,findall的使用</li>
+</ul>
+
+<p>也许你并不能在短时间内记忆正则表达式的大部分使用方法，这也不是这门课程的必学内容，但请你掌握正则表达式的大致思想，在今后遇见特定的场合，可以马上回想起正则表达式是如何支持你预想的操作。</p>
+
+<p>学习完正则表达式之后，是否觉得BeautifulSoup 包十分方便可爱呢，的确在解析HTML网页方面，使用BeautifulSoup库进行解析是十分方便的，正则表达式主要自己编写，但在处理纯文本数据的时候，正则表达式就十分灵活。</p>
+
+<p>恭喜你！你已经完成2.4节补充材料的阅读。现在可以选择重复阅读，或者进入到下一环节。</p></div></body></h
+
+</ul></div>
+<br><br>
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="https://class.pkbigdata.com/#/index" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>

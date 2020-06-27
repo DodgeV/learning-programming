@@ -1,0 +1,200 @@
+<!DOCTYPE html><html><head><title>SQLite及MongoDB</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+      
+
+
+
+<h2 id="python基础知识">Python基础知识</h2>
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp; &nbsp; &nbsp;<a href="https://class.pkbigdata.com/#/index" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+<p>
+</p><p>&nbsp;</p>
+
+<p>Python作为一门高级编程语言，提供了非常完善的基础代码库，使用Python可以实现数据分析的核心部分，在进入Pyhton爬虫课程之前，需要你先熟悉掌握Python的基础编程技能。</p>
+<br>
+
+<h3 id="写在前面">写在前面：</h3>
+
+
+
+<h4 id="python-2x-和python3x的区别">Python 2.x 和Python3.x的区别</h4>
+
+<p>本学习材料可能会涉及部分Python2.x的参考链接，为了更好地学习Python的操作以及方便你后续进行自主学习，请阅读以下材料了解Python 2.x 和Python3.x的区别，并在阅读后文过程中，尝试识别Python 2.x的材料以及改写成3.x的代码：</p>
+
+<ul><li><a href="http://www.runoob.com/python/python-2x-3x.html" target="_blank">Python2.x与3​​.x版本区别</a></li>
+<li><a href="http://www.jb51.net/article/57956.htm" target="_blank">Python 2.7.x 和 3.x 版本的重要区别小结</a></li>
+<li><a href="http://www.cnblogs.com/codingmylife/archive/2010/06/06/1752807.html" target="_blank">Python3.x和Python2.x的区别</a></li>
+</ul>
+<h3 id="1python基础介绍">1.Python基础介绍</h3>
+
+<p>Python变量、运算符和表达式是实现Python编程的基础，认真阅读给出的材料，相信你会对Python有一个基本的了解：        </p>
+
+
+
+<h4 id="11存储为以py为扩展名的文本文件">1.1存储为以.py为扩展名的文本文件</h4>
+
+
+
+<h4 id="12解释器">1.2解释器</h4>
+
+<p>要运行以.py为扩展名的代码就需要用Python解释器来运行，主流的解释器有CPython、IPython、PyPy等</p>
+
+
+
+<h4 id="13变量">1.3变量</h4>
+
+<p>变量是Python编程的最小单位，作为入门新手的你，需要掌握变量是如何定义、被赋值和命名变量的规范。</p>
+
+<p>请阅读<a href="http://www.iplaypy.com/jichu/var.html" target="_blank">Python变量的定义命名规范和赋值</a>，并跟随内容进行操作。</p>
+
+
+
+<h4 id="14运算符">1.4运算符</h4>
+
+<p>运算符是支撑表达式非常重要的部分，请阅<a href="http://www.runoob.com/python3/python3-basic-operators.html" target="_blank">Python运算符</a>，需要你重点掌握：1）算术运算符：用以支持算术运算；2）比较运算符：对两个变量或值进行比较；3)赋值运算符：顾名思义即对变量进行赋值； 4)逻辑运算符：用以连接逻辑关系，进行或、且、非等逻辑判断。</p>
+
+
+
+<h4 id="15表达式">1.5表达式</h4>
+
+<p>Python表达式是将不同的数据，包括变量、函数（后文会作为重点部分详细介绍），用运算符按照一定规则连接起来的句子,如:</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs">a = <span class="hljs-number">3</span><br>b = <span class="hljs-number">4</span><br>print(a +b)<br></code></pre>
+
+<p>学习如何将这一行表达式按照一定的规律组合搭建起来，就需要你继续学习数据结构、语句表达式和控制流的内容。</p>
+<br>
+<br>
+
+<h3 id="2数据结构列表字典集合">2．数据结构：列表、字典、集合</h3>
+
+<p>Python的组合数据类型在实际使用中尤为重要，这部分的知识可以帮助你选择一个正确且合适的数据结构来解决具体遇见的问题，这门课程要求你熟悉Python数据结构中的：字符串、列表。</p>
+
+
+
+<h4 id="21-python字符串string">2.1 Python字符串string</h4>
+
+<p>阅读<a href="http://www.runoob.com/python3/python3-string.html" target="_blank">Python3 字符串</a>掌握字符串访问、更新、转义字符、字符串运算符这四块内容。</p>
+
+
+
+<h4 id="22-python列表list">2.2 Python列表list</h4>
+
+<p>阅读<a href="http://www.runoob.com/python3/python3-list.html" target="_blank">Python3 列表</a>掌握列表的创建、访问、更新、脚本操作符、截取与拼接、列表函数这几块内容。</p>
+
+<p>*部分涉及到控制流的判断条件语句，可以留待1.3和1.4完成后再返回阅读。</p>
+
+
+
+<h4 id="23对python其他数据类型进行探索">2.3对Python其他数据类型进行探索</h4>
+
+
+<ul><li>阅读阅读<a href="http://www.yiibai.com/python/python_tuples.html" target="_blank">Python元组（Tuple）</a>中1-6点</li>
+<li>阅读<a href="http://www.runoob.com/python3/python3-dictionary.html" target="_blank">Python字典（Dict）</a>并操作1-5点内容</li>
+<li>推荐书籍：《Data Structures and Algorithms Using Python》</li>
+</ul>
+
+<p>入门一门语言最快的方法，不是阅读最多的材料，而是不停地练习，让Python的编程成为你的习惯，跟着链接中的步骤一步步敲下来，只有不停积累才能看到成果。</p>
+<br>
+<br>
+
+
+<h3 id="3def语句lambda表达式">3.Def语句、lambda表达式</h3>
+
+
+
+<h4 id="31def语句">3.1def语句：</h4>
+
+<p>用于定义一些固定的方法和流程，使得代码变得更简洁和更具有可迁移性。 <br>
+请阅读<a href="https://www.kancloud.cn/kancloud/learn-python-hard-way/49893" target="_blank">笨办法学Python</a>目录中18-21节的内容，掌握def函数的格式、变量命名规则、参数的传递、返回的结果和打印值。 <br>
+Practice Makes Perfect 永远不要害怕尝试！</p>
+
+
+
+<h4 id="32lambda表达式">3.2Lambda表达式：</h4>
+
+<p>在Python里面编写函数有两种方式，一个是def函数，一种是lambda表达式，def语句可以用嵌套来实现更为复杂的功能，而lambda表达式的最大优点就是简洁，这两种方式可以在很多场景下实现同一功能，但各有所长，请阅读<a href="https://foofish.net/lambda.html" target="_blank">什么时候使用Lambda函数？</a>并跟着指导码一遍代码。</p>
+
+<p>学有余力的话，可以继续以下内容：</p>
+
+<ul><li><p>内置函数：  Python内置有非常多的函数，可以极大地提高你代码的效率。请阅读<a href="http://www.runoob.com/python/python-built-in-functions.html" target="_blank">Python 内置函数</a>，并对比def或lambda来实现函数的方法，体会内置函数的便捷。</p></li>
+<li><p>lambda表达式的高级功能：  了解lambda表达式高端玩法，如闭包、装饰器等 <br>
+<a href="http://blog.csdn.net/zhzhl202/article/details/7524609" target="_blank"> Python高级特性</a> <br>
+<a href="http://www.alonely.com.cn/Python/20161102/64668.html" target="_blank">python lambda Python的几个高级语法概念浅析(lambda表达式闭包装饰器)</a></p></li>
+<li>高级函数模块：  请阅读<a href="http://blog.csdn.net/werm520/article/details/7711896" target="_blank">Python高级函数模块</a>中map,filter,reduce,列表解析等内容</li>
+</ul>
+<br>
+<br>
+
+
+<h3 id="4控制流">4．控制流</h3>
+
+<p>学过Python的表达式、函数之后，你是否有个疑问：Python是用什么样的顺序将这些部分组成起来的？ Python有三种控制流，if/for/while来控制表达式执行的顺序。if用以实现条件判断；for&amp;while语句用以实现循环。这一节的学习需要用到前面补充的知识基础，请确认你前三个小结的基础知识已经学习完成。</p>
+
+
+
+<h4 id="41条件语句">4.1条件语句</h4>
+
+<p>阅读<a href="http://www.runoob.com/python/python-if-statement.html" target="_blank">Python if 条件语句</a>掌握每一个语句的语法格式和流程。</p>
+
+
+
+<h4 id="42循环语句">4.2循环语句</h4>
+
+<p>阅读Python的while/for循环语句</p>
+
+<ul><li><p><a href="http://www.runoob.com/python/python-for-loop.html" target="_blank">Python for 循环语句</a></p></li>
+<li><p><a href="http://www.runoob.com/python/python-while-loop.html" target="_blank">Python While 循环语句</a></p></li>
+</ul>
+
+<p><code>学完本节知识后，希望你可以不看标准答案，独立实现：1）while循环语句材料中：笔记列表的小游戏；2）for循环语句材料中：for使用案例</code></p>
+
+<p>在结束以上补充资料的学习之后，学有余力的话可以按顺序继续以下内容的学习：</p>
+
+<ul><li><p>实现循环嵌套:<a href="http://www.runoob.com/python/python-nested-loops.html" target="_blank">Python 循环嵌套</a>注意循环嵌套的缩进格式，请跟着指南自己操作1-2遍：</p></li>
+<li><p>循环的其他操作：</p>
+<ul>
+<li><p>break语句：<a href="http://www.runoob.com/python/python-break-statement.html" target="_blank">Python break 语句</a></p></li>
+<li><p>continue语句 <br>
+<a href="http://www.runoob.com/python/python-continue-statement.html" target="_blank">Python continue 语句</a></p></li>
+<li><p>死循环的暴力终止：ctrl+c <br>
+<code>break、continue语句的停止方式是有差别的，break跳出本层的循环，而continue跳出的是本次循环，但依旧在这一层内。在实际使用中需要加以区分。</code></p></li></ul></li>
+</ul>
+
+<h4 id="43循环语句">4.3异常处理</h4>
+<p>优雅地处理Python程序运行中的错误或异常是构建稳健的程序的重要环节。我们编写的程序在Python中运行时可能由于各种原因产生各种错误，比如NameError变量未申明错误，SyntaxError语法错误，IndexError索引错误，KeyError字典关键字错误，IOError输入输出错误，AttributeError访问位置对象属性，ValueError数值错误，TypeError类型错误等。</p>
+
+<p>为了让程序能够正确处理异常错误，让程序根据Python返回的各种错误自动采取不同的解决方式，我们一般会在程序中使用try／except来让程序运行地更加顺畅和稳健。</p>
+
+<h5>异常处理</h5>
+<ul>
+	<li><a href="http://blog.csdn.net/fcoolx/article/details/4202872%E2%80%A8" target="_blank">python中的异常类型</a></li>
+	<li><a href="https://www.douban.com/note/98754570/" target="_blank">try/except用法</a></li>
+	<li><a href="http://www.pythontab.com/html/2013/pythonjichu_0204/210.html" target="_blank">python程序异常处理方式</a></li>
+</ul>
+<br><br><br>
+
+<h3 id="拓展阅读">拓展阅读</h3>
+
+<p>在行业内颇有几年经验的程序员都不能保证自己是完全精通一门语言的，熟练Python基础知识补充材料可以让你很好的完成这门课程的学习，但对于有志于在这个行业闯出一番天地的你而言，还有更多材料等待你去阅读。下面推荐给你一些高质量的学习资料：</p>
+
+<ul><li><p><a href="https://docs.python.org/3/library/index.html" target="_blank">最权威的学习手册</a></p></li>
+<li><p><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank">廖雪峰的官方网站</a></p></li>
+<li><p><a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank">RUNOOB.COM</a></p></li>
+<li><p><a href="https://www.kancloud.cn/kancloud/learn-python-hard-way/49863" target="_blank">笨办法学python</a></p></li>
+</ul>
+
+</div>
+
+</ul></div>
+<br><br>
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="https://class.pkbigdata.com/#/index" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>
+
+<br><br><br><br></body></html>

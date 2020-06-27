@@ -1,0 +1,180 @@
+<!DOCTYPE html><html><head><title>预测型数据分析：用特征选择方法优化模型</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="预测型数据分析用特征选择方法优化模型">预测型数据分析：用特征选择方法优化模型</h2>
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+<p>本节课程的内容是特征选择，主要介绍的是如何从训练集合中挑选最合适的子集作为训练模型时所用的特征，使最终学习得到的模型的预测准确率最高，在了解过其基本的原理之后，就可以开始相应的实践操作</p>
+
+
+
+<h3 id="特征选择的定义">特征选择的定义：</h3>
+
+<p>特征选择( Feature Selection )也称特征子集选择( Feature Subset Selection , FSS )，或属性选择( Attribute Selection )。是指从已有的M个特征(Feature)中选择N个特征使得系统的特定指标最优化，是从原始特征中选择出一些最有效特征以降低数据集维度的过程，是提高学习算法性能的一个重要手段，也是模式识别中关键的数据预处理步骤。对于一个学习算法来说,好的学习样本是训练模型的关键。</p>
+
+
+
+<h3 id="特征选择的方法">特征选择的方法：</h3>
+
+<p><strong>数据驱动：</strong>分析手上已有的训练数据，得出哪些x里面的特征对预测y最重要的。主要的三大种类方法如下：</p>
+
+<ul><li><strong>相关性：</strong>考察在我们已有的数据里面的特征x与预测值y的相关度</li>
+<li><strong>迭代删除（增加）：</strong>确定要使用哪个算法后，选择最合适的训练子集，从而使得模型的效果最好</li>
+<li><strong>基于模型：</strong>通过随机森林等可以直接得出每个训练特征的重要性的模型；或者是在进行预测时加入的一些正则化调整，引起的对特征的筛选，从而挑选出最重要的特征</li>
+</ul>
+
+<p><strong>领域专家：</strong>通过相关领域的专家知识、经验来挑选特征</p>
+
+
+
+<h3 id="相关性系数皮尔逊系数">相关性系数：皮尔逊系数</h3>
+
+<p><strong>定义：</strong> <br>
+ 在统计学中，皮尔逊积矩相关系数（英语：Pearson product-moment correlation coefficient，又称作 PPMCC或PCCs, 文章中常用r或Pearson’s r表示）用于度量两个变量X和Y之间的相关（线性相关），其值介于-1与1之间。在自然科学领域中，该系数广泛用于度量两个变量之间的相关程度。它是由卡尔·皮尔逊从弗朗西斯·高尔顿在19世纪80年代提出的一个相似却又稍有不同的想法演变而来的。这个相关系数也称作“皮尔森相关系数r”。</p>
+
+<p><strong>公式：</strong> <br>
+ <span class="" rel="d6bc8b5f3a8b07b1c7a4eb1def96ce2e"><span class="MathJax_SVG" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="143.938" height="49.975" longdesc="__SVG__undefined" src="data:image/png;base64,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" style="margin-top:0;margin-bottom:0;"></span></span></span></p>
+
+<p><strong>Python实现：</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-keyword">from</span> scipy.stats.stats <span class="hljs-keyword">import</span> pearsonr
+</div><div class="hljs-line">pearsonr(x,y)
+</div></code></pre>
+
+
+
+<h3 id="迭代特征选择">迭代特征选择</h3>
+
+<p><strong>解决的问题：</strong>假设我们已经确定了要使用哪个算法后，我们怎么知道哪个X的子集合作为特征训练模型效果最好。</p>
+
+<p><strong>解决方案：</strong></p>
+
+<ul><li><strong>暴力解法：</strong>把所有可能的特征组合都试一遍，用交叉检验来看哪个特征子集预测效果最好</li>
+<li><p><strong>递增：</strong> <br>
+初始化：X’ = 空集，X”=X <br>
+<font color="blue" size="2">For <span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span> in X”: <br>
+ X’ + <span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span>作为特征集合训练 <br>
+选所有<span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span> 中训练得到模型最好的x’ <br>
+X’ = X’ + x’ <br>
+X” = X” - x’</font> <br>
+<font color="red">蓝色部分迭代直到新加入任何特征模型性能都无提升</font></p></li>
+<li><p><strong>递减：</strong> <br>
+初始化：X’ = X <br>
+<font color="blue" size="2">For <span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span> in X’: <br>
+ X’ - <span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span> 作为特征集合训练 <br>
+选所有<span xmlns="http://www.w3.org/1999/xhtml" class="" rel="dc80c8df8d6a3120a158fb62653b1321"><span class="MathJax_SVG" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11.975" height="9.975" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAATCAYAAAB7u5a2AAACBklEQVQ4T6XVSciOURQH8N+XkgWShVlJxkJKKJKFyFikhLCTIbJgiSQWpBQSmUKRspAiQ4lYICVFGbJAxmSeMne+zvv19Hmf9/3K3dyee//3f//3nPM/T4N/Ryd0xDgcwJdmkIEYiuP4UeV801JDYbMv1mIUeuf6ZUzD+/zehMVoj51Yhj9lFxTJB6MXbmEj5uWhkbiOzfmal5iE1YkrFV8kL4Im41QuLMVbLMcMfEM3PMCvloaliOuBa0lyAn2wADdrkHXBsIIoZcrb4gxG4x22Yn0N4lYIEVMxBacDW0Yee7uwKAkjDM9rkAfPEczGRJytRx7Ao0k4AedrxRet0RlPKrgy5QE8hukJXIMNdcgrYptKs4w8KiPq+SeGZDxnlZgmyje8EfMr7MfvsrBUMh6JWYk5uI+xeJHq2+Ej2mAV5iKcuwLbysISh6JKItY70oHbEzwcN3JtQM6xFRdcwggMwp0ieVRFjOgj6/A6azpi1w/3cn8PLqaZ4lVvcr0r7uIZws0fiuTF3nAOM/EpAR1wEmPyO8IS7i2aKcx1EHuxsJj0SGiojeZ0G0uqdMHx2Uc+p+qHBYI4vztJ45LDzckDEC02+kdjlquMeMH3KhdHd7yK7uhfSHgjRS2HtqCs9cRjXEjrR8yvZAn/N/l8HMIWfMUj7Kvn0JaoDkyF/GmaJ342TeMvH7JqFIIENf8AAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span> 中训练得到模型最好的x’ <br>
+X’ = X’ - x’</font> <br>
+<font color="red">蓝色部分迭代直到去除任何特征模型性能都会下降</font></p></li>
+</ul>
+
+<p><strong>迭代特征选择python实现：</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> pandas
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+</div><div class="hljs-line"><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+</div><div class="hljs-line"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> cross_val_score
+</div><div class="hljs-line"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> LabelEncoder
+</div><div class="hljs-line">
+</div><div class="hljs-line">iris =pandas.read_csv(<span class="hljs-string">'http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>,header=<span class="hljs-keyword">None</span>)
+</div><div class="hljs-line">iris.columns=[<span class="hljs-string">'SepalLengthCm'</span>,<span class="hljs-string">'SepalWidthCm'</span>,<span class="hljs-string">'PetalLengthCm'</span>,<span class="hljs-string">'PetalWidthCm'</span>,<span class="hljs-string">'Species'</span>]
+</div><div class="hljs-line">le = LabelEncoder()
+</div><div class="hljs-line">le.fit(iris[<span class="hljs-string">'Species'</span>])
+</div><div class="hljs-line">lm = linear_model.LogisticRegression()
+</div><div class="hljs-line">features = [<span class="hljs-string">'PetalLengthCm'</span>,<span class="hljs-string">'PetalWidthCm'</span>,<span class="hljs-string">'SepalLengthCm'</span>,<span class="hljs-string">'SepalWidthCm'</span>]
+</div><div class="hljs-line">y = le.transform(iris[<span class="hljs-string">'Species'</span>])
+</div><div class="hljs-line">
+</div><div class="hljs-line">selected_features = []
+</div><div class="hljs-line">rest_features = features[:]
+</div><div class="hljs-line">best_acc = <span class="hljs-number">0</span>
+</div><div class="hljs-line"><span class="hljs-keyword">while</span> len(rest_features)&gt;<span class="hljs-number">0</span>:
+</div><div class="hljs-line">    temp_best_i = <span class="hljs-string">''</span>
+</div><div class="hljs-line">    temp_best_acc = <span class="hljs-number">0</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span> feature_i <span class="hljs-keyword">in</span> rest_features:
+</div><div class="hljs-line">        temp_features = selected_features + [feature_i,]
+</div><div class="hljs-line">        X = iris[temp_features]
+</div><div class="hljs-line">        scores = cross_val_score(lm,X,y,cv=<span class="hljs-number">5</span> , scoring=<span class="hljs-string">'accuracy'</span>)
+</div><div class="hljs-line">        acc = np.mean(scores)
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span> acc &gt; temp_best_acc:
+</div><div class="hljs-line">            temp_best_acc = acc
+</div><div class="hljs-line">            temp_best_i = feature_i
+</div><div class="hljs-line">    print(<span class="hljs-string">"select"</span>,temp_best_i,<span class="hljs-string">"acc:"</span>,temp_best_acc)
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span> temp_best_acc &gt; best_acc:
+</div><div class="hljs-line">        best_acc = temp_best_acc
+</div><div class="hljs-line">        selected_features += [temp_best_i,]
+</div><div class="hljs-line">        rest_features.remove(temp_best_i)
+</div><div class="hljs-line">    <span class="hljs-keyword">else</span>: 
+</div><div class="hljs-line">        <span class="hljs-keyword">break</span>
+</div><div class="hljs-line">print(<span class="hljs-string">"best feature set: "</span>,selected_features,<span class="hljs-string">"acc: "</span>,best_acc)
+</div></code></pre>
+
+
+
+<h2 id="补充知识">补充知识</h2>
+
+
+
+<h3 id="参数文档">参数文档</h3>
+
+
+
+<h4 id="scipy">scipy</h4>
+
+<ul><li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" target="_blank">scipy.stats.pearsonr</a>，文档是对scipy.stats.pearsonr函数参数说明</li>
+</ul>
+
+
+
+<h4 id="sklearnpreprocessinglabelencoder">sklearn.preprocessing.LabelEncoder</h4>
+
+<ul><li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html" target="_blank">sklearn.preprocessing import LabelEncoder</a>文档是sklearn.preprocessing.LabelEncoder的参数说明</li>
+<li><a href="http://blog.csdn.net/wang1127248268/article/details/53580730" target="_blank">LabelEncoder的简单应用</a>，文档是sklearn LabelEncoder的简单应用</li>
+</ul>
+
+
+
+<h3 id="迭代特征选择优缺点解释">迭代特征选择优缺点解释</h3>
+
+
+
+<h4 id="暴力解法">暴力解法</h4>
+
+<ul><li>暴力解法的优点： <br>
+<ul>
+<li>效果最佳</li></ul></li>
+<li>暴力解法的缺点： <br>
+<ul>
+<li>时间成本高，训练效率低</li>
+<li>只适用于特征较少的情况</li></ul></li>
+</ul>
+
+
+
+<h4 id="迭代删除增加">迭代删除（增加）</h4>
+
+<ul><li>迭代删除（增加）的优点： <br>
+<ul>
+<li>减少训练时间</li></ul></li>
+<li>迭代删除（增加）的缺点： <br>
+<ul>
+<li>效果不如较暴力解法</li></ul></li>
+</ul>
+
+
+
+<h2 id="扩展阅读">扩展阅读</h2>
+
+
+
+<h3 id="特征工程">特征工程</h3>
+
+<p>有这么一句话在业界广泛流传：数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已。那特征工程到底是什么呢？顾名思义，其本质是一项工程活动，目的是最大限度地从原始数据中提取特征以供算法和模型使用。 <br>
+阅读<a href="https://www.zhihu.com/question/29316149" target="_blank">特征工程到底是什么？</a>，了解特征工程的含义</p></div></body></html>
+
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>

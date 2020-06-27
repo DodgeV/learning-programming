@@ -1,0 +1,261 @@
+<!DOCTYPE html><html><head><title>验证型数据分析实践</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="验证型数据分析实践">验证型数据分析实践</h2>
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+
+<p>回顾上节课中提过的验证型数据分析分为单样本、双样本检验两大类，这节课程中我们主要介绍如何进行这两类的检验和对应的检验方法</p>
+
+
+
+<h3 id="p-value">P-value</h3>
+
+<ul><li>P-value：是假设检验的一个重要概念，为在零假设成立的时候，观察到样本的概率</li>
+<li>如果小于我们设定的阈值，如5%，1%等的时候，我们转而接受备择假设，即P-value越小越拒绝原假设</li>
+<li>阈值的选择通常为5%，1%，0.1%，具体视情况而定</li>
+</ul>
+
+
+
+<h3 id="单样本检验">单样本检验</h3>
+
+
+
+<h4 id="单样本z检验">单样本z检验</h4>
+
+<ul><li><strong>假设：</strong> 要检验的统计量近似满足正态分布 <br>
+正态分布的密度函数：<span class="" rel="4619d47ecb9df0519279f4d4bb6ce232"><span class="MathJax_SVG" id="MathJax-Element-51-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="205" height="47" longdesc="__SVG__undefined" src="data:image/png;base64,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" style="margin-top:0;margin-bottom:0;"></span></span></span>，其中<span class="" rel="8cda31ed38c6d59d14ebefa440099572"><span class="MathJax_SVG" id="MathJax-Element-52-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="10" height="10" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABy0lEQVQ4T63US6iOURTG8d9JGblEuaXIdWAgRnIptyRDJZcMzAxM5E4pgzOQaybnlCElMlCScouikxIlZSAGSswPEyXRc9qvdm/fd75vYNU7ePda+7/Xs9bae8B/toE+eTMxA5OwChO67BvtBVyLPViJNX0cPtINmGwuYDum9AFqQoY7AZfhKtZVoB94j+mYjaf43TpoIobawAV4jEVV8DOcwTusxm28wU6MtqC/auBU3MGmKmgYR/CzWruEw8hBW9qZ1sArOFhtTCa78aeVRUrxoqw9x9b6wAa4BHGmPrGP2IivHRqyEA+xuPj24XoT1wAHcbrafALnu3R3Fh5gRfGfxLkaOBl3S0ZZ/4QNXbKLfx6eIKpix8uIjf0kw3T2USUhcrZ1qF2TxOYCbP7Xl3L9A2buMmONHcPFLnKzPIQDxZ8R24HvteSl+FABDiEd72RRM4I5yLDvxb06MJJz8V8i3YuNB7yFXSUu83i0fWqA+W5WgZfLMLdjzyIdTWaRfaqThGZsckdflwZ9QeqY+uS+xhfQfrwt5bjWrcb1TZmPyMjkx1LXvHvT8Bn3cQPfxmnYmNy25WGYi+V4VTqYGxOpPa3XA9sT0A74CzMtUxjk2VdoAAAAAElFTkSuQmCC" style="margin-top:0;margin-bottom:0;"></span></span></span>为方差，<span class="" rel="07617f9d8fe48b4a7b3f523d6730eef0"><span class="MathJax_SVG" id="MathJax-Element-53-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="11" height="13" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAACSElEQVRIS63VSeiNURjH8Q+RjKEMWVCyMi6QLEimEsqwUSgSSUSxEClDSGzIkAWyZIFEZikSFjIUCsVGSpIhxQI9eu6/1/Xe96q/U7fuPec5v/M83/N7zm2j8WiHgbn8BW8ahPZG91yLmIjVpkJ4GQ7n+h1MwLe6+BC8ipE5vxIHmgmfwuzcsA+rS5IYgji0S2Y6Bk+qhHvhGoalWBxwpkR4OQ7l/F1Mw4cq4eF4mBteYDJelwifxqycP45FtZhGjNdiTwZdSCT1fPviJgZl3BIcbSZc5LsTG0qynYmzOf8W4/G8SjjsEzdd4xsYgndxhBVPYE5O3kAc9NtqjRj/C99xOIduqbMfq4onlzFeh90VfDtkRWG1HhkXmcdFtowy4SLfHdhYhyEaJzzdP/0bfMfiVZVwH1wp8J2E64UNA3Aet7G0yjX1GRf5xg1PKfi3PaKa7+iYzRDaW7AZbTEK98our8j3ESbifWYW70ZUsCB5ho9jhM3CzwfRE/PKhIud9BErcB/bMBUL8+GqtXd0ZThkRnKPCoP5H69b8L2MwFE2otwou1hVCJ/E4vxcKvPxCDzIha/olN8/Yzt25e8QaWldfML89HWp3YqZrMfQvKhjuFVXwiYMRiRwJF3yR0jRFUW+sekZfjbAEtPRKPUP018ZF/k+ztt/VyHadKmWcZQdgjHCq3Ob7mwSUBPeiuAWYw32/g/h6KiL2QzhgPjfevo/hEfne9s134nAEAe0agSKeFenp0rL33erVLPz+qEzfuBlawVr+38BMvt7G0B+0UwAAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span>为平均值 </li>
+<li><strong>常见用途：</strong>检测总体平均值是否等于某个常数</li>
+<li><strong>中心极限定理：</strong>大量互相独立的随机变量，其均值的分布以正态分布为极限，中心极限定理支持了可以用正态分布来进行均值的判断</li>
+<li><strong>单样本z检验案例：</strong>原假设：掷硬币朝上和朝下的概率都为50%。连续抛掷硬币1000次，观察到700次朝上，在中心极限定理的前提下，这种情况出现的概率远远小于预先设定的参数，所以选择拒绝原假设</li>
+<li><p><strong>Python 实现</strong>： <br>
+Python中和统计模型相关的一个包：statsmodels,需要事先进行安装 <br>
+<code>conda install statsmodels</code></p>
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#零假设：复旦大学男生平均身高175cm</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#备择假设：复旦大学男生平均身高不为175cm</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#需要先构造一个平均值为175，标准差为5，服从正态分布的样本X，样本量为100（你也可以尝试构造平均值为180，标准差为2，服从正态分布的样本，看看使用Z检验的得分区别）</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> numpy
+</div><div class="hljs-line">X=numpy.random.normal(<span class="hljs-number">175</span>,<span class="hljs-number">5</span>,<span class="hljs-number">100</span>).round(<span class="hljs-number">1</span>)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#使用Z检验计算pval</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> statsmodels.stats.weightstats
+</div><div class="hljs-line">z,pval = statsmodels.stats.weightstats.ztest(X,value=<span class="hljs-number">175</span>)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#直接返回的pval，即为P值可以用于判断零假设是否成立</span>
+</div><div class="hljs-line">
+</div></code></pre></li>
+</ul>
+
+
+
+<h4 id="单样本t检验">单样本t检验</h4>
+
+<ul><li><strong>适用：</strong>适用于样本量较少的情况（n&lt;30）</li>
+<li><strong>参数：</strong>t分布的参数为自由度，即样本数量减1（n-1）；当自由度接近于30的时候，t分布趋向于正态分布，这也就说明了为什么t分布适用于样本量较少的情况，因为样本量大于30时，往往可以用z检验</li>
+<li><strong>Python实现：</strong> <br>
+Python中用于进行t检验的包：Scipy，需要事先进行安装 <br>
+<code>conda install scipy</code></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"> <span class="hljs-comment">#零假设：复旦大学男生平均身高175cm</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#备择假设：复旦大学男生平均身高不为175cm</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#使用t检验计算pval</span>
+</div><div class="hljs-line"> t,pval=scipy.stats.ttest_1samp(X,popmean=<span class="hljs-number">175</span>)<span class="hljs-comment">#这里的X也需要事先构造</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#直接返回的pval，即为P值可以用于判断零假设是否成立</span>
+</div></code></pre>
+
+
+
+<h3 id="双样本检验">双样本检验</h3>
+
+
+
+<h4 id="双样本t检验">双样本t检验</h4>
+
+<ul><li><strong>适用：</strong>用于比较两组样本的平均值是否一致</li>
+<li><strong>Python实现：</strong></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"> <span class="hljs-comment">#零假设：复旦大学和上海交大男生平均身高一样</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#备择假设：复旦大学和上海交大男生平均身高不一样</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#双样本检验用到了scipy包的另一个函ttest_ind</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#注意，X1，X2需要事先自行创建</span>
+</div><div class="hljs-line"> t,pval=scipy.stats.ttest_ind(X1,X2)
+</div><div class="hljs-line"> <span class="hljs-comment">#直接返回的pval，即为P值可以用于判断零假设是否成立</span>
+</div></code></pre>
+
+
+
+<h3 id="使用iris数据集进行操作">使用iris数据集进行操作</h3>
+
+<p><strong>总结：</strong></p>
+
+<ul><li>import 相应包</li>
+<li>单样本z检验</li>
+<li>单样本t检验</li>
+<li>t检验和z检验的比较</li>
+<li>双样本t检验</li>
+</ul>
+
+
+
+<h5 id="import相应的包">import相应的包</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> statsmodels.stats.weightstats 
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+</div><div class="hljs-line"><span class="hljs-comment">#括号里面直接指定了数据的来源，当然你也可以按照老师视频中所讲授的来操作</span>
+</div><div class="hljs-line">iris = pd.read_csv(<span class="hljs-string">'http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>,header=<span class="hljs-keyword">False</span>)
+</div><div class="hljs-line"><span class="hljs-comment">#对导入数据的每一列命名</span>
+</div><div class="hljs-line">iris.columns=[<span class="hljs-string">'SepalLengthCm'</span>,<span class="hljs-string">'SepalWidthCm'</span>,<span class="hljs-string">'PetalLengthCm'</span>,<span class="hljs-string">'PetalWidthCm'</span>,<span class="hljs-string">'Species'</span>]
+</div><div class="hljs-line"><span class="hljs-comment">#随机抽取10条记录</span>
+</div><div class="hljs-line">iris.sample(<span class="hljs-number">10</span>)
+</div></code></pre>
+
+
+
+<h5 id="单样本z检验-1">单样本z检验</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line">z,pval = statsmodels.stats.weightstats.ztest(iris[<span class="hljs-string">'SepalLengthCm'</span>],value=<span class="hljs-number">175</span>)
+</div><div class="hljs-line"><span class="hljs-comment">#pval=0.0,说明零假设发生的概率为0.0，拒绝零假设</span>
+</div><div class="hljs-line"><span class="hljs-comment">#用数据集真实的均值进行z检验</span>
+</div><div class="hljs-line">np.mean(iris(<span class="hljs-string">'SepalLengthCm'</span>))
+</div><div class="hljs-line">z,pval = statsmodels.stats.weightstats.ztest(iris[<span class="hljs-string">'SepalLengthCm'</span>],value=<span class="hljs-number">5.8</span>)
+</div><div class="hljs-line"><span class="hljs-comment">#pval&gt;设定的阈值，选择接受零假设</span>
+</div><div class="hljs-line"><span class="hljs-comment">#尝试对ztest中value的值进行修改，即建立不同的零假设，看看pval有什么样的变化</span>
+</div></code></pre>
+
+
+
+<h5 id="单样本t检验-1">单样本t检验</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> scipy
+</div><div class="hljs-line">t,pval=scipy.stats.ttest_1samp(iris[<span class="hljs-string">'SepalLengthCm'</span>],popmean=<span class="hljs-number">5.8</span>)
+</div><div class="hljs-line"><span class="hljs-comment">#pval&gt;预先设定的阈值，选择接受零假设</span>
+</div></code></pre>
+
+
+
+<h5 id="在小样本上比较单样本t检验和单样本z检验的结果差异">在小样本上，比较单样本t检验和单样本z检验的结果差异</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">#因为单样本t检验适用于样本量较小的情况（通常是样本量小于30），随机选取10行iris数据，分别进行t检验和z检验,零假设均为均值为7</span>
+</div><div class="hljs-line">iris_sample=iris.sample(<span class="hljs-number">10</span>)
+</div><div class="hljs-line"><span class="hljs-comment">##z检验</span>
+</div><div class="hljs-line">z,pval_z = statsmodels.stats.weightstats.ztest(iris_sample[<span class="hljs-string">'SepalLengthCm'</span>],value=<span class="hljs-number">7</span>)
+</div><div class="hljs-line"><span class="hljs-comment">##t检验</span>
+</div><div class="hljs-line">t,pval_t=scipy.stats.ttest_1samp(iris_sample[<span class="hljs-string">'SepalLengthCm'</span>],popmean=<span class="hljs-number">7</span>)
+</div><div class="hljs-line"><span class="hljs-comment">#根据视频中实验结果，pval_z=0.0003，pval_t=0.006&gt;&gt;0.0003（&gt;&gt;是“远大于”的意思），证明了t检验出现的特别大的值和特别小的值的概率较z检验大一些，这也符合t分布的概率密度曲线尖峰厚尾的特征</span>
+</div><div class="hljs-line"><span class="hljs-comment">##【注意！】这两个数字会随着sample函数抽取到的样本的不同而有变化</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div></code></pre>
+
+
+
+<h5 id="双样本t检验-1">双样本t检验</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-comment">#对iris进行抽样，形成两个样本</span>
+</div><div class="hljs-line">iris_1=iris[iris.Species == <span class="hljs-string">'Iris-setosa'</span>]
+</div><div class="hljs-line">iris_2=iris[iris.Species == <span class="hljs-string">'Iris-virginica'</span>]
+</div><div class="hljs-line">t,pval=scipy.stats.ttest_ind(iris_1[<span class="hljs-string">'SepalLengthCm'</span>],iris_2[<span class="hljs-string">'SepalLengthCm'</span>])
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">##pval=6.89e-28</span>
+</div><div class="hljs-line"><span class="hljs-comment">#来验证一下结论是否是正确的</span>
+</div><div class="hljs-line">np.mean(iris_1[<span class="hljs-string">'SepalLengthCm'</span>])
+</div><div class="hljs-line">np.mean(iris_2[<span class="hljs-string">'SepalLengthCm'</span>])
+</div><div class="hljs-line"><span class="hljs-comment">##请手打一遍代码，对比这两个类别的数据均值，你就会理解为什么在t检验中会得到这么小的P值</span>
+</div></code></pre>
+
+
+
+<h2 id="补充知识">补充知识</h2>
+
+
+
+<h3 id="statsmodels">Statsmodels</h3>
+
+<p>Statsmodels是Python中，用于实现统计建模和计量经济学的工具包，主要包括描述统计、统计模型估计和统计推断 <br>
+官方文档永远是最好的学习材料，请阅读<a href="http://www.statsmodels.org/stable/" target="_blank"> Statsmodels’s Documentation</a>，重点掌握如何使用这个包进行统计推断</p>
+
+
+
+<h3 id="scipy">Scipy</h3>
+
+<p>Scipy是一个数学、科学和工程计算Python工具包，主要包括统计,优化,整合,线性代数等等与科学计算有关的包，请阅读<a href="https://docs.scipy.org/doc/scipy/reference/" target="_blank">SciPy Documentation</a>中Tutorial部分的内容</p>
+
+
+
+<h2 id="扩展阅读">扩展阅读</h2>
+
+
+
+<h4 id="正态分布">正态分布</h4>
+
+<p>正态分布是统计学中最常见的分布</p>
+
+<ul><li>请阅读<a href="http://blog.csdn.net/fjssharpsword/article/details/70861817?locationNum=1&amp;fps=1" target="_blank">机器学习知识点(二十二)高斯分布（正态分布）基础知识</a>，了解正态分布的概念与特性</li>
+<li>请阅读<a href="https://zh.wikipedia.org/zh-hans/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank">正态分布—维基百科</a>，了解正态分布的由来、定义、常见实例等</li>
+<li>生成正态分布随机数，并进行绘图： <br>
+这里需要用到的包是numpy</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> numpy
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+</div><div class="hljs-line">x=np.random.normal(均值,标准差,数量)
+</div><div class="hljs-line">sns.distlot(x,hist=<span class="hljs-keyword">False</span>)
+</div></code></pre>
+
+
+
+<h3 id="t分布">t分布</h3>
+
+<p>相信很多人都对正态分布格外的熟悉，但是与正态分布相似的t分布也是块重要的知识</p>
+
+<ul><li>请阅读<a href="https://baike.baidu.com/item/t%E5%88%86%E5%B8%83" target="_blank">t 分布-百度百科</a>，了解更多关于t分布的由来，曲线形态及其他特征</li>
+<li>生成t分布随机数，并进行绘图： <br>
+这里需要用到的包是numpy</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> numpy
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+</div><div class="hljs-line">x=np.random.standard_t(自由度,数量)
+</div><div class="hljs-line">sns.distlot(x,hist=<span class="hljs-keyword">False</span>)
+</div></code></pre></div></body></html>
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>

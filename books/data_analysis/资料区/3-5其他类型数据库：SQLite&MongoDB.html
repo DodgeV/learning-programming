@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>SQLite及MongoDB</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="sqlite及mongodb">SQLite及MongoDB</h2>
+
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+
+
+
+<h3 id="sqlite">SQLite</h3>
+
+<blockquote>
+  <p>特点</p>
+</blockquote>
+
+<ul><li>文件型数据库</li>
+<li>常用于应用程序存储数据，比如浏览器存储用户的资料等</li>
+<li>GUI： DB Browser for SQLite；访问SQLite就是访问一个文件，使用这个前端的程序来访问</li>
+<li>Python：import sqlite3，来进行数据库的读取（不需要安装）</li>
+</ul>
+
+<blockquote>
+  <p>相关准备 <br>
+  1.访问<a href="http://sqlitebrowser.org/" target="_blank">DB Browser for SQLite</a>，在界面右端选择合适的安装程序 <br>
+  2.访问<a href="https://www.kaggle.com/uciml/iris" target="_blank">Kaggle-iris</a>，下载整理好的iris的SQLite的数据集 <br>
+  3.在DB Browser中打开iris sqllite格式的数据库</p>
+</blockquote>
+
+<p>请阅读<a href="https://docs.python.org/2/library/sqlite3.html" target="_blank">SQLite官方文档</a>，请重点阅读代码示例部分</p>
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><br><span class="hljs-keyword">import</span> sqlite3<br><span class="hljs-comment">#通过sqlite3.connect连接文件数据库</span><br>conn=sqlite3.connect(<span class="hljs-string">'路径+文件名'</span>)<br><span class="hljs-comment">#用SQL语句选择数据，并返货结果，result 返回的是list结构</span><br>c=conn.cursor()<br>c.execute(<span class="hljs-string">'select * from iris'</span>)<br>result=c.fetchall()<br>print(result)<br><br><span class="hljs-comment">#如果需要返回的格式是Sqlite3.Row，需要在执行查询语句前加入一行代码</span><br>c.row_factory=sqlite3.Row<br><span class="hljs-comment">#虽然和Python的Dictionary结构有一定的差异，但是可以根据属性名称来进行index检索</span><br><br><br></code></pre>
+
+<p>之后的操作重点依旧回到了SQL语句的操作，请确认你对SQL语句的掌握，再继续进行学习</p>
+
+<h3 id="mongodb">MongoDB</h3>
+
+<blockquote>
+  <p>特点</p>
+</blockquote>
+
+<ul><li>NoSQL数据库，不使用SQL语句进行检索</li>
+<li>MongoDB存储文件的类型类似于JSON格式</li>
+<li>GUI：Robo 3T</li>
+<li>Python：PyMongo，来进行数据库的读取（需要安装）</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-comment">#MongoDB插入记录</span><br><span class="hljs-comment">#db是数据库的名称；mycol是数据库中的表格名称，id，title，description，by，url是键，冒号后是属性的值；tag存储的是列表；like：还可以插入int型</span><br>db.mycol.insert({_id:ObjectId(增加内容),title:<span class="hljs-string">'___'</span>,description:<span class="hljs-string">'___'</span>,by:<span class="hljs-string">'___'</span>,url:<span class="hljs-string">'___'</span>,tags:[<span class="hljs-string">'___'</span>,...],likes:___}]<br><br><span class="hljs-comment">#MongoDB查询</span><br><span class="hljs-comment">#OR代表了后面方括号里面语句的逻辑关系，这里是或的意思;pretty美化输出；</span><br>db.mycol.find({$<span class="hljs-keyword">or</span>:[{<span class="hljs-string">"by"</span>:<span class="hljs-string">"tutorials point"</span>},{<span class="hljs-string">"title"</span>:<span class="hljs-string">"MongoDB Overview"</span>}]}).pretty()<br><br><br><br></code></pre>
+
+<p>请注意：”by”:”tutorials point”，如果对应成SQL语句则是：WHERE by=”tutorials point”，相信你也可以看出MongoDB的查询语句和SQL语句是完全不同的</p>
+
+<p>也许NoSQL数据库离你的工作或目前的学习计划相对较远，但没关系，请先认识到数据库是不仅限于MySQL的，NoSQL是现在数据库发展的主流方向之一，随着使用的深入，你也会逐渐熟悉起来</p></div></body></html>
+
+<!DOCTYPE html><html><head><title>SQLite及MongoDB</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+<h2 id="补充知识">补充知识</h2>
+<h3 id="sqlite及mongodb">SQLite3及PyMongo</h3>
+
+
+
+
+
+
+
+<h3 id="sqlite3">SQLite3</h3>
+
+<p>SQLite是一个轻量级的文件型数据库，希望你能通过以下的链接材料，了解更多关于这个库的操作指令 <br>
+请阅读：</p>
+
+<ul><li><a href="http://www.cnblogs.com/kfqcome/archive/2011/06/27/2136999.html" target="_blank">sqlite3使用简介</a></li>
+<li><a href="http://blog.csdn.net/linchunhua/article/details/7184439" target="_blank"> sqlite3常用命令&amp;语法</a></li>
+</ul>
+
+<h3 id="pymongo">PyMongo</h3>
+
+<p>视频只简单介绍了如何插入和查询，如果你想要实际使用PyMongo库，还远远不够，请阅读：</p>
+
+<ul><li><a href="https://api.mongodb.com/python/current/tutorial.html" target="_blank">PyMongo Tutorial</a>，从给出的example中学习更多的操作</li>
+<li><a href="http://www.cnblogs.com/northx2/archive/2012/01/05/2313226.html" target="_blank">PyMongo 小总结</a>，可以帮助你实现快速查阅</li>
+</ul>
+
+<h2 id="扩展阅读">扩展阅读</h2>
+
+<h3 id="nosql数据库">NoSQL数据库</h3>
+
+<p>随着数据存储需求的发展，非关系型数据库NoSQL拥有了越来越多的使用者，NoSQL并不是No-SQL，而是指Not Only SQL</p>
+
+<blockquote>
+  <p>非关系型数据库的特点</p>
+</blockquote>
+
+<ul><li>没有固定的表结构</li>
+<li>避免使用join操作</li>
+<li>NoSQL是基于键值对的，不需要经过SQL层的解析，性能较高</li>
+</ul>
+
+<blockquote>
+  <p>了解非关系型数据库的发展</p>
+</blockquote>
+
+<p>请阅读<a href="http://blog.csdn.net/robinjwong/article/details/18502195" target="_blank">从关系型数据库到非关系型数据库</a>，了解关系型数据库的瓶颈，以及非关系型数据库的发展历程</p>
+
+<blockquote>
+  <p>主流NoSQL数据库</p>
+</blockquote>
+
+<p>请阅读现在市场上的主流NoSQL数据库，扩展你对于数据库的了解</p>
+
+<ul><li><a href="http://www.csdn.net/article/2012-10-12/2810660-NoSQL-MongoDB-HBase" target="_blank">10个出色的NoSQL数据库</a></li>
+<li><a href="http://blog.jobbole.com/1344/" target="_blank">8 种 NoSQL 数据库系统对比</a></li>
+</ul></div></body></html><br><br><br><br>
+
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>

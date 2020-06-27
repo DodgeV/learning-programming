@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>数据预处理—数据清理</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="数据预处理数据清理">数据预处理—数据清理</h2>
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+
+<blockquote>
+  <p>主要内容：</p>
+</blockquote>
+
+<ul><li>格式转换</li>
+<li>缺失数据</li>
+<li>异常数据</li>
+<li>数据标准化操作</li>
+</ul>
+
+
+
+<h3 id="格式转换">格式转换</h3>
+
+<p>如Python记录时间的方式，不能够直接实现减运算，就需要进行转换</p>
+
+<ul><li>pandas.to_datetime</li>
+</ul>
+
+
+
+<h3 id="缺失数据">缺失数据</h3>
+
+<ul><li>忽略缺失数据</li>
+<li>直接标记</li>
+<li>利用平均值、最常出现值进行填充</li>
+</ul>
+
+
+
+<h3 id="异常数据">异常数据</h3>
+
+<ul><li>处理方式可类比缺失数据</li>
+</ul>
+
+
+
+<h3 id="标准化">标准化</h3>
+
+<ul><li>常出现在用户自主输入的一些属性上，需要你进行标准化的处理，本节课程暂不涉及</li>
+</ul>
+
+
+
+<h3 id="数据清理示例airbnb">数据清理示例：Airbnb</h3>
+
+<blockquote>
+  <p>工具：Pandas库，Seaborn库 <br>
+  1.在开始操作前，请确认你已经安装好Pandas&amp;Seaborn库 <br>
+  2.数据集准备：<a href="https://www.kaggle.com/c/airbnb-recruiting-new-user-bookings/data" target="_blank">Airbnb Dataset</a> <br>
+  <code>Tips:养成处理数据集前，先看数据描述的习惯，会为你省下不少时间</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-comment">#读取数据</span><br><span class="hljs-keyword">import</span> pandas<br>users=pandas.read_csv(<span class="hljs-string">"train_users_2.csv"</span>)<br><br><span class="hljs-comment">#首先需要进行的是对数据的基本查看</span><br><span class="hljs-comment">#第一行是属性的名称，index从0开始，NaN代表missing value</span><br>users.head()<br><span class="hljs-comment">#和head相反，tail给出了数据集末尾的值</span><br>users.tail()<br>users.describe()<br>users.shape<br>users.head()<br>uesers.loc[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>,<span class="hljs-string">"age"</span>]<br><br><span class="hljs-comment">#格式转换：转变为日期格式,可以实现时间的加减</span><br>users[<span class="hljs-string">"date_account_created"</span>] = pandas.to_datetime(users[<span class="hljs-string">"date_account_created"</span>])<br><br>users.loc[<span class="hljs-number">0</span>,<span class="hljs-string">"date_account_created"</span>]-users.loc[<span class="hljs-number">1</span>,<span class="hljs-string">"date_account_created"</span>]<br><br><span class="hljs-comment">#定义到时分秒的关系，设置format函数参数，针对一些非常规的数据</span><br>users[<span class="hljs-string">"timestamp_first_active"</span>] = pandas.to_datetime(users[<span class="hljs-string">"timestamp_first_active"</span>],format=<span class="hljs-string">"%Y%m%d%H%M%S"</span>)<br><br><span class="hljs-comment">#缺失数据处理：查看去掉缺失值的数据</span><br>users[<span class="hljs-string">"age"</span>].dropna()<br><br><span class="hljs-comment">#画图,可以很直观的观察数据的异常值</span><br><span class="hljs-keyword">import</span> seaborn<br>seaborn.distplot(users[<span class="hljs-string">"age"</span>].dropna())<br>seaborn.boxplot(users[<span class="hljs-string">"age"</span>].dropna())<br><br><span class="hljs-comment">#异常数据处理：筛选age&lt;90以及&gt;10</span><br>users_with_true_age=users[users[<span class="hljs-string">"age"</span>]&lt;<span class="hljs-number">90</span>]<br>users_with_true_age=users_with_true_age[users_with_true_age[<span class="hljs-string">"age"</span>]&gt;<span class="hljs-number">10</span>]<br><br></code></pre>
+
+<blockquote>
+  <p>代码小结</p>
+</blockquote>
+
+<ul><li>格式转换：使用pandas.to_datetime函数转化为标准的时间格式</li>
+<li><p>缺失数据处理：dropna()函数进行缺失值处理</p></li>
+<li><p>异常数据处理：设置条件筛选”age”字段&lt;90以及&gt;10</p></li>
+</ul></div></body></html>
+<!DOCTYPE html><html><head><title>数据预处理—数据清理</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="补充知识">补充知识</h2>
+
+
+
+<h3 id="pandas-seaborn-库的补充">Pandas &amp; Seaborn 库的补充</h3>
+
+
+
+<h4 id="pandas">Pandas</h4>
+
+<p>Pandas逐渐成为了一个非常大的库，在数据处理问题方面表现优秀，是一个不可或缺的工具，Pandas中包含两个主要的数据结构：Series &amp; DataFrame</p>
+
+<p>请阅读：<a href="http://pandas.pydata.org/pandas-docs/stable/index.html" target="_blank">官方文档</a>，官方文档永远是最好的学习材料，重点阅读：</p>
+
+<ul><li><a href="http://pandas.pydata.org/pandas-docs/stable/10min.html#min" target="_blank">10 Minutes to pandas</a>，建议跟着学习手册操作一遍。重点阅读Pandas的不同数据结构 、 head,describe,index等函数来查看DataFrame 、 Merge DataFrame(Concat &amp; Join &amp; Append) 、Grouping 、 Reshaping，如果学有余力的话建议自学一下Time Series 的内容</li>
+<li><a href="http://pandas.pydata.org/pandas-docs/stable/missing_data.html" target="_blank">Working with Missing Data</a></li>
+<li><a href="http://pandas.pydata.org/pandas-docs/stable/computation.html" target="_blank">Computational tools</a>中Statistical Functions 部分，掌握基本的统计功能的实现</li>
+<li><a href="http://pandas.pydata.org/pandas-docs/stable/io.html" target="_blank">IO Tools (Text, CSV, HDF5, …)</a>，重点掌握如何读取CSV,JSON，以及如何应用参数实现数据的读取</li>
+<li>请阅读<a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html" target="_blank">Visualization</a>Matplotlib库是如何实现可视化,学会不同类型图对应的函数</li>
+</ul>
+
+<p>最后可以通过查询<a href="https://zhuanlan.zhihu.com/p/25630700" target="_blank">Pandas速查手册中文版</a>，在有需要的时候，迅速解决疑问</p>
+
+<h4 id="seaborn">Seaborn</h4>
+
+<p>Seaborn是基于matplotlib的绘图库，可以制作更多更美观的图形，如<a href="http://seaborn.pydata.org/examples/index.html" target="_blank">Example gallery</a>中也可以看到很多关于图像的示例。这个绘图库可以很好地辅助我们对数据进行第一步的观察</p>
+
+<p>请阅读：<a href="https://seaborn.pydata.org/tutorial.html" target="_blank">Seaborn tutorial</a>，阅读Style management &amp; Plotting functions &amp; Structured grids 这三块内容，重点掌握画图的函数，以实现画出不同类型的图像</p>
+
+<h3 id="数据预处理">数据预处理</h3>
+
+<p>请阅读：</p>
+
+<ul><li><a href="https://withwsf.github.io/2015/12/29/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" target="_blank">数据挖掘中的数据预处理</a>，本链接详细提供了关于数据清洗（值缺失、噪声） &amp; 数据融合（实体识别，冗余和相关性分析）的方法，值得仔细阅读</li>
+<li><a href="http://blog.csdn.net/Anne999/article/details/69261592?locationNum=2&amp;fps=1" target="_blank">数据预处理</a>，了解更多关于数据预处理的方法，和背后的数学原理</li>
+</ul></div></body></html><br><br><br><br>
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>
+

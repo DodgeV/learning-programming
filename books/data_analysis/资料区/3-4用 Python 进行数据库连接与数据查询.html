@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>利用Python进行数据库操作</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="利用python进行数据库操作">利用Python进行数据库操作</h2>
+
+
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+
+
+
+<h3 id="pymysql">PyMySQL</h3>
+
+
+
+<h4 id="1安装pymysql包">1.安装PyMySQL包</h4>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span style="display:inline">pip install PyMySQL</span><div style="height:0;font-size:0;"><br style="height:0"></div><span class="hljs-comment">#推荐使用conda 来安装</span><div style="height:0;font-size:0;"><br style="height:0"></div><span style="display:inline">conda install PyMySQL</span><div style="height:0;font-size:0;"><br style="height:0"></div></code></pre>
+
+
+<h4 id="2补充阅读">2.补充阅读</h4>
+
+<p>请阅读<a href="https://pymysql.readthedocs.io/en/latest/" target="_blank">官方文档</a>中Documentation的User Guide部分，熟悉一个包最直接方法就是阅读官方文档。</p>
+
+<p><strong>创建名为user的表格以备后续操作</strong></p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-sql hljs"><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`users`</span> (<br>    <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,<br>    <span class="hljs-string">`email`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">COLLATE</span> utf8_bin <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>    <span class="hljs-string">`password`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">COLLATE</span> utf8_bin <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>    PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)<br>) <br><span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8 <span class="hljs-keyword">COLLATE</span>=utf8_bin<br>AUTO_INCREMENT=<span class="hljs-number">1</span> ;<br></code></pre>
+
+
+
+<h3 id="利用python进行数据库操作-1">利用Python进行数据库操作</h3>
+
+<p>利用Python进行数据库操作主要会涉及到三个部分，首先是如何连接数据库，你需要掌握的是每一个部分的参数如何进行设置，从而正确建立连接；然后是进行数据的新增，最后是数据的调用。</p>
+
+<blockquote>
+  <p>连接MySQL数据库</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> pymysql.cursors<br><span class="hljs-comment">#使用pymysql指令来连接数据库</span><br>connection=pymysql.connect(host=<span class="hljs-string">''</span>,user=<span class="hljs-string">''</span>,password=<span class="hljs-string">''</span>,db=<span class="hljs-string">''</span>,charset=<span class="hljs-string">''</span>,cursorclass=pymysql.cursors.DictCursor<br>)<br>host:要连接的数据库的IP地址<br>user：登录的账户名，如果登录的是最高权限账户则为root<br>password：对应的密码<br>db：要连接的数据库，如需要访问上节课存储的IRIS数据库，则输入<span class="hljs-string">'IRIS'</span><br>charset：设置编码格式，如utf8mb4就是一个编码格式<br>cursorclass：返回到Python的结果，以什么方式存储，如Dict.Cursor是以字典的方式存储<br><br></code></pre>
+
+<blockquote>
+  <p>创建新的数据</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment">#从数据库链接中得到cursor的数据结构</span><br>    <span class="hljs-keyword">with</span> connection.cursor() <span class="hljs-keyword">as</span> cursor:<br>    <span class="hljs-comment">#在之前建立的user表格基础上，插入新数据，这里使用了一个预编译的小技巧，避免每次都要重复写sql的语句</span><br>        sql=<span class="hljs-string">"INSERT INTO `USERS`(`email`,`password`) VALUES (%s,%s)"</span><br>        cursor.execute(sql,(<span class="hljs-string">'webmaster@python.org'</span>,<span class="hljs-string">'very_secret'</span>))<br>    <span class="hljs-comment">#执行到这一行指令时才是真正改变了数据库，之前只是缓存在内存中</span><br><br>    connection.commit()<br><br><br></code></pre>
+
+<blockquote>
+  <p>调用数据：查询webmaster@python.org邮箱的密码</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs">    <span class="hljs-keyword">with</span> connection.cursor() <span class="hljs-keyword">as</span> cursor:<br>        sql = <span class="hljs-string">"SELECT `id`,`password` FROM `user` WHERE `email`=%s"</span><br>        cursor.execute(sql,(<span class="hljs-string">'webmaster@python.org'</span>,))<br>        <span class="hljs-comment">#只取出一条结果</span><br>        result=cursor.fetchone()<br>        print(result)<br><br><span class="hljs-comment">#最后别忘了关闭连接</span><br><span class="hljs-keyword">finally</span>:<br>    connection.close()<br><br></code></pre>
+
+<blockquote>
+  <p>最后调用的结果为</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs">{<span class="hljs-string">'password'</span>: <span class="hljs-string">'very-secret'</span>, <span class="hljs-string">'id'</span>: <span class="hljs-number">1</span>} <br></code></pre>
+
+<p><code>COMMIT: <br>
+1.注意过于频繁的commit会降低数据插入的效率，可以在多行insert之后一次性commit；2.autocommit选项：默认每一个insert操作都会触发commit操作方式，是在pymysql.connect的db参数后面，加一个autocommit=True参数</code></p>
+
+
+
+<h3 id="利用python对iris数据集进行查询">利用Python对iris数据集进行查询</h3>
+
+
+
+<h5 id="查询id为3的行">查询id为3的行</h5>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> pymysql.cursors<br>connection=pymysql.connect(host=<span class="hljs-string">'___'</span>,user=<span class="hljs-string">'___'</span>,password=<span class="hljs-string">'___'</span>,db=<span class="hljs-string">'iris'</span>,charset=<span class="hljs-string">'utf8mb4'</span>,cursorclass=pymysql.cursors.DictCursor)<br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-keyword">with</span> connection.cursor() <span class="hljs-keyword">as</span> cursor:<br>        sql= <span class="hljs-string">" SELECT * FROM `iris_with_id` WHERE `id`=%s"</span><br>        cursor.execute(sql,(<span class="hljs-string">'3'</span>,))<br>        result=cursor.fetchone()<br>        print(result)<br>        print(result[<span class="hljs-string">'id'</span>])<br><span class="hljs-keyword">finally</span>:<br>    connection.close()<br><br></code></pre>
+
+<blockquote>
+  <p>try的主题部分，sql语句，可以根据不同的需要进行改写。</p>
+</blockquote>
+
+<p>请复习：</p>
+
+<ul><li>选择petal_width&gt;0.5的所有行：</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-sql hljs">import pymysql.cursors<br>connection=pymysql.connect(host='___',user='___',password='___',db='iris',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor)<br>try:<br>    with connection.cursor() as cursor:<br>        <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-string">`iris_with_id`</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-string">`petal_width`</span>&gt;<span class="hljs-number">0.5</span><br>        <span class="hljs-keyword">result</span>=cursor.fetchall()<br>        print(<span class="hljs-keyword">result</span>)<br>finally:<br>    connection.close()<br><br></code></pre>
+
+<ul><li>选择petal_width&gt;0.5的所有行的id</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-sql hljs">import pymysql.cursors<br>connection=pymysql.connect(host='___',user='___',password='___',db='iris',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor)<br>try:<br>    with connection.cursor() as cursor:<br>        <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span>  <span class="hljs-string">`iris_with_id`</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-string">`petal_width`</span> &gt;<span class="hljs-number">0.5</span><br>        <span class="hljs-keyword">result</span>=cursor.fetchall()<br>        print(<span class="hljs-keyword">len</span>(<span class="hljs-keyword">result</span>))<br>        <span class="hljs-keyword">for</span> each_r <span class="hljs-keyword">in</span> <span class="hljs-keyword">result</span>:<br>            print(each_r[<span class="hljs-string">'id'</span>])<br>finally:<br>    connection.close()<br><br><br><br></code></pre></div></body></html>
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>

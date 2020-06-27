@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>随机变量、概率分布以及验证型数据分析</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="随机变量概率分布以及验证型数据分析">随机变量、概率分布以及验证型数据分析</h2>
+
+<p><a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+
+<h3 id="重要的概念理解">重要的概念理解</h3>
+
+<p><strong>1.随机变量</strong>：是试验结果的函数，是定义在样本空间<span class="" rel="9432d83304c1eb0dcb05f092d30a767f"><span class="MathJax_SVG" id="MathJax-Element-51-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="14" height="13" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAYAAACkVDyJAAAC5ElEQVRIS5XWWcjuUxTH8c9JyZDI0DFGRBLHIUOmMiUuzLlxnBPOBS6QKZJyJRJSJBeIKDfKkClkCsmQKJnnkFDIkOFFv9Pa2u/f85zn/+z61/vuZ6313cNav7WXGD/WwVKsh3XL7Xf8im/GhlkywnA7nIwjsVX3xfXr+j7GY/VlbupYG3ADnIOLCpIgL+EzvI7seE9sj4OK8Abuxs34cxJ1GnAjPIDDy+kdXINH8d0g0BY4Fpdil/rtYZw0CToJuBmexe7l/D7OqN2t7bT2wV3YrYyeLuiPvdMQmGO8Byd2RifgwRF3HZMzcXtney9WYqHNDYHn48bO4aFa5X8OM8C5ivtxRGd3PBJnzeiBOcrc28HTjEfu8nJcNVj0KfhjCDwEz3eGP2M5PhoJambDOF8hcymdRTu8ENd3wd/EofhhTuBO+HDgc1gl4iLgDbigM3wLB5SSzMPcpu5s787p3KrNRcAkS5KmjQBTh9/PQysheBI7d37n4aZZRxrVSEl8PicwoNRuP3I1zw2BCZ6U7seueG9O4HGDuk3y7dXutS+LHfAitu4ASe8r5gTeUcrU3J4o8Q940R3m/9uwugNkAVGdb0dCI+QvY8tJ9zcJGIdo4I6dwyW4biTwVpzV2aZlZcHpm2vGJPGOLOUuI1MZX1aQR2ZATy9Z3LjsHsdpwyxvwE0RafugjI/CtdXvMvUFbqnvpwE4TflsJPU3qd/uq17aWlkyN0qz0ICXISvcH62dbF5zp1aWJVYCrWi6iPTC9L79CpT6y8Ii1n/XXK7nFRyDVxswsnZxSdmwhvKOOboK99MS97bLBHsBadBX1kvgt8EJrMKd2De/98AkRpzfxScDp/XRFL9Xn1bkz+Ap/NP55e+I/4HYdhpw1qMqgp6jaQ+ldPe3R2Rw4BN3OAs4lLs9EM2dNf4HzAPo6ill0gf7Bctab0M6Ql5ws0aASazX2o42RKRt1vhroK15KkZvx4zkxsK/tbSiG6tAc2sAAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span>上的实值函数：X=X(<span class="" rel="ae4fb5973f393577570881fc24fc2054"><span class="MathJax_SVG" id="MathJax-Element-52-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="13" height="9" longdesc="__SVG__undefined" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAChElEQVQ4T43VSwjWRRQF8J+KYqiBLcwHCD0gqERFFLQwiazENCgCdaEtEsmFIBkkiOEiH6mVWhtRsCJqIWFYFom6yccitBQ3ZWYLE0IrtciiKI7MP8bhE72b7//dufeemXPvnOnj5uxWDMUt+Bk/NWnDyvof+B0X2rJ9boBzF57HgxiOP7ELL+HfKncdpmIkfsBhvIwrXcz1gPpiBRZhEN7BZpwryf80G+yH/rgXrxfQfXiynFAvoIBk17NwCUvwdlP4boTOoz0YWY7Vxf8aXsh3C5SdfYjZJfCVcrK63mPYjlHlxFsbsLH4qvgOlg3/0gIFfUMJ+hrT8GtVaDT2I72LfYC5DdD9OFF8YWQ8TtdAd+ILjChBS/FGU2QVVla+jVjWxEzAl5XvHnxTA4XPFI+dwkP4sUpIT/bggco3H+82QPPwXvFleKbgTAd0O8JnR0l68FxT4I4S0504RTL2p5u4F/Fq8R3Hw7lXHdA4HKsSnu0xaWOQxM5yupkNSP6+jznFvw0L890BZYQ3lcXLyOR83xRJU+txnoHPmpgoxOclP0tP4JMaKA1dX5Iymtlp3Z8s1WO7E8/0OM1kHCr+nhc2Q5BhiIWeyMnFptDj+LSoQwpGalrbgQUIK6Ev9F61jrqc4OMK6GoDqyoDCgWPZFRLg882KJOwtyhGrkU3wdcARQwDlD6EsiTVhd7CYpzEfciJjlRAEdzI1KM4gOm4Rg/re/RUCR5chHFtkf7I0NPYglCTqTpT5OcvZOyjbaE7wht1+bvltJWgUJN7kEsW6vIUfIePClDyJ2JN0bq8T4n5Fm9id/N8/I/XS72H4DYMLE9CAH9rdhiAjHJ+89CdRx6969p/fTyJE+M/JicAAAAASUVORK5CYII=" style="margin-top:0;margin-bottom:0;"></span></span></span>)，随机变量一般用大写拉丁字母或小写希腊字母来表示</p>
+
+<p><strong>2.概率分布</strong> <br>
+关于随机变量，有一个非常值得关心的特性就是概率分布 <br>
+概率：是一个在0-1之间的实数，度量随机事件发生的可能性，通常用于来量化某些不确定性命题 <br>
+概率分布：在概率的基础上，一个随机变量所有的可能取值加上它取某一个值的概率，比如在投掷硬币的事件中，正反面的取值的概率分布就就是正面0.5，反面0.5</p>
+
+<p><strong>3. 离散随机变量</strong> <br>
+定义：随机变量仅能取有限个或可列个值</p>
+
+<p><strong>4.连续随机变量</strong> <br>
+定义：随机变量的可能取值充满数轴上的一个区间，有无限个可能取值 <br>
+ 如正态分布的曲线呈现一个钟型，也称为bell，由两个参数：均值（最高点在横轴的哪个位置）、方差（曲线的方差）确定，和Z检验密切相关</p>
+
+
+
+<h3 id="假设检验">假设检验</h3>
+
+<p>假设检验是根据数据样本所提供的证据，肯定或否定有关总体的声明 </p>
+
+
+
+<h4 id="假设检验的基本流程">假设检验的基本流程</h4>
+
+<p>假设检验一般分为三步</p>
+
+<ul><li>提出零假设，以及对应的备择假设</li>
+<li>零假设前提下，推断样本统计量出现的概率（统计量可符合不同的分布，对应不同的概率分布有不同的检验方法）</li>
+<li>设定拒绝零假设的阈值，样本统计量在零假设下出现的概率小于阈值，则拒绝零假设，承认备择假设</li>
+</ul>
+
+
+
+<h4 id="淑女品茶假设检验的案例">淑女品茶——假设检验的案例</h4>
+
+<p>来自于一位统计学家的女同事可以分辨奶茶是先加入牛奶还是茶的事例 <br>
+<strong>1.零假设</strong>：女同事不能分辨；<strong>备择假设</strong>：女同事可以分辨 <br>
+<strong>2.假设检验方法</strong>：让女同事连续判断8杯不同的奶茶 <br>
+<strong>3.测试统计量</strong>：女同事判断正确的次数 <br>
+<strong>4.结论</strong>：假设阈值设定为5%，在零假设的前提下，8杯全猜对的概率小于5%，拒绝零假设</p>
+
+
+
+<h4 id="单样本检验双样本检验">单样本检验、双样本检验</h4>
+
+<p><strong>1.单样本检验</strong>：针对一个样本空间里的一些统计量做单样本检验，常用的有单样本z检验，t检验 <br>
+<strong>2.双样本检验：</strong>针对两个不同的样本空间的某一类统计数据做双样本检验，常用的有双样本t检验</p>
+
+
+
+<h2 id="补充知识">补充知识</h2>
+
+<p><strong>1.阈值的确定</strong> <br>
+本节课程视频的假设检验拒绝原假设的阈值选择为5%，那么这个数字是怎么被选定的呢？</p>
+
+<ul><li>请阅读<a href="https://jobrest.gitbooks.io/statistical-thinking/content/di_7_zhang_jia_she_jian_yan/72_yu_zhi_de_xuan_ze.html" target="_blank">阈值的选择</a></li>
+</ul>
+
+<p><strong>2.假设检验</strong> <br>
+假设检验是概率统计学中重要的一块内容，也称为“显著性检验”，目的是判断样本与样本，样本与总体的差异是由抽样误差引起还是本质差别造成的，本质是先对总体的特征作出某种假设，然后通过对样本数据进行统计推理，来确定应该选择接受原假设还是选择接受备择假设</p>
+
+<ul><li>阅读<a href="https://www.zhihu.com/question/20254932" target="_blank">假设检验的逻辑是是什么？</a>，理解假设检验的意义和逻辑</li>
+<li><a href="https://zhuanlan.zhihu.com/p/22516100" target="_blank">心研笔记——假设检验</a></li>
+</ul>
+
+
+
+<h2 id="扩展阅读">扩展阅读</h2>
+
+<p>1.视频中举出的假设检验流程的例子，来自于一本书籍：<a href="https://book.douban.com/subject/1626392/" target="_blank">女士品茶</a>，讲述了20世纪时，统计学是怎样逐渐发展起来，并变革了科学的历史，是一本十分值得阅读的书籍</p>
+
+<p>2.教材推荐 <br>
+统计学是数据分析基础之一，如果你想更深入了解这门学科，这里提供给你三本优秀的教材进行阅读</p>
+
+<ul><li><a href="https://book.douban.com/subject/10827481/" target="_blank">概率统计</a></li>
+<li><a href="https://book.douban.com/subject/2201479/" target="_blank">概率论与数理统计 陈希孺著</a></li>
+<li><a href="https://book.douban.com/subject/5998092/" target="_blank">概率论与数理统计教程 茆诗松//程依明//濮晓龙 著</a></li>
+</ul></div></body></html>
+
+<p align="center">
+	<a href="http://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="http://class.pkbigdata.com" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>
+
+
+
+

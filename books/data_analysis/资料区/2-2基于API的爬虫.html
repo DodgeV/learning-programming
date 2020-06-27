@@ -1,0 +1,199 @@
+<!DOCTYPE html><html><head><title>基于 API 的爬虫</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="基于-api-的爬虫">基于 API 的爬虫</h2>
+<p><a href="https://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue;background-color:lightblue">数据分析师（入门）</a>&nbsp &nbsp &nbsp<a href="https://class.pkbigdata.com/#/index" target="_blank" style="color:darkblue;background-color:lightblue">DC学院</a></p>
+<p> <br>
+&nbsp;</p>
+
+
+
+<h3 id="爬虫的一般流程">爬虫的一般流程</h3>
+
+<p>其实爬虫获取信息和人工浏览网页获取信息的方式是一致的，可分为三步（以浏览豆瓣网页评分为例）</p>
+
+<p><strong>人工浏览：</strong></p>
+
+<ol><li rel="1">豆瓣中搜索电影名称</li>
+<li rel="2">打开电影详情页面</li>
+<li rel="3">找到评分</li>
+</ol>
+
+<p><strong>爬虫：</strong></p>
+
+<ol><li rel="1">确定爬取的链接</li>
+<li rel="2">读取链接指向的内容</li>
+<li rel="3">从中抽取关键元素</li>
+</ol>
+
+<p>&nbsp; <br>
+<strong>基于API的爬虫的一般步骤</strong></p>
+
+<ol><li rel="1">在网站注册开发者账户用户名，获得相应的开发者密钥</li>
+<li rel="2">在网站的API帮助说明文档中找到自己需要使用的API <br>
+确认API请求的限制次数 <br>
+确认调用API需要使用的参数</li>
+<li rel="3">在联网状态下，编写代码正确调用该API</li>
+<li rel="4">从API返回的内容（常见为JSON格式）中获取所需属性</li>
+<li rel="5">将获取的内容存储到本地（文件或数据库）</li>
+</ol>
+
+<p>&nbsp; <br>
+<strong>豆瓣API说明</strong></p>
+
+<p><a href="https://developers.douban.com/wiki/?title=movie_v2" target="_blank">豆瓣API说明</a> <br>
+<a href="https://developers.douban.com/wiki/?title=movie_v2#subject" target="_blank">豆瓣电影条目API说明</a></p>
+
+<p>豆瓣电影的source url 的格式为 <br>
+/v2/movie/subject/:id</p>
+
+<p>我们先来看看，电影《摔跤吧，爸爸》的豆瓣api链接如下： <br>
+<a href="https://api.douban.com/v2/movie/subject/26387939" target="_blank">https://api.douban.com/v2/movie/subject/26387939</a></p>
+
+<p>比较另一部电影的api链接：</p>
+
+<p><a href="https://api.douban.com/v2/movie/subject/11803087" target="_blank">https://api.douban.com/v2/movie/subject/11803087</a></p>
+
+<p>可以看到，其实不同的电影的api链接只是最后的id不同</p>
+
+<p>&nbsp;</p>
+
+
+
+<h3 id="通过api来爬取豆瓣电影的评分">通过API来爬取豆瓣电影的评分</h3>
+
+<blockquote>
+  <p>在cmd中进入之前配置好的编程环境  <code>activate course_py35</code></p>
+  
+  <p>安装 Jupyter Notebook  <code>conda install jupyter</code></p>
+  
+  <p>进入Notebook  <code>jupyter notebook</code></p>
+  
+  <p>这时候浏览器会自动打开notebook 的页面，新建python3项目，就可以开始啦</p>
+</blockquote>
+
+<p>&nbsp; <br>
+利用Python读取url的核心代码如下：</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br>url_visit = <span class="hljs-string">'https://api.douban.com/v2/movie/26387939'</span><br>crawl_content = urlrequest.urlopen(url_visit).read()<br>print(crawl_content.decode(<span class="hljs-string">'unicode-escape'</span>))<br></code></pre>
+
+<p>在python中，调用包、模块的方法为 <code>import+包名称+as+简称</code>，我们这里需要调用 urllib.request，并且将要在代码中为其赋予一个简称 urlrequest，所以调用的代码为： <br>
+<code>import urllib.request as urlrequest</code></p>
+
+<p><code>url_visit ='https://api.douban.com/v2/movie/26387939'</code> <br>
+这里是为了将我们需要抓取信息的网页命名，方便之后使用。</p>
+
+<p><code>crawl_content = urlrequest.urlopen(url_visit).read()</code> <br>
+这是读取url的核心代码，用到了 urlrequest 中的 urlopen() 的方法。</p>
+
+<p>在 python 如果需要输出一个结果，用 print() 。</p>
+
+<p>&nbsp;</p>
+
+<p>利用 python 解析 JSON 代码</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> json<br>json_content = json.loads(crawl_content.decode(<span class="hljs-string">'utf8'</span>))<br>rating = json_content[<span class="hljs-string">'rating'</span>][<span class="hljs-string">'average'</span>]<br>print(rating)<br></code></pre>
+
+<ul><li><p>首先需要调用 json 这个包  <code>import json</code></p></li>
+<li><p>然后通过<code>json.loads</code>这个模块来解析 json 代码</p></li>
+<li><p>按顺序找到我们需要内容，这里我们要的是 average 的内容，所以要先找到它前面的目录 rating 。</p></li>
+</ul>
+
+<p>&nbsp; <br>
+将数据存到本地</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs">id=<span class="hljs-number">26387939</span><br>rating=json_content[<span class="hljs-string">'rating'</span>][<span class="hljs-string">'average'</span>]<br><span class="hljs-keyword">with</span> open(<span class="hljs-string">"movie_score.txt"</span>, <span class="hljs-string">"a"</span>) <span class="hljs-keyword">as</span> outputfile:<br>  outputfile.write(<span class="hljs-string">"{} {}\n"</span>.format(id, rating))<br></code></pre>
+
+<ul><li>这里我们想将电影的id和评分写入文件，就先把两个参数记录下来。</li>
+<li>python中写文件用<code>with open("文件名"，"a") as outputfile:</code>的形式，这里文件名可以根据你的需要自行更改。</li>
+<li><code>outputfile.write</code>表示将数据写入文件的操作， <br>
+<code>("{} {}\n".format(id,rating))</code>是需要写入文件的具体内容，使用<code>format()</code>以固定形式组织<code>id</code> 和<code>rating</code> 的值，放入我们设定好的位置<code>"{} {}"</code>中（<code>\n</code>表示换行）。</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>如何获取多部电影的评分？参考以下代码</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-comment">#调用 urllib 和 json</span><br><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br><span class="hljs-keyword">import</span> json<br><br><span class="hljs-comment">#将需要爬取的电影写入列表，方便后面依次使用</span><br>id_list=[<span class="hljs-number">26387939</span>,<span class="hljs-number">11803087</span>,<span class="hljs-number">20451290</span>]<br><br><span class="hljs-comment">#创建一个写入评分的文件 douban_movie_rank.txt</span><br><span class="hljs-keyword">with</span> open(<span class="hljs-string">"douban_movie_rank.txt"</span>,<span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> outputfile:<br><br><span class="hljs-comment">#写一个for循环，分别抓取不同电影的评分，与上面爬取单个电影相同</span><br>    <span class="hljs-keyword">for</span> id <span class="hljs-keyword">in</span> id_list:<br><br>        url_visit = <span class="hljs-string">'https://api.douban.com/v2/movie/{}'</span>.format(id)<br>        crawl_content = urlrequest.urlopen(url_visit).read()<br>        json_content = json.loads(crawl_content.decode(<span class="hljs-string">'utf8'</span>))<br><br><br>        rank=json_content[<span class="hljs-string">'rating'</span>][<span class="hljs-string">'average'</span>]<br>        outputfile.write(<span class="hljs-string">"{} {}\n"</span>.format(id, rank))<br></code></pre>
+
+<p>&nbsp; <br>
+&nbsp;</p>
+
+
+
+<h3 id="作业根据电影名称爬取电影的评分">作业：根据电影名称爬取电影的评分</h3>
+
+<p>分别爬取《异形：契约》、《摔跤吧！爸爸》、《速度与激情8》的评分 <br>
+&nbsp;</p>
+
+<p>参考代码如下，请务必自己先练习一次。 <br>
+&nbsp;</p>
+
+
+
+<pre class="prettyprint hljs-light"><code class="language-python hljs"><span class="hljs-keyword">import</span> urllib<br><span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urlrequest<br><span class="hljs-keyword">import</span> json<br><br>name_list=[<span class="hljs-string">'异形：契约'</span>,<span class="hljs-string">'摔跤吧！爸爸'</span>,<span class="hljs-string">'速度与激情8'</span>]<br><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> name_list:<br><br>        <span class="hljs-comment">#这里需要将中文名转换为网页链接中能够读取的编码</span><br>        id=urllib.parse.quote(name)<br><br>        url_visit= <span class="hljs-string">'https://api.douban.com/v2/movie/search?q={}'</span>.format(id)<br><br>        crawl_content = urlrequest.urlopen(url_visit).read()<br>        json_content = json.loads(crawl_content.decode(<span class="hljs-string">'utf-8'</span>))<br>        rank=json_content[<span class="hljs-string">'subjects'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'rating'</span>][<span class="hljs-string">'average'</span>]<br><br>        print( <span class="hljs-string">"{}  {}\n"</span>.format(name,rank))<br></code></pre></div></body></html><br><br><br>
+
+<!DOCTYPE html><html><head><title>基于API的爬虫</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;width:800px;margin:0 auto;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+
+   <h2 id="知识点补充">知识点补充</h2> 
+   <h3 id="1json库">1.JSON库</h3>
+
+<p>JSON是一个轻量级的数据交换格式，连接API进行数据爬取的时候，数据的一般返回格式为JSON。阅读以下两个文档，了解Python数据格式和JSON数据格式的联系，以及Python是如何使用json.dumps和json.load指令对数据进行编码和解码。</p>
+
+<ul><li><a href="http://www.runoob.com/json/json-tutorial.html" target="_blank">什么是JSON</a></li>
+<li><a href="http://www.runoob.com/python/python-json.html" target="_blank">Python JSON</a></li>
+<li><a href="https://my.oschina.net/pangyangyang/blog/200329" target="_blank">Python3中json的操纵</a> <br>
+</ul>
+完成阅读后，希望你可以对这个数据格式有一个大致的了解。</li>
+<br>
+<br>
+<h3 id="2python编码格式">2.Python编码格式</h3>
+
+<p>视频中，使用的编码格式有 utf-8 以及 unicode，原本为乱码的网页，在unicode-escape格式中就显示正确了，怎么判断应该在什么场合下使用不同的编码格式呢，请阅读以下文档，熟悉关于编码的知识。</p>
+
+<ul><li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000" target="_blank">Python字符串编码</a></li>
+<li><a href="http://www.runoob.com/w3cnote/charset-encoding.html" target="_blank">字符集和字符编码</a></li>
+</ul>
+
+<p>阅读过材料后，希望你能理解为什么会出现这么多不同的编码方式，以及掌握Python是怎么规定解码方式的。</p>
+
+<br><br><br>
+
+
+<h2 id="扩展阅读">扩展阅读</h2>
+
+
+
+<p>如果学有余力的话，不妨来阅读以下链接的材料，扩展你的视野。</p>
+
+<ul><li><a href="https://zhuanlan.zhihu.com/p/21320392" target="_blank">免费实用的API接口</a>，很多网站都提供了API，可以通过这些API爬取很多有意思的信息</li>
+<li><a href="https://zhuanlan.zhihu.com/p/26563742" target="_blank">白话产品对接，一篇文章看懂API和SDK</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21883516" target="_blank">高德API+Python解决租房问题</a></li><br><br><br>
+</ul></div>
+<br><br>
+<p align="center">
+	<a href="https://class.pkbigdata.com/#/classDetail/classIntroduce/1" target="_blank" style="color:darkblue">数据分析师（入门）&nbsp &nbsp  港科大博后 王乐业 &nbsp 主讲</a><br><br>
+	<a href="https://class.pkbigdata.com/#/" target="_blank" style="color:darkblue">更多数据科学课程，上DC学院</a><br><br><br>
+	<img longdesc="./屏幕快照 2017-06-20 下午9.50.07.png" alt="Alt text" title="" type="image/png" class="" width="200" src="http://a2.qpic.cn/psb?/V11Gjour0xUbvS/tTU8X69B5.PR.qIkcsMZwAGzGM1v9V9cfxsRWxjj7SE!/b/dGwBAAAAAAAA&bo=rgGuAQAAAAARBzA!&rf=viewer_4"><br>
+	关注DC，获取更多学习资源
+</p>
+
+</body></html><br><br><br><br>
