@@ -1,3 +1,11 @@
+## 基本
+* stata允许第三方插件
+* 三种文件：数据文件、do文件、log文件
+> + stata自己的数据文件后缀名为`.dta`,支持导入其他格式如`.xls` `.xlsx` `.csv`
+> + do文件记录命令方便重复执行，建议将命令保存在do文件中
+> + log文件可以记录分析过程:`File`==>`Log`==>`Begin`或直接输入命令`log using log_file_name`
+> + log文件默认格式为`.smcl`,可以转换为`.log`
+
 ## 常用命令
 #### Some useful Stata commands
 * ssc install XXX   //access routines from the SSC Archive
@@ -15,6 +23,7 @@
 * use auto.dta    //load a Stata data set
 * describe,short    //只显示头部
 * describe [variable]    //全部显示或显示变量名
+* list in 1/10       // 查看此数据集的前10行
 * generate    // create a new variable
 * replace    // modify an existing variable
 * rename    // rename variable
@@ -81,6 +90,8 @@
 * `graph box  yvars [if] [in] [weight] [, options]`箱子是竖着的
 * `graph hbox yvars [if] [in] [weight] [, options]`箱子是横着的
 > + `graph box price, over(foreigh)`根据foreign分组
+* `graph matrix X1 ... Xn, half`绘制矩阵散点图
+* `graph twoway connect Y year || lfit Y year`绘制时间序列曲线并拟合一条直线
 * `vioplot price, over(foreigh)`小提琴图，根据foreign分组 
 * `set scheme s1mono`stata重启前设置为s1mono主题,重启后为s2color主题
 * `set scheme s1mono, perm`stata永久设置为s1mono主题
