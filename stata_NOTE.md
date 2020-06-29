@@ -2,14 +2,14 @@
 * stata允许第三方插件
 * 三种文件：数据文件、do文件、log文件
 > + stata自己的数据文件后缀名为`.dta`,支持导入其他格式如`.xls` `.xlsx` `.csv`
-> + do文件记录命令方便重复执行，建议将命令保存在do文件中
-> + log文件可以记录分析过程:`File`==>`Log`==>`Begin`或直接输入命令`log using log_file_name`
+> + do文件记录命令可通过按钮或`Ctrl+D`重复执行，建议将命令保存在do文件中
+> + log文件可以记录分析过程:`File`==>`Log`==>`Begin`或直接输入命令`log using log_file_name`，读取的时候`File`==>`Log`==>`view`
 > + log文件默认格式为`.smcl`,可以转换为`.log`
 
 ## 常用命令
 #### Some useful Stata commands
 * ssc install XXX   //access routines from the SSC Archive
-* help -search    //online help on a specific command
+* help commands    //online help on a specific command
 * findit    //online references on a keyword or topic
 * log    //log output to an external file
 * tsset   // define the time indicator for timeseries or panel data
@@ -19,11 +19,16 @@
 * adoupdate   // see if user-written commands are up to date
 
 #### Data manipulation commands
-* sysuse "D:\stata\auto.dta", clear   //打开auto横截面数据
-* use auto.dta    //load a Stata data set
+* sysuse "D:\stata\auto.dta", clear   //可以使用自带的auto横截面数据,命令可用`use`
 * describe,short    //只显示头部
 * describe [variable]    //全部显示或显示变量名
 * list in 1/10       // 查看此数据集的前10行
+* 也可以自己录入数据集
+> `input X1 X2 ...`
+> `1 2 3`
+> `end`
+> `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
+> `edit` // 可对数据进行修改
 * generate    // create a new variable
 * replace    // modify an existing variable
 * rename    // rename variable
@@ -39,7 +44,6 @@
 * foreach    // loop over elements of a list, performing a block of code
 * forvalues    // loop over a numlist, performing a block of code
 * local    // define or modify a local macro (scalar variable)
-* save    // write the contents of memory to a Stata data set
 * insheet    // load a text file in tab- or comma-delimited format
 * infile    // load a text file in space-delimited format or as defined in a dictionary
 * outfile    // write a text file in space- or comma-delimited format
