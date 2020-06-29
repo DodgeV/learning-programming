@@ -24,11 +24,11 @@
 * describe [variable]    //全部显示或显示变量名
 * list in 1/10       // 查看此数据集的前10行
 * 也可以自己录入数据集
-> `input X1 X2 ...`
-> `1 2 3`
-> `end`
-> `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
-> `edit` // 可对数据进行修改
+> + `input X1 X2 ...`
+> + `1 2 3`
+> + `end`
+> + `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
+> + `edit` // 可对数据进行修改
 * generate    // create a new variable
 * replace    // modify an existing variable
 * rename    // rename variable
