@@ -24,7 +24,7 @@
 
 int main(int argc, char *argv[])
 {
-    // return 0，程序正常结束
+    // return 0 -1 1等等皆可让程序正常结束
     printf("Hello C++ World before system!\n");
     system("ls -lha");   //在已经运行的程序中，执行一个外部程序(命令)
     system("./a.out");
