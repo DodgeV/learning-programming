@@ -4,7 +4,7 @@
 
 # 命令行的艺术
 
-![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line/blob/master/cowsay.png)
+[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [前言](#前言)
 - [基础](#基础)
@@ -19,7 +19,7 @@
 - [免责声明](#免责声明)
 
 
-![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
+![png](https://github.com/jlevy/the-art-of-command-line/blob/master/cowsay.png)
 
 熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时，发现的一些命令行使用技巧的摘要。有些技巧非常基础，而另一些则相当复杂，甚至晦涩难懂。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
