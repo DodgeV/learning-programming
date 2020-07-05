@@ -1,7 +1,14 @@
 # study
 + [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
-+ [computer-science ](https://github.com/ossu/computer-science)
++ [computer-science](https://github.com/ossu/computer-science)
 + [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
+
+## 语言
+## 数据结构与算法
+## 计算机网络
+## 操作系统
+## 数据库
+## 设计模式
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
