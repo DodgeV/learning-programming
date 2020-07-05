@@ -105,6 +105,7 @@
 ## C
 * [C语言网](https://www.dotcpp.com/)
 * [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
+* [C语言--小甲鱼](https://www.bilibili.com/video/BV1x7411M74h)&[对应教材：C语言程序设计(第四版)高清晰版-谭浩强]()&[课件]()
 * [C 、C++、Python和Linux黑马13期基础班+就业班](https://www.bilibili.com/video/av76584158)
 * [2018年最值得收藏的C语言基础教程【适合C语言小白，源码，笔记，软件，案例全】](https://www.bilibili.com/video/BV1vs411n7TH)
 * [2018年计算机全国等级考试二级c语言教程](https://www.bilibili.com/video/BV1YW411W71y)
