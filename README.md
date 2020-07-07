@@ -145,6 +145,7 @@
 
 ### videos
 * [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
+* [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)
 * [Python网络爬虫与信息提取--北理工](http://www.icourse163.org/learn/BIT-1001870001)
 * [Python科学计算三维可视化--北理工](http://www.icourse163.org/learn/BIT-1001871001)
 * [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
