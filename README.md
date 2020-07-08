@@ -1,12 +1,18 @@
 # study
 + [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
++ [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
++ [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)
++ [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)
 + [computer-science](https://github.com/ossu/computer-science)
++ [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
 
 ## 语言
 ## 数据结构与算法
 ## 计算机网络
+* [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 ## 操作系统
+* [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
 ## 数据库
 ## 设计模式
 
@@ -153,7 +159,6 @@
 * [零基础学习PythonCAP--北理工](http://www.icourse163.org/learn/BIT-1002058035)
 * [传智播客day25网络爬虫](https://www.bilibili.com/video/av84404200?p=86)&[如果失效用这个](https://www.bilibili.com/video/av50730537)
 * [传智播客python就业班](https://www.bilibili.com/video/av81257032/?p=89) 或[python2018就业班](https://www.bilibili.com/video/av50672189?p=94)
-* [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 * [python2018就业班全集（前半部分）](https://www.bilibili.com/video/BV1b4411b74E?p=104)
 
 ### tutorials
