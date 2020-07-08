@@ -91,7 +91,7 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 - 学习 Bash 的基础知识。具体地，在命令行中输入 `man bash` 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的（ 如果你*只*学习 zsh，fish 或其他的 shell 的话，在你自己的设备上会显得很方便，但过度依赖这些功能会给您带来不便，例如当你需要在服务器上工作时）。
 
 - 熟悉至少一个基于文本的编辑器。通常而言 Vim （`vi`） 会是你最好的选择，毕竟在终端中编辑文本时 Vim 是最好用的工具（甚至大部分情况下 Vim 要比 Emacs、大型 IDE 或是炫酷的编辑器更好用）。
-```bash
+```md
  # vi/vim 命令
 * 打开文件时若是强制退出 下次打开之时输入d删除vim交互文件swap
 * 若是没有行号则需要在vimrc文件中修改
