@@ -19,19 +19,21 @@
 * adoupdate   // see if user-written commands are up to date
 
 #### Data manipulation commands
-* sysuse "D:\stata\auto.dta", clear   //可以使用自带的auto横截面数据,命令可用`use`
-* describe,short    //只显示头部
-* describe [variable]    //全部显示或显示变量名
-* list in 1/10       // 查看此数据集的前10行
-* 也可以自己录入数据集
+* 可以通过命令的方式录入数据集
 > + `input X1 X2 ...`
 > + `1 2 3`
 > + `end`
 > + `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
-> + `edit` // 可对数据进行修改
+* 也可以通过菜单窗口的方式录入数据
+> + `edit`打开窗口写入数据，如果内存有数据，可对数据进行修改
+
+* `sysuse "D:\stata\auto.dta"`   //可以使用自带的auto横截面数据,命令可用`use`
+* describe,short    //只显示头部
+* describe [variable]    //全部显示或显示变量名
+* list in 1/10       // 查看此数据集的前10行
 * generate    // create a new variable
 * replace    // modify an existing variable
-* rename    // rename variable
+* `rename 时间 var1`   // 将时间变量重命名为var1
 * renvars    // rename a set of variables
 * sort    // change the sort order of the dataset
 * drop    // drop certain variables and/or observations
