@@ -26,14 +26,20 @@
 > + `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
 * 也可以通过菜单窗口的方式录入数据
 > + `edit`打开窗口写入数据，如果内存有数据，可对数据进行修改
-
-* `sysuse "D:\stata\auto.dta"`   //可以使用自带的auto横截面数据,命令可用`use`
-* describe,short    //只显示头部
-* describe [variable]    //全部显示或显示变量名
-* list in 1/10       // 查看此数据集的前10行
-* generate    // create a new variable
+* 还可以使用自带的auto横截面数据,命令可用`use`
+> + `sysuse "D:\stata\auto.dta"`
+* 还可以通过复制粘贴创建新的数据集
+* 还可以导入excel格式的数据
+> + `import excel "energy.xls", sheet("stata") firstrow clear`
+* 还可以导入文本格式的数据
+> + `import delimited diamonds.csv,clear`
+* `describe,short`只显示头部
+* `describe [variable]`全部显示或显示变量名
+* `list in 1/10`查看此数据集的前10行
+* `rename 时间 var1`将时间变量重命名为var1
+* `rename (var1 var2 var3 var4 var5 var6) (year total coal oil gas clean)`也可以一次性完成
+* `generate volume = x*y*z`通过算式创造一个新的变量
 * replace    // modify an existing variable
-* `rename 时间 var1`   // 将时间变量重命名为var1
 * renvars    // rename a set of variables
 * sort    // change the sort order of the dataset
 * drop    // drop certain variables and/or observations
