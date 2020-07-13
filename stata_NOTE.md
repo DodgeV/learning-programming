@@ -76,6 +76,23 @@
 * summarize [var] [if] [in] [weight] [,option]  // 也可以简写为sum或summ
 * summarize price,detail   //提供额外的统计量 
 * correlate    // correlation matrices
+* `ci means [varlist] [if] [in] [weight] [,options]`计算几个连续变量平均值的置信区间，平均值可以简写为`mean`
+* `cii means #obs #mean #sd [,level(#)]`也可以指定有多少个观测值，平均值是多少，标准差是多少，置信水平默认为95%，可以更改
+* `ci mean mpg price, level(90)`置信水平改为90%
+* `cii mean 166 19509 4379, level(95)`指定166个变量，平均值为19509，标准差为4379，置信水平95%
+* 分类变量的置信区间
+> + `ci proportions [varlist] [if] [in] [weight] [,prop_options options]`可以简写为`prop`,但只能用于二分类变量
+> + `proportion varlist [if] [in] [weight] [,options]`多分类变量的置信区间，同样可以简写为``
+> + `prop foreign rep78`计算多个变量时，会默认去掉缺失值,造成变量个数变少
+> + `prop foreign rep78,miss`不去掉缺失值
+* 查看变量的相关性
+* `pwcorr [varlist] [if] [in] [weight] [,pwcorr_options]`可以简写为`pwrr`
+* `pwrr price headroom mpg displacement`
+* `pwrr price headroom mpg displacement,sig`将P值标出来
+* `pwrr price headroom mpg displacement,star(0.05)`将P值<0.05的相关系数标上star
+* 绘制相关性散点图矩阵
+* `graph matrix varlist [if] [in] [weight] [,options]`画出完全对称的散点图矩阵
+* `graph matrix varlist,half`只画一半
 * ttest    // perform 1-, 2-sample and paired t-tests
 * anova    // 1-, 2-, n-way analysis of variance
 * regress    // least squares regression
