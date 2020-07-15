@@ -167,9 +167,9 @@
 - [pcc--Resources for Python Crash Course, from No Starch Press.](https://github.com/ehmatthes/pcc)
 - [pycrumbs--Bits and bytes of Python from the Internet ](https://github.com/kirang89/pycrumbs)
 - [DataSciencePython](https://github.com/ujjwalkarn/DataSciencePython)
-* [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
-* [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
-* [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
+- [python爬虫教程](https://github.com/Kr1s77/Python-crawler-tutorial-starts-from-zero)
+- [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
+- [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
 
 ### demo
 * [GitHub Top 45：新手入门 Python，值得推荐的优质资源！](https://mp.weixin.qq.com/s/fLZdDQE_trhKRLyQKoORzg)
