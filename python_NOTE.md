@@ -15,7 +15,7 @@
 ## pycharm快捷键 及使用技巧
 * ctrl+Q 查看函数内置文件 点在函数名上 再左侧黄色灯泡中插入内置文件
 * debug的时候 F8 -- step over 把函数当作一行代码来执行   F7 -- step into 在函数里面一行一行执行
-
+* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
 * 字符串的判断避免使用or拼接复杂的逻辑条件，改为使用in
 
 
@@ -39,14 +39,14 @@
 * http 1.0 短链接 每一次请求都重新3次握手创建新的套接字
 * http 1.1 长链接 先得到整个页面的数据 后一次性请求所有需要的数据
 * 本机 [IP查询](http://www.ip138.com/)
-- ip地址:用来标记网络上的一台电脑 
+* ip地址:用来标记网络上的一台电脑 
 + windows:ipconfig linux/mac/unix:ifconfig 出现2个网卡 想与别人通信用以太网 自己联网用本地 sudo ifconfig ens40 down 把通信网关掉
-+ 分类:ipv4/ipv6 v指版本  ipv6 正在发展
-+ ipv4 更常用 4组数 总共有256 * 256 * 256 * 256 种
+* 分类:ipv4/ipv6 v指版本  ipv6 正在发展
+* ipv4 更常用 4组数 总共有256 * 256 * 256 * 256 种
 > * C类地址前3个标记网络号 同一个局域网前3个3位数一样 最后一个标记主机号 0和255用于广播 不能随便用
 > * A类IP地址第1组当作网络号 后3组当作主机号 B类前2后2 C类前3后1
 > * D类主要用于多点广播 E类地址保留仅用于实验
-- 端口号(port)类似软件的IP 可以理解为门牌号 一个程序没有运行叫程序 运行起来叫进程
+* 端口号(port)类似软件的IP 可以理解为门牌号 一个程序没有运行叫程序 运行起来叫进程
 > * 知名端口(小于1024)是众所周知的 大家默认都使用的端口 不能随便用 比如80端口分配给HTTP 21端口分给FTP
 > * 动态端口(1024到65535) 可以随意使用
 ## 网络通信基础：使用网络的目的是联机
@@ -74,7 +74,7 @@ udp_socket.close()
 + 单工:收音机 只能收
 + 半双工:对讲机 可以收发，但同一时刻只能收或发
 + 全双工:电话 同一时刻可以同时收发 socket套接字是全双工
-
+# 用udp实现半双工聊天器
 ```python
 import socket
 print('XXX聊天器'.center(50,'='))
@@ -102,9 +102,8 @@ while True:
         break
     udp_socket.close()
 ```
-
-```python
 # udp聊天器 优化版
+```python
 import socket,threading
 def send_msg(udp_socket):
     while True:
@@ -229,9 +228,8 @@ def main():
     tcp_server_socket.close() 
 main()
 ```
-
-```python
 # tcp模型模拟实现http服务器 返回固定页面
+```python
 from socket import *
 tcp_server_socket = socket(AF_INET,SOCK_STREAM)
 tcp_server_socket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) # 设定套接字选项 保证服务器可以先close
@@ -239,30 +237,29 @@ address = ('',7788)
 tcp_server_socket.bind(address) 
 tcp_server_socket.listen(128) 
 while True: 
-print('等待新客户端连接.....')
-client_socket,clientaddr = tcp_server_socket.accept()
-while True: 
-    print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
-    ''' 接收请求头'''
-    request = client_socket.recv(1024) # 客户端不只是发送请求的页面 还有超链接
-    print('客户端送过来的的请求为\\n',request.decode('utf-8'))
-    ''' 返回headers和body'''
-    headers = \HTTP/1.1 200 OK\\r\\n\ # 每一行后面都有一个换行
-    konghang = \\\r\\n\   # 2者中空一行
-    f = open('baidu.html','r')
-    body = f.read()
-    f.close()
-    # body = \<h1>this is a headline</h1>\
-    response = headers + body
-    client_socket.send(response.encode('utf-8'))
-    client_socket.close() #关闭套接字不再为这个客户端服务
-    print('已经为这个客户端服务完毕')
-    break
-tcp_server_socket.close() # 最后关服务器的监听套接字
+    print('等待新客户端连接.....')
+    client_socket,clientaddr = tcp_server_socket.accept()
+    while True: 
+        print('IP端口号为{0}的客户端连接成功'.format(clientaddr))
+        ''' 接收请求头'''
+        request = client_socket.recv(1024) # 客户端不只是发送请求的页面 还有超链接
+        print('客户端送过来的的请求为\\n',request.decode('utf-8'))
+        ''' 返回headers和body'''
+        headers = \HTTP/1.1 200 OK\\r\\n\ # 每一行后面都有一个换行
+        konghang = \\\r\\n\   # 2者中空一行
+        f = open('baidu.html','r')
+        body = f.read()
+        f.close()
+        # body = \<h1>this is a headline</h1>\
+        response = headers + body
+        client_socket.send(response.encode('utf-8'))
+        client_socket.close() #关闭套接字不再为这个客户端服务
+        print('已经为这个客户端服务完毕')
+        break
+    tcp_server_socket.close() # 最后关服务器的监听套接字
 ```
-
-```python
 # 应用多进程多线程协程改进tcp模拟http服务器
+```python
 from socket import *
 import re,multiprocessing,threading
 #import gevent
@@ -313,9 +310,8 @@ def main():
 if __name__ == \__main__\:
     main()
 ```
-
-```python
 # 单进程 单线程 利用列表遍历 实现同时服务多个客户端
+```python
 from socket import *
 import time
 tcp_server_tcp = socket(AF_INET,SOCK_STREAM)
@@ -333,24 +329,23 @@ while True:
         print('----只要没有产生异常，就意味着有新客户端连接成功')
         new_socket.setblocking(False) # 设置套接字为非堵塞方式
         client_socket_list.append(new_socket)
-for client_socket in client_socket_list:
-    try:
-	recv_data = client_socket.recv(1024) 
-	# 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据
-    except Exception as ret:
-	print('----这个客户端没有发送数据')
-    else:
-	if recv_data:
-	    print('----这个客户端发送来数据')
-	    print(str(recv_data))
-	else:
-	    print('客户端调用close')
-	    client_socket_list.remove(client_socket)
-	    client_socket.close()
+    for client_socket in client_socket_list:
+        try:
+        recv_data = client_socket.recv(1024) 
+        # 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据
+        except Exception as ret:
+        print('----这个客户端没有发送数据')
+        else:
+        if recv_data:
+            print('----这个客户端发送来数据')
+            print(str(recv_data))
+        else:
+            print('客户端调用close')
+            client_socket_list.remove(client_socket)
+            client_socket.close()
 ```
-
-```python
 # 利用单进程 单线程 遍历实现 长链接
+```python
 from socket import *
 import re
 def service_client(client_socket, request):
@@ -525,15 +520,6 @@ if __name__ == \__main__\:
 3. 发送http的请求数据以及等待服务器的应答
 4. 发送tcp 4次挥手
 
-```python
-names = ['aa','bb','cc']
-for temp in names
-   print(temp) # aa bb cc
-for index,name in enumerate(names): # 拆包
-   print(index,name)  # 0 aa   1 bb   2 cc
-
-```
-  
 * 单核CPU 时间片轮转 只要转的够快就可以模拟多线程
 * 并行：真的多任务
 * 并发：假的多任务 CPU核数小于任务数
@@ -541,7 +527,6 @@ for index,name in enumerate(names): # 拆包
 * 多线程 一个程序执行起来后会有一个执行的箭头 称之为线程
 * 多线程是指在一个进程(一坨资源)里面有多个箭头
 ### 多线程适用于:大量密集的I/O处理,输入输出操作,比如文件读写,网络爬虫操作
-
 ```python
 
 import time,threading
@@ -669,12 +654,12 @@ import time,os
 
 def sing(n):
     for i in range(n):
-        print('sing{0}....进程号:{1}'.format(ios.getpid()))
+        print('sing{0}....进程号:{1}'.format(os.getpid()))
         time.sleep(1)
 
 def dance(n):
     for i in range(n):
-        print('dance0}....进程号:{1}'.format(ios.getpid()))
+        print('dance0}....进程号:{1}'.format(os.getpid()))
         time.sleep(1)
         
 if __name__ == '__main__':
@@ -705,18 +690,12 @@ q.put('消息3')
 print(q.full()) #True
 print(q.qsize()) #获取队列长度
 print(q.empty()) #False 非空
-print(q.get()) # block默认为True
+print(q.get()) # 消息1  block默认为True
 # 如果队列为空，block=True，不会结束，会进入阻塞状态 直到队列有新的值
 # 如果队列为空，block=False，会弹出一个Queue.empty()的异常
-print(q.get_nowait())
-
-# False
-# True
-# 消息1
-# 消息2
+print(q.get_nowait()) # 消息2
 
 ```
-
 ```python
 
 import multiprocessing
@@ -751,9 +730,7 @@ def main():
 main()
 
 ```
-
 ```python
-
 from multiprocessing.dummy import Pool # 在线程池中产生了异常 并不会抛出异常
 import os,time,random
 def worker(msg):
@@ -761,20 +738,19 @@ def worker(msg):
     print('%s开始执行,进程号为%d'%(msg,os.getpid()))
     time.sleep(random.random()*2)
     t_stop = time.time()
-    print(msg,\"执行完毕,耗时%0.2f\"%(t_stop-t_start))
+    print(msg,"执行完毕,耗时%0.2f"%(t_stop-t_start))
 
 po = Pool(3) # 最大进程数为3
 for i in range(8):
     '''要调用的目标，需要的参数元组
     每次循环将会用空闲出来的子进程去调用目标'''
     po.apply_async(worker,(i,))
-print(\"start\".center(20,'-'))
+print("start".center(20,'-'))
 po.close() # 关闭进程池 关闭后再开始执行 关闭后po不再接收新的请求
 po.join() # 等待进程池中的所有子进程执行完毕 必须放在close语句之后
-print(\"end\".center(20,'-'))
+print("end".center(20,'-'))
 
 ```
-
 ```
 -------start--------0
 开始执行,进程号为131561
@@ -803,12 +779,12 @@ from multiprocessing import Manager,Queue
 import os, time
 
 def copy_file(queue,file_name, old_folder_name, new_folder_name):
-    \"\"\"完成文件的复制\"\"\"
+    """完成文件的复制"""
     # print(\"=====>模拟copy[%s]文件:从%s--->%s\" % (file_name, old_folder_name, new_folder_name))
-    old_f = open(os.getcwd() + \"\\\\\" + old_folder_name + '\\\\' + file_name,'rb')
+    old_f = open(os.getcwd() + '\\' + old_folder_name + '\\' + file_name,'rb')
     content = old_f.read()
     old_f.close()
-    new_f = open(new_folder_name+'\\\\'+file_name,'wb')
+    new_f = open(new_folder_name+'\\'+file_name,'wb')
     new_f.write(content)
     new_f.close()
     '''拷贝完文件之后就向队列写入一个消息'''
@@ -819,7 +795,7 @@ def main():
     old_folder_name = input('请输入要copy的文件夹')
     queue = Manager().Queue()
     try:
-        new_folder_name = old_folder_name + \"[附件]\"
+        new_folder_name = old_folder_name + "[附件]"
         os.mkdir(new_folder_name)
     except:
         print('wrong')
@@ -907,7 +883,6 @@ for i in fib:
     print(i) # 结果一样
 ```
 ```python
-
 from collections import Iterable,Iterator
 # class Classmate(object): # 可迭代的不一定是迭代器
 #     def __init__(self):
@@ -966,6 +941,20 @@ a
 b
 c
 ```
+```python
+
+from collections import deque
+queue = deque(range(10)) # 队列，先进先出
+queue.append(88)
+print(queue) # deque([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 88])
+queue.popleft() # 0
+
+ll = [1,2,3,4]
+ll.append(8) #堆栈，后进先出
+print(ll) # [1, 2, 3, 4, 8]
+print(ll.pop()) # 8
+
+```
   
 # 生成器 是一种特别的迭代器 可以用于暂停函数并保留数据
 ## 将列表推导式的方括号改为圆括号
@@ -976,7 +965,6 @@ b = (i*2 if pow(i*2,1/2)%2 == 0 else None for i in range(1,11))
 print(type(b)) # generator
 ```
 ## 函数中只要有yield关键字就不是函数而是生成器
-  
 ```python
 
 def create_num(all_num):
@@ -1001,13 +989,13 @@ obj = create_num(4) # 创建一个生成器对象,可以创建多个对象，之
 #    print(i)
 print(iter(obj))
 
-# 用next调用生成器
-# while True:
-#     try:
-#         print(next(obj))
-#     except Exception as m:
-#         print(m.value) # 捕获异常返回值
-#         break
+# 用next调用生成器,每一次会在执行过程中，遇到yield就中断，下次又继续执行
+while True:
+    try:
+        print(next(obj))
+    except StopIteration as m:# 如果想要拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中
+        print('Generator return value:',m.value) 
+        break
 
 # 用send调用生成器 可以传入参数作为生成器内部的参考 影响生成器的取值
 obj.send(None) # 无法将非None值传给一个刚创建的生成器
@@ -1251,9 +1239,8 @@ except urllib.error.URLError as e:
 # Analysis
 ## numpy,scipy,pandas,matploblib,seaborn
 ## plotly 是 github 上面的动态图像处理项目 在后端绘制  兼容matplotlib和pandas 
-    
+* 爬取西刺代理
 ```python
-
 import random
 user_agent=['Mozilla/5.0(Windows;U;WindowsNT6.1;en-us)AppleWebKit/534.50(KHTML,likeGecko)Version/5.1Safari/534.50',
 'Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0',
@@ -1322,7 +1309,6 @@ class get_proxies:
 ```
 
 ```python
-
 from lxml import etree
 url = 'http://e.dangdang.com/new_original_index_page.html'
 headers = {'user-agent':random.choice(user_agent),'Host':'img61.ddimg.cn'}
@@ -1355,7 +1341,7 @@ for i in range(21):
     # json.dump(response.text,open('json.txt','w',encoding = 'utf-8'))
     # json.load(open('json.txt','r',encoding='utf-8')) # 从文件中读取json==>python
 ```
-  
+* `selenium`无头浏览器爬取动态页面
 ```python
 from selenium import webdriver
 # 调用键盘按键操作时需要引入的Keys包
@@ -1760,21 +1746,22 @@ print(html.xpath('string(//span)').replace(' ', '').replace('\\n', ''))
 * scrapy view 在浏览器打开某个网页
 * scrapy check 检查爬虫是否合格
 
-
 # python
+
 ```python
+action = '2'
 if action in ['1','2','3']:
+    print(action)
 if action == '1' or action == '2' or action == '3':
-```
-* 将复杂的条件多行化
-```python
+    print(action)
+# 将复杂的条件多行化
 for a in range(10):
     if ((a<3)
         or (a>8)):
         print(a)
 ```
-* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
-### [tkinter--小甲鱼GUI](https://www.bilibili.com/video/av4050443?p=65)
+
+* [tkinter--小甲鱼GUI](https://www.bilibili.com/video/av4050443?p=65)
 ```python
 import tkinter
 
@@ -1803,13 +1790,14 @@ ent2.pack()
 
 fm_main.mainloop()
 ```
+
 ```python
 
 import shutil
-#shutil.copyfile('data.db', 'archive.db')
-#shutil.move('/build/executables', 'installdir')
+shutil.copyfile('data.db', 'archive.db')
+shutil.move('/build/executables', 'installdir')
 import glob
-glob.glob('*.py')\n"
+glob.glob('*.py') # 获取本路径下的所有py文件
 
 ```
 ```
@@ -1819,96 +1807,118 @@ D:\\python
 ```
 ```python
 str1 = '人生苦短'
+print(repr(str1)) #repr产生一个解释器易读的表达形式:"'人生苦短'"
 b1 = bytearray(str1.encode())
-print(b1.decode())
+print(b1.decode()) # 人生苦短
 b1[:6] = bytearray('生命'.encode()) # bytearray类型支持切片修改 而bytes类型不支持修改
-print(b1.decode())
-
-print(0.2+0.1==0.3)
+print(b1.decode()) # 生命苦短
+print(','.join(str1)) # 人,生,苦,短
+s = ';'
+print(s.join(str1)) # '人;生;苦;短'
+a1 = bytes('中国',encoding = 'utf-8')
+print(a1) # b'\xe4\xb8\xad\xe5\x9b\xbd'
+print(a1.decode()) #'中国'
+print(u'书写national word') # 书写national word 
+# #Unicode是书写国际文本的标准方法。如果想要用母语写文本，那么需要一个支持Unicode的编辑器.
+print(2 << 2==8) # 将2往左移动两位,即200(二进制)转为10进制既是8
+print(3 << 2==12)# 3*2^2 = 12 
+print(10 << 2==40) # 即10*4
+print(10 >> 2 == 2) # 即10/4取整
+print(11 >> 2 == 2) # 即11/4取整
+print(5 & 3) # 1
+print(5 & 7) # 数字的按位与
+print(8 | 2) # 数字的按位或
+print(0.2+0.1==0.3) # False
+print(3 > 2 and 3 > 1) # True
+print(3 > 2 & 3> 8) #False
+print(0 & 7) # 0
+print(~2) # 按位反转
+x = 100
+print(~x) # -101
+print(5 ^ 2) # 数字的按位XOR 7
+print(5 ^ 3) # 6
+print(14//3) # 4
+print(14/3) # 4.666666666666667
+print(14%3) # 2
+print(8%2) # 0
+print(bool) # <class 'bool'>
+print(bool(False)) # False
+print(bool(0)) # False
+print(bool(-23)) # True
+print(bool(None)) # False
+print(bool([])) # False
+print(bool([23])) # True
 a = 1+2j
-print(a.real,a.imag)
-print(f'I am {a} years old')
-print('{:->8,}'.format(12345))  # 逗号为千位符
-print('{0:.3f}'.format(1.0/3))
-print("{:\"^30x}".format(16)) # \为字母小写
-print('{0:_^11}'.format('hello'))
-print('{0} love {1}.{2}'.format('i','fishc','com'))
-print('{a} love {b}.{c}'.format(a='i',b='fishc',c='com'))
-print('{0} love {b}.{c}'.format('i',b='fishc',c='com'))
-print('{0}'.format('hhh'))
-print('{{0}}'.format('hhh'))
-print('{0:1f}{1}'.format(17.77,'gb'))
-print('%c %c %c'%(97,98,99))
-print('%s'%'i love you')
-print('%d + %d = %d'% (4,5,4+5))
-print('divmod(8,5) = 8//5,8%5', divmod(8, 5))
-print('pow(2,3)=2^3={0:*^5d} and pow(2,3,8)=2^3//8={1:*<5d}'.format(pow(2, 3),pow(2, 3, 4)))
-print('(round(3.5)){0:.2f} is 2 times of (round(2.5){1:.2f}'.format(round(3.5), round(2.5)))
-print('round(4.444,2)={0}'.format(round(4.444, 2)))
-print('{0:c} is {1}'.format(97, chr(ord('a'))))
-print('abs(-2) = ', abs(-2))
-print(all([2 > 1, -1 > -2]))
-print(any((2, -1 < -2)))
+print(a.real,a.imag) # 1.0 2.0
+print(type(a)) # <class 'complex'>
+print(f'I am {a} years old') # I am (1+2j) years old
+x = '     a   s  fdf  '
+x.replace(' ','')
+print(x) # 'asfdf'
+print('{:->8,}'.format(12345))  # 逗号为千位符 --12,345
+print('{0:.3f}'.format(1.0/3)) # 0.333
+print("{:_^30x}".format(16)) # ______________10______________
+print('{0:\"^11}'.format('hello')) # \ 为字母小写 """hello"""
+print('{0} love {1}.{2}'.format('i','fishc','com')) # i love fishc.com
+print('{a} love {b}.{c}'.format(a='i',b='fishc',c='com')) # i love fishc.com
+print('{0} love {b}.{c}'.format('i',b='fishc',c='com')) # i love fishc.com
+print('{0}'.format('hhh')) # hhh
+print('{{0}}'.format('hhh')) # {0}
+print('{0:1f}{1}'.format(17.77,'gb')) # 17.770000gb
+print('%c %c %c'%(97,98,99)) # a b c
+print('%s'%'i love you') # i love you
+print('%d + %d = %d'% (4,5,4+5)) # 4 + 5 = 9
+print('divmod(8,5) = 8//5,8%5', divmod(8, 5)) # divmod(8,5) = 8//5,8%5 (1, 3)
+print('pow(2,3)=2^3={0:*^5d} and pow(2,3,8)=2^3//8={1:*<5d}'.format(pow(2, 3),pow(2, 3, 4))) # pow(2,3)=2^3=**8** and pow(2,3,8)=2^3//8=0****
+print('(round(3.5)){0:.2f} is 2 times of (round(2.5){1:.2f}'.format(round(3.5), round(2.5))) # (round(3.5))4.00 is 2 times of (round(2.5)2.00
+print('round(4.444,2)={0}'.format(round(4.444, 2))) # round(4.444,2)=4.44
+print('{0:c} is {1}'.format(97, chr(ord('a')))) # a is a
+print('abs(-2) = ', abs(-2)) # abs(-2) =  2
+print(all([2 > 1, -1 > -2])) # True
+print(any((2, -1 < -2))) # True
 a, b, c = oct(8), hex(16), bin(2)
-print('{0}={1:o} and {2}={3:x} and {4:b}={5}'.format(a, 8, b, 16, 2, c))
-print('0b1010=', 0b1010)
-print(f'0o10={a}=oct(8)')
-print(f'0x10={b}=hex(16)')
-print(f'0b10={c}=bin(2)')
-print('test'.center(20, '='))
-print('test'.lower())
-print('test'.upper())
-print('test'.strip('t'))
-print(chr(12288).join('test'))
+print('{0}={1:o} and {2}={3:x} and {4:b}={5}'.format(a, 8, b, 16, 2, c)) # 0o10=10 and 0x10=10 and 10=0b10
+print('0b1010=', 0b1010) # 0b1010= 10
+print(f'0o10={a}=oct(8)') # 0o10=0o10=oct(8)
+print(f'0x10={b}=hex(16)') # 0x10=0x10=hex(16)
+print(f'0b10={c}=bin(2)') # 0b10=0b10=bin(2)
+print('test'.center(20, '=')) # ========test========
+print('test'.lower()) # test
+print('test'.upper()) # TEST
+print('test'.strip('t')) # es
+print(chr(12288).join('test')) # t　e　s　t
 a = u'iloveu' # python2中遍历字符串需要前加u
-print([i for i in a]) 
-print('test'.find('t', 2))
-```    
-```
-人生苦短
-生命苦短
-False
-1.0 2.0
-I am (1+2j) years old
---12,345
-0.333
-___hello___
-i love fishc.com
-i love fishc.com
-i love fishc.com
-hhh
-{0}
-17.770000gb
-a b c
-i love you
-4 + 5 = 9
-divmod(8,5) = 8//5,8%5 (1, 3)
-pow(2,3)=2^3=**8** and pow(2,3,8)=2^3//8=0****
-(round(3.5))4.00 is 2 times of (round(2.5)2.00
-round(4.444,2)=4.44
-a is a
-abs(-2) =  2
-True
-True
-0o10=10 and 0x10=10 and 10=0b10
-0b1010= 10
-0o10=0o10=oct(8)
-0x10=0x10=hex(16)
-0b10=0b10=bin(2)
-========test========
-test
-TEST
-es
-t　e　s　t
-3
+print([i for i in a]) # ['i', 'l', 'o', 'v', 'e', 'u']
+print('test'.find('t', 2)) # 3
 ```
 * 集合类型 (集合) 元素之间无序，相同元素在集合中唯一存在,集合中元素不可重复,元素类型只能是固定数据类型，例如：整数、浮点数等，列表、字典和集合类型本身都是可变数据类型，不能作为集合的元素出现。
 * 映射类型 (字典) 每个元素是一个键 值对，表示为(key, value)
 * 序列类型 (列表 元组 字符串) 是一维元素向量 元素之间存在先后关系，通过序号访问，元素之间不排他
 ```python
 # 集合 元组 列表 字典都可以用变量名加([])来创建
-a = list(['i','love'])
-print(a.index('i'),a.count('love'))
+a = list(['i','love','you'])
+print(a[::-1])
+print(a.index('i'),a.count('love')) # 0 1
+print(';'.join(a)) # 'i;love;you'
+for temp in a
+   print(temp) # i love you
+for index,name in enumerate(a): # 拆包
+   print(index,name)  # 0 i   1 love   2 you
+user_name,user_age,user_birthday = a
+print(user_name) # 'i'
+
+print([(x,y) for x in [1,2] for y in [2,3]]) # [(1, 2), (1, 3), (2, 2), (2, 3)]
+print([x + 1 for x in [x**2 for x in [1,2,3]]]) # [2, 5, 10]
+print([(x,y) for (x,y) in zip([1,2,3],[3,1,2])]) # [(1, 3), (2, 1), (3, 2)]
+l = ['hello','world',18,'apple',None]
+print([s.lower() for s in l if isinstance(s,str)]) # ['hello', 'world', 'apple']
+g = (s.lower() for s in l if isinstance(s,str)) #把列表生成器的方括号换成圆括号就是生成器generator
+print(type(g)) # <generator object <genexpr> at 0x0000018EDF0BC948>
+#生成器用next()调用，一次只调用一个，调用完元素就会报错
+print(next(g)) # 'hello'
+for i in g: # 因此一般用遍历来访问元素，此法不用管是否报错
+    print(i)
+    
 # b = a[0:2] # 切片
 b = a[:]  # 浅拷贝 会复制一份，使地址发生变化
 d = a.copy() # 浅拷贝
@@ -1927,92 +1937,69 @@ e = copy.deepcopy(c)# 深拷贝可变类型时地址会变，拷元组时，若�
 id(e) # 140300149370824
 id(e[0]) # 140300149369224内部的引用会变,即将内部列表一并拷了1份
 b.append('you')
-print(b[0:2:2])
+print(b[0:2:2]) # ['i']
 d.remove('i')
-print(d.reverse())
-print(sorted(d))
+print(d.reverse()) # None
+print(sorted(d)) # ['love']
 c.clear()
-print(a)
+print(a) # []
+
 ```
-```
-0 1
 
-['i']
-
-None
-
-['love']
-
-[]
-```
 ```python
 # 在没用字典的情况下 用列表代替
 brand = ['li','nai','a','lang'] # 键key
 slogan = ['any','just','impossible','program'] # 值value
 print('lang的口号是:',slogan[brand.index('lang')]) # lang的口号是: program
-```
-```python
+
 # dict0 = dict([('f', 70), ('i', 105)])  #每一个键值组合称为项
-# dict0 = dict((('f', 70), ('i', 105)))
+# dict0 = dict((('f', 70), ('i', 105))) # 也可以用dict字符加两个小括号创建
 dict0 = dict(f=70, i=105)  # 用关键字参数时,键不用引号,值随数据类型的格式写
 dict2 = {1:'one',2:'two',3:'three'}   #字典不是数据类型 是映射类型 可以直接用大括号创建
 dict0['a'] = 65  #在没规定字典的键的时候直接赋值会出错 此处直接赋值不会引起错误
-print(dict0)
+print(dict0) # {'f': 70, 'i': 105, 'a': 65}
 dict1 = {}.fromkeys(range(32), 'an') # 也可以只传入一个元组作为键 没有对应值
-print(dict1.keys()) # 返回所有的键信息 
-print(dict1.values()) # 返回所有的值信息 
-print(dict1.items()) # 返回所有的键值对 
-print(dict1.get('a', 'None')) # 键存在则返回相应值，否则返回默认值 不会改变原字典
-print(dict1.pop('b', 'None')) # 键存在则返回相应值，同时删除键值对，否则返回默认值 
-print(dict1.popitem()) # 随机从字典中随机取出一个键值对，以元组(key, value)形式返回 
-print(dict1)
-dict3 = dict1 #直接赋值会受原字典改变的影响 因为不会改变id地址
-dict3 = dict1.copy() #浅拷贝会改变id地址,原字典的键的改变并不影响dict3，但原字典内部键对应的值的改变会影响
+print(23 in dict1) # True 默认只查找键
+print('an' in dict1) # False
+print({}.fromkeys((1,2,3),('one','two','three'))) # {1: ('one', 'two', 'three'), 2: ('one', 'two', 'three'), 3: ('one', 'two', 'three')}
+print({}.fromkeys((1,2,3))) # {1: None, 2: None, 3: None}
+print(dict1.keys()) # 返回所有的键信息 dict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31])
+print(dict1.values()) # 返回所有的值信息 dict_values(['an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an'])
+print(dict1.items()) # 返回所有的键值对 dict_items([(0, 'an'), (1, 'an'), (2, 'an'), (3, 'an'), (4, 'an'), (5, 'an'), (6, 'an'), (7, 'an'), (8, 'an'), (9, 'an'), (10, 'an'), (11, 'an'), (12, 'an'), (13, 'an'), (14, 'an'), (15, 'an'), (16, 'an'), (17, 'an'), (18, 'an'), (19, 'an'), (20, 'an'), (21, 'an'), (22, 'an'), (23, 'an'), (24, 'an'), (25, 'an'), (26, 'an'), (27, 'an'), (28, 'an'), (29, 'an'), (30, 'an'), (31, 'an')])
+print(dict1.get('a', 'None')) # None 键存在则返回相应值，否则返回默认值 不会改变原字典
+print(dict1.pop('b', 'None')) # None 键存在则返回相应值，同时删除键值对，否则返回默认值 
+print(dict1.popitem()) # (31, 'an') 随机从字典中随机取出一个键值对，以元组(key, value)形式返回 
+print(dict1) # {0: 'an', 1: 'an', 2: 'an', 3: 'an', 4: 'an', 5: 'an', 6: 'an', 7: 'an', 8: 'an', 9: 'an', 10: 'an', 11: 'an', 12: 'an', 13: 'an', 14: 'an', 15: 'an', 16: 'an', 17: 'an', 18: 'an', 19: 'an', 20: 'an', 21: 'an', 22: 'an', 23: 'an', 24: 'an', 25: 'an', 26: 'an', 27: 'an', 28: 'an', 29: 'an', 30: 'an'}
+dict3 = dict1 # 直接赋值会受原字典改变的影响 因为不会改变id地址
+dict3 = dict1.copy() # 浅拷贝会改变id地址,原字典的键的改变并不影响dict3，但原字典内部键对应的值的改变会影响
 dict1.clear() # 删除所有的键值对 改变其中之一只会影响地址相同的
-print(dict1,'====>',dict3)
+print(dict1,'====>',dict3) # {} ====> {0: 'an', 1: 'an', 2: 'an', 3: 'an', 4: 'an', 5: 'an', 6: 'an', 7: 'an', 8: 'an', 9: 'an', 10: 'an', 11: 'an', 12: 'an', 13: 'an', 14: 'an', 15: 'an', 16: 'an', 17: 'an', 18: 'an', 19: 'an', 20: 'an', 21: 'an', 22: 'an', 23: 'an', 24: 'an', 25: 'an', 26: 'an', 27: 'an', 28: 'an', 29: 'an', 30: 'an'}
 dict2 = {}.fromkeys(('a','b','c'),('65','66','67'))
-print(dict2,dict2['b']) #字典中没有的键 直接访问会报错
-dict2.setdefault('d','68') #随即放进去 字典中没有特殊的顺序
-dict2.update(dict0) #随机更新
-print(dict2)
-```
-```python
-{'f': 70, 'i': 105, 'a': 65}
+print(dict2,dict2['b']) # 字典中没有的键 直接访问会报错 {'a': ('65', '66', '67'), 'b': ('65', '66', '67'), 'c': ('65', '66', '67')} ('65', '66', '67')
+dict2.setdefault('d','68') # 随机放进去 字典中没有特殊的顺序
+dict2.update(dict0) # 随机更新
+print(dict2) # {'a': 65, 'b': ('65', '66', '67'), 'c': ('65', '66', '67'), 'd': '68', 'f': 70, 'i': 105}
 
-dict_keys([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31])
-
-dict_values(['an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an', 'an'])
-
-dict_items([(0, 'an'), (1, 'an'), (2, 'an'), (3, 'an'), (4, 'an'), (5, 'an'), (6, 'an'), (7, 'an'), (8, 'an'), (9, 'an'), (10, 'an'), (11, 'an'), (12, 'an'), (13, 'an'), (14, 'an'), (15, 'an'), (16, 'an'), (17, 'an'), (18, 'an'), (19, 'an'), (20, 'an'), (21, 'an'), (22, 'an'), (23, 'an'), (24, 'an'), (25, 'an'), (26, 'an'), (27, 'an'), (28, 'an'), (29, 'an'), (30, 'an'), (31, 'an')])
-
-None
-
-None
-
-(31, 'an')
-
-{0: 'an', 1: 'an', 2: 'an', 3: 'an', 4: 'an', 5: 'an', 6: 'an', 7: 'an', 8: 'an', 9: 'an', 10: 'an', 11: 'an', 12: 'an', 13: 'an', 14: 'an', 15: 'an', 16: 'an', 17: 'an', 18: 'an', 19: 'an', 20: 'an', 21: 'an', 22: 'an', 23: 'an', 24: 'an', 25: 'an', 26: 'an', 27: 'an', 28: 'an', 29: 'an', 30: 'an'}
-
-{} ====> {0: 'an', 1: 'an', 2: 'an', 3: 'an', 4: 'an', 5: 'an', 6: 'an', 7: 'an', 8: 'an', 9: 'an', 10: 'an', 11: 'an', 12: 'an', 13: 'an', 14: 'an', 15: 'an', 16: 'an', 17: 'an', 18: 'an', 19: 'an', 20: 'an', 21: 'an', 22: 'an', 23: 'an', 24: 'an', 25: 'an', 26: 'an', 27: 'an', 28: 'an', 29: 'an', 30: 'an'}
-
-{'a': ('65', '66', '67'), 'b': ('65', '66', '67'), 'c': ('65', '66', '67')} ('65', '66', '67')
-
-{'a': 65, 'b': ('65', '66', '67'), 'c': ('65', '66', '67'), 'd': '68', 'f': 70, 'i': 105}
 ```
 ```python
 num = {}
 print(type(num)) # <class 'dict'>
 num2 = {1,3}
 print(type(num2)) # <class 'set'>如果只有值 则被当成了集合
-set1 = {1, 2, 3, (3, 4), 'a'} #集合中的特性是唯一，会将重复的值去掉 可以利用该特性整理重复值 但得到的集合是无序的
-set2 = {2, 3, 4} 
-# print(set1[0]) # 集合不可以访问单一的值
+set1 = {1, 2, 2, 3, (3, 4), 'a'} #集合中的特性是唯一，会将重复的值去掉 可以利用该特性整理重复值 但得到的集合是无序的
+temp = []
+for a in set1: # 将列表中的重复的值去掉 以前的方法是用for循环
+    if a not in temp:
+        temp.append(a)
+set2 = {2, 3, 4}
+print(2 in set1) # True
+print(set1[0]) # 集合不可以访问单一的值 会报错
 set1.add(4)  # 如果数据项x不在集合S中，将x增加到s
 set1.remove(4)  # 如果4在集合Set1中，移除该元素；不在则产生 KeyError异常
-print(set1 - set2)  # 差集
-print(set1 & set2)  # 交集
-print(set1 | set2)  # 并集
-print(set1 ^ set2)  # 补集
+print(set1 - set2)  # 差集 {1, (3, 4), 'a'}
+print(set1 & set2)  # 交集 {2, 3}
+print(set1 | set2)  # 并集 {1, 2, 3, 4, 'a', (3, 4)}
+print(set1 ^ set2)  # 补集 {1, 4, 'a', (3, 4)}
 set1.clear()  # 移除Set1中所有数据项
 num3 = frozenset([1, 2, 3, 4, 5, 5])  # 可用来创建不可变集合
 # num3.add(3) # AttributeError: 'frozenset' object has no attribute 'add'
@@ -2023,19 +2010,6 @@ tuple1 = tuple([1, 2, 3])
 type((2))  # int
 type((2,))  # tuple
 # 序列的方法：min max len index count
-```
-```python
-<class 'dict'>
-
-<class 'set'>
-
-{1, (3, 4), 'a'}
-
-{2, 3}
-
-{1, 2, 3, 4, 'a', (3, 4)}
-
-{1, 4, 'a', (3, 4)}
 ```
   
 ```python
@@ -2059,6 +2033,7 @@ saysome(words='love you',name='i')    # 其中name,words为关键字参数,即�
 # i->love you
 ```
 ### 下面的name,words为默认参数,i,love you为默认值
+### 定义默认参数要牢记一点：默认参数必须指向不变对象
 ```python
 def saysome(name='i',words='love you'):    
     print(name+'->'+words)
@@ -2084,6 +2059,9 @@ def test(exp,*params):
     print('参数的长度是:',len(params),'第二个参数是:',params[1])
 
 test(1,'小和尚',3.14,5,6,7,8)  # 参数的长度是: 6 第二个参数是: 3.14
+```
+```python
+
 ```
 ## 多值不定长参数 
 ```python
@@ -2352,7 +2330,7 @@ def fib(max):
 f = iter(fib(10))    
 while True:    
     try:    
-        print (next(f), end=\" \")    
+        print (next(f), end=" ")    
     except StopIteration:    
         sys.stderr.write('Warning, log file not found starting a new one\\n')    
         sys.exit()
@@ -2371,48 +2349,87 @@ Warning, log file not found starting a new one
 D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. 
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
-
 ```python
+try:
+	f = open('wenjian.txt')
+except TypeError as reason:
+	print('出错了，理由是'+str(reason))  #如果错误类型没找到，还是会报错
+
+class ShortInputException(Exception):  #创建我们自己的异常类型
+    '''A user-defined exception class.'''
+    def __init__(self, length, atleast):
+        Exception.__init__(self)
+        self.length = length
+        self.atleast = atleast
+        
+try:
+        text = input('Enter something --> ')
+        if len(text) < 3:
+            raise ShortInputException(len(text), 3) # Other work can continue as usual here
+    except EOFError:
+        print('Why did you do an EOF on me?')
+    except ShortInputException as ex:  #错误类别ShortInputException存储在as变量名中
+        print(('ShortInputException: The input was ' +
+               '{0} long, expected at least {1}')
+              .format(ex.length, ex.atleast))
+    else:
+        print('No exception was raised.')
+
+```
+```python
+
+import sys
+print(sys.path) # 
+print(sys.argv) #
+print(sys.__name__)
+
+import __main__ # 该模块整合了所有已经导入的模块，表示该模块由用户独立运行
+print(__main__.sys)
+
+```
+```python
+import pickle
+f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
+m = ['asf',234]
+pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
+f.close()
+#python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
+#python3.3之后可以不需要了，当然如果要使用一些初始化的数据还是要添加__init__.py文件的。调用包的方法同调用模块的方法。
+import io
+f = io.open("abc.txt", "wt", encoding="utf-8")
+f.write(u"Imagine non-English language here")
+f.close()
+text = io.open("abc.txt", encoding="utf-8").read()
+print(text) # Imagine non-English language here
+file = open("abc.txt","rb",encoding="utf-8")
+print(file.encoding) # 'utf-8'
+print(file.tell()) 
+print(file.seek())
+print(file.readline())
+for each in file:
+    print(each)
+
 from datetime import date
 now = date.today()
-print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B."))
+print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")) # 01-31-20. 31 Jan 2020 is a Friday on the 31 day of January.
 birthday = date(1964, 7, 31)
 age = now - birthday
-print(age.days)
-```
-```
-01-31-20. 31 Jan 2020 is a Friday on the 31 day of January.
+print(age.days) # 20272
 
-20272
-```
-```python
 import zlib
 s = b'witch which has which witches wrist watch'
 t = zlib.compress(s)
-print(len(s),len(t))
-print(zlib.decompress(t))
-zlib.crc32(s)
-```
-```
-41 37
+print(len(s),len(t)) # 41 37
+print(zlib.decompress(t)) # b'witch which has which witches wrist watch'
+zlib.crc32(s) # 226805979
 
-b'witch which has which witches wrist watch'
-
-226805979
-```
-```python
 from timeit import Timer
-print(Timer('t=a;a=b;b=t','a=1;b=2').timeit())
-print(Timer('a,b=b,a','a=1;b=2').timeit())
-```
-```
-0.11044700000002194
-
-0.046078599999873404
+print(Timer('t=a;a=b;b=t','a=1;b=2').timeit()) # 0.11044700000002194
+print(Timer('a,b=b,a','a=1;b=2').timeit()) # 0.046078599999873404
 ```
 ```python
 import time
-print(time.perf_counter())
+print(time.perf_counter()) # 755.0105955
 print(time.time())  # 获取当前时间戳,表示从1970年开始到现在经历的秒数
 print(time.gmtime())  # 获取当前美国时间戳对应的struct_time对象
 print(time.localtime())  # 获取当前时间戳对应的本地时间的struct_time对象
@@ -2423,25 +2440,7 @@ lctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())  # 利用一个格
 print(time.strptime(lctime, '%Y-%m-%d %H:%M:%S'))  # 提取字符串中时间来生成strut_time对象
 print(time.monotonic())
 ```  
-```
-755.0105955
 
-1581770100.5764608
-
-time.struct_time(tm_year=2020, tm_mon=2, tm_mday=15, tm_hour=12, tm_min=35, tm_sec=0, tm_wday=5, tm_yday=46, tm_isdst=0)
-
-time.struct_time(tm_year=2020, tm_mon=2, tm_mday=15, tm_hour=20, tm_min=35, tm_sec=0, tm_wday=5, tm_yday=46, tm_isdst=0)
-
-Sat Feb 15 20:35:00 2020
-
-1581741300.0
-
-time.struct_time(tm_year=2020, tm_mon=2, tm_mday=15, tm_hour=20, tm_min=35, tm_sec=0, tm_wday=5, tm_yday=46, tm_isdst=-1)
-
-205501.453
-
-game of guessing number
-```
 ```python
 import random
 random.seed(10)  # 初始化随机数种子,默认值为当前系统时间,第二次设置同样的值再产生随机数则会产生一样的
@@ -2456,33 +2455,18 @@ print(random.shuffle(la))  # 将序列类型中元素随机排列，返回打乱
 print(random.sample(la, 3))  # 从pop类型中随机选取k个元素，以列表类型返回
 print(random.getrandbits(3))  # 生成一个3比特长度的随机整数
 ```  
-```
-0.5714025946899135
 
-5
-
-7
-
-13
-
-a
-
-12.060982321395016
-
-None
-
-['c', 'b', 'a']
-
-2
-```
 * [小甲鱼面向对象魔法方法](https://www.bilibili.com/video/av4050443?p=43)
 * [黑马面向对象](https://www.bilibili.com/video/av14184325?p=368)
 ```python
-class fishc:
-    def __init__(self,size = 10):
-        self.size = size
-    def getsize(self):
-        return self.size
+class fishc(object):
+    def __init__(self,name,size = 10):#利用init方法时,第一个参数始终是self
+        self.size = size # 因此,在__init__方法内部,就可以把各种属性绑定到self,因为self就指向创建的实例本身
+        self.__name = name 
+    def getsize(self): # 直接在类的内部定义访问数据的函数，
+        return self.size # 这样，就把“数据”给封装起来了。
+    def getname(self): # 要想访问已被限制的属性,可以创建新函数
+        return self.__name
     def setsize(self,value):
         self.size = value
     def delsize(self):
@@ -2490,11 +2474,56 @@ class fishc:
     x = property(getsize,setsize,delsize) 
     # 三个参数分别是产生改变删除 对应属性的方法 将该属性的值赋值给新的属性
 
-c = fishc()
+c = fishc('jack') # 也就是说没有其他参数__init__也会自动调用自己
 print(c.getsize()) # 10
 print(c.x) # 10
 c.x = 18
+c.y = 10 #加个属性
 print(c.x,c.size,c.getsize) # 18 18 <bound method fishc.getsize of <__main__.fishc object at 0x00000242DD14AEF0>>
+```
+```python
+class goods(fishc): # 定义的子类完全可以继承父类的所有属性,私有属性除外
+    def goodbye(self): # 新定义的属性会覆盖父类的同名属性
+        print('good bye',self.getname()) # 在子类里面调用父类的私有属性时,需使用定义的方法来调用
+
+print(issubclass(fishc,goods))#返回'cls'是派生自另一个类还是同一个类。
+cc = goods('lucy')
+print(isinstance(cc,goods))#判断是否是一个类的实例
+
+```
+```python
+class Robot:
+    population = 0  #population是类变量
+    def __init__(self, name):  #name是对象变量
+        """Initializes the data."""
+        self.name = name
+        print("(Initializing {})".format(self.name))
+
+        # When this person is created, the robot
+        # adds to the population
+        Robot.population += 1
+
+    def die(self):
+        """I am dying."""
+        print("{} is being destroyed!".format(self.name))
+
+        Robot.population -= 1
+
+        if Robot.population == 0:
+            print("{} was the last one.".format(self.name))
+        else:
+            print("There are still {:d} robots working.".format(
+                Robot.population))
+
+    def say_hi(self):
+        """Greeting by the robot.
+
+        Yeah, they can do that."""
+        print("Greetings, my masters call me {}.".format(self.name))
+    def how_many(cls):# 这是类方法(classmethod)
+        """Prints the current population."""
+        print("We have {:d} robots.".format(cls.population))
+        
 ```
 
 # Python标准异常总结,由于异常的传递性,只在主程序捕获异常
