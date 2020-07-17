@@ -11,10 +11,14 @@
 ## 数据结构与算法
 ## 计算机网络
 * [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
+* [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
 ## 操作系统
 * [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
-## 数据库
+* [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
 ## 设计模式
+* [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
+## 数据库
+
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
@@ -151,7 +155,7 @@
 
 ### videos
 * [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
-* [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)
+* [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)&[Python二级考试考纲笔记（2018全）](https://mubu.com/doc/1Bam_vCyQw)
 * [Python网络爬虫与信息提取--北理工](http://www.icourse163.org/learn/BIT-1001870001)
 * [Python科学计算三维可视化--北理工](http://www.icourse163.org/learn/BIT-1001871001)
 * [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
