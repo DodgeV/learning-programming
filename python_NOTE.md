@@ -2553,6 +2553,274 @@ class Robot:
         print("We have {:d} robots.".format(cls.population))
         
 ```
+```python
+import random
+class Person(object):    
+    ''' 在python3中无论是否继承object都会创建新式类'''
+    population = 0
+    name_list = []
+    def __init__(self,name,age,salary):    
+        '''封装数据,先调用__new__为对象分配空间,然后返回对象引用
+        然后才调用__init__对象初始化,定义实例属性
+        实例化几次对象就会执行几次初始化
+        父类的魔法方法会被继承,最好不要自创魔法方法
+        ''' 
+        self.__name = name # 私有属性只能在对象方法内访问
+        Person.name_list.append(self.__name)
+        self.__age = age    
+        self.__salary = salary    
+        self.x = random.randint(1,10)    
+        self.y = random.randint(1,10)    
+        self.class_ = self.x + self.y # 单后置下划线用于避免与关键字冲突
+        self._z = pow((self.x+self.y),2) # 单前置下划线为私有化属性或方法,导入模块时并不会导入,通常用于避免模块之间全局变量的冲突
+        #self.__class__.population += 1 因为每个对象都通过self.__class__属性引用其类中的方法和属性,也可用下句代替 
+        Person.population += 1    
+    def __secret(self): # 私有方法
+        '''Greeting by the robot.Yeah, they can do that.'''
+        print("Greetings, my masters call me {}.".format(self.__name))
+        print('我的年龄是{}'.format(self.__age))
+    def gps(self):    
+        print('GPS is ',self.x,self.y)    
+    def move_to_east(self):    
+        self.x -= 1    
+        print('移后的位置是',self.x,self.y)             
+    def get_info(self):    
+        print('name:{0},salary:{1}'.format(self.__name,self.__salary))
+    def __del__(self): # 在该对象被销毁之前调用  
+        Person.population -= 1
+        Person.name_list.remove(self.__name)
+        print('{} is dead'.format(self.__name))
+    @staticmethod # 不需要访问类/对象的属性/方法,则使用静态方法
+    def run(): # 通过类名.静态方法-不需要创建实例对象
+        print("i'm running")
+    @classmethod # 如果要定义的方法只访问类属性则用类方法
+    def die(cls):    
+        print("one person has been destroyed")
+        if cls.population == 0:
+            print('no Person alive!')
+            return # 后面不加返回值则是终止不再执行之后的代码
+        cls.population -= 1    
+        cls.name_list.remove(cls.name_list[random.randint(0,len(cls.name_list)-1)])
+        print('{0} alived,{1} left'.format(cls.name_list,cls.population))
+    @classmethod # 意思同 how_many = classmethod(how_many) 标记为类方法
+    def count_Person(cls): # cls 可代替类名访问类属性
+        print('There are',cls.population,'persons')
+    @property 
+    def get_salary(self):
+        print(self.__salary)
+    
+A = Person('adom',23,2000)
+B = Person('baby',24,4000)
+print(A is B) # 身份运算符is判断二者id是否一致 
+# == 用于判断两个变量的值是否相等    
+# is 用于判断两个变量引用变量是否为同一个    
+# 与None进行比较时，最好使用is      
+print(A._Person__age) # 在私有属性前加下划线类名可以访问私有属性
+A._Person__secret() # 私有方法同理,此法不建议常用
+Person.count_Person()
+del A
+del B
+
+class Killer(Person): #单继承
+    population = 0
+    def __init__(self,name,age,salary):
+        Person.__init__(self,name,age,salary)
+        #这里调用父类的init方法，只是继承父类的变量
+        #若子类init方法与父类参数个数不一致，仍会报错
+        # 另外还需要保持类属性和基类一致
+        Killer.population += 1
+        print('i am a killer')
+        self.hungry = True
+    def eat(self):
+        if self.hungry:
+            print('i am hungry')
+            self.hungry = False
+        else:
+            print('i am full')
+    def get_info(self): # 不想覆盖父类的方法而只是扩展,则使用super
+        # super().get_info()
+        # super用于调用父类中封装的方法 不用传入父类的名字,自动查找父类
+        Person.get_info(self) #也可使用父类名.方法(子类名)
+        print('i am a Killer') # 之后可以扩写子类特有的代码
+        # print(self.__age) # 在子类的方法中不能访问父类中的私有属性或私有方法
+
+Killer_1 = Killer('haniba',33,1000)
+Killer_1.population = 99 # 动态绑定实例对象属性并不会影响类属性,只会在对象内部添加该属性
+# 向上查找机制会先从实例对象找属性,再从类中找,因此访问类属性最好用类名
+print(Killer.population) 
+# Killer_1.__secret() # 子类不可以访问父类的私有属性或私有方法
+Killer_1.get_info() # 但是可以通过访问父类公有方法间接访问父类私有属性或私有方法
+del Killer_1
+
+class Programmer(Person):
+    population = 0
+    def __init__(self,name,age,salary):
+        super().__init__(name,age,salary)
+        Programmer.population += 1
+        print("i'm a programmer")
+    def get_info(self):
+        """在不同的子类中重写父类方法之后的调用中就会引用新写的方法
+        引用不变,方法在变,此为多态
+        因为python中不允许出现同一变量名,后定义的变量名会覆盖前面的,此为重写
+        而C中在定义函数时可以指定参数的类型，所以即使函数名不一样，调用的时候不会混合,这叫重载
+        """
+        super().get_info()
+        print('i am a Programmer')
+    def __str__(self): # 打印对象名时默认输出类名和该对象的地址，重定义之后可修改，但必须返回字符串    
+        return 'this is a self-intro of a programmer'
+
+mrx = Programmer('Mrx',20,8000)
+mrx.get_info()
+del mrx
+programmer1 = Programmer('programmer1',30,3000)
+programmer2 = Programmer('programmer2',40,4000)
+programmer3 = Programmer('programmer3',50,5000)
+programmer4 = Programmer('programmer4',60,6000)
+print(Programmer.count_Person())
+Programmer.die()
+print(Programmer.count_Person())
+del programmer1
+del programmer2
+del programmer3
+del programmer4
+
+class WebProgrammer(Programmer,Killer): 
+    '''若多个父类中存在多个同名的属性或方法时,应该尽量避免多继承,因为会重复调用父类的初始化方法
+    一般会先继承排在前面的类中的方法或属性,新式类和经典类也会影响搜索顺序
+    '''
+    population = 0
+    def __init__(self,name,age,salary):
+        super().__init__(name,age,salary) 
+        # 直接写父类名.__init__ 就是调用指定父类 改用super调用就不一定调用继承的类 而是继承__mro__中的该类的后一个 
+        # super(Killer,self).__init__(self,name,age,salary)
+        # 指定Killer就会继承__mro__中Killer的后一个
+        WebProgrammer.population += 1
+mry = WebProgrammer('Mry',19,10000)
+mry.get_info()
+print(WebProgrammer.__mro__)
+# 使用super时,C3算法会在__mro__可以查看方法的搜索顺序,调用webProgrammer的下一个
+print(WebProgrammer.__doc__) 
+del mry 
+
+```
+```python
+class STR(str):
+    instance = None
+    def __new__(cls,args): 
+        '''__new__主要用于继承一些不可变的类时,提供一些自定义实例化的途径
+        是一个静态方法,主要用于单例设计模式,只会为对象分配一个空间
+        返回对象的引用,作为第一个参数传给__init__ '''
+        args = args.upper()
+        if cls.instance is None:
+            # cls.instance = str.__new__(cls,args) 
+            cls.instance = super().__new__(cls,args) # 将空间固定在类属性
+        return cls.instance # 返回固定的类属性实现单例
+
+str1 = STR('iloveu')
+print(str1,id(str1))
+str2 = STR('imissu')
+print(str2,id(str2))
+print('STR是str的子类',issubclass(STR,str)) 
+print('str1是STR的实例',isinstance(str1,STR))#如果是多继承第二个参数用元组
+print(hasattr(str1,'newattr')) # 判断是否有该属性 
+print(getattr(str1,'newattr','你所访问的属性不存在')) # 访问对象的属性 不存在就返回给定值 
+setattr(str1,'newattr','设置属性成功') # 给实例对象添加属性 
+print(getattr(str1,'newattr','设置属性未成功')) 
+# delattr(str1,'newattr') # 删除存在的属性 如果不存在就返回异常 
+
+```
+```python
+class MusicPlayer(object):
+    instance = None
+    init_flag = False
+    def __new__(cls):
+        if cls.instance is None:
+            cls.instance = object.__new__(cls)
+        return cls.instance
+    def __init__(self): # 控制初始化的动作只执行一次
+        if MusicPlayer.init_flag:
+            return
+        print('initing data')
+        MusicPlayer.init_flag = True # 标记初始化动作
+player1 = MusicPlayer()
+print(player1)
+player2 = MusicPlayer()
+print(player2)
+
+class Biology: 
+#横向的类可以用组合,属性名字与方法名相同,属性会覆盖方法 
+#应该运用继承与组合来扩展类，而不是定义很多方法 
+    def __init__(self,x,name,age,salary): 
+        self.x = x 
+        self.Person = Person(name,age,salary) 
+    def print_num(self): 
+        print('there are {0} animals,{1} Persons'.format(self.animal.num,self.Person.population)) 
+#如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
+b = Biology(2,'steve',23,1000) 
+
+print(Biology.__dict__) #类方法是绑定在类上面的 
+print(b.__dict__) #实例对象的方法里面没有，但是可以调用 
+b.x = 1 #如果定义一个实例的特殊属性，该属性独属于该实例 
+print(b.__dict__) 
+print(Biology.__dict__) 
+Biology.y = 1 #如果给类定义特殊的属性，那么连同每一个实例都会有该属性 
+print(b.__dict__)
+Biology.__init__(b,4,'job',23,1000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
+#如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
+
+
+class stock2(object):
+    """stock2类中包含属性"""
+    def __init__ (self,code,price):
+        self.code = code
+        self.price = price
+    @classmethod
+    def split(cls,sc):
+        code = sc.split('-')[0]
+        price = sc.split('-')[1]
+        if len(price) == 6:
+            return cls(code,price)
+        print('主动抛出异常')
+        ex = Exception('股票代码有误')
+        raise ex
+
+try:
+    s = stock2.split('中国平安-601318')
+    print(s.price,s.code)
+except Exception as result:
+    print('unknown mistake',str(result))
+```
+```python
+class Stack(object):    
+    '''模拟实现栈'''
+    def __init__(self,limit= 10):    
+        self.stack = []    
+        self.limit = limit    
+    def push (self,data):    
+        if len(self.stack) >= self.limit:    
+            raise IndexError('超出栈容量的极限')    
+        self.stack.append(data)    
+    def pop(self):    
+        if self.stack:    
+            return self.stack.pop()    
+        else:    
+            raise IndexError('pop from an empty stack')    
+    def bottom(self):    
+        print(self.stack[0])    
+    def isEmpty(self):    
+        return not bool(len(self.stack))    
+    def peek(self):    
+        if self.stack:    
+            return self.stack[-1]    
+    def size(self):    
+        return len(self.stack) 
+stack_1 = Stack()
+print(stack_1.limit)
+stack_1.push(123)
+print(stack_1.size())
+print(stack_1.__dict__)
+
+```
 
 # Python标准异常总结,由于异常的传递性,只在主程序捕获异常
 * `AssertionError`断言语句（assert）失败
