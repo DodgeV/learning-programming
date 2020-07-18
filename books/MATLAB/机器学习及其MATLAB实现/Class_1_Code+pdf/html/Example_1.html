@@ -1,0 +1,996 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Example_1</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-08-01"><meta name="DC.source" content="Example_1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;&#21450;&#21629;&#20196;</a></li><li><a href="#2">II. &#21464;&#37327;&#21629;&#20196;&#35268;&#21017;</a></li><li><a href="#7">III. MATLAB&#25968;&#25454;&#31867;&#22411;</a></li><li><a href="#13">IV. MATLAB&#30697;&#38453;&#25805;&#20316;</a></li><li><a href="#17">V. MATLAB&#36923;&#36753;&#19982;&#27969;&#31243;&#25511;&#21046;</a></li><li><a href="#22">VI. MATLAB&#33050;&#26412;&#19982;&#20989;&#25968;&#25991;&#20214;</a></li><li><a href="#25">VII. MATLAB&#22522;&#26412;&#32472;&#22270;&#25805;&#20316;</a></li><li><a href="#29">VIII. MATLAB&#25991;&#20214;&#23548;&#20837;</a></li></ul></div><h2>I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;&#21450;&#21629;&#20196;<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>   <span class="comment">% &#28165;&#38500;Workspace&#20013;&#30340;&#25152;&#26377;&#21464;&#37327;</span>
+clc         <span class="comment">% &#28165;&#38500;Command Window&#20013;&#30340;&#25152;&#26377;&#21629;&#20196;</span>
+</pre><h2>II. &#21464;&#37327;&#21629;&#20196;&#35268;&#21017;<a name="2"></a></h2><p>1. &#21464;&#37327;&#21517;&#21306;&#20998;&#22823;&#23567;&#20889;</p><pre class="codeinput">A = 2
+a = 3
+</pre><pre class="codeoutput">
+A =
+
+     2
+
+
+a =
+
+     3
+
+</pre><p>2. &#21464;&#37327;&#21517;&#38271;&#24230;&#19981;&#36229;&#36807;63&#20301; ABCDEFGHIJKLMNOPQRSTUVWXYZ123456ABCDEFGHIJKLMNOPQRSTUVWXYZ123456 = 3</p><p>3. &#21464;&#37327;&#21517;&#20197;&#23383;&#27597;&#24320;&#22836;&#65292;&#21487;&#20197;&#30001;&#23383;&#27597;&#12289;&#25968;&#23383;&#21644;&#19979;&#21010;&#32447;&#32452;&#25104;&#65292;&#20294;&#19981;&#33021;&#20351;&#29992;&#26631;&#28857; 3A = 4 .a = 5 /b = 5</p><pre class="codeinput">a_2 = 3
+<span class="comment">% a.2 = 4</span>
+</pre><pre class="codeoutput">
+a_2 =
+
+     3
+
+</pre><p>4. &#21464;&#37327;&#21517;&#24212;&#31616;&#27905;&#26126;&#20102;&#65292;&#36890;&#36807;&#21464;&#37327;&#21517;&#21487;&#20197;&#30452;&#35266;&#30475;&#20986;&#21464;&#37327;&#25152;&#34920;&#31034;&#30340;&#29289;&#29702;&#24847;&#20041;</p><pre class="codeinput">A = rand(3,5)
+rows = size(A, 1)
+cols = size(A, 2)
+</pre><pre class="codeoutput">
+A =
+
+    0.0577    0.5950    0.1930    0.3907    0.3971
+    0.9798    0.9622    0.3416    0.2732    0.3747
+    0.2848    0.1858    0.9329    0.1519    0.1311
+
+
+rows =
+
+     3
+
+
+cols =
+
+     5
+
+</pre><h2>III. MATLAB&#25968;&#25454;&#31867;&#22411;<a name="7"></a></h2><p>1. &#25968;&#23383;</p><pre class="codeinput">2 + 4
+
+10 - 7
+
+3 * 5
+
+8 / 2
+</pre><pre class="codeoutput">
+ans =
+
+     6
+
+
+ans =
+
+     3
+
+
+ans =
+
+    15
+
+
+ans =
+
+     4
+
+</pre><p>2. &#23383;&#31526;&#19982;&#23383;&#31526;&#20018;</p><pre class="codeinput">s = <span class="string">'a'</span>
+abs(s)
+char(65)
+num2str(65)
+
+str = <span class="string">'I Love MATLAB &amp; Machine Learning.'</span>
+
+length(str)
+
+doc <span class="string">num2str</span>
+</pre><pre class="codeoutput">
+s =
+
+a
+
+
+ans =
+
+    97
+
+
+ans =
+
+A
+
+
+ans =
+
+65
+
+
+str =
+
+I Love MATLAB &amp; Machine Learning.
+
+
+ans =
+
+    33
+
+</pre><p>3. &#30697;&#38453;</p><pre class="codeinput">A = [1 2 3; 4 5 2; 3 2 7]
+B = A'
+C = A(:)
+D = inv(A)
+A * D
+
+E = zeros(10,5,3)
+E(:,:,1) = rand(10,5)
+E(:,:,2) = randi(5, 10,5)
+E(:,:,3) = randn(10,5)
+</pre><pre class="codeoutput">
+A =
+
+     1     2     3
+     4     5     2
+     3     2     7
+
+
+B =
+
+     1     4     3
+     2     5     2
+     3     2     7
+
+
+C =
+
+     1
+     4
+     3
+     2
+     5
+     2
+     3
+     2
+     7
+
+
+D =
+
+   -0.9118    0.2353    0.3235
+    0.6471    0.0588   -0.2941
+    0.2059   -0.1176    0.0882
+
+
+ans =
+
+    1.0000    0.0000   -0.0000
+    0.0000    1.0000   -0.0000
+    0.0000    0.0000    1.0000
+
+
+E(:,:,1) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,2) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,3) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,1) =
+
+    0.4350    0.4963    0.9573    0.2299    0.5566
+    0.0915    0.6423    0.6203    0.5761    0.5294
+    0.6146    0.2213    0.6003    0.8106    0.8300
+    0.0110    0.8371    0.1726    0.4038    0.8588
+    0.5733    0.9711    0.0903    0.9884    0.7890
+    0.7897    0.8464    0.2553    0.0900    0.3178
+    0.2354    0.5060    0.8586    0.3209    0.4522
+    0.4480    0.2789    0.9111    0.5114    0.7522
+    0.5694    0.7466    0.6996    0.0606    0.1099
+    0.0614    0.2369    0.7252    0.7257    0.1097
+
+
+E(:,:,2) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,3) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,1) =
+
+    0.4350    0.4963    0.9573    0.2299    0.5566
+    0.0915    0.6423    0.6203    0.5761    0.5294
+    0.6146    0.2213    0.6003    0.8106    0.8300
+    0.0110    0.8371    0.1726    0.4038    0.8588
+    0.5733    0.9711    0.0903    0.9884    0.7890
+    0.7897    0.8464    0.2553    0.0900    0.3178
+    0.2354    0.5060    0.8586    0.3209    0.4522
+    0.4480    0.2789    0.9111    0.5114    0.7522
+    0.5694    0.7466    0.6996    0.0606    0.1099
+    0.0614    0.2369    0.7252    0.7257    0.1097
+
+
+E(:,:,2) =
+
+     2     1     2     3     3
+     3     5     5     5     4
+     5     3     4     3     5
+     4     5     2     1     2
+     2     1     2     1     4
+     2     3     1     5     5
+     5     2     4     3     1
+     5     5     3     2     3
+     4     1     1     4     3
+     2     3     1     2     2
+
+
+E(:,:,3) =
+
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+     0     0     0     0     0
+
+
+E(:,:,1) =
+
+    0.4350    0.4963    0.9573    0.2299    0.5566
+    0.0915    0.6423    0.6203    0.5761    0.5294
+    0.6146    0.2213    0.6003    0.8106    0.8300
+    0.0110    0.8371    0.1726    0.4038    0.8588
+    0.5733    0.9711    0.0903    0.9884    0.7890
+    0.7897    0.8464    0.2553    0.0900    0.3178
+    0.2354    0.5060    0.8586    0.3209    0.4522
+    0.4480    0.2789    0.9111    0.5114    0.7522
+    0.5694    0.7466    0.6996    0.0606    0.1099
+    0.0614    0.2369    0.7252    0.7257    0.1097
+
+
+E(:,:,2) =
+
+     2     1     2     3     3
+     3     5     5     5     4
+     5     3     4     3     5
+     4     5     2     1     2
+     2     1     2     1     4
+     2     3     1     5     5
+     5     2     4     3     1
+     5     5     3     2     3
+     4     1     1     4     3
+     2     3     1     2     2
+
+
+E(:,:,3) =
+
+   -0.8320   -0.0056    0.6254   -0.0508   -0.0842
+    0.4979    1.1072    0.7530   -0.8127    0.0893
+    2.3156   -0.1856    0.2135   -0.4384    1.4561
+   -0.7938   -1.1214   -0.7702    0.8586    0.2195
+    0.5410    0.2464   -0.0071    0.1952   -0.1149
+   -0.5591    1.5610    0.0932    0.8889    0.0686
+    1.9766   -1.1966    0.9353    0.0692    0.7515
+    0.5447   -0.2423    0.6635    2.4868   -0.6894
+   -0.1379    1.0048   -0.3502   -1.6656    0.4508
+    0.6199   -1.9201    1.6199   -0.4159   -1.5650
+
+</pre><p>4. &#20803;&#32990;&#25968;&#32452;</p><pre class="codeinput">A = cell(1, 6)
+A{2} = eye(3)
+A{5} = magic(5)
+B = A{5}
+</pre><pre class="codeoutput">
+A = 
+
+    []    []    []    []    []    []
+
+
+A = 
+
+    []    [3x3 double]    []    []    []    []
+
+
+A = 
+
+    []    [3x3 double]    []    []    [5x5 double]    []
+
+
+B =
+
+    17    24     1     8    15
+    23     5     7    14    16
+     4     6    13    20    22
+    10    12    19    21     3
+    11    18    25     2     9
+
+</pre><p>5. &#32467;&#26500;&#20307;</p><pre class="codeinput">books = struct(<span class="string">'name'</span>,{{<span class="string">'Machine Learning'</span>,<span class="string">'Data Mining'</span>}},<span class="string">'price'</span>,[30 40])
+books.name
+books.name(1)
+books.name{1}
+</pre><pre class="codeoutput">
+books = 
+
+     name: {'Machine Learning'  'Data Mining'}
+    price: [30 40]
+
+
+ans = 
+
+    'Machine Learning'    'Data Mining'
+
+
+ans = 
+
+    'Machine Learning'
+
+
+ans =
+
+Machine Learning
+
+</pre><h2>IV. MATLAB&#30697;&#38453;&#25805;&#20316;<a name="13"></a></h2><p>1. &#30697;&#38453;&#30340;&#23450;&#20041;&#19982;&#26500;&#36896;</p><pre class="codeinput">A = [1 2 3 5 8 5 4 6]
+B = 1:2:9
+C = repmat(B, 3, 1)
+D = ones(2, 4)
+</pre><pre class="codeoutput">
+A =
+
+     1     2     3     5     8     5     4     6
+
+
+B =
+
+     1     3     5     7     9
+
+
+C =
+
+     1     3     5     7     9
+     1     3     5     7     9
+     1     3     5     7     9
+
+
+D =
+
+     1     1     1     1
+     1     1     1     1
+
+</pre><p>2. &#30697;&#38453;&#30340;&#22235;&#21017;&#36816;&#31639;</p><pre class="codeinput">A = [1 2 3 4; 5 6 7 8]
+B = [1 1 2 2; 2 2 1 1]
+C = A + B
+D = A - B
+E = A * B'
+F = A .* B
+G = A / B     <span class="comment">% B * G = A</span>
+H = A ./ B
+</pre><pre class="codeoutput">
+A =
+
+     1     2     3     4
+     5     6     7     8
+
+
+B =
+
+     1     1     2     2
+     2     2     1     1
+
+
+C =
+
+     2     3     5     6
+     7     8     8     9
+
+
+D =
+
+     0     1     1     2
+     3     4     6     7
+
+
+E =
+
+    17    13
+    41    37
+
+
+F =
+
+     1     2     6     8
+    10    12     7     8
+
+
+G =
+
+    1.8333   -0.1667
+    3.1667    1.1667
+
+
+H =
+
+    1.0000    2.0000    1.5000    2.0000
+    2.5000    3.0000    7.0000    8.0000
+
+</pre><p>3. &#30697;&#38453;&#30340;&#19979;&#26631;</p><pre class="codeinput">A = magic(5)
+B = A(2,3)
+C = A(3,:)
+D = A(:,4)
+[m, n] = find(A &gt; 20)
+</pre><pre class="codeoutput">
+A =
+
+    17    24     1     8    15
+    23     5     7    14    16
+     4     6    13    20    22
+    10    12    19    21     3
+    11    18    25     2     9
+
+
+B =
+
+     7
+
+
+C =
+
+     4     6    13    20    22
+
+
+D =
+
+     8
+    14
+    20
+    21
+     2
+
+
+m =
+
+     2
+     1
+     5
+     4
+     3
+
+
+n =
+
+     1
+     2
+     3
+     4
+     5
+
+</pre><h2>V. MATLAB&#36923;&#36753;&#19982;&#27969;&#31243;&#25511;&#21046;<a name="17"></a></h2><p>1. if ... else ... end</p><pre class="codeinput">A = rand(1,10)
+limit = 0.75;
+
+B = (A &gt; limit);   <span class="comment">% B is a vector of logical values</span>
+<span class="keyword">if</span> any(B)
+  fprintf(<span class="string">'Indices of values &gt; %4.2f: \n'</span>, limit);
+  disp(find(B))
+<span class="keyword">else</span>
+  disp(<span class="string">'All values are below the limit.'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+A =
+
+  Columns 1 through 7
+
+    0.4785    0.2568    0.3691    0.6618    0.1696    0.2788    0.1982
+
+  Columns 8 through 10
+
+    0.1951    0.3268    0.8803
+
+Indices of values &gt; 0.75: 
+    10
+
+</pre><p>2. for ... end</p><pre class="codeinput">k = 10;
+hilbert = zeros(k,k);      <span class="comment">% Preallocate matrix</span>
+
+<span class="keyword">for</span> m = 1:k
+    <span class="keyword">for</span> n = 1:k
+        hilbert(m,n) = 1/(m+n -1);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+hilbert
+</pre><pre class="codeoutput">
+hilbert =
+
+  Columns 1 through 7
+
+    1.0000    0.5000    0.3333    0.2500    0.2000    0.1667    0.1429
+    0.5000    0.3333    0.2500    0.2000    0.1667    0.1429    0.1250
+    0.3333    0.2500    0.2000    0.1667    0.1429    0.1250    0.1111
+    0.2500    0.2000    0.1667    0.1429    0.1250    0.1111    0.1000
+    0.2000    0.1667    0.1429    0.1250    0.1111    0.1000    0.0909
+    0.1667    0.1429    0.1250    0.1111    0.1000    0.0909    0.0833
+    0.1429    0.1250    0.1111    0.1000    0.0909    0.0833    0.0769
+    0.1250    0.1111    0.1000    0.0909    0.0833    0.0769    0.0714
+    0.1111    0.1000    0.0909    0.0833    0.0769    0.0714    0.0667
+    0.1000    0.0909    0.0833    0.0769    0.0714    0.0667    0.0625
+
+  Columns 8 through 10
+
+    0.1250    0.1111    0.1000
+    0.1111    0.1000    0.0909
+    0.1000    0.0909    0.0833
+    0.0909    0.0833    0.0769
+    0.0833    0.0769    0.0714
+    0.0769    0.0714    0.0667
+    0.0714    0.0667    0.0625
+    0.0667    0.0625    0.0588
+    0.0625    0.0588    0.0556
+    0.0588    0.0556    0.0526
+
+</pre><p>3. while ... end</p><pre class="codeinput">n = 1;
+nFactorial = 1;
+<span class="keyword">while</span> nFactorial &lt; 1e100
+    n = n + 1;
+    nFactorial = nFactorial * n;
+<span class="keyword">end</span>
+n
+
+factorial(69)
+factorial(70)
+
+prod(1:69)
+prod(1:70)
+</pre><pre class="codeoutput">
+n =
+
+    70
+
+
+ans =
+
+   1.7112e+98
+
+
+ans =
+
+  1.1979e+100
+
+
+ans =
+
+   1.7112e+98
+
+
+ans =
+
+  1.1979e+100
+
+</pre><p>4. switch ... case ... end</p><pre class="codeinput">mynumber = input(<span class="string">'Enter a number:'</span>);
+
+<span class="keyword">switch</span> mynumber
+    <span class="keyword">case</span> -1
+        disp(<span class="string">'negative one'</span>);
+    <span class="keyword">case</span> 0
+        disp(<span class="string">'zero'</span>);
+    <span class="keyword">case</span> 1
+        disp(<span class="string">'positive one'</span>);
+    <span class="keyword">otherwise</span>
+        disp(<span class="string">'other value'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Error using input
+Cannot call INPUT from EVALC.
+
+Error in Example_1 (line 151)
+mynumber = input('Enter a number:');
+</pre><h2>VI. MATLAB&#33050;&#26412;&#19982;&#20989;&#25968;&#25991;&#20214;<a name="22"></a></h2><p>1. &#33050;&#26412;&#25991;&#20214;</p><pre class="codeinput">myScript
+</pre><p>2. &#20989;&#25968;&#25991;&#20214;</p><pre class="codeinput">mynumber = input(<span class="string">'Enter a number:'</span>);
+output = myFunction(mynumber)
+</pre><h2>VII. MATLAB&#22522;&#26412;&#32472;&#22270;&#25805;&#20316;<a name="25"></a></h2><p>1. &#20108;&#32500;&#24179;&#38754;&#32472;&#22270;</p><pre class="codeinput">x = 0:0.01:2*pi;
+y = sin(x);
+figure
+plot(x, y)
+title(<span class="string">'y = sin(x)'</span>)
+xlabel(<span class="string">'x'</span>)
+ylabel(<span class="string">'sin(x)'</span>)
+xlim([0 2*pi])
+
+x = 0:0.01:20;
+y1 = 200*exp(-0.05*x).*sin(x);
+y2 = 0.8*exp(-0.5*x).*sin(10*x);
+figure
+[AX,H1,H2] = plotyy(x,y1,x,y2,<span class="string">'plot'</span>);
+set(get(AX(1),<span class="string">'Ylabel'</span>),<span class="string">'String'</span>,<span class="string">'Slow Decay'</span>)
+set(get(AX(2),<span class="string">'Ylabel'</span>),<span class="string">'String'</span>,<span class="string">'Fast Decay'</span>)
+xlabel(<span class="string">'Time (\musec)'</span>)
+title(<span class="string">'Multiple Decay Rates'</span>)
+set(H1,<span class="string">'LineStyle'</span>,<span class="string">'--'</span>)
+set(H2,<span class="string">'LineStyle'</span>,<span class="string">':'</span>)
+</pre><p>2. &#19977;&#32500;&#31435;&#20307;&#32472;&#22270;</p><pre class="codeinput">t = 0:pi/50:10*pi;
+plot3(sin(t),cos(t),t)
+xlabel(<span class="string">'sin(t)'</span>)
+ylabel(<span class="string">'cos(t)'</span>)
+zlabel(<span class="string">'t'</span>)
+grid <span class="string">on</span>
+axis <span class="string">square</span>
+</pre><p>3. &#22270;&#24418;&#30340;&#20445;&#23384;&#19982;&#23548;&#20986;</p><pre class="codeinput"><span class="comment">% (1) Edit &#8594; Copy Figure</span>
+<span class="comment">% (2) Toolbar &#8594; Save</span>
+<span class="comment">% (3) print('-depsc','-tiff','-r300','picture1')</span>
+<span class="comment">% (4) File &#8594; Export Setup</span>
+</pre><h2>VIII. MATLAB&#25991;&#20214;&#23548;&#20837;<a name="29"></a></h2><p>1. mat&#26684;&#24335;</p><pre class="codeinput">save <span class="string">data.mat</span> <span class="string">x</span> <span class="string">y1</span> <span class="string">y2</span>
+clear <span class="string">all</span>
+load <span class="string">data.mat</span>
+</pre><p>2. txt&#26684;&#24335;</p><pre class="codeinput">M = importdata(<span class="string">'myfile.txt'</span>);
+
+S = M.data;
+save <span class="string">'data.txt'</span> <span class="string">S</span> <span class="string">-ascii</span>
+T = load(<span class="string">'data.txt'</span>);
+
+isequal(S, T)
+</pre><p>3. xls&#26684;&#24335;</p><pre class="codeinput">xlswrite(<span class="string">'data.xls'</span>,S)
+W = xlsread(<span class="string">'data.xls'</span>);
+isequal(S, W)
+
+xlswrite(<span class="string">'data.xlsx'</span>,S)
+U = xlsread(<span class="string">'data.xlsx'</span>);
+isequal(S, U)
+</pre><p>4. csv&#26684;&#24335;</p><pre class="codeinput">csvwrite(<span class="string">'data.csv'</span>,S)
+V = csvread(<span class="string">'data.csv'</span>);
+isequal(S, V)
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+%% I. 清空环境变量及命令
+clear all   % 清除Workspace中的所有变量
+clc         % 清除Command Window中的所有命令
+
+%% II. 变量命令规则
+%%
+% 1. 变量名区分大小写
+A = 2
+a = 3
+
+%%
+% 2. 变量名长度不超过63位
+% ABCDEFGHIJKLMNOPQRSTUVWXYZ123456ABCDEFGHIJKLMNOPQRSTUVWXYZ123456 = 3
+
+%%
+% 3. 变量名以字母开头，可以由字母、数字和下划线组成，但不能使用标点
+% 3A = 4
+% .a = 5
+% /b = 5
+a_2 = 3
+% a.2 = 4
+
+%%
+% 4. 变量名应简洁明了，通过变量名可以直观看出变量所表示的物理意义
+A = rand(3,5)
+rows = size(A, 1)
+cols = size(A, 2)
+
+%% III. MATLAB数据类型
+%%
+% 1. 数字
+2 + 4
+
+10 - 7
+
+3 * 5
+
+8 / 2
+
+%%
+% 2. 字符与字符串
+s = 'a'
+abs(s)
+char(65)
+num2str(65)
+
+str = 'I Love MATLAB & Machine Learning.'
+
+length(str)
+
+doc num2str
+
+%%
+% 3. 矩阵
+A = [1 2 3; 4 5 2; 3 2 7]
+B = A'
+C = A(:)
+D = inv(A)
+A * D
+
+E = zeros(10,5,3)
+E(:,:,1) = rand(10,5)
+E(:,:,2) = randi(5, 10,5)
+E(:,:,3) = randn(10,5)
+
+%%
+% 4. 元胞数组
+A = cell(1, 6)
+A{2} = eye(3)
+A{5} = magic(5)
+B = A{5}
+
+%%
+% 5. 结构体
+books = struct('name',{{'Machine Learning','Data Mining'}},'price',[30 40])
+books.name
+books.name(1)
+books.name{1}
+
+%% IV. MATLAB矩阵操作
+%%
+% 1. 矩阵的定义与构造
+A = [1 2 3 5 8 5 4 6]
+B = 1:2:9
+C = repmat(B, 3, 1)
+D = ones(2, 4)
+
+%%
+% 2. 矩阵的四则运算
+A = [1 2 3 4; 5 6 7 8]
+B = [1 1 2 2; 2 2 1 1]
+C = A + B
+D = A - B
+E = A * B'
+F = A .* B
+G = A / B     % B * G = A
+H = A ./ B
+
+%% 
+% 3. 矩阵的下标
+A = magic(5)
+B = A(2,3)
+C = A(3,:)
+D = A(:,4)
+[m, n] = find(A > 20)
+
+%% V. MATLAB逻辑与流程控制
+%%
+% 1. if ... else ... end
+A = rand(1,10)
+limit = 0.75;
+
+B = (A > limit);   % B is a vector of logical values
+if any(B)
+  fprintf('Indices of values > %4.2f: \n', limit);
+  disp(find(B))
+else
+  disp('All values are below the limit.')
+end
+
+%%
+% 2. for ... end
+k = 10;
+hilbert = zeros(k,k);      % Preallocate matrix
+
+for m = 1:k
+    for n = 1:k
+        hilbert(m,n) = 1/(m+n -1);
+    end
+end
+hilbert
+
+%% 
+% 3. while ... end
+n = 1;
+nFactorial = 1;
+while nFactorial < 1e100
+    n = n + 1;
+    nFactorial = nFactorial * n;
+end
+n
+
+factorial(69)
+factorial(70)
+
+prod(1:69)
+prod(1:70)
+
+%%
+% 4. switch ... case ... end
+mynumber = input('Enter a number:');
+
+switch mynumber
+    case -1
+        disp('negative one');
+    case 0
+        disp('zero');
+    case 1
+        disp('positive one');
+    otherwise
+        disp('other value');
+end
+
+%% VI. MATLAB脚本与函数文件
+%%
+% 1. 脚本文件
+myScript
+
+%%
+% 2. 函数文件
+mynumber = input('Enter a number:');
+output = myFunction(mynumber)
+
+%% VII. MATLAB基本绘图操作
+%%
+% 1. 二维平面绘图
+x = 0:0.01:2*pi;
+y = sin(x);
+figure
+plot(x, y)
+title('y = sin(x)')
+xlabel('x')
+ylabel('sin(x)')
+xlim([0 2*pi])
+
+x = 0:0.01:20;
+y1 = 200*exp(-0.05*x).*sin(x);
+y2 = 0.8*exp(-0.5*x).*sin(10*x);
+figure
+[AX,H1,H2] = plotyy(x,y1,x,y2,'plot');
+set(get(AX(1),'Ylabel'),'String','Slow Decay') 
+set(get(AX(2),'Ylabel'),'String','Fast Decay') 
+xlabel('Time (\musec)') 
+title('Multiple Decay Rates') 
+set(H1,'LineStyle','REPLACE_WITH_DASH_DASH')
+set(H2,'LineStyle',':')
+
+%%
+% 2. 三维立体绘图
+t = 0:pi/50:10*pi;
+plot3(sin(t),cos(t),t)
+xlabel('sin(t)')
+ylabel('cos(t)')
+zlabel('t')
+grid on
+axis square
+
+%%
+% 3. 图形的保存与导出
+
+% (1) Edit → Copy Figure
+% (2) Toolbar → Save
+% (3) print('-depsc','-tiff','-r300','picture1')
+% (4) File → Export Setup
+
+%% VIII. MATLAB文件导入
+%%
+% 1. mat格式
+save data.mat x y1 y2
+clear all
+load data.mat
+
+%%
+% 2. txt格式
+M = importdata('myfile.txt');
+
+S = M.data;
+save 'data.txt' S -ascii
+T = load('data.txt');
+
+isequal(S, T)
+
+%%
+% 3. xls格式
+xlswrite('data.xls',S)
+W = xlsread('data.xls');
+isequal(S, W)
+
+xlswrite('data.xlsx',S)
+U = xlsread('data.xlsx');
+isequal(S, U)
+
+%% 
+% 4. csv格式
+csvwrite('data.csv',S)
+V = csvread('data.csv');
+isequal(S, V)
+
+
+##### SOURCE END #####
+--></body></html>

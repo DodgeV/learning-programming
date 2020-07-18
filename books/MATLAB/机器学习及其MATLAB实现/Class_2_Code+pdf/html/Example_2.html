@@ -1,0 +1,496 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Example_2</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-08-03"><meta name="DC.source" content="Example_2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;&#21450;&#21629;&#20196;</a></li><li><a href="#2">II. MATLAB&#32534;&#31243;&#20064;&#24815;&#19982;&#39118;&#26684;</a></li></ul></div><h2>I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;&#21450;&#21629;&#20196;<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>
+clc
+</pre><h2>II. MATLAB&#32534;&#31243;&#20064;&#24815;&#19982;&#39118;&#26684;<a name="2"></a></h2><pre class="codeinput">x_coordinate = rand(1,10);
+y_coordinate = rand(1,10);
+figure
+plot(x_coordinate,y_coordinate,<span class="string">'r-*'</span>)
+
+<span class="comment">% %% III. MATLAB&#31243;&#24207;&#35843;&#35797;</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 1. Index must be a positive integer or logical.</span>
+<span class="comment">% A = [1 2 3 4 5];</span>
+<span class="comment">% A(0)</span>
+<span class="comment">% A(3.5)</span>
+<span class="comment">% A(-2)</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 2. Undefined function or variable 'B'.</span>
+<span class="comment">% B</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 3. Inner matrix dimensions must agree.</span>
+<span class="comment">% B = [1 2 3];</span>
+<span class="comment">% A * B</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 4. Function definitions are not permitted at the prompt or in scripts.</span>
+<span class="comment">% % function c = add(a,b)</span>
+<span class="comment">% % c = a + b;</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 5. Index out of bounds because numel(A)=5.</span>
+<span class="comment">% A(6)</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 6. In an assignment  A(I) = B, the number of elements in B and I must be the same.</span>
+<span class="comment">% A(3) = B;</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 7. Expression or statement is incorrect--possibly unbalanced (, {, or [.</span>
+<span class="comment">% % mean(A(1:3)</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 8. Too many input arguments.</span>
+<span class="comment">% mean(A,1,2)</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 9. &#24490;&#29615;&#20307;&#30340;&#35843;&#35797;</span>
+<span class="comment">% a = 1:100;</span>
+<span class="comment">% b = [];</span>
+<span class="comment">% for i = 1:21</span>
+<span class="comment">%     index = 105 - 5*i;</span>
+<span class="comment">%     b = [b a(index)];</span>
+<span class="comment">% end</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 10. &#26597;&#30475;&#12289;&#32534;&#36753;MATLAB&#33258;&#24102;&#30340;&#24037;&#20855;&#31665;&#20989;&#25968;</span>
+<span class="comment">% edit mean</span>
+<span class="comment">%</span>
+<span class="comment">% edit newff</span>
+
+<span class="comment">% %% III. MATLAB&#20869;&#23384;&#20248;&#21270;&#37197;&#32622;</span>
+<span class="comment">% feature memstats</span>
+<span class="comment">%</span>
+<span class="comment">% %% IV. &#21521;&#37327;&#21270;&#32534;&#31243;</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 1. &#21450;&#26102;&#28165;&#38500;&#19981;&#29992;&#30340;&#21464;&#37327;</span>
+<span class="comment">% a = rand(10000);</span>
+<span class="comment">% b = rand(10000);</span>
+<span class="comment">% clear a</span>
+<span class="comment">% b = rand(10000);</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 2. &#20351;&#29992;&#21464;&#37327;&#21069;&#65292;&#39044;&#20998;&#37197;&#20869;&#23384;&#31354;&#38388;</span>
+<span class="comment">% clear all</span>
+<span class="comment">% clc</span>
+<span class="comment">% n = 30000;</span>
+<span class="comment">% tic;</span>
+<span class="comment">% for k = 1:n</span>
+<span class="comment">%     a(k) = 1;</span>
+<span class="comment">% end</span>
+<span class="comment">% time = toc;</span>
+<span class="comment">% disp(['&#26410;&#39044;&#20998;&#37197;&#20869;&#23384;&#19979;&#21160;&#24577;&#36171;&#20540;&#38271;&#20026;',num2str(n),'&#30340;&#25968;&#32452;&#26102;&#38388;&#26159;:',num2str(time),'&#31186;&#65281;'])</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% b = zeros(1,n);</span>
+<span class="comment">% for k = 1:n</span>
+<span class="comment">%     b(k) = 1;</span>
+<span class="comment">% end</span>
+<span class="comment">% time = toc;</span>
+<span class="comment">% disp(['&#39044;&#20998;&#37197;&#20869;&#23384;&#19979;&#21160;&#24577;&#36171;&#20540;&#38271;&#20026;',num2str(n),'&#30340;&#25968;&#32452;&#26102;&#38388;&#26159;:',num2str(time),'&#31186;&#65281;'])</span>
+<span class="comment">%</span>
+<span class="comment">% %%c</span>
+<span class="comment">% % 3. &#36873;&#25321;&#24688;&#24403;&#30340;&#25968;&#25454;&#31867;&#22411;</span>
+<span class="comment">% clear all</span>
+<span class="comment">% clc</span>
+<span class="comment">% n = 300000;</span>
+<span class="comment">% a = 8;</span>
+<span class="comment">% b{1} = 8;</span>
+<span class="comment">% c.data = 8;</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% for k = 1:n;</span>
+<span class="comment">%     a;</span>
+<span class="comment">% end</span>
+<span class="comment">% time = toc;</span>
+<span class="comment">% disp(['&#35775;&#38382;',num2str(n),'&#27425;double&#22411;&#25968;&#32452;&#26102;&#38388;&#26159;:',num2str(time),'&#31186;&#65281;'])</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% for k = 1:n;</span>
+<span class="comment">%     b{1};</span>
+<span class="comment">% end</span>
+<span class="comment">% time = toc;</span>
+<span class="comment">% disp(['&#35775;&#38382;',num2str(n),'&#27425;cell&#22411;&#25968;&#32452;&#26102;&#38388;&#26159;:',num2str(time),'&#31186;&#65281;'])</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% for k = 1:n;</span>
+<span class="comment">%     c.data;</span>
+<span class="comment">% end</span>
+<span class="comment">% time = toc;</span>
+<span class="comment">% disp(['&#35775;&#38382;',num2str(n),'&#27425;struct&#22411;&#25968;&#32452;&#26102;&#38388;&#26159;:',num2str(time),'&#31186;&#65281;'])</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 4. &#25353;&#21015;&#20248;&#20808;&#24490;&#29615;</span>
+<span class="comment">% clear all</span>
+<span class="comment">% clc</span>
+<span class="comment">% n = 1000;</span>
+<span class="comment">% a = rand(n);</span>
+<span class="comment">% tic</span>
+<span class="comment">% for i = 1:n</span>
+<span class="comment">%     for j = 1:n</span>
+<span class="comment">%         a(i,j);</span>
+<span class="comment">%     end</span>
+<span class="comment">% end</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% for i = 1:n</span>
+<span class="comment">%     for j = 1:n</span>
+<span class="comment">%         a(j,i);</span>
+<span class="comment">%     end</span>
+<span class="comment">% end</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 5. &#24490;&#29615;&#27425;&#25968;&#22810;&#30340;&#21464;&#37327;&#23433;&#25490;&#22312;&#20869;&#23618;</span>
+<span class="comment">% clear all</span>
+<span class="comment">% clc</span>
+<span class="comment">% tic</span>
+<span class="comment">% a = 0;</span>
+<span class="comment">% for i = 1:1000</span>
+<span class="comment">%     for j = 50000</span>
+<span class="comment">%         a = a + 1;</span>
+<span class="comment">%     end</span>
+<span class="comment">% end</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% a = 0;</span>
+<span class="comment">% for i = 1:50000</span>
+<span class="comment">%     for j = 1:1000</span>
+<span class="comment">%         a = a + 1;</span>
+<span class="comment">%     end</span>
+<span class="comment">% end</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 6. &#32473;&#19968;&#20123;&#20989;&#25968;&#8220;&#30246;&#36523;&#8221;</span>
+<span class="comment">% % edit mean</span>
+<span class="comment">% clear all</span>
+<span class="comment">% clc</span>
+<span class="comment">% a = rand(1,10000);</span>
+<span class="comment">% tic</span>
+<span class="comment">% b = mean(a)</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% tic</span>
+<span class="comment">% c = sum(a)/length(a)</span>
+<span class="comment">% toc</span>
+<span class="comment">%</span>
+<span class="comment">% %% V. &#22270;&#20687;&#23545;&#35937;&#21644;&#21477;&#26564;</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 1. &#22914;&#20309;&#35774;&#32622;&#32447;&#26465;&#30340;&#23646;&#24615;&#21602;&#65311;</span>
+<span class="comment">% x = 0:0.01:2*pi;</span>
+<span class="comment">% y = sin(x);</span>
+<span class="comment">% h = plot(x,y);</span>
+<span class="comment">% grid on</span>
+<span class="comment">% get(h)</span>
+<span class="comment">% set(h,'linestyle',':','linewidth',5,'color','b')</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 2. &#22914;&#20309;&#20462;&#25913;&#32593;&#26684;&#30340;&#38388;&#38548;&#21602;&#65311;</span>
+<span class="comment">% set(gca,'xtick',0:0.5:7)</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 3. &#22914;&#20309;&#35774;&#32622;&#22270;&#20363;&#30340;&#23383;&#20307;&#21450;&#22823;&#23567;&#21602;&#65311;</span>
+<span class="comment">% x = 0:0.01:2*pi;</span>
+<span class="comment">% y1 = sin(x);</span>
+<span class="comment">% y2 = cos(x);</span>
+<span class="comment">% plot(x,y1,'r')</span>
+<span class="comment">% hold on</span>
+<span class="comment">% plot(x,y2,'-.b')</span>
+<span class="comment">% h = legend('sin(x)','cos(x)');</span>
+<span class="comment">% set(h,'fontsize',16,'color','k','edgecolor','r','textcolor','w')</span>
+<span class="comment">%</span>
+<span class="comment">% %%</span>
+<span class="comment">% % 4. &#22914;&#20309;&#25286;&#20998;&#22270;&#20363;&#21602;&#65311;</span>
+<span class="comment">% x = 0:0.01:2*pi;</span>
+<span class="comment">% y1 = sin(x);</span>
+<span class="comment">% y2 = cos(x);</span>
+<span class="comment">% h1 = plot(x,y1,'r');</span>
+<span class="comment">% hold on</span>
+<span class="comment">% h2 = plot(x,y2,'-.b');</span>
+<span class="comment">% ax1 = axes('position',get(gca,'position'),'visible','off');</span>
+<span class="comment">% legend(ax1,h1,'sin(x)','location','northwest')</span>
+<span class="comment">% ax2 = axes('position',get(gca,'position'),'visible','off');</span>
+<span class="comment">% legend(ax2,h2,'cos(x)','location','northeast')</span>
+</pre><img vspace="5" hspace="5" src="Example_2_01.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+%% I. 清空环境变量及命令
+clear all
+clc
+
+%% II. MATLAB编程习惯与风格
+x_coordinate = rand(1,10);
+y_coordinate = rand(1,10);
+figure
+plot(x_coordinate,y_coordinate,'r-*')
+
+% %% III. MATLAB程序调试
+% %%
+% % 1. Index must be a positive integer or logical.
+% A = [1 2 3 4 5];
+% A(0)
+% A(3.5)
+% A(-2)
+% 
+% %%
+% % 2. Undefined function or variable 'B'.
+% B
+% 
+% %%
+% % 3. Inner matrix dimensions must agree.
+% B = [1 2 3];
+% A * B
+% 
+% %%
+% % 4. Function definitions are not permitted at the prompt or in scripts.
+% % function c = add(a,b)
+% % c = a + b;
+% 
+% %%
+% % 5. Index out of bounds because numel(A)=5.
+% A(6)
+% 
+% %%
+% % 6. In an assignment  A(I) = B, the number of elements in B and I must be the same.
+% A(3) = B;
+% 
+% %%
+% % 7. Expression or statement is incorrectREPLACE_WITH_DASH_DASHpossibly unbalanced (, {, or [.
+% % mean(A(1:3)
+% 
+% %%
+% % 8. Too many input arguments.
+% mean(A,1,2)
+% 
+% %%
+% % 9. 循环体的调试
+% a = 1:100;
+% b = [];
+% for i = 1:21
+%     index = 105 - 5*i;
+%     b = [b a(index)];
+% end
+% 
+% %%
+% % 10. 查看、编辑MATLAB自带的工具箱函数
+% edit mean
+% 
+% edit newff
+
+% %% III. MATLAB内存优化配置
+% feature memstats
+% 
+% %% IV. 向量化编程
+% %%
+% % 1. 及时清除不用的变量
+% a = rand(10000);
+% b = rand(10000);
+% clear a
+% b = rand(10000);
+% 
+% %%
+% % 2. 使用变量前，预分配内存空间
+% clear all
+% clc
+% n = 30000;
+% tic;
+% for k = 1:n
+%     a(k) = 1;
+% end
+% time = toc;
+% disp(['未预分配内存下动态赋值长为',num2str(n),'的数组时间是:',num2str(time),'秒！'])
+% 
+% tic
+% b = zeros(1,n);
+% for k = 1:n
+%     b(k) = 1;
+% end
+% time = toc;
+% disp(['预分配内存下动态赋值长为',num2str(n),'的数组时间是:',num2str(time),'秒！'])
+% 
+% %%c
+% % 3. 选择恰当的数据类型
+% clear all
+% clc
+% n = 300000;
+% a = 8;
+% b{1} = 8;
+% c.data = 8;
+% 
+% tic
+% for k = 1:n;
+%     a;
+% end
+% time = toc;
+% disp(['访问',num2str(n),'次double型数组时间是:',num2str(time),'秒！'])
+% 
+% tic
+% for k = 1:n;
+%     b{1};
+% end
+% time = toc;
+% disp(['访问',num2str(n),'次cell型数组时间是:',num2str(time),'秒！'])
+% 
+% tic
+% for k = 1:n;
+%     c.data;
+% end
+% time = toc;
+% disp(['访问',num2str(n),'次struct型数组时间是:',num2str(time),'秒！'])
+% 
+% %%
+% % 4. 按列优先循环
+% clear all
+% clc
+% n = 1000;
+% a = rand(n);
+% tic
+% for i = 1:n
+%     for j = 1:n
+%         a(i,j);
+%     end
+% end
+% toc
+% 
+% for i = 1:n
+%     for j = 1:n
+%         a(j,i);
+%     end
+% end
+% toc
+% 
+% %%
+% % 5. 循环次数多的变量安排在内层
+% clear all
+% clc
+% tic
+% a = 0;
+% for i = 1:1000
+%     for j = 50000
+%         a = a + 1;
+%     end
+% end
+% toc
+% 
+% tic
+% a = 0;
+% for i = 1:50000
+%     for j = 1:1000
+%         a = a + 1;
+%     end
+% end
+% toc
+% 
+% %%
+% % 6. 给一些函数“瘦身”
+% % edit mean
+% clear all
+% clc
+% a = rand(1,10000);
+% tic
+% b = mean(a)
+% toc
+% 
+% tic
+% c = sum(a)/length(a)
+% toc
+% 
+% %% V. 图像对象和句柄
+% %%
+% % 1. 如何设置线条的属性呢？
+% x = 0:0.01:2*pi;
+% y = sin(x);
+% h = plot(x,y);
+% grid on
+% get(h)
+% set(h,'linestyle',':','linewidth',5,'color','b')
+% 
+% %%
+% % 2. 如何修改网格的间隔呢？
+% set(gca,'xtick',0:0.5:7)
+% 
+% %%
+% % 3. 如何设置图例的字体及大小呢？
+% x = 0:0.01:2*pi;
+% y1 = sin(x);
+% y2 = cos(x);
+% plot(x,y1,'r')
+% hold on
+% plot(x,y2,'-.b')
+% h = legend('sin(x)','cos(x)');
+% set(h,'fontsize',16,'color','k','edgecolor','r','textcolor','w')
+% 
+% %%
+% % 4. 如何拆分图例呢？
+% x = 0:0.01:2*pi;
+% y1 = sin(x);
+% y2 = cos(x);
+% h1 = plot(x,y1,'r');
+% hold on
+% h2 = plot(x,y2,'-.b');
+% ax1 = axes('position',get(gca,'position'),'visible','off');
+% legend(ax1,h1,'sin(x)','location','northwest')
+% ax2 = axes('position',get(gca,'position'),'visible','off');
+% legend(ax2,h2,'cos(x)','location','northeast')
+
+##### SOURCE END #####
+--></body></html>
