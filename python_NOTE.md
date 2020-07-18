@@ -2437,6 +2437,11 @@ print(file.readline())
 for each in file:
     print(each)
 
+import os
+os.walk()先返回该目录路径以及该目录下的所有文件(夹)名,遇到文件夹则返回该文件夹路径以#及文件夹下的所有文件,反复直到没有文件夹
+os.rename(原名,新名)
+os.system()执行想在终端中执行的命令
+
 from datetime import date
 now = date.today()
 print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")) # 01-31-20. 31 Jan 2020 is a Friday on the 31 day of January.
@@ -2483,6 +2488,75 @@ print(random.shuffle(la))  # 将序列类型中元素随机排列，返回打乱
 print(random.sample(la, 3))  # 从pop类型中随机选取k个元素，以列表类型返回
 print(random.getrandbits(3))  # 生成一个3比特长度的随机整数
 ```  
+
+```python
+import jieba
+from wordcloud import WordCloud
+
+excludes = {"什么","一个","我们","那里","你们","如今", \
+            "说道","知道","老太太","起来","姑娘","这里", \
+            "出来","他们","众人","自己","一面","太太", \
+            "只见","怎么","奶奶","两个","没有","不是", \
+            "不知","这个","听见"}
+f = open("红楼梦.txt", "r", encoding="utf-8")
+txt = f.read()
+f.close()
+words  = jieba.lcut(txt)
+counts = {}
+for word in words:
+    if len(word) == 1:  #排除单个字符的分词结果
+        continue
+    else:
+        counts[word] = counts.get(word,0) + 1
+for word in excludes:
+    del(counts[word])
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True) 
+for i in range(5):
+    word, count = items[i]
+    print ("{0:<10}{1:>5}".format(word, count))
+
+newtxt = ' '.join(words)
+wordcloud = WordCloud(background_color="white", \
+                          width=800, \
+                          height=600, \
+                          font_path="msyh.ttc", \
+                          max_words=200, \
+                          max_font_size=80, \
+                          stopwords = excludes, \
+                          ).generate(newtxt)
+wordcloud.to_file('红楼梦基本词云.png')
+#jieba.cut(s) 精确模式，返回一个可迭代的数据类型
+#jieba.cut(s,cut_all=True) 全模式，输出文本s中所有的可能的单词
+#jieba.cut_for_search(s) 搜索引擎模式，适合搜索引建立索引的分词结果
+#jieba.lcut(s) 精确模式，返回一个列表类型
+#jieba.lcut(s,cut_all=True) 全模式，返回一个列表类型
+#jieba.lcut_for_search(s) 搜索引模式，返回一个列表类型
+#jieba.add_word(word,freq=None,tag=None) 在程序中向字典添加单词 
+#jieba.del_word(word) 删除字典中的单词
+#jieba.suggest_freq(segment,tune=True) 可调节单个词语的词频，使其能（或不能）被拆分 
+
+```
+```python
+import turtle
+turtle.setup(650, 350, 100, 100)  # 宽度 高度 x坐标 y坐标
+turtle.setpos(0, 0)  # 等同于turtle.goto(0,0);turtle.setx(0);turtle.sety(0)
+turtle.penup()  # 等同于turtle.up()
+turtle.speed(10)  # 取值范围0-10
+turtle.seth(-40)  # turtle.setheading()设置当前朝向为-40的角度
+turtle.circle(40, 80 / 2)  # 半径40角度40的弧
+turtle.circle(40, steps=3)  # 边长40边数为3的三角形
+turtle.fd(40) # 向前
+turtle.backward() # 向相反的方向
+turtle.dot(40, 'red')  # 半径40颜色red的圆点
+turtle.tracer(False) # 把绘制过程关闭直接显示结果
+turtle.pencolor((r, g, b))  # 3个1是白色 3个0是黑色
+turtle.color(c, c)  # 等同于turtle.pencolor(c);turtle.fillcolor(c)
+turtle.reset()  # 等同于turtle.home()
+turtle.done()
+turtle.undo() # 撤销最后一步动作
+
+```
 
 * [小甲鱼面向对象魔法方法](https://www.bilibili.com/video/av4050443?p=43)
 * [黑马面向对象](https://www.bilibili.com/video/av14184325?p=368)
