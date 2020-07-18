@@ -2349,6 +2349,19 @@ Warning, log file not found starting a new one
 D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. 
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
+## 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
+## 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
+```python
+def multinverse(num):
+    return 1 / num
+
+if (__name__ == '__main__'):
+    print(sys.argv)
+    if len(sys.argv) > 1:
+        print(multinverse(sys.argv[1]))
+
+```
+# python的异常处理可以自己捕捉，也可以自己定义
 ```python
 try:
 	f = open('wenjian.txt')
@@ -2376,12 +2389,27 @@ try:
         print('No exception was raised.')
 
 ```
+## 导入模块的过程:python找到这个模块然后导入,再定义一个变量名来指向该模块
+## 因此多模块之间沟通需要直接导入模块名来指向模块，而不是from XX import XX
+## 如果直接import导入，系统会自动避免重新导入同一模块,使模块的改变得不到更新
+## 若需要更新import导入的模块，需要imp库
+## 只能在导入的值的基础上修改,不能指向一个新的值
+## 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数
+## 开发时尽量将导入模块写在文件顶部，便于发现冲突
 ```python
+import antigravity # open_an_url
+print(antigravity.geohash(37.421542, -122.085589, b'2005-05-26-10458.68'))# 纬度 经度 日期
+import winsound
+winsound.Beep(300,100) # 音调、声音长短
 
-import sys
-print(sys.path) # 
+import sys 
+print(sys.path) # 列表中的先后顺序表示导入模块时搜索的路径,空的字符串表示先在当前路径搜索
+sys.path.insert(0,'')  # 再最前面插入要先搜索的路径
 print(sys.argv) #
 print(sys.__name__)
+
+from imp import reload
+reload(random) 此时方可得到模块的更新,此法只能更新import 导入的模块
 
 import __main__ # 该模块整合了所有已经导入的模块，表示该模块由用户独立运行
 print(__main__.sys)
