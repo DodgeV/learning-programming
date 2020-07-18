@@ -113,3 +113,36 @@ sin(A) %对于常用的函数 每个元素都要运算
 A/B %等同于A乘B的逆
 A\\B %等同于A的逆乘B
 ```
+
++ 重装系统后，如何恢复matlab 文件关联及图标(Win7 XP均适) 苍天大地，重装系统后的一大幸事就是发现matlab可以直接运行，倒不是觉得装matlab麻烦，真正麻烦的是我的那些toolbox哦。这下清心了，除了....
++ 问题1：每次在外面点m文件，都会重新打开一个matlab，而不是在已经打开的editor里打开..
++ 问题2：m文件和mat文件的图标没了
++ 以下转自http://www.eefocus.com/czzheng/blog/10-01/183657_c7e69.html 
+> 重装系统后，若没动MATLAB安装目标，则MATLAB不用重新安装。（同样的原因，可以移动MATLAB安装目标）
+> 对MATLAB相关文件，建立重新关联就行了。
+> 在MATLAB命令窗口执行如下命令，即可。
+```
+cwd=pwd;
+cd([matlabroot '\toolbox\matlab\winfun\private']);
+fileassoc('add',{'.m','.mat','.fig','.p','.mdl',['.' mexext]}); %重点
+cd(cwd);
+disp('Changed Windows file associations. FIG, M, MAT, MDL, MEX, and P files are now associated with MATLAB.')
+```
+> 或者
+1. 打开matlab，运行 help
+2. 在help窗口中搜索Utility to Change Windows File Associations
+3. 找到Utility to Change Windows File Associations的对应解释
+4. 最后就是直接点击所需的文件关联
+
+引用完毕
+
+如果文件图标不能恢复的话,在我的电脑>工具>文件夹选项>文件类型 中寻找各个文件名称修改。在键盘上按首字母可以快速搜索
+
+图标文件在：D:\Program files\MATLAB\R2009b\bin\win32 中，后缀为ico
+
+另外，在Win7系统下，文件夹选项中取消了更改文件图标的功能。
+
+利用之前步骤将matlab文件与程序关联后，（以管理员运行matlab）
+
+在控制面板>程序>默认程序>将文件类型或协议与程序关联中，找到任意一个matlab文件，如.m、.mat等，选中matlab程序，等待系统刷新一下，即可恢复图标。
+
