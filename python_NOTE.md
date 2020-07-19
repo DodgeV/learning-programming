@@ -2554,17 +2554,18 @@ turtle.done()
 turtle.undo() # 撤销最后一步动作
 
 ```
-
-* [小甲鱼面向对象魔法方法](https://www.bilibili.com/video/av4050443?p=43)
+* 对象=属性+方法，静态的为属性，动态的动作为方法
+* OO(object oriented)的特征，封装是为了数据的隐蔽性，继承是为了子类调用父类的属性或方法更方便，多态是不同类的同一方法可以不一样
+* 
 * [黑马面向对象](https://www.bilibili.com/video/av14184325?p=368)
 ```python
 class fishc(object):
-    def __init__(self,name,size = 10):#利用init方法时,第一个参数始终是self
-        self.size = size # 因此,在__init__方法内部,就可以把各种属性绑定到self,因为self就指向创建的实例本身
+    def __init__(self,name,size = 10):
+        self.size = size 
         self.__name = name 
-    def getsize(self): # 直接在类的内部定义访问数据的函数，
-        return self.size # 这样，就把“数据”给封装起来了。
-    def getname(self): # 要想访问已被限制的属性,可以创建新函数
+    def getsize(self): 
+        return self.size 
+    def getname(self): 
         return self.__name
     def setsize(self,value):
         self.size = value
@@ -2573,27 +2574,18 @@ class fishc(object):
     x = property(getsize,setsize,delsize) 
     # 三个参数分别是产生改变删除 对应属性的方法 将该属性的值赋值给新的属性
 
-c = fishc('jack') # 也就是说没有其他参数__init__也会自动调用自己
+c = fishc('jack') 
 print(c.getsize()) # 10
 print(c.x) # 10
 c.x = 18
-c.y = 10 #加个属性
+c.y = 10 
 print(c.x,c.size,c.getsize) # 18 18 <bound method fishc.getsize of <__main__.fishc object at 0x00000242DD14AEF0>>
 ```
-```python
-class goods(fishc): # 定义的子类完全可以继承父类的所有属性,私有属性除外
-    def goodbye(self): # 新定义的属性会覆盖父类的同名属性
-        print('good bye',self.getname()) # 在子类里面调用父类的私有属性时,需使用定义的方法来调用
 
-print(issubclass(fishc,goods))#返回'cls'是派生自另一个类还是同一个类。
-cc = goods('lucy')
-print(isinstance(cc,goods))#判断是否是一个类的实例
-
-```
 ```python
 class Robot:
-    population = 0  #population是类变量
-    def __init__(self, name):  #name是对象变量
+    population = 0  
+    def __init__(self, name):  
         """Initializes the data."""
         self.name = name
         print("(Initializing {})".format(self.name))
@@ -2619,7 +2611,7 @@ class Robot:
 
         Yeah, they can do that."""
         print("Greetings, my masters call me {}.".format(self.name))
-    def how_many(cls):# 这是类方法(classmethod)
+    def how_many(cls):
         """Prints the current population."""
         print("We have {:d} robots.".format(cls.population))
         
@@ -2628,19 +2620,19 @@ class Robot:
 import random
 class Person(object):    
     ''' 在python3中无论是否继承object都会创建新式类'''
-    population = 0
+    population = 0 # population是类变量,下面的name是对象变量
     name_list = []
-    def __init__(self,name,age,salary):    
+    def __init__(self,name,age,salary):   # 利用init方法时,第一个参数始终是self,相当于C++的this指针
         '''封装数据,先调用__new__为对象分配空间,然后返回对象引用
         然后才调用__init__对象初始化,定义实例属性
         实例化几次对象就会执行几次初始化
         父类的魔法方法会被继承,最好不要自创魔法方法
         ''' 
-        self.__name = name # 私有属性只能在对象方法内访问
+        self.__name = name 
         Person.name_list.append(self.__name)
-        self.__age = age    
-        self.__salary = salary    
-        self.x = random.randint(1,10)    
+        self.__age = age # 因此,在__init__方法内部,就可以把各种属性绑定到self,因为self就指向创建的实例本身
+        self.__salary = salary # 前加2个下划线就可以绑定私有属性，但只能在对象方法内访问
+        self.x = random.randint(1,10) 
         self.y = random.randint(1,10)    
         self.class_ = self.x + self.y # 单后置下划线用于避免与关键字冲突
         self._z = pow((self.x+self.y),2) # 单前置下划线为私有化属性或方法,导入模块时并不会导入,通常用于避免模块之间全局变量的冲突
@@ -2664,7 +2656,7 @@ class Person(object):
     @staticmethod # 不需要访问类/对象的属性/方法,则使用静态方法
     def run(): # 通过类名.静态方法-不需要创建实例对象
         print("i'm running")
-    @classmethod # 如果要定义的方法只访问类属性则用类方法
+    @classmethod # 如果要定义的方法只访问类属性则用类方法,用cls代替类名访问类属性,而不是self
     def die(cls):    
         print("one person has been destroyed")
         if cls.population == 0:
@@ -2674,31 +2666,37 @@ class Person(object):
         cls.name_list.remove(cls.name_list[random.randint(0,len(cls.name_list)-1)])
         print('{0} alived,{1} left'.format(cls.name_list,cls.population))
     @classmethod # 意思同 how_many = classmethod(how_many) 标记为类方法
-    def count_Person(cls): # cls 可代替类名访问类属性
+    def count_Person(cls): 
         print('There are',cls.population,'persons')
     @property 
     def get_salary(self):
         print(self.__salary)
     
-A = Person('adom',23,2000)
+A = Person('adom',23,2000) 
 B = Person('baby',24,4000)
 print(A is B) # 身份运算符is判断二者id是否一致 
 # == 用于判断两个变量的值是否相等    
 # is 用于判断两个变量引用变量是否为同一个    
-# 与None进行比较时，最好使用is      
-print(A._Person__age) # 在私有属性前加下划线类名可以访问私有属性
+# 与None进行比较时，最好使用is     
+A.z = 10 # 加个属性,此为动态绑定
+print(A._Person__age) # 在私有属性前加下划线类名可以访问私有属性，因为python的私有是伪私有
 A._Person__secret() # 私有方法同理,此法不建议常用
 Person.count_Person()
 del A
 del B
 
-class Killer(Person): #单继承
+```
+* 定义的子类完全可以继承父类的所有属性和属性,私有属性除外
+* 新定义的属性或方法会覆盖父类的同名属性或方法
+* 在子类里面调用父类的私有属性时,同样需用父类定义的方法从内部来调用
+```python
+class Killer(Person): # 单继承
     population = 0
     def __init__(self,name,age,salary):
         Person.__init__(self,name,age,salary)
         #这里调用父类的init方法，只是继承父类的变量
         #若子类init方法与父类参数个数不一致，仍会报错
-        # 另外还需要保持类属性和基类一致
+        # 另外还需要保持类属性和父类一致
         Killer.population += 1
         print('i am a killer')
         self.hungry = True
@@ -2791,8 +2789,8 @@ str1 = STR('iloveu')
 print(str1,id(str1))
 str2 = STR('imissu')
 print(str2,id(str2))
-print('STR是str的子类',issubclass(STR,str)) 
-print('str1是STR的实例',isinstance(str1,STR))#如果是多继承第二个参数用元组
+print('STR是str的子类',issubclass(STR,str)) # 返回'cls'是派生自另一个类还是同一个类。
+print('str1是STR的实例',isinstance(str1,STR)) # 如果是多继承第二个参数用元组
 print(hasattr(str1,'newattr')) # 判断是否有该属性 
 print(getattr(str1,'newattr','你所访问的属性不存在')) # 访问对象的属性 不存在就返回给定值 
 setattr(str1,'newattr','设置属性成功') # 给实例对象添加属性 
