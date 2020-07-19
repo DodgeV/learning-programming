@@ -1,23 +1,20 @@
-## 基础知识
-
+# 基础知识
 * 编译器 编译型语言 统一翻译 一起执行 速度更快 
-
 * 解释器 解释型语言 读取一行 翻译一行 执行一行 跨平台更有优势
-
 > + 其他解释器:CPython Ipython Jpython PyPy
-
 * IDE 集成开发环境 图形用户界面 代码编辑器(Editor) 编译器/解释器 调试器 控制台(console)
-
+* 文件开头一般会指定解释器的路径，以及文件的编码
+```python
+# !/usr/bin/python
+# -*- coding: UTF-8 -*-
+```
 * python程序执行原理:操作系统先让CPU把python解释器加载到内存 python解释器根据语法规则从上到下让CPU翻译python程序中的代码 CPU再来执行翻译后的代码
-
 * QQ软件在运行之前是保存在硬盘中的 运行之后就会加载到内存中 并获得专属的内存空间 登录时将号码和密码保存之后 发给腾讯服务器 并分配一些内存空间来保存号码和密码 使用别名(变量名)来标记号码和密码
 * 使用import导入模块python解释器将模块源码转换为字节码的pyc二进制文件 以提高速度 
-## pycharm快捷键 及使用技巧
-* ctrl+Q 查看函数内置文件 点在函数名上 再左侧黄色灯泡中插入内置文件
-* debug的时候 F8 -- step over 把函数当作一行代码来执行   F7 -- step into 在函数里面一行一行执行
-* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
-* 字符串的判断避免使用or拼接复杂的逻辑条件，改为使用in
-
+```python
+import py_compile    
+py_compile.compile('hello.py') # 将hello.py编译为hello.pyc的文件
+```
 
 ## crawler
 * 通用爬虫是搜索引擎用的爬虫:百度快照也是一种爬虫可以爬存和文本相关的内容 不能爬取图片电影二进制文件等
@@ -2896,6 +2893,12 @@ print(stack_1.__dict__)
 
 ```
 
+# pycharm快捷键 及使用技巧
+* ctrl+Q 查看函数内置文件 点在函数名上 再左侧黄色灯泡中插入内置文件
+* debug的时候 F8 -- step over 把函数当作一行代码来执行   F7 -- step into 在函数里面一行一行执行
+* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
+* 字符串的判断避免使用or拼接复杂的逻辑条件，改为使用in
+
 # Python标准异常总结,由于异常的传递性,只在主程序捕获异常
 * `AssertionError`断言语句（assert）失败
 * `AttributeError`尝试访问未知的对象属性
@@ -3024,6 +3027,7 @@ print(stack_1.__dict__)
 - `func??` 函数名加两个问号可以看到函数定义的代码  
 - `a = []`;`a.a*?` 查询a开头的方法  
 - 直接运行`ipconfig`不行 需要加个叹号：`!ipconfig`  
+
 # pdb 命令
 1. 进入命令行Debug模式，python -m pdb xxx.py  
 2. h：（help）帮助  
