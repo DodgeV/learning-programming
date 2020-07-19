@@ -2563,16 +2563,7 @@ class fishc(object):
     def __init__(self,name,size = 10):
         self.size = size 
         self.__name = name 
-    def getsize(self): 
-        return self.size 
-    def getname(self): 
-        return self.__name
-    def setsize(self,value):
-        self.size = value
-    def delsize(self):
-        del self.size
-    x = property(getsize,setsize,delsize) 
-    # 三个参数分别是产生改变删除 对应属性的方法 将该属性的值赋值给新的属性
+
 
 c = fishc('jack') 
 print(c.getsize()) # 10
@@ -2789,44 +2780,59 @@ str1 = STR('iloveu')
 print(str1,id(str1))
 str2 = STR('imissu')
 print(str2,id(str2))
-print('STR是str的子类',issubclass(STR,str)) # 返回'cls'是派生自另一个类还是同一个类。
-print('str1是STR的实例',isinstance(str1,STR)) # 如果是多继承第二个参数用元组
+print('STR是str的子类',issubclass(STR,str)) # 返回'cls'是派生自另一个类还是同一个类,自身可以是自身的子类
+print('str1是STR的实例',isinstance(str1,STR)) # 如果是多继承第二个参数用元组,若第一个参数不是实例对象则永远返回False,若第二个参数不是类或元组则抛出Typeerror异常
 print(hasattr(str1,'newattr')) # 判断是否有该属性 
 print(getattr(str1,'newattr','你所访问的属性不存在')) # 访问对象的属性 不存在就返回给定值 
 setattr(str1,'newattr','设置属性成功') # 给实例对象添加属性 
 print(getattr(str1,'newattr','设置属性未成功')) 
-# delattr(str1,'newattr') # 删除存在的属性 如果不存在就返回异常 
+delattr(str1,'newattr') # 删除存在的属性 如果不存在就返回异常 
 
 ```
 ```python
 class MusicPlayer(object):
     instance = None
     init_flag = False
-    def __new__(cls):
+    def __new__(cls,name):
         if cls.instance is None:
             cls.instance = object.__new__(cls)
         return cls.instance
-    def __init__(self): # 控制初始化的动作只执行一次
+    def __init__(self,name): # 控制初始化的动作只执行一次
         if MusicPlayer.init_flag:
             return
         print('initing data')
+        self.name = name
         MusicPlayer.init_flag = True # 标记初始化动作
-player1 = MusicPlayer()
+    def getName(self): 
+        return self.name 
+    def setName(self,value):
+        self.name = value
+    def delName(self):
+        del self.name
+    myname = property(getName,setName,delName) # property的作用是通过属性设置属性,来简化属性 
+    # 三个参数分别是获取\改变\删除,对应属性的方法,将该属性的值赋值给新的属性
+
+
+player1 = MusicPlayer('lucy')
 print(player1)
-player2 = MusicPlayer()
+player2 = MusicPlayer('jack')
 print(player2)
+print(player2.name,player2.myname)
+player2.myname = 'steve'
+print(player2.myname)
+del player2.myname # 通过property可以简化属性的获取、更改、删除的过程
 
 class Biology: 
-#横向的类可以用组合,属性名字与方法名相同,属性会覆盖方法 
-#应该运用继承与组合来扩展类，而不是定义很多方法 
-    def __init__(self,x,name,age,salary): 
-        self.x = x 
+# 横向的类可以用组合,属性名字与方法名相同,属性会覆盖方法 
+# 应该运用继承与组合来扩展类，而不是定义很多方法 
+    def __init__(self,name,age,salary): 
         self.Person = Person(name,age,salary) 
     def print_num(self): 
-        print('there are {0} animals,{1} Persons'.format(self.animal.num,self.Person.population)) 
-#如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
-b = Biology(2,'steve',23,1000) 
+        print('there are {0} Persons'.format(self.Person.population)) 
 
+    
+#如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
+b = Biology('steve',23,1000) 
 print(Biology.__dict__) #类方法是绑定在类上面的 
 print(b.__dict__) #实例对象的方法里面没有，但是可以调用 
 b.x = 1 #如果定义一个实例的特殊属性，该属性独属于该实例 
@@ -2834,30 +2840,28 @@ print(b.__dict__)
 print(Biology.__dict__) 
 Biology.y = 1 #如果给类定义特殊的属性，那么连同每一个实例都会有该属性 
 print(b.__dict__)
-Biology.__init__(b,4,'job',23,1000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
+Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
 #如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
 
-
+```
+```python
 class stock2(object):
     """stock2类中包含属性"""
     def __init__ (self,code,price):
         self.code = code
         self.price = price
     @classmethod
-    def split(cls,sc):
-        code = sc.split('-')[0]
-        price = sc.split('-')[1]
+    def split(cls,stock):
+        code = stock.split('-')[0]
+        price = stock.split('-')[1]
         if len(price) == 6:
             return cls(code,price)
         print('主动抛出异常')
-        ex = Exception('股票代码有误')
-        raise ex
+        raise Exception('股票代码有误')
 
-try:
-    s = stock2.split('中国平安-601318')
-    print(s.price,s.code)
-except Exception as result:
-    print('unknown mistake',str(result))
+s = stock2.split('中国平安-601318')
+print(s.price,s.code)
+
 ```
 ```python
 class Stack(object):    
