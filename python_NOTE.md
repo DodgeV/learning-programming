@@ -2556,23 +2556,7 @@ turtle.undo() # 撤销最后一步动作
 ```
 * 对象=属性+方法，静态的为属性，动态的动作为方法
 * OO(object oriented)的特征，封装是为了数据的隐蔽性，继承是为了子类调用父类的属性或方法更方便，多态是不同类的同一方法可以不一样
-* 
 * [黑马面向对象](https://www.bilibili.com/video/av14184325?p=368)
-```python
-class fishc(object):
-    def __init__(self,name,size = 10):
-        self.size = size 
-        self.__name = name 
-
-
-c = fishc('jack') 
-print(c.getsize()) # 10
-print(c.x) # 10
-c.x = 18
-c.y = 10 
-print(c.x,c.size,c.getsize) # 18 18 <bound method fishc.getsize of <__main__.fishc object at 0x00000242DD14AEF0>>
-```
-
 ```python
 class Robot:
     population = 0  
@@ -2640,7 +2624,7 @@ class Person(object):
         print('移后的位置是',self.x,self.y)             
     def get_info(self):    
         print('name:{0},salary:{1}'.format(self.__name,self.__salary))
-    def __del__(self): # 在该对象被销毁之前调用  
+    def __del__(self): # 析构函数在该对象被销毁之前调用  
         Person.population -= 1
         Person.name_list.remove(self.__name)
         print('{} is dead'.format(self.__name))
@@ -2766,7 +2750,7 @@ del mry
 ```python
 class STR(str):
     instance = None
-    def __new__(cls,args): 
+    def __new__(cls,args): # 构造函数
         '''__new__主要用于继承一些不可变的类时,提供一些自定义实例化的途径
         是一个静态方法,主要用于单例设计模式,只会为对象分配一个空间
         返回对象的引用,作为第一个参数传给__init__ '''
