@@ -62,20 +62,20 @@
 * table    // tables of summary statistics
 
 #### Statistical commands
-* count if price > 10000
-* count if missing
-* isid mpg    //变量mpg能否独特的区分每一行
-* isid price make
-* unique mpg weight    //需要先安装unique，检测数据集中weight和mpg都不一样的数据个数
-* codebook [var] [if] [in] [,option]    //提供变量的一些信息,各种分位
-* codebook price if price > 5000
-* codebook price in 10/20   #/#
-* codebook price in 10 #
-* codebook price in 10/l       #/l  10分位到末尾
-* codebook price in f/10       f/#  开头到10分位
-* summarize [var] [if] [in] [weight] [,option]  // 也可以简写为sum或summ
-* summarize price,detail   //提供额外的统计量 
-* correlate    // correlation matrices
+* `count if price > 10000`
+* `count if missing`
+* `isid mpg`    //变量mpg能否独特的区分每一行
+* `isid price make`
+* `unique mpg weight`    //需要先安装unique，检测数据集中weight和mpg都不一样的数据个数
+* `codebook [var] [if] [in] [,option]`    //提供变量的一些信息,各种分位
+* `codebook price if price > 5000`
+* `codebook price in 10/20`   #/#
+* `codebook price in 10` #
+* `codebook price in 10/l`       #/l  10分位到末尾
+* `codebook price in f/10`       f/#  开头到10分位
+* `summarize [var] [if] [in] [weight] [,option]`  // 也可以简写为sum或summ
+* `summarize price,detail`   //提供额外的统计量 
+* `correlate`    // correlation matrices
 * `ci means [varlist] [if] [in] [weight] [,options]`计算几个连续变量平均值的置信区间，平均值可以简写为`mean`
 * `cii means #obs #mean #sd [,level(#)]`也可以指定有多少个观测值，平均值是多少，标准差是多少，置信水平默认为95%，可以更改
 * `ci mean mpg price, level(90)`置信水平改为90%
@@ -93,20 +93,20 @@
 * 绘制相关性散点图矩阵
 * `graph matrix varlist [if] [in] [weight] [,options]`画出完全对称的散点图矩阵
 * `graph matrix varlist,half`只画一半
-* ttest    // perform 1-, 2-sample and paired t-tests
-* anova    // 1-, 2-, n-way analysis of variance
-* regress    // least squares regression
-* predict    // generate fitted values, residuals, etc.
-* test    // test linear hypotheses on parameters
-* lincom    // linear combinations of parameters
-* cnsreg    // regression with linear constraints
-* testnl    // test nonlinear hypothesis on parameters
-* margins    // marginal effects (elasticities, etc.)
-* ivregress    // instrumental variables regression
-* prais    // regression with AR(1) errors
-* sureg    // seemingly unrelated regressions
-* reg3    // three-stage least squares
-* qreg    // quantile regression
+* `ttest`    // perform 1-, 2-sample and paired t-tests
+* `anova`    // 1-, 2-, n-way analysis of variance
+* `regress`    // least squares regression
+* `predict`    // generate fitted values, residuals, etc.
+* `test`    // test linear hypotheses on parameters
+* `lincom`    // linear combinations of parameters
+* `cnsreg`    // regression with linear constraints
+* `testnl`    // test nonlinear hypothesis on parameters
+* `margins`    // marginal effects (elasticities, etc.)
+* `ivregress`    // instrumental variables regression
+* `prais`    // regression with AR(1) errors
+* `sureg`    // seemingly unrelated regressions
+* `reg3`    // three-stage least squares
+* `qreg`    // quantile regression
 
 #### Drawing commands
 * `histogram varname [if] [in] [weight] [, [continuous_opts | discrete_opts] options]`柱状图
@@ -220,19 +220,18 @@
 
 ## 时间序列模型
 #### 时间序列声明
-* use 时间序列数据.dta, clear
-* tsset year   //时间序列声明
+* `use 时间序列数据.dta, clear`
+* `tsset year`   //时间序列声明
 
 #### 单位根检验
-* use 时间序列数据.dta, clear
-* dfuller d.m,lag(2)                //ADF检验
-* dfuller m,nocon regress           //ADF检验
-* dfuller m,trend regress
-* pperron m,lag(2)                  //PP检验                   
-* pperron m,nocon regress           
-* pperron d.m,regress
-* dfgls m                          //DF-GLS检验
-* kpss  m,notrend                   //KPSS检验
+* `dfuller d.m,lag(2)`                //ADF检验
+* `dfuller m,nocon regress`           //ADF检验
+* `dfuller m,trend regress`
+* `pperron m,lag(2)`                  //PP检验                   
+* `pperron m,nocon regress`           
+* `pperron d.m,regress`
+* `dfgls m`                          //DF-GLS检验
+* `kpss  m,notrend`                   //KPSS检验
 
 #### ECM单位根检验
 * reg m s g 
@@ -259,52 +258,4 @@
 #### 面板声明
 * use FDI.dtar, clear
 * xtset country year   //在这种情况下"country"代表实体或小组(i)，“year”表示时间变量(t)。
-* > 注意事项：如果在使用xtset后出现以下错误: varlist: country: string variable not allowed
-* > 解决方案为：encode country, gen(country1)
-* > 在xtset命令中使用“country1”而不是“country”   需要使用数值型类型
-* xtdes
-* xtline lngdp   //探索面板数据
-
-#### 单位根检验
-* xtunitroot llc lngdp,lags(2) trend
-* xtunitroot llc d.lngdp,lags(2) trend
-* xtunitroot ips lngdp
-* xtunitroot ips d.lngdp
-
-#### 协整检验
-* xtwest lngdp lnfdi lni,lags(2)
-
-#### 异方差检验
-* xttest3 
-
-#### 序列相关检验,适用于的长面板数据(20-30年以上)
-* xtserial y x1
-
-#### 混合回归/OLS回归
-* reg lngdp lnfdi lnie
-* reg lngdp lnfdi lnie,robust
-* reg lngdp lnfdi lnie,vce(cluster id)
-
-#### 固定效应
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,fe
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,fe,fe vce (cluster id)
-* xi:xtreg lngdp lnfdi lnie lnex lnim  lnci lngp  i.id,vce(cluster id) //LSDV 考虑个体固定效应
-* tab year,gen(year)
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp year2-year14,fe 
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp year2-year14,fe vce (cluster id)
-* test year2=year3=year4=year5=0
-
-#### 随机效应
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,re mle
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,vce (cluster id) 
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,re mle    //随机效应的MLE参数估计方法
-
-#### Hausman检验--随机和固定效应的检验
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,re
-* est store re
-* xtreg lngdp lnfdi lnie lnex lnim  lnci lngp,fe
-* est store fe
-* hausman fe re
-* est table re fe, b(%6.3f) star(0.1 0.05 0.01) 
-* outreg2 [fe re] using daqinxueshu.doc,stats(coef,tstat) addstat(Ajusted R2,`e(r2_a)') replace
-
+* > 注意事项：如果在使用xtset后出现
