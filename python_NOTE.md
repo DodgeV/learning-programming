@@ -2739,6 +2739,7 @@ class WebProgrammer(Programmer,Killer):
         # super(Killer,self).__init__(self,name,age,salary)
         # 指定Killer就会继承__mro__中Killer的后一个
         WebProgrammer.population += 1
+	
 mry = WebProgrammer('Mry',19,10000)
 mry.get_info()
 print(WebProgrammer.__mro__)
@@ -2756,7 +2757,6 @@ class Biology:
     def print_num(self): 
         print('there are {0} Persons'.format(self.Person.population)) 
 
-    
 #如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
 b = Biology('steve',23,1000) 
 print(Biology.__dict__) #类方法是绑定在类上面的 
@@ -2770,7 +2770,8 @@ Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属�
 #如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
 
 ```
-```pythonclass STR(str):
+```python
+class STR(str):
     instance = None
     init_flag = False
     def __new__(cls,args): # 构造函数
