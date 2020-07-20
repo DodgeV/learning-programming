@@ -2748,64 +2748,6 @@ del mry
 
 ```
 ```python
-class STR(str):
-    instance = None
-    def __new__(cls,args): # 构造函数
-        '''__new__主要用于继承一些不可变的类时,提供一些自定义实例化的途径
-        是一个静态方法,主要用于单例设计模式,只会为对象分配一个空间
-        返回对象的引用,作为第一个参数传给__init__ '''
-        args = args.upper()
-        if cls.instance is None:
-            # cls.instance = str.__new__(cls,args) 
-            cls.instance = super().__new__(cls,args) # 将空间固定在类属性
-        return cls.instance # 返回固定的类属性实现单例
-
-str1 = STR('iloveu')
-print(str1,id(str1))
-str2 = STR('imissu')
-print(str2,id(str2))
-print('STR是str的子类',issubclass(STR,str)) # 返回'cls'是派生自另一个类还是同一个类,自身可以是自身的子类
-print('str1是STR的实例',isinstance(str1,STR)) # 如果是多继承第二个参数用元组,若第一个参数不是实例对象则永远返回False,若第二个参数不是类或元组则抛出Typeerror异常
-print(hasattr(str1,'newattr')) # 判断是否有该属性 
-print(getattr(str1,'newattr','你所访问的属性不存在')) # 访问对象的属性 不存在就返回给定值 
-setattr(str1,'newattr','设置属性成功') # 给实例对象添加属性 
-print(getattr(str1,'newattr','设置属性未成功')) 
-delattr(str1,'newattr') # 删除存在的属性 如果不存在就返回异常 
-
-```
-```python
-class MusicPlayer(object):
-    instance = None
-    init_flag = False
-    def __new__(cls,name):
-        if cls.instance is None:
-            cls.instance = object.__new__(cls)
-        return cls.instance
-    def __init__(self,name): # 控制初始化的动作只执行一次
-        if MusicPlayer.init_flag:
-            return
-        print('initing data')
-        self.name = name
-        MusicPlayer.init_flag = True # 标记初始化动作
-    def getName(self): 
-        return self.name 
-    def setName(self,value):
-        self.name = value
-    def delName(self):
-        del self.name
-    myname = property(getName,setName,delName) # property的作用是通过属性设置属性,来简化属性 
-    # 三个参数分别是获取\改变\删除,对应属性的方法,将该属性的值赋值给新的属性
-
-
-player1 = MusicPlayer('lucy')
-print(player1)
-player2 = MusicPlayer('jack')
-print(player2)
-print(player2.name,player2.myname)
-player2.myname = 'steve'
-print(player2.myname)
-del player2.myname # 通过property可以简化属性的获取、更改、删除的过程
-
 class Biology: 
 # 横向的类可以用组合,属性名字与方法名相同,属性会覆盖方法 
 # 应该运用继承与组合来扩展类，而不是定义很多方法 
@@ -2828,6 +2770,52 @@ Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属�
 #如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
 
 ```
+```pythonclass STR(str):
+    instance = None
+    init_flag = False
+    def __new__(cls,args): # 构造函数
+        '''__new__主要用于继承一些不可变的类时,提供一些自定义实例化的途径
+        是一个静态方法,主要用于单例设计模式,只会为对象分配一个空间
+        返回对象的引用,作为第一个参数传给__init__ '''
+        newArgs = args.upper()
+        if cls.instance is None:
+            # cls.instance = str.__new__(cls,newArgs) 
+            cls.instance = super().__new__(cls,newArgs) # 将空间固定在类属性
+        return cls.instance # 返回固定的类属性实现单例
+    def __init__(self,name): 
+        if STR.init_flag:
+            return     # 控制初始化的动作只执行一次
+        print('initing data')
+        self.name = name
+        STR.init_flag = True # 标记初始化动作
+    def getName(self): 
+        return self.name 
+    def setName(self,value):
+        self.name = value
+    def delName(self):
+        del self.name
+    myname = property(getName,setName,delName) # property的作用是通过属性设置属性,来简化属性 
+    # 三个参数分别是获取\改变\删除,对应属性的方法,将该属性的值赋值给新的属性
+
+str1 = STR('iloveu')
+print(str1,id(str1))
+str2 = STR('imissu')
+print(str2,id(str2))
+print('STR是str的子类',issubclass(STR,str)) # 返回'cls'是派生自另一个类还是同一个类,自身可以是自身的子类
+print('str1是STR的实例',isinstance(str1,STR)) # 如果是多继承第二个参数用元组,若第一个参数不是实例对象则永远返回False,若第二个参数不是类或元组则抛出Typeerror异常
+print(hasattr(str1,'newattr')) # 判断是否有该属性 
+print(getattr(str1,'newattr','你所访问的属性不存在')) # 访问对象的属性 不存在就返回给定值 
+setattr(str1,'newattr','设置属性成功') # 给实例对象添加属性 
+print(getattr(str1,'newattr','设置属性未成功')) 
+delattr(str1,'newattr') # 删除存在的属性 如果不存在就返回异常 
+
+print(str2.myname)
+str2.myname = 'jackey'
+print(str2.myname)
+print(str2)
+del str2.myname # 通过property可以简化属性的获取、更改、删除的过程
+```
+
 ```python
 class stock2(object):
     """stock2类中包含属性"""
