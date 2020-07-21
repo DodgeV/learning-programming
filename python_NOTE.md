@@ -155,10 +155,10 @@ send_data = input('输入要下载的文件:')
 tcp_client_socket.send(send_data.encode('gbk'))
 recvdata = tcp_client_socket.recv(1024) #1024个字节为1K 1024*1024为1M
 if recvdata:
-with open('[新]'+send_data,'wb') as f:
-    f.write(recv_data)
-print('接收到的数据为',recvdata.decode('utf-8'))
-tcp.client.socket.close()
+	with open('[新]'+send_data,'wb') as f:
+	    f.write(recv_data)
+	print('接收到的数据为',recvdata.decode('utf-8'))
+	tcp.client.socket.close()
 ```
 
 ### tcp服务器 先收
@@ -328,18 +328,18 @@ while True:
         client_socket_list.append(new_socket)
     for client_socket in client_socket_list:
         try:
-        recv_data = client_socket.recv(1024) 
+	        recv_data = client_socket.recv(1024) 
         # 每一次recv并不是直接从对方客户端拿数据 而是从操作系统的缓存区域拿数据
         except Exception as ret:
-        print('----这个客户端没有发送数据')
+      		print('----这个客户端没有发送数据')
         else:
-        if recv_data:
-            print('----这个客户端发送来数据')
-            print(str(recv_data))
-        else:
-            print('客户端调用close')
-            client_socket_list.remove(client_socket)
-            client_socket.close()
+		if recv_data:
+		    print('----这个客户端发送来数据')
+		    print(str(recv_data))
+		else:
+		    print('客户端调用close')
+		    client_socket_list.remove(client_socket)
+	client_socket.close()
 ```
 # 利用单进程 单线程 遍历实现 长链接
 ```python
@@ -3007,39 +3007,52 @@ print(stack_1.__dict__)
   >> * BytesWarning
   >> * ResourceWarning
 
-# ipython [详见CSDN](https://blog.csdn.net/lb245557472/article/details/80078882)
-- `Ctrl-P`    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令  
-- `trl-N`  或下箭头键 前向搜索命令历史中以当前输入的文本开头的命令  
-- `trl-R`  按行读取的反向历史搜索（部分匹配）  
-- `trl-Shift-v`  从剪贴板粘贴文本  
-- `trl-C`  中止当前正在执行的代码  
-- `trl-A`  将光标移动到行首  
-- `trl-E`  将光标移动到行尾  
-- `trl-K`  删除从光标开始至行尾的文本  
-- `trl-U`  清除当前行的所有文本译注12  
-- `trl-F`  将光标向前移动一个字符  
-- `trl-b`  将光标向后移动一个字符  
-- `trl-L`  清屏
-- `%quickref` 显示IPython 的快速参考  
-- `agic` 显示所有魔术命令的详细文档  
-- `ebug` 从最新的异常跟踪的底部进入交互式调试器  
-- `ist` 打印命令的输入历史  
-- `eset` 删除interactive命名空间中的全部变量/名称  
-- `age` OBJECT 通过分页器打印输出OBJECT  
-- `run` 通过cProfile 执行 statement，并打印分析器的输出结果  
-- `ho` `%who_ls` `%whos` 显示interactive 命名空间中定义的变量，信息级别/冗余度可变  
-- `del variable` 删除变量，并尝试清除其在ipython中的对象上的一切引用  
-- `run + 文件名` 执行文件代码  
-- `aste %cpaste` 执行剪切板里面的代码  
-- `imeit + 函数` 对此运行函数求所需时间的平均值   
-- `db on/off`打开/关闭调试代码 `p`打印出各种值q`退出
-- `_`一个下划线表示上一个历史命令  `__`两个下划线代表上两个历史命令  
-- `_34` 显示第34行的输出代码 `_i34` 显示第34行的输入代码  
-- 输入`a`之后按上下方向键就只会出现啊开头的历史命令  
-- `%bookmark`  
-- `func??` 函数名加两个问号可以看到函数定义的代码  
-- `a = []`;`a.a*?` 查询a开头的方法  
-- 直接运行`ipconfig`不行 需要加个叹号：`!ipconfig`  
+# Ipython shell命令
+- `Ctrl-P`    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令
+- `Ctrl-N`   或下箭头键 前向搜索命令历史中以当前输入的文本开头的命令
+- `Ctrl-R`   按行读取的反向历史搜索（部分匹配）
+- `Ctrl-Shift-v`   从剪贴板粘贴文本
+- `Ctrl-C`   中止当前正在执行的代码
+- `Ctrl-A`   将光标移动到行首
+- `Ctrl-E`   将光标移动到行尾
+- `Ctrl-K`   删除从光标开始至行尾的文本
+- `Ctrl-U`   清除当前行的所有文本译注12
+- `Ctrl-F`   将光标向前移动一个字符
+- `Ctrl-b`   将光标向后移动一个字符
+- `Ctrl-L`   清屏
+
+# Ipython 魔术命令
+- `%quickref` 显示IPython的快速参考
+- `%magic` 显示所有魔术命令的详细文档
+- `%debug` 从最新的异常跟踪的底部进入交互式调试器
+- `%hist` 打印命令的输入（可选输出）历史
+- `%pdb` 在异常发生后自动进入调试器
+- `%paste` 执行剪贴板中的Python代码
+- `%cpaste` 打开一个特殊提示符以便手工粘贴待执行的Python代码
+- `%reset` 删除interactive命名空间中的全部变量/名称
+- `%page` OBJECT 通过分页器打印输出OBJECT
+- `%run script.py` 在IPython中执行一个Python脚本文件
+- `%prun statement` 通过cProfile执行statement，并打印分析器的输出结果
+- `%time statement` 报告statement的执行时间
+- `%timeit statement` 多次执行statement以计算系综平均执行时间。对那些执行时 间非常小的代码很有用
+- `%who、%who_ls、%whos` 显示interactive命名空间中定义的变量，信息级别/冗余度可变
+- `%xdel variable` 删除variable，并尝试清除其在IPython中的对象上的一切引用
+
+# Ipython系统交互命令
+- 如：dir_info = !dir ipython中的变量可以保存系统shell中返回的结果，在调用系统shell命令时加上！即可
+- `%bookmark db /home/wesm/Dropbox` 将db作为书签永久保存
+- `%alias ll ls -l` 将ll作为ls -l的别名暂时保存
+- `%!cmd` 在系统shell中执行cmd
+- `%output  = !cmd args` 执行cmd，并将stdout存放在output中
+- `%alias alias_name cmd` 为系统shell命令定义别名
+- `%bookmark` 使用IPython的目录书签系统
+- `%cd directory` 将系统工作目录更改为directory
+- `%pwd` 返回系统的当前工作目录
+- `%pushd directory` 将目前目录入栈，并转向目标目录
+- `%popd` 弹出栈顶目录，并转向该目录
+- `%dirs` 返回一个含有当前目录栈的列表
+- `%dhist` 打印目录访问历史
+- `%env` 以dict形式返回系统环境变量
 
 # pdb 命令
 1. 进入命令行Debug模式，python -m pdb xxx.py  
