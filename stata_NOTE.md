@@ -3,20 +3,25 @@
 * 三种文件：数据文件、do文件、log文件
 > + stata自己的数据文件后缀名为`.dta`,支持导入其他格式如`.xls` `.xlsx` `.csv`
 > + do文件记录命令可通过按钮或`Ctrl+D`重复执行，建议将命令保存在do文件中
-> + log文件可以记录分析过程:`File`==>`Log`==>`Begin`或直接输入命令`log using log_file_name`，读取的时候`File`==>`Log`==>`view`
-> + log文件默认格式为`.smcl`,可以转换为`.log`
+> + log文件可以记录分析过程:`File`==>`Log`==>`Begin`
+> + 或直接输入命令`log using log_file_name [,append replace [text|smcl] name(logname)]`
+>> + `log_file_name`是log文件的名字
+>> + `append`若文件存在，附加在文件上
+>> + `replace`若文件存在，替换这个文件，若文件不存在则都会创造新文件，若文件已经存在而未指定则会报错
+> + 读取的时候`File`==>`Log`==>`view`
+> + log文件默认格式为`.smcl`,可以转换为`.log`,可重复性是科学研究的核心,而分析日志(log file)是可重复性的核心
 
 ## 常用命令
 #### Some useful Stata commands
-* ssc install XXX   //access routines from the SSC Archive
-* help commands    //online help on a specific command
-* findit    //online references on a keyword or topic
-* log    //log output to an external file
-* tsset   // define the time indicator for timeseries or panel data
-* compress   // economize on space used by variables
-* quietly   // do not show the results of a command
-* update query   // see if Stata is up to date
-* adoupdate   // see if user-written commands are up to date
+* `ssc install XXX`   //access routines from the SSC Archive
+* `help commands`    //online help on a specific command
+* `findit`    //online references on a keyword or topic
+* `log`    //log output to an external file
+* `tsset`   // define the time indicator for timeseries or panel data
+* `compress`   // economize on space used by variables
+* `quietly`   // do not show the results of a command
+* `update query`   // see if Stata is up to date
+* `adoupdate`   // see if user-written commands are up to date
 
 #### Data manipulation commands
 * 可以通过命令的方式录入数据集
@@ -39,27 +44,27 @@
 * `rename 时间 var1`将时间变量重命名为var1
 * `rename (var1 var2 var3 var4 var5 var6) (year total coal oil gas clean)`也可以一次性完成
 * `generate volume = x*y*z`通过算式创造一个新的变量
-* replace    // modify an existing variable
-* renvars    // rename a set of variables
-* sort    // change the sort order of the dataset
-* drop    // drop certain variables and/or observations
-* keep    // keep only certain variables and/or observations
-* append    // combine datasets by stacking
-* merge    // merge datasets (one-to-one or match merge)
-* encode    // generate numeric variable from categorical variable
-* recode    // recode categorical variable
-* destring    // convert string variables to numeric
-* foreach    // loop over elements of a list, performing a block of code
-* forvalues    // loop over a numlist, performing a block of code
-* local    // define or modify a local macro (scalar variable)
-* insheet    // load a text file in tab- or comma-delimited format
-* infile    // load a text file in space-delimited format or as defined in a dictionary
-* outfile    // write a text file in space- or comma-delimited format
-* outsheet    // write a text file in tab- or comma-delimited format
-* contract    // make a dataset of frequencies
-* collapse    // make a dataset of summary statistics
-* tab    // abbreviation for tabulate   // 1- and 2-way tables
-* table    // tables of summary statistics
+* `replace`    // modify an existing variable
+* `renvars`    // rename a set of variables
+* `sort`    // change the sort order of the dataset
+* `drop`    // drop certain variables and/or observations
+* `keep`    // keep only certain variables and/or observations
+* `append`    // combine datasets by stacking
+* `merge`    // merge datasets (one-to-one or match merge)
+* `encode`    // generate numeric variable from categorical variable
+* `recode`    // recode categorical variable
+* `destring`    // convert string variables to numeric
+* `foreach`    // loop over elements of a list, performing a block of code
+* `forvalues`    // loop over a numlist, performing a block of code
+* `local`    // define or modify a local macro (scalar variable)
+* `insheet`    // load a text file in tab- or comma-delimited format
+* `infile`    // load a text file in space-delimited format or as defined in a dictionary
+* `outfile`    // write a text file in space- or comma-delimited format
+* `outsheet`    // write a text file in tab- or comma-delimited format
+* `contract`    // make a dataset of frequencies
+* `collapse`    // make a dataset of summary statistics
+* `tab`    // abbreviation for tabulate   // 1- and 2-way tables
+* `table`    // tables of summary statistics
 
 #### Statistical commands
 * `count if price > 10000`
@@ -73,9 +78,9 @@
 * `codebook price in 10` #
 * `codebook price in 10/l`       #/l  10分位到末尾
 * `codebook price in f/10`       f/#  开头到10分位
-* `summarize [var] [if] [in] [weight] [,option]`  // 也可以简写为sum或summ
-* `summarize price,detail`   //提供额外的统计量 
-* `correlate`    // correlation matrices
+* summarize [var] [if] [in] [weight] [,option]  // 也可以简写为sum或summ
+* summarize price,detail   //提供额外的统计量 
+* correlate    // correlation matrices
 * `ci means [varlist] [if] [in] [weight] [,options]`计算几个连续变量平均值的置信区间，平均值可以简写为`mean`
 * `cii means #obs #mean #sd [,level(#)]`也可以指定有多少个观测值，平均值是多少，标准差是多少，置信水平默认为95%，可以更改
 * `ci mean mpg price, level(90)`置信水平改为90%
@@ -146,84 +151,85 @@
 
 
 #### Limited dependent variable estimation commands
-* logit, logistic    // logit model, logistic regression
-* probit    // binomial probit model
-* tobit    // one- and two-limit Tobit model
-* cnsreg    // Censored normal regression (generalized Tobit)
-* ologit, oprobit    // ordered logit and probit models
-* mlogit    // multinomial logit model
-* poisson    // Poisson regression
-* heckman    // selection model
-* truncreg depvar[indepvars] [if] [in] [weight] [, options]
-* truncreg y x1 x2 x3 , ll(#)  ul(#)   // 其中选择项ll(#)表示lower limit，左侧断尾，ul(#)表示uppper limit，右侧断尾，如果同时使用这两个选择项，表示双侧断尾。
+* `logit, logistic`    // logit model, logistic regression
+* `probit`    // binomial probit model
+* `tobit`    // one- and two-limit Tobit model
+* `cnsreg`    // Censored normal regression (generalized Tobit)
+* `ologit, oprobit`    // ordered logit and probit models
+* `mlogit`    // multinomial logit model
+* `poisson`    // Poisson regression
+* `heckman`    // selection model
+* `truncreg depvar[indepvars] [if] [in] [weight] [, options]`
+* `truncreg y x1 x2 x3 , ll(#)  ul(#)`   // 其中选择项ll(#)表示lower limit，左侧断尾，ul(#)表示uppper limit，右侧断尾，如果同时使用这两个选择项，表示双侧断尾。
 
 #### Time series estimation commands
-* arima    // Box–Jenkins models, regressions with ARMA errors
-* arfima    // Box–Jenkins models with long memory errors
-* arch    // models of autoregressive conditional heteroskedasticity
-* dfgls    // unit root tests
-* corrgram    // correlogram estimation
-* var    // vector autoregressions (basic and structural)
-* irf    // impulse response functions, variance decompositions
-* vec    // vector error–correction models (cointegration)
-* sspace    // state-space models
-* dfactor    // dynamic factor models
-* ucm    // unobserved-components models
-* rolling   // prefix permitting rolling or recursive estimation over subsets
+* `arima`    // Box–Jenkins models, regressions with ARMA errors
+* `arfima`    // Box–Jenkins models with long memory errors
+* `arch`    // models of autoregressive conditional heteroskedasticity
+* `dfgls`    // unit root tests
+* `corrgram`   // correlogram estimation
+* `var`    // vector autoregressions (basic and structural)
+* `irf`    // impulse response functions, variance decompositions
+* `vec`    // vector error–correction models (cointegration)
+* `sspace`    // state-space models
+* `dfactor`    // dynamic factor models
+* `ucm`    // unobserved-components models
+* `rolling`   // prefix permitting rolling or recursive estimation over subsets
 
 #### Panel data estimation commands
-* xtreg,fe    // fixed effects estimator
-* xtreg,re    // random effects estimator
-* xtgls    // panel-data models using generalized least squares
-* xtivreg    // instrumental variables panel data estimator
-* xtlogit    // panel-data logit models
-* xtprobit    // panel-data probit models
-* xtpois    // panel-data Poisson regression
-* xtgee    // panel-data models using generalized estimating equations
-* xtmixed    // linear mixed (multi-level) models
-* xtabond    // Arellano-Bond dynamic panel data estimator
+* `xtreg,fe`    // fixed effects estimator
+* `xtreg,re`    // random effects estimator
+* `xtgls`    // panel-data models using generalized least squares
+* `xtivreg`    // instrumental variables panel data estimator
+* `xtlogit`    // panel-data logit models
+* `xtprobit`    // panel-data probit models
+* `xtpois`    // panel-data Poisson regression
+* `xtgee`    // panel-data models using generalized estimating equations
+* `xtmixed`    // linear mixed (multi-level) models
+* `xtabond`    // Arellano-Bond dynamic panel data estimator
 
 
 ## 横截面分析
 #### 回归分析
-* use nerlove.dta,clear
-* reg lntc lnpf lnpk  lnpl 
-* reg lntc lnpf lnpk  lnpl ,noc
-* predict yhat                   //  拟合被解释变量GDP
-* predict e,residual              //  计算残差
-* rvfplot  
-* tobit depvar [indepvars] [if] [in] [weight] ,ll[(#)] ul[(#)] [options]      //归并回归用到的命令，ll[(#)]表示left-censoringlimit， ul[(#)]表示right-censoring limit
-* tobit y c x1 x2x3，ll(#)  ul(#)    //其中选择项ll(#)表示左侧归并，ul(#)表示右侧归并，如果同时选择这两个，表示左右双边规定，即介于两个值之间。
+* `use nerlove.dta,clear`
+* `reg lntc lnpf lnpk  lnpl` 
+* `reg lntc lnpf lnpk  lnpl ,noc`
+* `predict yhat`                   //  拟合被解释变量GDP
+* `predict e,residual`              //  计算残差
+* `rvfplot`  
+* `tobit depvar [indepvars] [if] [in] [weight] ,ll[(#)] ul[(#)] [options]`      //归并回归用到的命令，ll[(#)]表示left-censoringlimit， ul[(#)]表示right-censoring limit
+* `tobit y c x1 x2x3，ll(#)  ul(#)`    //其中选择项ll(#)表示左侧归并，ul(#)表示右侧归并，如果同时选择这两个，表示左右双边规定，即介于两个值之间。
 
 #### 参数检验
-* regress lntc lnpk  lnpl
-* test lnpk=0.5                      //检验系数
-* test lnpk=lnpl
-* estat hettest                     //异方差BP检验
-* estat imtest,white                //异方差white检验
-* estat vif                         //多重共线性检验
+* `regress lntc lnpk  lnpl`
+* `test lnpk=0.5`                      //检验系数
+* `test lnpk=lnpl`
+* `estat hettest`                     //异方差BP检验
+* `estat imtest,white`                //异方差white检验
+* `estat vif`                         //多重共线性检验
 
 #### 带约束条件检验
-* cons  1 lnpk+lnpl=1
-* cons  2 lnpk+lnpl=1.6
-* cnsreg lntc lnpk  lnpl,constraints(1)  //有约束的回归
-* cnsreg lntc lnpk  lnpl,constraints(2)  //有约束的回归
-* bootstrap, reps(200):regress lntc lnpk  lnpl   //bootstrap 方法的回归
-* bootstrap _b :regress lntc lnpk  lnpl        //bootstrap 方法的回归
+* `cons  1 lnpk+lnpl=1`
+* `cons  2 lnpk+lnpl=1.6`
+* `cnsreg lntc lnpk  lnpl,constraints(1)`  //有约束的回归
+* `cnsreg lntc lnpk  lnpl,constraints(2)`  //有约束的回归
+* `bootstrap, reps(200):regress lntc lnpk  lnpl`   //bootstrap 方法的回归
+* `bootstrap _b :regress lntc lnpk  lnpl`        //bootstrap 方法的回归
 
 #### 稳健回归
-* regress lntc lnpk  lnpl
-* estimates  store model1
-* reg lntc lnpk  lnpl,robust
-* estimates store model2
-* esttab model*  using huigui.rtf,r2 ar2 nogap replace
+* `regress lntc lnpk  lnpl`
+* `estimates  store model1`
+* `reg lntc lnpk  lnpl,robust`
+* `estimates store model2`
+* `esttab model*  using huigui.rtf,r2 ar2 nogap replace`
 
 ## 时间序列模型
 #### 时间序列声明
 * `use 时间序列数据.dta, clear`
-* `tsset year`   //时间序列声明
+* `tsset year   //时间序列声明`
 
 #### 单位根检验
+* `use 时间序列数据.dta, clear`
 * `dfuller d.m,lag(2)`                //ADF检验
 * `dfuller m,nocon regress`           //ADF检验
 * `dfuller m,trend regress`
@@ -234,28 +240,28 @@
 * `kpss  m,notrend`                   //KPSS检验
 
 #### ECM单位根检验
-* reg m s g 
-* estimates  store model1
-* predict ecm,residual
-* reg d.m d.s d.g ecm   //ECM模型
+* `reg m s g` 
+* `estimates  store model1`
+* `predict ecm,residual`
+* `reg d.m d.s d.g ecm`   //ECM模型
 
 #### VAR模型
-* varsoc m s g ,maxlag(5)
-* var m s g ,lags(1/4)
-* varstable,graph
-* vargranger
-* irf create myrif,set(myrif) replace
-* irf graph irf
+* `varsoc m s g ,maxlag(5)`
+* `var m s g ,lags(1/4)`
+* `varstable,graph`
+* `vargranger`
+* `irf create myrif,set(myrif) replace`
+* `irf graph irf`
 
 #### VECM模型
-* vecrank m s g,lags(4)
-* varsoc m s g,maxlag(5)
-* vec m s g,lags(4) 
-* reg m s g 
-* vecstable,graph
+* `vecrank m s g,lags(4)`
+* `varsoc m s g,maxlag(5)`
+* `vec m s g,lags(4)` 
+* `reg m s g` 
+* `vecstable,graph`
 
 ## 面板数据
 #### 面板声明
-* use FDI.dtar, clear
-* xtset country year   //在这种情况下"country"代表实体或小组(i)，“year”表示时间变量(t)。
+* `use FDI.dtar, clear`
+* `xtset country year`   //在这种情况下"country"代表实体或小组(i)，“year”表示时间变量(t)。
 * > 注意事项：如果在使用xtset后出现
