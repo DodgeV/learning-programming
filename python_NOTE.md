@@ -15,6 +15,9 @@
 import py_compile    
 py_compile.compile('hello.py') # 将hello.py编译为hello.pyc的文件
 ```
+* 将py程序变为可执行程序，需要第三方库`PyInstaller`
+* `PyInstaller -F XXX.py`
+* `PyInstaller -i snowflake.ico -F XXX.py`
 
 ## crawler
 * 通用爬虫是搜索引擎用的爬虫:百度快照也是一种爬虫可以爬存和文本相关的内容 不能爬取图片电影二进制文件等
