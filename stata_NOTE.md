@@ -2,14 +2,19 @@
 * stata允许第三方插件
 * 三种文件：数据文件、do文件、log文件
 > + stata自己的数据文件后缀名为`.dta`,支持导入其他格式如`.xls` `.xlsx` `.csv`
+> + 可重复性是科学研究的核心，而分析日志(log file)是可重复性的核心，除此而外还有do文件
 > + do文件记录命令可通过按钮或`Ctrl+D`重复执行，建议将命令保存在do文件中
 > + log文件可以记录分析过程:`File`==>`Log`==>`Begin`
-> + 或直接输入命令`log using log_file_name [,append replace [text|smcl] name(logname)]`
+> + 或直接输入命令`log using log_file_name [,[append|replace] [text|smcl] name(logname)]`
 >> + `log_file_name`是log文件的名字
 >> + `append`若文件存在，附加在文件上
 >> + `replace`若文件存在，替换这个文件，若文件不存在则都会创造新文件，若文件已经存在而未指定则会报错
+>> + `smcl`为stata默认的log文件格式，可以保存各种颜色，可以转换为`.log`
+>> + `text`为单色，便于在文本编辑器中打开
+>> + `name(log_for_sb)`打开不同的log文件给不同的合作者
+>> + `log close [logname]`若没有起名字就不用加文件名
+>> + `log close_all`关闭所有log文件，包括起名字没起名字
 > + 读取的时候`File`==>`Log`==>`view`
-> + log文件默认格式为`.smcl`,可以转换为`.log`,可重复性是科学研究的核心,而分析日志(log file)是可重复性的核心
 
 ## 常用命令
 #### Some useful Stata commands
