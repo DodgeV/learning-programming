@@ -1,8 +1,8 @@
 # study
 + [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
 + [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
-+ [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)
-+ [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)
++ [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)&[公共基础对应笔记](https://www.bilibili.com/read/cv2097828/)
++ [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
