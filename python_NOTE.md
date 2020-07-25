@@ -2799,26 +2799,6 @@ print(b)
 print(a + b)
 ```
 ```python
-class C:
-    def __getattribute__(self,name):
-        print("getattribute")
-        return super().__getattribute__(name)
-    def __getattr__(self,name):
-        print("getattr")
-    def __setattr__(self,name,value):
-        print("setattr")
-        super().__setattr__(name,value)
-    def __delattr__(self,name):
-        print("delattr")
-        super().__delattr__(name)
-
-c = C()
-print(c.x) # 先访问getattribute，如果没有属性就访问getattr
-c.x = 1
-print(c.x)
-del c.x
-
-
 class Rectangle:
     def __init__(self,width=0,height=0):
         self.width = width # 赋值操作会自动触动setattr
@@ -2836,6 +2816,67 @@ class Rectangle:
 r1 = Rectangle()
 r1.square = 10
 print(r1.width,r1.height,r1.getArea())
+```
+* 描述符就是将某种特殊类型的类的实例指派给另一个类的属性,即property的原理
+* 特殊类型即至少实现__get__ & __set__ & __delete__三个方法中的一个
+```python
+class MyProperty: 
+    def __init__(self,fget=None,fset=None,fdel=None):
+        self.fget = fget
+        self.fset = fset
+        self.fdel = fdel
+
+    def __get__(self,instance,owner):
+        print("getting...",self,instance,owner)
+        return self.fget(instance)
+
+    def __set__(self,instance,value):
+        print("setting...",self,instance,value)
+        self.fset(instance,value)
+    
+    def __delete__(self,instance):
+        print('deleting...',self,instance)
+        self.fdel(instance)
+
+
+class Test:
+    def __init__(self):
+        self._x = None
+
+    def getX(self):
+        return self._x
+
+    def setX(self,value):
+        self._x = value
+
+    def delX(self):
+        del self._x
+
+    def __getattribute__(self,name):
+        print("getattribute of Test")
+        return super().__getattribute__(name)
+    def __getattr__(self,name):
+        print("getattr of Test")
+    def __setattr__(self,name,value):
+        print("setattr of Test")
+        super().__setattr__(name,value)
+    def __delattr__(self,name):
+        print("delattr of Test")
+        super().__delattr__(name)
+    y = MyProperty(getX,setX,delX) # MyProperty是y的描述符
+
+
+
+test = Test()
+print(test.x) # 先访问getattribute,如果没有属性就访问getattr
+test.x = "x-man" # 调用__setattr__
+print(test.x) 
+del test.x # 调用__delattr__
+print('下示访问修改描述符的属性'.center(20,'*'))
+print(test.y) # 先访问getattribute,如果没有属性就访问getattr,最后调用描述符类的__get__
+test.y = "Y-man" # 先调用__setattr__,再调用描述符类的__set__
+print(test._x)
+del test.y # 先调用__delattr__,再调用描述符类的__delete__
 ```
 ```python
 import random
