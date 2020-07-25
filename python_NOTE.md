@@ -2738,6 +2738,106 @@ class Robot:
         
 ```
 ```python
+class MyTimer():   
+    def __init__(self):
+        self.uint = ['年','月','日','小时','分钟','秒']
+        self.prompt = "未开始计时"
+        self.lasted = []
+        self.btime = 0
+        self.etime = 0
+
+    def __str__(self):
+        return self.prompt
+
+    __repr__ = __str__
+
+    def __add__(self,other):
+        prompt = "总共运行了"
+        result = []
+        for index in range(6):
+            result.append(self.lasted[index] + other.lasted[index])
+            if result[index]:
+                prompt += (str(result[index]) + self.uint[index])
+        return prompt
+        # return int(self)+int(other)
+    def __sub__(self,other):
+        return int.__sub__(self,other)
+    
+    def start(self):
+        self.btime = time.localtime()
+        self.prompt = "请先调用stop()停止计时"
+        print('开始计时')
+
+    def stop(self):
+        if not self.btime:
+            print('请先调用start()进行计时')
+        else:
+            self.etime = time.localtime()
+            self._calc()
+            print('停止计时')
+
+    def _calc(self):
+        self.lasted = []
+        self.prompt = "总共运行了"
+        for index in range(6):
+            self.lasted.append(self.etime[index] - self.btime[index])
+            if self.lasted[index]:
+                self.prompt += str(self.lasted[index])+self.uint[index]
+        self.btime = 0
+        self.etime = 0
+
+
+a = MyTimer()
+b = MyTimer()
+b.start()
+a.start()
+time.sleep(3)
+a.stop()
+b.stop()
+print(a)
+print(b)
+print(a + b)
+```
+```python
+class C:
+    def __getattribute__(self,name):
+        print("getattribute")
+        return super().__getattribute__(name)
+    def __getattr__(self,name):
+        print("getattr")
+    def __setattr__(self,name,value):
+        print("setattr")
+        super().__setattr__(name,value)
+    def __delattr__(self,name):
+        print("delattr")
+        super().__delattr__(name)
+
+c = C()
+print(c.x) # 先访问getattribute，如果没有属性就访问getattr
+c.x = 1
+print(c.x)
+del c.x
+
+
+class Rectangle:
+    def __init__(self,width=0,height=0):
+        self.width = width # 赋值操作会自动触动setattr
+        self.height = height
+    def __setattr__(self,name,value):
+        if name == "square":
+            self.width = value
+            self.height = value
+        else:
+            # self.name = value # 再次触动setattr，一直死循环
+            super().__setattr__(name,value) # self.__dict__[name] = value
+    def getArea(self):
+        return self.width * self.height
+
+r1 = Rectangle()
+r1.square = 10
+print(r1.width,r1.height,r1.getArea())
+```
+```python
 import random
 class Person(object):    
     ''' 在python3中无论是否继承object都会创建新式类'''
