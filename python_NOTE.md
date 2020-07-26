@@ -307,7 +307,7 @@ def main():
         client_socket.close() # 多进程会复制之前定义的所有变量 这里需要先关一次主进程的 之后再关的子进程才会指向fd文件描述符 然后才会开始4次挥手
     tcp_server_socket.close() # 最后关服务器的监听套接字
 
-if __name__ == \__main__\:
+if __name__ == '__main__':
     main()
 ```
 # 单进程 单线程 利用列表遍历 实现同时服务多个客户端
@@ -407,7 +407,7 @@ def main():
             client_socket.close() 
     tcp_server_socket.close() # 最后关服务器的监听套接字
     
-if __name__ == \__main__\:
+if __name__ == '__main__':
     main()
 ```
     
@@ -1038,6 +1038,11 @@ None
 ----2-----
 
 2
+```
+* 所谓协同程序就是可以运行的独立函数调用，函数可以暂停或挂起，并在需要的时候从程序离开的地方继续或重新开始
+```python
+iterA = iter([1,2,3,4])
+print(next(iterA)) # 每调用一次访问一个元素，一直到访问完抛出stopiteration
 ```
 # 协程稳定性最差 但最快
 * 协程耗费的资源小于线程  是依托于线程的
@@ -2080,7 +2085,7 @@ saysome() # i->love you
 saysome('me') # me->love you
 saysome('she','love me') # she->love me
 ```
-### python默认会将*后面全当做收集参数
+### python默认会将`*`后面全当做收集参数
 ```python
 def test(*params,exp):   
     print('参数的长度是:',len(params),'第二个参数是:',params[1])
@@ -2389,11 +2394,13 @@ D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserW
 ```
 ## 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
 ## 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
+## 每一个模块的在导入时`__name__`都是模块名，但在模块文件内部的`__name__`都是`__main__`
+## 比如`time.__name__`为`time`
 ```python
 def multinverse(num):
     return 1 / num
 
-if (__name__ == '__main__'):
+if (__name__ == '__main__'):  
     print(sys.argv)
     if len(sys.argv) > 1:
         print(multinverse(sys.argv[1]))
@@ -2442,8 +2449,8 @@ winsound.Beep(300,100) # 音调、声音长短
 
 import sys 
 print(sys.path) # 列表中的先后顺序表示导入模块时搜索的路径,空的字符串表示先在当前路径搜索
-sys.path.insert(0,'')  # 再最前面插入要先搜索的路径
-print(sys.argv) #
+sys.path.insert(0,'')  # 在最前面插入要先搜索的路径
+print(sys.argv) # 
 print(sys.__name__)
 
 from imp import reload
@@ -2907,6 +2914,28 @@ test.cel = 38
 print(test.fah)
 test.fah = 78
 print(test.cel) 
+```
+# 容器类型的协议有两种
+# 若定制的容器不可变,只需定义__len__() & __getitem__()
+# 若容器可变,需定义__len__() & __getitem__() & __setitem__() & __delitem__()
+```python
+class CountList:
+    def __init__(self,*args):
+        self.values = [x for x in args]
+        self.count = {}.fromkeys(range(len(self.values)),0)
+
+    def __len__(self):
+        return len(self.values)
+
+    def __getitem__(self,key): # 每次访问元素都会调用的方法
+        self.count[key] += 1 # 每访问一次增加一次
+        return self.values[key]
+
+c1 = CountList(1,3,5,7,9)
+c2 = CountList(2,4,6,8,10)
+print(c1.count)
+print(c1[1]+c2[2])
+print(c1.count)
 ```
 ```python
 import random
