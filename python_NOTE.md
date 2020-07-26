@@ -2471,7 +2471,7 @@ print(__main__.sys)
 > + 3. `print(pickle.__file__)`查看源代码位置
 > + 4. `print(dir(pickle))`查看所有方法
 > + 5. 一般其中的`pickle.__all__`会包含所有可调用的函数
-> + 6.也可用`help(pickle)`查看帮助文档
+> + 6. 也可用`help(pickle)`查看帮助文档
 ```python
 import pickle
 f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
@@ -2926,9 +2926,11 @@ print(test.fah)
 test.fah = 78
 print(test.cel) 
 ```
-# 容器类型的协议有两种
-# 若定制的容器不可变,只需定义__len__() & __getitem__()
-# 若容器可变,需定义__len__() & __getitem__() & __setitem__() & __delitem__()
+* 协议protocols与其他语言中的接口很相似,规定哪些方法必须定义
+* 在python中的协议不是很正式,更像一种指南
+* 容器类型的协议有两种
+* 若定制的容器不可变,只需定义__len__() & __getitem__()
+* 若容器可变,需定义__len__() & __getitem__() & __setitem__() & __delitem__()
 ```python
 class CountList:
     def __init__(self,*args):
