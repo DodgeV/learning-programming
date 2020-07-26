@@ -1752,7 +1752,6 @@ print(html.xpath('string(//span)').replace(' ', '').replace('\\n', ''))
 * scrapy check 检查爬虫是否合格
 
 # python
-
 ```python
 action = '2'
 if action in ['1','2','3']:
@@ -1833,20 +1832,13 @@ ent2.pack()
 
 fm_main.mainloop()
 ```
-
 ```python
-
 import shutil
 shutil.copyfile('data.db', 'archive.db')
 shutil.move('/build/executables', 'installdir')
 import glob
 glob.glob('*.py') # 获取本路径下的所有py文件
 
-```
-```
-D:\\python
-
-['6-26NOTE.py', '6-26NOTE2.py', 'day04_回归法选股策略.py', 'day04_打分法选股策略.py']
 ```
 ```python
 str1 = '人生苦短'
@@ -2054,7 +2046,7 @@ type((2))  # int
 type((2,))  # tuple
 # 序列的方法：min max len index count
 ```
-  
+## 函数
 ```python
 def myfirstfunction(name):
     '''函数定义过程中的name叫形参
@@ -2106,7 +2098,7 @@ test(1,'小和尚',3.14,5,6,7,8)  # 参数的长度是: 6 第二个参数是: 3.
 ```python
 
 ```
-## 多值不定长参数 
+### 多值不定长参数 
 ```python
 def test(c,d,*args,**kwargs): 
 '''*告诉编译器在传入参数时，多传的通通给*args以元组身份保存,**用来接收多传的关键字参数作为字典'''
@@ -2229,7 +2221,7 @@ def abc():
 
 abc() # 2
 ```
-###可以用global关键字改变
+### 可以用global关键字改变
 ```python
 def fun1():
     x = 5
@@ -2241,7 +2233,7 @@ def fun1():
     
 fun1() # 1
 ```
-###也可以将变量改为元组
+### 也可以将变量改为元组
 ```python
 def fun1():
     x = [5]
@@ -2392,21 +2384,7 @@ Warning, log file not found starting a new one
 D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. 
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
-## 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
-## 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
-## 每一个模块的在导入时`__name__`都是模块名，但在模块文件内部的`__name__`都是`__main__`
-## 比如`time.__name__`为`time`
-```python
-def multinverse(num):
-    return 1 / num
-
-if (__name__ == '__main__'):  
-    print(sys.argv)
-    if len(sys.argv) > 1:
-        print(multinverse(sys.argv[1]))
-
-```
-# python的异常处理可以自己捕捉，也可以自己定义
+### python的异常处理可以自己捕捉，也可以自己定义
 ```python
 try:
 	f = open('wenjian.txt')
@@ -2434,15 +2412,29 @@ try:
         print('No exception was raised.')
 
 ```
-## 导入模块的过程:python找到这个模块然后导入,再定义一个变量名来指向该模块
-## 因此多模块之间沟通需要直接导入模块名来指向模块，而不是from XX import XX
-## 如果直接import导入，系统会自动避免重新导入同一模块,使模块的改变得不到更新
-## 若需要更新import导入的模块，需要imp库
-## 只能在导入的值的基础上修改,不能指向一个新的值
-## 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数
-## 开发时尽量将导入模块写在文件顶部，便于发现冲突
-## python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
-## python3.3之后不需要了，但要使用一些初始化的数据还是要添加__init__.py文件,调用包的方法同调用模块的方法。
+### 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
+### 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
+```python
+def multinverse(num):
+    return 1 / num
+
+if (__name__ == '__main__'):  
+    print(sys.argv)
+    if len(sys.argv) > 1:
+        print(multinverse(sys.argv[1]))
+
+```
+### 导入模块的过程:python找到这个模块然后导入,再定义一个变量名来指向该模块
+### 因此多模块之间沟通需要直接导入模块名来指向模块，而不是from XX import XX
+### 如果直接import导入，系统会自动避免重新导入同一模块,使模块的改变得不到更新
+### 若需要更新import导入的模块，需要imp库
+### 只能在导入的值的基础上修改,不能指向一个新的值
+### 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数
+### 开发时尽量将导入模块写在文件顶部，便于发现冲突
+### python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
+### python3.3之后不需要了，但要使用一些初始化的数据还是要添加__init__.py文件,调用包的方法同调用模块的方法。
+### 每一个模块的在导入时`__name__`都是模块名，但在模块文件内部的`__name__`都是`__main__`
+### 比如`time.__name__`为`time`
 ```python
 import antigravity # open_an_url
 print(antigravity.geohash(37.421542, -122.085589, b'2005-05-26-10458.68'))# 纬度 经度 日期
@@ -2465,7 +2457,7 @@ import __main__ # 该模块整合了所有已经导入的模块，表示该模�
 print(__main__.sys)
 
 ```
-## 快速学习一个库分为以下几步
+### 快速学习一个库分为以下几步
 > + 1. `import pickle`导入模块,`print(pickle.__name__)`确认包名
 > + 2. `print(pickle.__doc__)`查看简介
 > + 3. `print(pickle.__file__)`查看源代码位置
@@ -2613,9 +2605,11 @@ turtle.done()
 turtle.undo() # 撤销最后一步动作
 
 ```
-* 对象=属性+方法，静态的为属性，动态的动作为方法
-* OO(object oriented)的特征，封装是为了数据的隐蔽性，继承是为了子类调用父类的属性或方法更方便，多态是不同类的同一方法可以不一样
-* [黑马面向对象](https://www.bilibili.com/video/av14184325?p=368)
+## 面向对象(OOP)基本概念
+* 1. 面向过程类似于函数,但过程只负责执行而没有返回值,函数既能执行又可以返回结果
+> + 在面向过程开发时,侧重于怎么做,逐步实现并将功能独立的代码封装为函数,最后完成就是调用不同的函数,开发过程中没有固定套路,难度很大
+* 2. 对象=属性+方法，静态的为属性，动态的动作为方法
+* 3. OO(object oriented)的特征，封装是为了数据的隐蔽性，继承是为了子类调用父类的属性或方法更方便，多态是不同类的同一方法可以不一样
 * 基本方法
 * `__del__(self)`	析构器，当一个实例被销毁的时候调用的方法
 * `__call__(self[, args...])` 	允许一个类的实例像函数一样被调用：x(a, b) 调用 x.__call__(a, b)
