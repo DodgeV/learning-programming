@@ -2441,6 +2441,8 @@ try:
 ## 只能在导入的值的基础上修改,不能指向一个新的值
 ## 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数
 ## 开发时尽量将导入模块写在文件顶部，便于发现冲突
+## python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
+## python3.3之后不需要了，但要使用一些初始化的数据还是要添加__init__.py文件,调用包的方法同调用模块的方法。
 ```python
 import antigravity # open_an_url
 print(antigravity.geohash(37.421542, -122.085589, b'2005-05-26-10458.68'))# 纬度 经度 日期
@@ -2463,14 +2465,20 @@ import __main__ # 该模块整合了所有已经导入的模块，表示该模�
 print(__main__.sys)
 
 ```
+## 快速学习一个库分为以下几步
+> + 1. `import pickle`导入模块,`print(pickle.__name__)`确认包名
+> + 2. `print(pickle.__doc__)`查看简介
+> + 3. `print(pickle.__file__)`查看源代码位置
+> + 4. `print(dir(pickle))`查看所有方法
+> + 5. 一般其中的`pickle.__all__`会包含所有可调用的函数
+> + 6.也可用`help(pickle)`查看帮助文档
 ```python
 import pickle
 f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
 m = ['asf',234]
 pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
 f.close()
-#python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
-#python3.3之后可以不需要了，当然如果要使用一些初始化的数据还是要添加__init__.py文件的。调用包的方法同调用模块的方法。
+
 import io
 f = io.open("abc.txt", "wt", encoding="utf-8")
 f.write(u"Imagine non-English language here")
