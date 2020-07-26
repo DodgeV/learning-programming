@@ -2450,7 +2450,10 @@ winsound.Beep(300,100) # 音调、声音长短
 import sys 
 print(sys.path) # 列表中的先后顺序表示导入模块时搜索的路径,空的字符串表示先在当前路径搜索
 sys.path.insert(0,'')  # 在最前面插入要先搜索的路径
-print(sys.argv) # 
+print(sys.argv[0]) # 代码本身文件路径
+print(sys.argv[1]) # 第一个命令行参数
+print(sys.argv[1:]) # 从第一个命令行参数到输入的最后一个命令行参数
+print(sys.argv[1][2:]) # 取第一个命令行参数，但是去掉前两个字节
 print(sys.__name__)
 
 from imp import reload
