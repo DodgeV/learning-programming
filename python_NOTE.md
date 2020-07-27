@@ -2915,7 +2915,75 @@ print(c1.count)
 ```
 ```python
 import random
+class Person(object):    
+    ''' 在python3中无论是否继承object都会创建新式类'''
+    population = 0 # population是类变量,下面的name是对象变量
+    name_list = []
+    loser = ''
+    def __init__(self,name,age,salary):   # 利用init方法时,第一个参数始终是self,相当于C++的this指针
+        """初始化的过程是,先调用__new__为对象分配空间,然后返回对象引用
+        然后才调用__init__对象初始化,定义实例属性
+        实例化几次对象就会执行几次初始化
+        父类的魔法方法会被继承,最好不要自创魔法方法"""
+        print('Initializing'+str(self)) # 查看实例名\类名\分配存储空间的地址
+        self.__name = name 
+        Person.name_list.append(self.__name)
+        self.__age = age # 在__init__方法内部,可以把各种属性绑定到self,因为self就指向创建的实例本身
+        self.__salary = salary # __ 开头即类的内置属性或方法，只能在对象方法内访问
+        self.x = random.randint(1,10) 
+        self.y = random.randint(1,10)    
+        self.sum_ = self.x + self.y # 单后置 _ 用于避免与关键字冲突
+        self._z = pow((self.x+self.y),2) # 单前置 _ 为私有化属性或方法,导入模块时并不会导入,通常用于避免模块之间全局变量的冲突
+        self.__class__.population += 1 # 因为每个对象都通过__class__属性引用其类中的方法和属性
+        # Person.population += 1 # 也可用此句代替
 
+    def __greet(self): # 私有方法
+        """Greeting by the robot.Yeah, they can do that."""
+        print("Greetings,my name is {0} and {1}-year-old with {2} money.".format(self.__name,self.__age,self.__salary))
+
+    def gps(self):    
+        print('GPS is ',self.x,self.y)    
+
+    def move_to_east(self):    
+        self.x -= 1    
+        print('移后的位置是',self.x,self.y)             
+
+    def __del__(self): # 析构函数在该对象被从内存中销毁之前自动调用  
+        """I am dying."""
+        print('{} is being destroyed'.format(self.__name))
+        if Person.population == 0:
+            print("{} was the last one,no Person alive!.".format(self.__name))
+            return # 后面不加返回值则是终止不再执行之后的代码
+        Person.population -= 1
+        Person.name_list.remove(self.__name)
+
+    @staticmethod # 不需要访问类/对象的属性/方法,则使用静态方法
+    def run(): # 通过类名.静态方法-不需要创建实例对象
+        print("i'm running")
+
+    @classmethod # 意思同 how_many = classmethod(how_many) 标记为类方法 只访问类属性
+    def count_Person(cls): # 用cls代替类名访问类属性,而不是self 
+        """Prints the current population."""
+        print('There are',cls.population,'persons alived\
+                They are ',cls.name_list)
+
+    @property 
+    def get_salary(self):
+        print(self.__salary)
+    
+A = Person('Adom',23,2000) # A是一个全局变量,__del__方法会在所有代码执行完后调用
+print('{:x}'.format(id(A))) # 查看地址
+B = Person('Nady',24,4000)
+print(A is B) # 身份运算符is判断二者id是否一致 
+# == 用于判断两个变量的值是否相等    
+# is 用于判断两个变量引用变量是否为同一个    
+# 与None进行比较时，最好使用is     
+A.z = 10 # 加个属性,此为动态绑定
+print(A._Person__age) # 在私有属性前加下划线类名可以访问私有属性，因为python的私有是伪私有
+A._Person__greet() # 私有方法同理,此法不建议常用
+Person.count_Person()
+del A # 也可以主动提前调用
+del B
 ```
 * 定义的子类完全可以继承父类的所有属性和属性,私有属性除外
 * 新定义的属性或方法会覆盖父类的同名属性或方法
