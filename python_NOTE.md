@@ -2614,7 +2614,7 @@ turtle.undo() # 撤销最后一步动作
 * 4. 类名使用大驼峰命名法,即每个单词首字母大写且不用下划线隔开
 * 5. 类的设计前要需求分析,名词提炼法将某个业务流程中的名词设为类名,这个名词的特征描述就是属性,该名词的行为(动词)就是方法
 > + OOP中引用的概念同样适用,变量名引用了新建的实例对象,并且默认情况下`print`输出对象变量时会输出该变量引用的对象是由哪个类创建的对象,以及内存中的地址(16进制)
-* 6. `__`开头即类的内置属性或方法
+* 6. 使用`类名()`创建对象时,会自动先为对象在内存中分配空间,然后初始化
 * 基本方法
 * `__del__(self)`析构器，当一个实例被销毁的时候调用的方法
 * `__call__(self[, args...])`允许一个类的实例像函数一样被调用：x(a, b) 调用 x.__call__(a, b)
@@ -2718,40 +2718,6 @@ turtle.undo() # 撤销最后一步动作
 * `__iter__(self)`	定义当迭代容器中的元素的行为
 * `__reversed__(self)`	定义当被 reversed() 调用时的行为
 * `__contains__(self, item)`	定义当使用成员测试运算符（in 或 not in）时的行为
-```python
-class Robot:
-    population = 0  
-    def __init__(self, name):  
-        """Initializes the data."""
-        self.name = name
-        print("(Initializing {})".format(self.name))
-
-        # When this person is created, the robot
-        # adds to the population
-        Robot.population += 1
-
-    def die(self):
-        """I am dying."""
-        print("{} is being destroyed!".format(self.name))
-
-        Robot.population -= 1
-
-        if Robot.population == 0:
-            print("{} was the last one.".format(self.name))
-        else:
-            print("There are still {:d} robots working.".format(
-                Robot.population))
-
-    def say_hi(self):
-        """Greeting by the robot.
-
-        Yeah, they can do that."""
-        print("Greetings, my masters call me {}.".format(self.name))
-    def how_many(cls):
-        """Prints the current population."""
-        print("We have {:d} robots.".format(cls.population))
-        
-```
 ```python
 class MyTimer():   
     def __init__(self):
@@ -2949,72 +2915,6 @@ print(c1.count)
 ```
 ```python
 import random
-class Person(object):    
-    ''' 在python3中无论是否继承object都会创建新式类'''
-    population = 0 # population是类变量,下面的name是对象变量
-    name_list = []
-    def __init__(self,name,age,salary):   # 利用init方法时,第一个参数始终是self,相当于C++的this指针
-        '''封装数据,先调用__new__为对象分配空间,然后返回对象引用
-        然后才调用__init__对象初始化,定义实例属性
-        实例化几次对象就会执行几次初始化
-        父类的魔法方法会被继承,最好不要自创魔法方法
-        ''' 
-        self.__name = name 
-        Person.name_list.append(self.__name)
-        self.__age = age # 因此,在__init__方法内部,就可以把各种属性绑定到self,因为self就指向创建的实例本身
-        self.__salary = salary # 前加2个下划线就可以绑定私有属性，但只能在对象方法内访问
-        self.x = random.randint(1,10) 
-        self.y = random.randint(1,10)    
-        self.class_ = self.x + self.y # 单后置下划线用于避免与关键字冲突
-        self._z = pow((self.x+self.y),2) # 单前置下划线为私有化属性或方法,导入模块时并不会导入,通常用于避免模块之间全局变量的冲突
-        #self.__class__.population += 1 因为每个对象都通过self.__class__属性引用其类中的方法和属性,也可用下句代替 
-        Person.population += 1    
-    def __secret(self): # 私有方法
-        '''Greeting by the robot.Yeah, they can do that.'''
-        print("Greetings, my masters call me {}.".format(self.__name))
-        print('我的年龄是{}'.format(self.__age))
-    def gps(self):    
-        print('GPS is ',self.x,self.y)    
-    def move_to_east(self):    
-        self.x -= 1    
-        print('移后的位置是',self.x,self.y)             
-    def get_info(self):    
-        print('name:{0},salary:{1}'.format(self.__name,self.__salary))
-    def __del__(self): # 析构函数在该对象被销毁之前调用  
-        Person.population -= 1
-        Person.name_list.remove(self.__name)
-        print('{} is dead'.format(self.__name))
-    @staticmethod # 不需要访问类/对象的属性/方法,则使用静态方法
-    def run(): # 通过类名.静态方法-不需要创建实例对象
-        print("i'm running")
-    @classmethod # 如果要定义的方法只访问类属性则用类方法,用cls代替类名访问类属性,而不是self
-    def die(cls):    
-        print("one person has been destroyed")
-        if cls.population == 0:
-            print('no Person alive!')
-            return # 后面不加返回值则是终止不再执行之后的代码
-        cls.population -= 1    
-        cls.name_list.remove(cls.name_list[random.randint(0,len(cls.name_list)-1)])
-        print('{0} alived,{1} left'.format(cls.name_list,cls.population))
-    @classmethod # 意思同 how_many = classmethod(how_many) 标记为类方法
-    def count_Person(cls): 
-        print('There are',cls.population,'persons')
-    @property 
-    def get_salary(self):
-        print(self.__salary)
-    
-A = Person('adom',23,2000) 
-B = Person('baby',24,4000)
-print(A is B) # 身份运算符is判断二者id是否一致 
-# == 用于判断两个变量的值是否相等    
-# is 用于判断两个变量引用变量是否为同一个    
-# 与None进行比较时，最好使用is     
-A.z = 10 # 加个属性,此为动态绑定
-print(A._Person__age) # 在私有属性前加下划线类名可以访问私有属性，因为python的私有是伪私有
-A._Person__secret() # 私有方法同理,此法不建议常用
-Person.count_Person()
-del A
-del B
 
 ```
 * 定义的子类完全可以继承父类的所有属性和属性,私有属性除外
