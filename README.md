@@ -9,6 +9,9 @@
 
 ## 语言
 ## 数据结构与算法
++ [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
++ [VisuAlgo](https://visualgo.net/zh)
++ [algorithm-visualizer](https://algorithm-visualizer.org/)
 ## 计算机网络
 * [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 * [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
@@ -18,7 +21,10 @@
 ## 设计模式
 * [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
 ## 数据库
-
+### SQL
++ [SQL在线学习网 - E2EE网站敏捷开发](http://sample.jimstone.com.cn/xsql/)
++ [SQLBolt - Learn SQL - Introduction to SQL](https://sqlbolt.com/)
++ [SQL Fiddle](http://sqlfiddle.com/)
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
