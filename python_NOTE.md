@@ -2916,7 +2916,6 @@ print(c1.count)
 ```python
 import random
 class Person(object):    
-    ''' 在python3中无论是否继承object都会创建新式类'''
     population = 0 # population是类变量,下面的name是对象变量
     name_list = []
     loser = ''
@@ -2985,17 +2984,13 @@ Person.count_Person()
 del A # 也可以主动提前调用
 del B
 ```
-* 定义的子类完全可以继承父类的所有属性和属性,私有属性除外
+* 定义的子类完全可以继承父类的所有属性和属性,私有属性(方法)除外,若需访问父类的私有属性,同样需用父类定义的方法从内部来调用
 * 新定义的属性或方法会覆盖父类的同名属性或方法
-* 在子类里面调用父类的私有属性时,同样需用父类定义的方法从内部来调用
 ```python
 class Killer(Person): # 单继承
     population = 0
-    def __init__(self,name,age,salary):
-        Person.__init__(self,name,age,salary)
-        #这里调用父类的init方法，只是继承父类的变量
-        #若子类init方法与父类参数个数不一致，仍会报错
-        # 另外还需要保持类属性和父类一致
+    def __init__(self,name,age,salary): # 若子类init方法与父类参数或属性不一致，仍会报错
+        Person.__init__(self,name,age,salary) # 这里调用父类的init方法，只是继承父类的变量
         Killer.population += 1
         print('i am a killer')
         self.hungry = True
@@ -3005,10 +3000,10 @@ class Killer(Person): # 单继承
             self.hungry = False
         else:
             print('i am full')
-    def get_info(self): # 不想覆盖父类的方法而只是扩展,则使用super
+    def get_info(self): # 不想覆盖父类的方法而只是扩展,则使用super类
         # super().get_info()
-        # super用于调用父类中封装的方法 不用传入父类的名字,自动查找父类
-        Person.get_info(self) #也可使用父类名.方法(子类名)
+        # super类用于调用父类中封装的方法,不用传入父类的名字,自动查找父类
+        Person.get_info(self) # 2.0版本前用父类名.方法(子类名)
         print('i am a Killer') # 之后可以扩写子类特有的代码
         # print(self.__age) # 在子类的方法中不能访问父类中的私有属性或私有方法
 
@@ -3054,8 +3049,10 @@ del programmer4
 
 class WebProgrammer(Programmer,Killer): 
     '''若多个父类中存在多个同名的属性或方法时,应该尽量避免多继承,因为会重复调用父类的初始化方法
-    一般会先继承排在前面的类中的方法或属性,新式类和经典类也会影响搜索顺序
-    '''
+    一般会先继承排在前面的类中的方法或属性,
+    新式类和经典类的搜索顺序不一样,新式类是以object为基类的类,推荐使用
+    在python3中无论是否继承object都会创建新式类,在python2中不指定继承则默认不继承object
+    因此定义类时,如果没有父类建议统一继承object,以防代码出错'''
     population = 0
     def __init__(self,name,age,salary):
         super().__init__(name,age,salary) 
@@ -3066,8 +3063,7 @@ class WebProgrammer(Programmer,Killer):
 	
 mry = WebProgrammer('Mry',19,10000)
 mry.get_info()
-print(WebProgrammer.__mro__)
-# 使用super时,C3算法会在__mro__可以查看方法的搜索顺序,调用webProgrammer的下一个
+print(WebProgrammer.__mro__) # 使用super时,C3算法会在__mro__属性中查看方法的搜索顺序,调用webProgrammer的下一个
 print(WebProgrammer.__doc__) 
 del mry 
 
@@ -3081,17 +3077,17 @@ class Biology:
     def print_num(self): 
         print('there are {0} Persons'.format(self.Person.population)) 
 
-#如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
+# 如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
 b = Biology('steve',23,1000) 
-print(Biology.__dict__) #类方法是绑定在类上面的 
-print(b.__dict__) #实例对象的方法里面没有，但是可以调用 
-b.x = 1 #如果定义一个实例的特殊属性，该属性独属于该实例 
+print(Biology.__dict__) # 类方法是绑定在类上面的 
+print(b.__dict__) # 实例对象的方法里面没有，但是可以调用 
+b.x = 1 # 如果定义一个实例的特殊属性，该属性独属于该实例 
 print(b.__dict__) 
 print(Biology.__dict__) 
-Biology.y = 1 #如果给类定义特殊的属性，那么连同每一个实例都会有该属性 
+Biology.y = 1 # 如果给类定义特殊的属性，那么连同每一个实例都会有该属性 
 print(b.__dict__)
 Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
-#如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
+# 如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
 
 ```
 ```python
