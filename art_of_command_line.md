@@ -897,7 +897,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [PowerShell cookbook](https://github.com/DodgeV/the-art-of-command-line/blob/master/books/Windows%20PowerShell%20Cookbook.pdf)
 
-- [Microsoft powershell](https://www.bilibili.com/video/av15458578)
+- [Microsoft powershell](https://www.bilibili.com/video/av15458578)&[Microsoft官方帮助文档](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/ps101/02-help-system?view=powershell-6)
 
 - `write-host 'hello world'`=`echo 'hello world'`
 
