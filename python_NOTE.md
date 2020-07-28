@@ -2401,8 +2401,22 @@ finally:
 
 ```
 * 异常的传递性--当函数/方法执行出错抛出异常，程序并不会终止，会将异常传递给函数/方法的调用方
-* 如果传递到主程序，<u>仍然没有异常处理<u/>，程序才会终止
-	
+* 如果传递到主程序，**仍然没有异常处理**，程序才会终止
+* 利用异常的<u>传递性</u>,将捕获异常的代码放在主程序中
+* 因为主程序中调用其他函数，只要出现异常就会传到主程序中
+* 这样就不需要增加大量的异常捕获，能保证代码的灵活性
+```python
+def demo1():
+    return int(input("输入整数："))
+
+def demo2():
+    return demo1()
+
+try:
+    print(demo2)   # 在主程序中捕获异常
+except Exception as result:
+    print('未知错误'+str(result))
+```
 ```python
 class ShortInputException(Exception):  # 创建我们自己的异常类型
     '''A user-defined exception class.'''
