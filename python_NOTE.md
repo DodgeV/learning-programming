@@ -2614,7 +2614,9 @@ turtle.undo() # 撤销最后一步动作
 * 4. 类名使用大驼峰命名法,即每个单词首字母大写且不用下划线隔开
 * 5. 类的设计前要需求分析,名词提炼法将某个业务流程中的名词设为类名,这个名词的特征描述就是属性,该名词的行为(动词)就是方法
 > + OOP中引用的概念同样适用,变量名引用了新建的实例对象,并且默认情况下`print`输出对象变量时会输出该变量引用的对象是由哪个类创建的对象,以及内存中的地址(16进制)
-* 6. 使用`类名()`创建对象时,会自动先为对象在内存中分配空间,然后初始化
+* 6. 使用`类名()`创建实例对象时,会自动先为对象在内存中分配空间,然后初始化
+* 7. python中一切皆对象,类是一个特殊的对象,用`class`定义称为类对象,,`类名()`创建的为实例对象
+> + 类对象在内存中只有一份,一个类可以创建多个实例对象
 * 基本方法
 * `__del__(self)`析构器，当一个实例被销毁的时候调用的方法
 * `__call__(self[, args...])`允许一个类的实例像函数一样被调用：x(a, b) 调用 x.__call__(a, b)
@@ -2916,29 +2918,27 @@ print(c1.count)
 ```python
 import random
 class Person(object):    
-    population = 0 # population是类变量,下面的name是对象变量
+    population = 0 # population是类属性,下面的name是实例属性
     name_list = []
-    loser = ''
     def __init__(self,name,age,salary):   # 利用init方法时,第一个参数始终是self,相当于C++的this指针
-        """初始化的过程是,先调用__new__为对象分配空间,然后返回对象引用
-        然后才调用__init__对象初始化,定义实例属性
-        实例化几次对象就会执行几次初始化
+        """初始化的过程是,先调用__new__为实例分配空间,然后返回实例引用
+        然后才调用__init__实例初始化,定义实例属性
+        实例化几次实例就会执行几次初始化
         父类的魔法方法会被继承,最好不要自创魔法方法"""
         print('Initializing'+str(self)) # 查看实例名\类名\分配存储空间的地址
         self.__name = name 
         Person.name_list.append(self.__name)
         self.__age = age # 在__init__方法内部,可以把各种属性绑定到self,因为self就指向创建的实例本身
-        self.__salary = salary # __ 开头即类的内置属性或方法，只能在对象方法内访问
+        self.__salary = salary # __ 开头即类的内置属性或方法，只能在实例方法内访问
         self.x = random.randint(1,10) 
         self.y = random.randint(1,10)    
         self.sum_ = self.x + self.y # 单后置 _ 用于避免与关键字冲突
         self._z = pow((self.x+self.y),2) # 单前置 _ 为私有化属性或方法,导入模块时并不会导入,通常用于避免模块之间全局变量的冲突
-        self.__class__.population += 1 # 因为每个对象都通过__class__属性引用其类中的方法和属性
+        self.__class__.population += 1 # 因为每个实例都通过__class__属性引用其类中的方法和属性
         # Person.population += 1 # 也可用此句代替
 
     def __greet(self): # 私有方法
         """Greeting by the robot.Yeah, they can do that."""
-        print("Greetings,my name is {0} and {1}-year-old with {2} money.".format(self.__name,self.__age,self.__salary))
 
     def gps(self):    
         print('GPS is ',self.x,self.y)    
@@ -2947,7 +2947,12 @@ class Person(object):
         self.x -= 1    
         print('移后的位置是',self.x,self.y)             
 
-    def __del__(self): # 析构函数在该对象被从内存中销毁之前自动调用  
+    def get_info(self):
+        """子类想调用父类的私有属性或私有方法只能通过父类的公有方法"""
+        self.__greet()
+        print("Greetings,my name is {0} and {1}-year-old with {2} money.".format(self.__name,self.__age,self.__salary))
+
+    def __del__(self): # 析构函数在该实例被从内存中销毁之前自动调用  
         """I am dying."""
         print('{} is being destroyed'.format(self.__name))
         if Person.population == 0:
@@ -2956,11 +2961,11 @@ class Person(object):
         Person.population -= 1
         Person.name_list.remove(self.__name)
 
-    @staticmethod # 不需要访问类/对象的属性/方法,则使用静态方法
-    def run(): # 通过类名.静态方法-不需要创建实例对象
+    @staticmethod # 不访问类/实例的属性/方法,则使用静态方法
+    def run(): # 通过类名.静态方法---不需要创建实例对象
         print("i'm running")
 
-    @classmethod # 意思同 how_many = classmethod(how_many) 标记为类方法 只访问类属性
+    @classmethod # 意思同 count_Person = classmethod(count_Person) 标记为类方法 只访问类属性
     def count_Person(cls): # 用cls代替类名访问类属性,而不是self 
         """Prints the current population."""
         print('There are',cls.population,'persons alived\
@@ -2972,6 +2977,7 @@ class Person(object):
     
 A = Person('Adom',23,2000) # A是一个全局变量,__del__方法会在所有代码执行完后调用
 print('{:x}'.format(id(A))) # 查看地址
+print(Person.__doc__) # 查看类对象的简介
 B = Person('Nady',24,4000)
 print(A is B) # 身份运算符is判断二者id是否一致 
 # == 用于判断两个变量的值是否相等    
@@ -3008,7 +3014,7 @@ class Killer(Person): # 单继承
         # print(self.__age) # 在子类的方法中不能访问父类中的私有属性或私有方法
 
 Killer_1 = Killer('haniba',33,1000)
-Killer_1.population = 99 # 动态绑定实例对象属性并不会影响类属性,只会在对象内部添加该属性
+Killer_1.population = 99 # 动态绑定实例对象属性并不会影响类属性,只会在实例对象内部添加该属性
 # 向上查找机制会先从实例对象找属性,再从类中找,因此访问类属性最好用类名
 print(Killer.population) 
 # Killer_1.__secret() # 子类不可以访问父类的私有属性或私有方法
@@ -3029,7 +3035,7 @@ class Programmer(Person):
         """
         super().get_info()
         print('i am a Programmer')
-    def __str__(self): # 打印对象名时默认输出类名和该对象的地址，重定义之后可修改，但必须返回字符串    
+    def __str__(self): # 打印实例名时默认输出类名和该实例的地址，重定义之后可修改，但必须返回字符串    
         return 'this is a self-intro of a programmer'
 
 mrx = Programmer('Mrx',20,8000)
@@ -3040,19 +3046,19 @@ programmer2 = Programmer('programmer2',40,4000)
 programmer3 = Programmer('programmer3',50,5000)
 programmer4 = Programmer('programmer4',60,6000)
 print(Programmer.count_Person())
-Programmer.die()
-print(Programmer.count_Person())
 del programmer1
 del programmer2
+print(Programmer.count_Person())
 del programmer3
 del programmer4
-
+```
+* 若多个父类中存在多个同名的属性或方法时,应该尽量避免多继承,因为会重复调用父类的初始化方法
+* 一般会先继承排在前面的类中的方法或属性,
+* 新式类和经典类的搜索顺序不一样,新式类是以object为基类的类,推荐使用
+* 在python3中无论是否继承object都会创建新式类,在python2中不指定继承则默认不继承object
+* 因此定义类时,如果没有父类建议统一继承object,以防代码出错
+```python
 class WebProgrammer(Programmer,Killer): 
-    '''若多个父类中存在多个同名的属性或方法时,应该尽量避免多继承,因为会重复调用父类的初始化方法
-    一般会先继承排在前面的类中的方法或属性,
-    新式类和经典类的搜索顺序不一样,新式类是以object为基类的类,推荐使用
-    在python3中无论是否继承object都会创建新式类,在python2中不指定继承则默认不继承object
-    因此定义类时,如果没有父类建议统一继承object,以防代码出错'''
     population = 0
     def __init__(self,name,age,salary):
         super().__init__(name,age,salary) 
@@ -3060,11 +3066,11 @@ class WebProgrammer(Programmer,Killer):
         # super(Killer,self).__init__(self,name,age,salary)
         # 指定Killer就会继承__mro__中Killer的后一个
         WebProgrammer.population += 1
+
 	
 mry = WebProgrammer('Mry',19,10000)
 mry.get_info()
 print(WebProgrammer.__mro__) # 使用super时,C3算法会在__mro__属性中查看方法的搜索顺序,调用webProgrammer的下一个
-print(WebProgrammer.__doc__) 
 del mry 
 
 ```
@@ -3077,14 +3083,21 @@ class Biology:
     def print_num(self): 
         print('there are {0} Persons'.format(self.Person.population)) 
 
+    def play(self,other):
+        print("I'm playing with..")
+        other.get_info()
+
 # 如果没有实例化就用类名调用方法，调用实例方法时会报错，需要传入一个实例名作为参数 
 b = Biology('steve',23,1000) 
-print(Biology.__dict__) # 类方法是绑定在类上面的 
+# Instan = Programmer('Instan',77,80000)
+Instan = Killer('Instan',77,80000) # 相同的变量名但是类不一样
+b.play(Instan) # 相同的方法传入的实例的类不一样,调用结果也不一样,此为多态
+print(Biology.__dict__) # 类对象的方法是绑定在类上面的 
 print(b.__dict__) # 实例对象的方法里面没有，但是可以调用 
-b.x = 1 # 如果定义一个实例的特殊属性，该属性独属于该实例 
+b.x = 1 # 如果定义一个实例对象的特殊属性，该属性独属于该实例对象,并且不影响同名类属性
 print(b.__dict__) 
 print(Biology.__dict__) 
-Biology.y = 1 # 如果给类定义特殊的属性，那么连同每一个实例都会有该属性 
+Biology.y = 1 # 如果给类对象定义特殊的属性，那么连同每一个实例对象都会有该属性 
 print(b.__dict__)
 Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
 # 如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
