@@ -2385,13 +2385,26 @@ D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserW
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
 ### python的异常处理可以自己捕捉，也可以自己定义
+* 程序运行时,若解释器遇到一个错误,会停止程序的运行,并提示一些错误信息,这就是异常,程序停止执行并提示错误信息这个动作为抛出(raise)异常,并不是抛给用户而是抛给代码
+* 很难面面俱到,通过异常捕获可以针对突发事件做集中处理,从而保证程序的稳定性和健壮性
 ```python
 try:
 	f = open('wenjian.txt')
 except TypeError as reason:
-	print('出错了，理由是'+str(reason))  #如果错误类型没找到，还是会报错
+	print('出错了，理由是'+str(reason))  # 如果错误类型没找到，还是会报错
+except Exception as result:   # 因此可以利用Exception类捕获未知错误
+	print('未知错误',str(result))
+else:   
+	print('尝试成功')    # try中的语句没有错误就会执行else中的语句
+finally:
+	print('无论是否出错都会执行')
 
-class ShortInputException(Exception):  #创建我们自己的异常类型
+```
+* 异常的传递性--当函数/方法执行出错抛出异常，程序并不会终止，会将异常传递给函数/方法的调用方
+* 如果传递到主程序，<u>仍然没有异常处理<u/>，程序才会终止
+	
+```python
+class ShortInputException(Exception):  # 创建我们自己的异常类型
     '''A user-defined exception class.'''
     def __init__(self, length, atleast):
         Exception.__init__(self)
@@ -2402,14 +2415,13 @@ try:
         text = input('Enter something --> ')
         if len(text) < 3:
             raise ShortInputException(len(text), 3) # Other work can continue as usual here
-    except EOFError:
-        print('Why did you do an EOF on me?')
-    except ShortInputException as ex:  #错误类别ShortInputException存储在as变量名中
-        print(('ShortInputException: The input was ' +
-               '{0} long, expected at least {1}')
-              .format(ex.length, ex.atleast))
-    else:
-        print('No exception was raised.')
+except EOFError:
+	print('Why did you do an EOF on me?')
+except ShortInputException as ex:  # 错误类别ShortInputException存储在as变量名中
+	print(('ShortInputException: The input was ' +
+       		'{0} long, expected at least {1}').format(ex.length, ex.atleast))
+else:  
+	print('No exception was raised.')
 
 ```
 ### 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
