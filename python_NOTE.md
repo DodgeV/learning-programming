@@ -2417,6 +2417,21 @@ try:
 except Exception as result:
     print('未知错误'+str(result))
 ```
+* 有时程序运行没有错，但需要主动抛出异常，1.创建一个异常类,并定义错误信息\2.抛出该异常\3.主程序捕获错误信息
+```python
+def input_password():
+    pwd = input('please input your password:')
+    if len(pwd)>= 8:
+        return pwd
+    print('主动抛出异常')
+    ex = Exception("密码长度不够!") # 先创建一个异常类，并增加错误信息
+    raise ex # 抛出异常
+
+try:
+    print(input_password())
+except Exception as result:
+    print(result)
+```
 ```python
 class ShortInputException(Exception):  # 创建我们自己的异常类型
     '''A user-defined exception class.'''
