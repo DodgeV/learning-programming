@@ -1751,7 +1751,7 @@ print(html.xpath('string(//span)').replace(' ', '').replace('\\n', ''))
 * scrapy view 在浏览器打开某个网页
 * scrapy check 检查爬虫是否合格
 
-# python
+# python基本语法
 ```python
 action = '2'
 if action in ['1','2','3']:
@@ -2384,268 +2384,6 @@ Warning, log file not found starting a new one
 D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. 
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
-### python的异常处理可以自己捕捉，也可以自己定义
-* 程序运行时,若解释器遇到一个错误,会停止程序的运行,并提示一些错误信息,这就是异常,程序停止执行并提示错误信息这个动作为抛出(raise)异常,并不是抛给用户而是抛给代码
-* 很难面面俱到,通过异常捕获可以针对突发事件做集中处理,从而保证程序的稳定性和健壮性
-```python
-try:
-	f = open('wenjian.txt')
-except TypeError as reason:
-	print('出错了，理由是'+str(reason))  # 如果错误类型没找到，还是会报错
-except Exception as result:   # 因此可以利用Exception类捕获未知错误
-	print('未知错误',str(result))
-else:   
-	print('尝试成功')    # try中的语句没有错误就会执行else中的语句
-finally:
-	print('无论是否出错都会执行')
-
-```
-* 异常的传递性--当函数/方法执行出错抛出异常，程序并不会终止，会将异常传递给函数/方法的调用方
-* 如果传递到主程序，**仍然没有异常处理**，程序才会终止
-* 利用异常的<u>传递性</u>,将捕获异常的代码放在主程序中
-* 因为主程序中调用其他函数，只要出现异常就会传到主程序中
-* 这样就不需要增加大量的异常捕获，能保证代码的灵活性
-```python
-def demo1():
-    return int(input("输入整数："))
-
-def demo2():
-    return demo1()
-
-try:
-    print(demo2)   # 在主程序中捕获异常
-except Exception as result:
-    print('未知错误'+str(result))
-```
-* 有时程序运行没有错，但需要主动抛出异常，1.创建一个异常类,并定义错误信息\2.抛出该异常\3.主程序捕获错误信息
-```python
-def input_password():
-    pwd = input('please input your password:')
-    if len(pwd)>= 8:
-        return pwd
-    print('主动抛出异常')
-    ex = Exception("密码长度不够!") # 先创建一个异常类，并增加错误信息
-    raise ex # 抛出异常
-
-try:
-    print(input_password())
-except Exception as result:
-    print(result)
-```
-```python
-class ShortInputException(Exception):  # 创建我们自己的异常类型
-    '''A user-defined exception class.'''
-    def __init__(self, length, atleast):
-        Exception.__init__(self)
-        self.length = length
-        self.atleast = atleast
-        
-try:
-        text = input('Enter something --> ')
-        if len(text) < 3:
-            raise ShortInputException(len(text), 3) # Other work can continue as usual here
-except EOFError:
-	print('Why did you do an EOF on me?')
-except ShortInputException as ex:  # 错误类别ShortInputException存储在as变量名中
-	print(('ShortInputException: The input was ' +
-       		'{0} long, expected at least {1}').format(ex.length, ex.atleast))
-else:  
-	print('No exception was raised.')
-
-```
-### 我们通常在模块里面写一些执行代码是为了测试模块的功能。这被称为单元测试。
-### 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
-```python
-def multinverse(num):
-    return 1 / num
-
-if (__name__ == '__main__'):  
-    print(sys.argv)
-    if len(sys.argv) > 1:
-        print(multinverse(sys.argv[1]))
-
-```
-### 导入模块的过程:python找到这个模块然后导入,再定义一个变量名来指向该模块
-### 因此多模块之间沟通需要直接导入模块名来指向模块，而不是from XX import XX
-### 如果直接import导入，系统会自动避免重新导入同一模块,使模块的改变得不到更新
-### 若需要更新import导入的模块，需要imp库
-### 只能在导入的值的基础上修改,不能指向一个新的值
-### 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数
-### 开发时尽量将导入模块写在文件顶部，便于发现冲突
-### python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
-### python3.3之后不需要了，但要使用一些初始化的数据还是要添加__init__.py文件,调用包的方法同调用模块的方法。
-### 每一个模块的在导入时`__name__`都是模块名，但在模块文件内部的`__name__`都是`__main__`
-### 比如`time.__name__`为`time`
-```python
-import antigravity # open_an_url
-print(antigravity.geohash(37.421542, -122.085589, b'2005-05-26-10458.68'))# 纬度 经度 日期
-import winsound
-winsound.Beep(300,100) # 音调、声音长短
-
-import sys 
-print(sys.path) # 列表中的先后顺序表示导入模块时搜索的路径,空的字符串表示先在当前路径搜索
-sys.path.insert(0,'')  # 在最前面插入要先搜索的路径
-print(sys.argv[0]) # 代码本身文件路径
-print(sys.argv[1]) # 第一个命令行参数
-print(sys.argv[1:]) # 从第一个命令行参数到输入的最后一个命令行参数
-print(sys.argv[1][2:]) # 取第一个命令行参数，但是去掉前两个字节
-print(sys.__name__)
-
-from imp import reload
-reload(random) 此时方可得到模块的更新,此法只能更新import 导入的模块
-
-import __main__ # 该模块整合了所有已经导入的模块，表示该模块由用户独立运行
-print(__main__.sys)
-
-```
-### 快速学习一个库分为以下几步
-> + 1. `import pickle`导入模块,`print(pickle.__name__)`确认包名
-> + 2. `print(pickle.__doc__)`查看简介
-> + 3. `print(pickle.__file__)`查看源代码位置
-> + 4. `print(dir(pickle))`查看所有方法
-> + 5. 一般其中的`pickle.__all__`会包含所有可调用的函数
-> + 6. 也可用`help(pickle)`查看帮助文档
-```python
-import pickle
-f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
-m = ['asf',234]
-pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
-f.close()
-
-import io
-f = io.open("abc.txt", "wt", encoding="utf-8")
-f.write(u"Imagine non-English language here")
-f.close()
-text = io.open("abc.txt", encoding="utf-8").read()
-print(text) # Imagine non-English language here
-file = open("abc.txt","rb",encoding="utf-8")
-print(file.encoding) # 'utf-8'
-print(file.tell()) 
-print(file.seek())
-print(file.readline())
-for each in file:
-    print(each)
-
-import os
-os.walk()先返回该目录路径以及该目录下的所有文件(夹)名,遇到文件夹则返回该文件夹路径以#及文件夹下的所有文件,反复直到没有文件夹
-os.rename(原名,新名)
-os.system()执行想在终端中执行的命令
-
-from datetime import date
-now = date.today()
-print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")) # 01-31-20. 31 Jan 2020 is a Friday on the 31 day of January.
-birthday = date(1964, 7, 31)
-age = now - birthday
-print(age.days) # 20272
-
-import zlib
-s = b'witch which has which witches wrist watch'
-t = zlib.compress(s)
-print(len(s),len(t)) # 41 37
-print(zlib.decompress(t)) # b'witch which has which witches wrist watch'
-zlib.crc32(s) # 226805979
-
-from timeit import Timer
-print(Timer('t=a;a=b;b=t','a=1;b=2').timeit()) # 0.11044700000002194
-print(Timer('a,b=b,a','a=1;b=2').timeit()) # 0.046078599999873404
-```
-```python
-import time
-print(time.perf_counter()) # 755.0105955
-print(time.time())  # 获取当前时间戳,表示从1970年开始到现在经历的秒数
-print(time.gmtime())  # 获取当前美国时间戳对应的struct_time对象
-print(time.localtime())  # 获取当前时间戳对应的本地时间的struct_time对象
-# 注意结果与gmtime的区别,UTC时间已自动转换为北京时间。
-print(time.ctime())  # 获取当前时间戳对应的易读字符串表示,内部会调用time.localtime()函数以输出当地时间。
-print(time.mktime(time.gmtime()))  # 将struct_time对象t转换为时间戳
-lctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())  # 利用一个格式字符串，对时间格式进行表达
-print(time.strptime(lctime, '%Y-%m-%d %H:%M:%S'))  # 提取字符串中时间来生成strut_time对象
-print(time.monotonic())
-```  
-
-```python
-import random
-random.seed(10)  # 初始化随机数种子,默认值为当前系统时间,第二次设置同样的值再产生随机数则会产生一样的
-print(random.random())  # 生成一个[0.0, 1.0)之间的随机小数
-print(random.randint(2, 8))  # 生成一个[2,8]之间的整数
-print(random.randrange(10))  # 生成10之间的一个随机数
-print(random.randrange(1, 20, 3))  # 生成一个[1,20)之间以3为步数的随机整数
-print(random.choice(['a', 'b', 'c', 'd']))  # 从序列类型(例如：列表)中随机返回一个元素
-print(random.uniform(10, 20))  # 生成一个[10,20]之间的随机小数
-la = ['a', 'b', 'c', 'd']
-print(random.shuffle(la))  # 将序列类型中元素随机排列，返回打乱后的序列
-print(random.sample(la, 3))  # 从pop类型中随机选取k个元素，以列表类型返回
-print(random.getrandbits(3))  # 生成一个3比特长度的随机整数
-```  
-
-```python
-import jieba
-from wordcloud import WordCloud
-
-excludes = {"什么","一个","我们","那里","你们","如今", \
-            "说道","知道","老太太","起来","姑娘","这里", \
-            "出来","他们","众人","自己","一面","太太", \
-            "只见","怎么","奶奶","两个","没有","不是", \
-            "不知","这个","听见"}
-f = open("红楼梦.txt", "r", encoding="utf-8")
-txt = f.read()
-f.close()
-words  = jieba.lcut(txt)
-counts = {}
-for word in words:
-    if len(word) == 1:  #排除单个字符的分词结果
-        continue
-    else:
-        counts[word] = counts.get(word,0) + 1
-for word in excludes:
-    del(counts[word])
-items = list(counts.items())
-items.sort(key=lambda x:x[1], reverse=True) 
-for i in range(5):
-    word, count = items[i]
-    print ("{0:<10}{1:>5}".format(word, count))
-
-newtxt = ' '.join(words)
-wordcloud = WordCloud(background_color="white", \
-                          width=800, \
-                          height=600, \
-                          font_path="msyh.ttc", \
-                          max_words=200, \
-                          max_font_size=80, \
-                          stopwords = excludes, \
-                          ).generate(newtxt)
-wordcloud.to_file('红楼梦基本词云.png')
-#jieba.cut(s) 精确模式，返回一个可迭代的数据类型
-#jieba.cut(s,cut_all=True) 全模式，输出文本s中所有的可能的单词
-#jieba.cut_for_search(s) 搜索引擎模式，适合搜索引建立索引的分词结果
-#jieba.lcut(s) 精确模式，返回一个列表类型
-#jieba.lcut(s,cut_all=True) 全模式，返回一个列表类型
-#jieba.lcut_for_search(s) 搜索引模式，返回一个列表类型
-#jieba.add_word(word,freq=None,tag=None) 在程序中向字典添加单词 
-#jieba.del_word(word) 删除字典中的单词
-#jieba.suggest_freq(segment,tune=True) 可调节单个词语的词频，使其能（或不能）被拆分 
-
-```
-```python
-import turtle
-turtle.setup(650, 350, 100, 100)  # 宽度 高度 x坐标 y坐标
-turtle.setpos(0, 0)  # 等同于turtle.goto(0,0);turtle.setx(0);turtle.sety(0)
-turtle.penup()  # 等同于turtle.up()
-turtle.speed(10)  # 取值范围0-10
-turtle.seth(-40)  # turtle.setheading()设置当前朝向为-40的角度
-turtle.circle(40, 80 / 2)  # 半径40角度40的弧
-turtle.circle(40, steps=3)  # 边长40边数为3的三角形
-turtle.fd(40) # 向前
-turtle.backward() # 向相反的方向
-turtle.dot(40, 'red')  # 半径40颜色red的圆点
-turtle.tracer(False) # 把绘制过程关闭直接显示结果
-turtle.pencolor((r, g, b))  # 3个1是白色 3个0是黑色
-turtle.color(c, c)  # 等同于turtle.pencolor(c);turtle.fillcolor(c)
-turtle.reset()  # 等同于turtle.home()
-turtle.done()
-turtle.undo() # 撤销最后一步动作
-
-```
 ## 面向对象编程(OOP(object oriented programming))
 * 1. 面向过程类似于函数,但过程只负责执行而没有返回值,函数既能执行又可以返回结果
 > + 在面向过程开发时,侧重于怎么做,逐步实现并将功能独立的代码封装为函数,最后完成就是调用不同的函数,开发过程中没有固定套路,难度很大
@@ -3241,14 +2979,76 @@ print(stack_1.size())
 print(stack_1.__dict__)
 
 ```
+## python的异常处理可以自己捕捉，也可以自己定义
+* 程序运行时,若解释器遇到一个错误,会停止程序的运行,并提示一些错误信息,这就是异常,程序停止执行并提示错误信息这个动作为抛出(raise)异常,并不是抛给用户而是抛给代码
+* 很难面面俱到,通过异常捕获可以针对突发事件做集中处理,从而保证程序的稳定性和健壮性
+```python
+try:
+	f = open('wenjian.txt')
+except TypeError as reason:
+	print('出错了，理由是'+str(reason))  # 如果错误类型没找到，还是会报错
+except Exception as result:   # 因此可以利用Exception类捕获未知错误
+	print('未知错误',str(result))
+else:   
+	print('尝试成功')    # try中的语句没有错误就会执行else中的语句
+finally:
+	print('无论是否出错都会执行')
 
-# pycharm快捷键 及使用技巧
-* ctrl+Q 查看函数内置文件 点在函数名上 再左侧黄色灯泡中插入内置文件
-* debug的时候 F8 -- step over 把函数当作一行代码来执行   F7 -- step into 在函数里面一行一行执行
-* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
-* 字符串的判断避免使用or拼接复杂的逻辑条件，改为使用in
+```
+* 异常的传递性--当函数/方法执行出错抛出异常，程序并不会终止，会将异常传递给函数/方法的调用方
+* 如果传递到主程序，**仍然没有异常处理**，程序才会终止
+* 利用异常的<u>传递性</u>,将捕获异常的代码放在主程序中
+* 因为主程序中调用其他函数，只要出现异常就会传到主程序中
+* 这样就不需要增加大量的异常捕获，能保证代码的灵活性
+```python
+def demo1():
+    return int(input("输入整数："))
 
-# Python标准异常总结,由于异常的传递性,只在主程序捕获异常
+def demo2():
+    return demo1()
+
+try:
+    print(demo2)   # 在主程序中捕获异常
+except Exception as result:
+    print('未知错误'+str(result))
+```
+* 有时程序运行没有错，但需要主动抛出异常，1.创建一个异常类,并定义错误信息\2.抛出该异常\3.主程序捕获错误信息
+```python
+def input_password():
+    pwd = input('please input your password:')
+    if len(pwd)>= 8:
+        return pwd
+    print('主动抛出异常')
+    ex = Exception("密码长度不够!") # 先创建一个异常类，并增加错误信息
+    raise ex # 抛出异常
+
+try:
+    print(input_password())
+except Exception as result:
+    print(result)
+```
+```python
+class ShortInputException(Exception):  # 创建我们自己的异常类型
+    '''A user-defined exception class.'''
+    def __init__(self, length, atleast):
+        Exception.__init__(self)
+        self.length = length
+        self.atleast = atleast
+        
+try:
+        text = input('Enter something --> ')
+        if len(text) < 3:
+            raise ShortInputException(len(text), 3) # Other work can continue as usual here
+except EOFError:
+	print('Why did you do an EOF on me?')
+except ShortInputException as ex:  # 错误类别ShortInputException存储在as变量名中
+	print(('ShortInputException: The input was ' +
+       		'{0} long, expected at least {1}').format(ex.length, ex.atleast))
+else:  
+	print('No exception was raised.')
+
+```
+### Python标准异常总结,由于异常的传递性,只在主程序捕获异常
 * `AssertionError`断言语句（assert）失败
 * `AttributeError`尝试访问未知的对象属性
 * `EOFError`用户输入文件末尾标志EOF（Ctrl+d）
@@ -3280,12 +3080,12 @@ print(stack_1.__dict__)
 * `ValueError`传入无效的参数
 * `ZeroDivisionError`除数为零
 
-## 以下是 Python 内置异常类的层次结构：
-### BaseException
+### 以下是 Python 内置异常类的层次结构：
+*  BaseException
 *  SystemExit
 *  KeyboardInterrupt
 *  GeneratorExit
-*  Exception # 捕获未知异常
+*  Exception    # 捕获未知异常
   > * StopIteration
   > * ArithmeticError
   >> * FloatingPointError
@@ -3342,6 +3142,211 @@ print(stack_1.__dict__)
   >> * UnicodeWarning
   >> * BytesWarning
   >> * ResourceWarning
+
+## python的模块
+### 查找模块的过程:先在当前目录找指定模块名的文件,有就直接导入,没有 再搜索系统目录
+* 因此在开发时，给文件起名，不要和系统的模块文件重名
+* 每一个模块都有一个内置属性`__file__`可以查看模块的完整路径,
+* 也可以通过`sys`模块
+```python
+import sys 
+print(sys.path) # 列表中的先后顺序表示导入模块时搜索的路径,空的字符串表示先在当前路径搜索
+sys.path.insert(0,'')  # 在最前面插入要先搜索的路径
+print(sys.argv[0]) # 代码本身文件路径
+print(sys.argv[1]) # 第一个命令行参数
+print(sys.argv[1:]) # 从第一个命令行参数到输入的最后一个命令行参数
+print(sys.argv[1][2:]) # 取第一个命令行参数，但是去掉前两个字节
+```
+### 导入模块的过程:python找到这个模块然后导入,再定义一个变量名来指向该模块
+* 因此多模块之间沟通需要直接导入模块名来指向模块，而不是from XX import XX
+* 如果直接import导入，系统会自动避免重新导入同一模块,使模块的改变得不到更新
+* 若需要更新import导入的模块，需要imp库
+```python
+from imp import reload
+reload(random) # 此时方可得到模块的更新,此法只能更新import 导入的模块
+```
+* 不推荐使用`from XX import *`的方式，因为函数重名没有任何提示，出问题不好排查
+### 只能在导入的值的基础上修改,不能指向一个新的值
+### 如果导入的两个模块存在同名的函数,后导入的函数会覆盖先导入的函数,可以用`as`取别名区分开
+### 开发时尽量将导入模块写在文件顶部，便于发现冲突
+### python3.3之前，要创建一个包，都提示需要__init__.py文件，可以是空的，但是不能缺少。
+### python3.3之后不需要了，但要使用一些初始化的数据还是要添加__init__.py文件,调用包的方法同调用模块的方法。
+### 每一个模块的在导入时`__name__`属性中的字符串都是模块名，但在模块文件内部的`__name__`属性都是`__main__`
+* 比如`time.__name__`为`time`
+```python
+import __main__ # 该模块整合了所有已经导入的模块，表示该模块由用户独立运行
+print(__main__.sys)
+
+import antigravity # open_an_url
+print(antigravity.geohash(37.421542, -122.085589, b'2005-05-26-10458.68'))# 纬度 经度 日期
+import winsound
+winsound.Beep(300,100) # 音调、声音长短
+```
+### 还需要注意导入模块时,模块中所有没有任何缩进的代码都会被执行
+* 我们通常在模块里面写一些执行代码是为了测试模块的功能,这被称为单元测试,来避免不需要执行的代码
+* 在常规项目开发中，单元测试是代码质量保证的前提,比如下面的几行经常会加在文件末
+```python
+def multinverse(num):
+    return 1 / num
+
+if (__name__ == '__main__'):  
+    print(sys.argv)
+    if len(sys.argv) > 1:
+        print(multinverse(sys.argv[1]))
+```
+### 快速学习一个库分为以下几步
+> + 1. `import pickle`导入模块,`print(pickle.__name__)`确认包名
+> + 2. `print(pickle.__doc__)`查看简介
+> + 3. `print(pickle.__file__)`查看源代码位置
+> + 4. `print(dir(pickle))`查看所有方法
+> + 5. 一般其中的`pickle.__all__`会包含所有可调用的函数
+> + 6. 也可用`help(pickle)`查看帮助文档
+```python
+import pickle
+f = open('D:\\Users\\向致承\\Documents\\python\\note4.txt','wb') #注意是以二进制形式
+m = ['asf',234]
+pickle.dump(m,f) #调用的时候用load(f),并且文件打开的时候依然用二进制'rb'打开
+f.close()
+
+import io
+f = io.open("abc.txt", "wt", encoding="utf-8")
+f.write(u"Imagine non-English language here")
+f.close()
+text = io.open("abc.txt", encoding="utf-8").read()
+print(text) # Imagine non-English language here
+file = open("abc.txt","rb",encoding="utf-8")
+print(file.encoding) # 'utf-8'
+print(file.tell()) 
+print(file.seek())
+print(file.readline())
+for each in file:
+    print(each)
+
+import os
+os.walk()先返回该目录路径以及该目录下的所有文件(夹)名,遇到文件夹则返回该文件夹路径以#及文件夹下的所有文件,反复直到没有文件夹
+os.rename(原名,新名)
+os.system()执行想在终端中执行的命令
+
+from datetime import date
+now = date.today()
+print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")) # 01-31-20. 31 Jan 2020 is a Friday on the 31 day of January.
+birthday = date(1964, 7, 31)
+age = now - birthday
+print(age.days) # 20272
+
+import zlib
+s = b'witch which has which witches wrist watch'
+t = zlib.compress(s)
+print(len(s),len(t)) # 41 37
+print(zlib.decompress(t)) # b'witch which has which witches wrist watch'
+zlib.crc32(s) # 226805979
+
+from timeit import Timer
+print(Timer('t=a;a=b;b=t','a=1;b=2').timeit()) # 0.11044700000002194
+print(Timer('a,b=b,a','a=1;b=2').timeit()) # 0.046078599999873404
+```
+```python
+import time
+print(time.perf_counter()) # 755.0105955
+print(time.time())  # 获取当前时间戳,表示从1970年开始到现在经历的秒数
+print(time.gmtime())  # 获取当前美国时间戳对应的struct_time对象
+print(time.localtime())  # 获取当前时间戳对应的本地时间的struct_time对象
+# 注意结果与gmtime的区别,UTC时间已自动转换为北京时间。
+print(time.ctime())  # 获取当前时间戳对应的易读字符串表示,内部会调用time.localtime()函数以输出当地时间。
+print(time.mktime(time.gmtime()))  # 将struct_time对象t转换为时间戳
+lctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())  # 利用一个格式字符串，对时间格式进行表达
+print(time.strptime(lctime, '%Y-%m-%d %H:%M:%S'))  # 提取字符串中时间来生成strut_time对象
+print(time.monotonic())
+```  
+```python
+import random
+random.seed(10)  # 初始化随机数种子,默认值为当前系统时间,第二次设置同样的值再产生随机数则会产生一样的
+print(random.random())  # 生成一个[0.0, 1.0)之间的随机小数
+print(random.randint(2, 8))  # 生成一个[2,8]之间的整数
+print(random.randrange(10))  # 生成10之间的一个随机数
+print(random.randrange(1, 20, 3))  # 生成一个[1,20)之间以3为步数的随机整数
+print(random.choice(['a', 'b', 'c', 'd']))  # 从序列类型(例如：列表)中随机返回一个元素
+print(random.uniform(10, 20))  # 生成一个[10,20]之间的随机小数
+la = ['a', 'b', 'c', 'd']
+print(random.shuffle(la))  # 将序列类型中元素随机排列，返回打乱后的序列
+print(random.sample(la, 3))  # 从pop类型中随机选取k个元素，以列表类型返回
+print(random.getrandbits(3))  # 生成一个3比特长度的随机整数
+```  
+
+```python
+import jieba
+from wordcloud import WordCloud
+
+excludes = {"什么","一个","我们","那里","你们","如今", \
+            "说道","知道","老太太","起来","姑娘","这里", \
+            "出来","他们","众人","自己","一面","太太", \
+            "只见","怎么","奶奶","两个","没有","不是", \
+            "不知","这个","听见"}
+f = open("红楼梦.txt", "r", encoding="utf-8")
+txt = f.read()
+f.close()
+words  = jieba.lcut(txt)
+counts = {}
+for word in words:
+    if len(word) == 1:  #排除单个字符的分词结果
+        continue
+    else:
+        counts[word] = counts.get(word,0) + 1
+for word in excludes:
+    del(counts[word])
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True) 
+for i in range(5):
+    word, count = items[i]
+    print ("{0:<10}{1:>5}".format(word, count))
+
+newtxt = ' '.join(words)
+wordcloud = WordCloud(background_color="white", \
+                          width=800, \
+                          height=600, \
+                          font_path="msyh.ttc", \
+                          max_words=200, \
+                          max_font_size=80, \
+                          stopwords = excludes, \
+                          ).generate(newtxt)
+wordcloud.to_file('红楼梦基本词云.png')
+#jieba.cut(s) 精确模式，返回一个可迭代的数据类型
+#jieba.cut(s,cut_all=True) 全模式，输出文本s中所有的可能的单词
+#jieba.cut_for_search(s) 搜索引擎模式，适合搜索引建立索引的分词结果
+#jieba.lcut(s) 精确模式，返回一个列表类型
+#jieba.lcut(s,cut_all=True) 全模式，返回一个列表类型
+#jieba.lcut_for_search(s) 搜索引模式，返回一个列表类型
+#jieba.add_word(word,freq=None,tag=None) 在程序中向字典添加单词 
+#jieba.del_word(word) 删除字典中的单词
+#jieba.suggest_freq(segment,tune=True) 可调节单个词语的词频，使其能（或不能）被拆分 
+
+```
+```python
+import turtle
+turtle.setup(650, 350, 100, 100)  # 宽度 高度 x坐标 y坐标
+turtle.setpos(0, 0)  # 等同于turtle.goto(0,0);turtle.setx(0);turtle.sety(0)
+turtle.penup()  # 等同于turtle.up()
+turtle.speed(10)  # 取值范围0-10
+turtle.seth(-40)  # turtle.setheading()设置当前朝向为-40的角度
+turtle.circle(40, 80 / 2)  # 半径40角度40的弧
+turtle.circle(40, steps=3)  # 边长40边数为3的三角形
+turtle.fd(40) # 向前
+turtle.backward() # 向相反的方向
+turtle.dot(40, 'red')  # 半径40颜色red的圆点
+turtle.tracer(False) # 把绘制过程关闭直接显示结果
+turtle.pencolor((r, g, b))  # 3个1是白色 3个0是黑色
+turtle.color(c, c)  # 等同于turtle.pencolor(c);turtle.fillcolor(c)
+turtle.reset()  # 等同于turtle.home()
+turtle.done()
+turtle.undo() # 撤销最后一步动作
+
+```
+
+# pycharm快捷键 及使用技巧
+* ctrl+Q 查看函数内置文件 点在函数名上 再左侧黄色灯泡中插入内置文件
+* debug的时候 F8 -- step over 把函数当作一行代码来执行   F7 -- step into 在函数里面一行一行执行
+* TODO注释 在井号后面空一格 输入TODO 之后在任意地方点击下方TODO窗口可以回到该行注释
+* 字符串的判断避免使用or拼接复杂的逻辑条件，改为使用in
 
 # Ipython shell命令
 - `Ctrl-P`    或上箭头键 后向搜索命令历史中以当前输入的文本开头的命令
