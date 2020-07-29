@@ -19,6 +19,20 @@ int main()
 * C语言每一句可执行行代码都用`;`结尾，且必须放在代码块里面，所有`#`开头的行都代表预编译指令，可以不用`;`结尾
 * C语言的注释有两种，行注释`//要写的注释`是C标准的注释方式，块注释`/*要写的注释*/`是从C++借鉴而来
 * C语言由函数组成，有且只有一个main函数，且程序运行从main函数开始，main函数由系统自动调用，不用人为调用，其他函数的调用必须放在`{}`内部
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+        //这是第一个C语言代码
+        printf("hello C world\n");
+        int a = system("./a.out");  //在已经运行的程序中，执行一个外部程序(命令)
+        printf("hello C %d world\n",a);
+
+        return 250;  // return 0\-1\1等等皆可让程序正常结束,只是在下一个程序的system调用时返回的a不一样
+}
+```
 * * *
 # 编译型语言，先用`gcc`编译为`a.out`机器语言，再执行
 + 编译分为四步,可以对应分步编译,某些教材翻译会将编译和汇编先后调换
@@ -48,23 +62,19 @@ int main()
 * `const int b = 10;`修饰一个变量为只读，不允许修改
 * `int b = 10;`变量的初始化，即定义变量同时赋值
 * `b = 111;`变量的赋值是在定义之后的修改
-
-* 9个控制语句, 34种运算符
-
-* 图形化界面框架有Qt，MFC
-
 ```C
 #include <stdio.h>
-#include <stdlib.h>
 #define MAX 100  //定义一个宏定义的标识符，值为100的常量，代表之后出现的MAX预处理都会替换为100，并且不可修改
 
 int main(int argc, char *argv[])
 {
     printf("Hello C++ World before system!\n");
-    system("ls -lha");   //在已经运行的程序中，执行一个外部程序(命令)
-    int a = system("./a.out");
-    printf("%d\n",a);
+    printf("%d\n",MAX);
     
-    return 0;   // return 0 -1 1等等皆可让程序正常结束
+    return 0;   
 }
 ```
+
+* 9个控制语句, 34种运算符
+
+* 图形化界面框架有Qt，MFC
