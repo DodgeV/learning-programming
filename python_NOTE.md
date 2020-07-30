@@ -1106,16 +1106,14 @@ gevent.joinall([
     gevent.spawn(f1,5),gevent.spawn(f2,5)  # 更简洁的方法是将对象放在一起调用
 ])
 ```
-* GIL是全局解释器锁，会保证同一时刻只有一个线程在跑
-* 只有cpython有GIL，如果不是cpython就可以用多线程实现并行来节省资源
-* 主线程死循环，占满cpu中的1个核
+* GIL是全局解释器锁，会保证多线程程序同一时刻只有一个线程在跑
+* 只有cpython因为历史原因有GIL，如果不是cpython而是其他解释器就可以用多线程实现并行来节省资源
+* 主线程死循环，单线程占满cpu中的1个核
 ```python
 while True:
     pass
 ```
-* 子线程死循环，主线程死循环
-* 多线程只是假的并发,并不会占用CPU多核，虽然节省了资源，但速度比不上多进程
-* 可以用htop检验发现2个核都只占了一半
+* 多线程只是假的并发,并不会占用CPU多核,虽然节省了资源，但速度比不上多进程,可以用htop检验发现2个核都只占了一半
 ```python
 import threading
 
@@ -1124,11 +1122,12 @@ def test():
         pass
 
 t1 = threading.Thread(target=test)
-t1.start()
+t1.start()  # 子线程死循环
 
-while True:
+while True:  # 主线程死循环
     pass
 ```
+* 多线程还是要比单线程要快，计算密集型--大量计算/挖矿(用多进程)，io密集型--U盘读写/网络读写(用多线程或协程)
 * 多进程才是真正的多核并行，可以htop检验发现2个核都占满了
 ```python
 import multiprocessing
@@ -1146,7 +1145,7 @@ deadLoop()
 ```
 * 想要解决GIL带来的问题，真正用多线程实现多核并行，可以换一个解释器或换一种语言
 * 比如c语言
-```
+```C
 #include<stdio.h>
 
 void DeadLoop()
@@ -1159,10 +1158,9 @@ void DeadLoop()
 
 int main(int argc, char **argv)
 {
-        printf(\"编译型语言需要先进行gcc编译成二进制文件a.out,才能执行\");
+        printf("编译型语言需要先进行gcc编译成二进制文件a.out,才能执行\n");
         return 0;
 }
-
 ```
 * 或者用python调用C
 ```python
@@ -1183,7 +1181,6 @@ t.start()
 while True:
     pass
 ```
-
 * 抓包工具:[千峰fiddler](https://www.bilibili.com/video/av45394845?p=7)&[传智播客fiddler](https://www.bilibili.com/video/av62303270?p=4)&[千峰charles](https://www.bilibili.com/video/av76899389?p=3)
 * [wireshark](https://www.bilibili.com/video/av81257032/?p=86):From top to bottom are the number of packets,the contents of the packets, and the specific hexadecimal display of the packets in memory.
 
