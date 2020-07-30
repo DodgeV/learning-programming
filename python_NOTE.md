@@ -1950,24 +1950,50 @@ print(type(g)) # <generator object <genexpr> at 0x0000018EDF0BC948>
 print(next(g)) # 'hello'
 for i in g: # 因此一般用遍历来访问元素，此法不用管是否报错
     print(i)
-    
-# b = a[0:2] # 切片
-b = a[:]  # 浅拷贝 会复制一份，使地址发生变化
-d = a.copy() # 浅拷贝
-c = a # 仅仅是拷贝了地址，类似于贴了1个标签
+```
+* python只是复制的箭头(引用)，仅仅拷贝引用，类似于贴了1个标签，所以数据的地址一样，改变数据会互相影响   
+* 而C中则是复制了完整的数据
+* ![](https://github.com/DodgeV/learning-programming/blob/master/png/QQ20171024-093402%402x.png)
+```python
+a = [11,22,33]   # 当一个变量=XXX的时候，约定为这个是指向了这个XXX
+b = a[0:2] # 切片
+b = a[:] # 深拷贝
+b = a # 可理解为b对a的引用
+```
+* 深拷贝会复制引用和数据，所以数据地址不一样，改变数据不互相影响
+* 深拷贝一般用于对比较重要的数据进行实验，不修改源数据，而是用备份
+* ![](https://github.com/DodgeV/learning-programming/blob/master/png/QQ20171024-093731%402x.png)
+```python
 import copy
+c = copy.deepcopy(a) 
+```
+* 浅拷贝可变类型比如列表时，地址会变，若是拷贝不可变类型比如元组，则地址不变，仅仅是多贴了1个标签(指向)
+* 内部引用不会变，地址一样，即图中黄色箭头才是正确的
+* ![](https://github.com/DodgeV/learning-programming/blob/master/png/%E6%B5%85%E6%8B%B7%E8%B4%9D.png)
+```python
 a = [11,22]
 b = [22,33]
 c = [a,b]
 id(c) # 140300149367560
-d = copy.copy(c) # 浅拷贝可变类型比如列表时，地址会变，若是拷贝不可变类型比如元组，则地址不变，仅仅是多贴了1个标签(指向)
+d = copy.copy(c) 
 id(d) # 140300149370696
 id(c[0]) # 140300149399496 但内部的引用不会变
 id(d[0]) # 140300149399496 地址一样
-e = copy.deepcopy(c)# 深拷贝可变类型时地址会变，拷元组时，若元组里面只有基本的数据，则是指向，地址不变，若元组里面有引用其他可变数据比如列表，则依然会将内部引用拷1份，造成地址改变
-#深拷贝一般用于对比较重要的数据进行实验，不修改源数据，而是用备份
+```
+* 深拷贝可变类型时地址会变，拷元组时，若元组里面只有基本的数据，则是指向，地址不变，
+* 若元组里面有引用其他可变数据比如列表，则依然会将内部引用拷1份，造成地址改变
+* 简单说就是深拷贝不仅拷贝了数据，还把数据中的引用的源数据也拷了1份
+* ![](https://github.com/DodgeV/learning-programming/blob/master/png/%E6%B7%B1%E6%8B%B7%E8%B4%9D.png)
+```python
+e = copy.deepcopy(c) 
 id(e) # 140300149370824
 id(e[0]) # 140300149369224内部的引用会变,即将内部列表一并拷了1份
+```
+* 总结如图
+* ![](https://github.com/DodgeV/learning-programming/blob/master/png/QQ20171024-100704%402x.png)
+```python
+bb = a[:]  # 深拷贝 
+d = a.copy() # 浅拷贝
 b.append('you')
 print(b[0:2:2]) # ['i']
 d.remove('i')
@@ -1975,9 +2001,7 @@ print(d.reverse()) # None
 print(sorted(d)) # ['love']
 c.clear()
 print(a) # []
-
 ```
-
 ```python
 # 在没用字典的情况下 用列表代替
 brand = ['li','nai','a','lang'] # 键key
