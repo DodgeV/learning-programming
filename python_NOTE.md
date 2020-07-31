@@ -3082,6 +3082,41 @@ print(stack_1.size())
 print(stack_1.__dict__)
 
 ```
+## 系统资源如文件、数据库连接、socket等，应用程序打开这些资源并执行完业务逻辑之后，必须关闭该资源
+## 上下文(context),即预警,任何实现了__enter__()和__exit__()方法的对象皆可称为上下文管理器
+# with后面可以放自己定义的上下文管理器实例对象，
+```python
+class File():
+    def __init__(self,filename,mode):
+        self.filename = filename
+        self.mode = mode
+
+    def __enter__(self):  # 返回资源对象，这里就是要打开的文件对象
+        print("entering")
+        self.f = open(self,filename,self.mode)
+        return self.f
+
+    def __exit__(self,*args):  # 处理一些清除工作
+        print("will exit")
+        self.f.close()
+
+with File("out.txt","w") as f: # 这里的f并不是File()实例对象，而是实例对象的属性(self.f)
+    print("writing")
+    f.write("hello ,python")
+```
+* 实现上下文管理器的另类方法
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def my_open(path, mode):
+    f = open(path, mode)
+    yield f
+    f.close()
+
+with my_open('out.txt', 'w') as f:
+    f.write("hello , the simplest context manager")
+```
 ## python的异常处理可以自己捕捉，也可以自己定义
 * 程序运行时,若解释器遇到一个错误,会停止程序的运行,并提示一些错误信息,这就是异常,程序停止执行并提示错误信息这个动作为抛出(raise)异常,并不是抛给用户而是抛给代码
 * 很难面面俱到,通过异常捕获可以针对突发事件做集中处理,从而保证程序的稳定性和健壮性
