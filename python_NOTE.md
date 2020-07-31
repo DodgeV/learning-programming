@@ -2923,18 +2923,28 @@ print(b.__dict__)
 Biology.__init__(b,'jobs',25,2000) # 因此想要更改单一实例的某个属性可以用类的__init__方法传入实例名，再改 
 # 如果把类删除，实例对象调用的所有绑定在类上的方法依然不会失效 
 ```
+* `@property`一般用于获取起始页码，以及结束页码,把处理页码的过程封装在一个属性中，方便调用，不用考虑传参数
+* 新式类中有3中设置property属性的方法
 ```python
 class Foo:
     def func(self):
         pass
     @property   # 把原来的调用方法换成类似于调用属性
-    def prop(self):  # 只有一个self参数
+    def price(self):  # 只有一个self参数
         return 100
+    @price.setter  # 需要设置方法就增加这个修饰方法
+    def price(self,value):
+        print('@price.setter')
+    @price.deleter
+    def price(self):
+        print('@price.deleter')
 
 foo_obj = Foo()
 foo_obj = func()
-ret = foo_obj.prop  # 不用写括号，调用property属性
+ret = foo_obj.price  # 不用写括号，调用@property修饰的price方法
 print(ret)  # 100
+foo_obj.price = 123  # 传入参数，设置属性，自动调用 @price.setter 修饰的price方法
+del foo_obj.price  # 自动调用@price.deleter 修饰的price方法
 ```
 * 设计模式是前人工作的总结和提炼，通常被人们广泛流传的设计模式是针对某一特定问题的成熟解决方案
 * 使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性
