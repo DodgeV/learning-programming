@@ -185,16 +185,19 @@
 ## 设计模式
 * [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
 ## 数据库-database
+* [笔记](https://github.com/DodgeV/learning-programming/blob/master/database_NOTE.md)
 ### MySQL
 * [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
 * [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
 * [21分钟 MySQL 入门教程](https://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html)
 * [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 * [书籍](https://github.com/DodgeV/learning-programming/tree/master/books/MySQL)
-### 在线练习
+#### 在线练习
 + [SQL在线学习网 - E2EE网站敏捷开发](http://sample.jimstone.com.cn/xsql/)
 + [SQLBolt - Learn SQL - Introduction to SQL](https://sqlbolt.com/)
 + [SQL Fiddle](http://sqlfiddle.com/)
+### Redis
+### MongoDB
 
 ## stastics
 * [统计学第三版教材-北师大出版](https://jsek.bnuic.com/BitsPressV2/reader/rpkptt/index?from=singlemessage)&[课后习题答案](https://wenku.baidu.com/view/e3bfe71b227916888486d76c.html)
