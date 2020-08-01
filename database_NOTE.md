@@ -6,4 +6,6 @@
 > * mysql：web时代使用最广泛的关系型数据库
 > * ms sql server：在微软的项目中使用
 > * sqlite：轻量级数据库，主要应用在移动平台
-# MySQL
+# MySQL-网站数据
+# Redis-缓存数据
+# MongoDB-非关系型数据
