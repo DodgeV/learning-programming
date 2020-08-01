@@ -218,7 +218,7 @@
 * [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
 * [21分钟 MySQL 入门教程](https://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html)
 * [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
-* [书籍]()
+* [书籍](https://github.com/DodgeV/learning-programming/tree/master/books/MySQL)
 
 ## data analysis
 ### videos
