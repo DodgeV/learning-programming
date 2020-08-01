@@ -7,25 +7,6 @@
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
 
-## 语言
-## 数据结构与算法
-+ [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-+ [VisuAlgo](https://visualgo.net/zh)
-+ [algorithm-visualizer](https://algorithm-visualizer.org/)
-## 计算机网络
-* [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
-* [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
-## 操作系统
-* [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
-* [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
-## 设计模式
-* [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
-## 数据库
-### SQL
-+ [SQL在线学习网 - E2EE网站敏捷开发](http://sample.jimstone.com.cn/xsql/)
-+ [SQLBolt - Learn SQL - Introduction to SQL](https://sqlbolt.com/)
-+ [SQL Fiddle](http://sqlfiddle.com/)
-
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
 + [GDB ONLINE Debugger](https://www.onlinegdb.com/)
@@ -117,7 +98,9 @@
 + [leetcode](https://leetcode-cn.com/)
 + 练习正则表达式[regex](https://regex101.com)
 
-## C
+
+## 语言
+### C
 * [C语言网](https://www.dotcpp.com/)
 * [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
 * [C 、C++、Python和Linux黑马13期基础班+就业班](https://www.bilibili.com/video/av76584158)
@@ -131,15 +114,14 @@
 * [C&C++参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/C_NOTE.md)
 
-
-## Go
+### Go
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
 * [20个小时快速入门go语言（中）](https://www.bilibili.com/video/BV1UW411x7Ve)
 * [20个小时快速入门go语言（下）](https://www.bilibili.com/video/BV17W411W7hm)
 * [Go 语法树入门](https://github.com/chai2010/go-ast-book)
 * [其他书籍](https://github.com/DodgeV/learning-programming/tree/master/books/Golang)
 
-## python
+### python
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/python_NOTE.md)
 * [python-cheatsheet备忘录](https://github.com/gto76/python-cheatsheet)
 * [Crossin的编程教室](https://crossincode.com/home/)
@@ -147,7 +129,7 @@
 * [学习数据科学的路线](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
 * [Python算法学习与机器学习算法](https://mp.weixin.qq.com/s/nsOt-uLJBegehVkGigmuow)
 * [完备的 AI 学习路线，最详细的资源整理！](https://mp.weixin.qq.com/s/KNaaWuaLjl8iSMemoEpEMQ)
-### books
+#### books
 * [Python's books](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
 + [Official doc](https://docs.python.org/3/)
 + [用python进行科学计算](https://github.com/DodgeV/demo1/blob/master/package_DA/%E7%94%A8Python%E5%81%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97.pdf)
@@ -156,9 +138,8 @@
 + [廖雪峰python](https://www.liaoxuefeng.com/wiki/1016959663602400)
 + [scrapy 白皮书](https://scrapy-cookbook.readthedocs.io/zh_CN/latest/scrapy-01.html#scrapy)
 
-### [python-patterns](https://github.com/faif/python-patterns)
-
-### videos
+#### [python-patterns](https://github.com/faif/python-patterns)
+#### videos
 * [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
 * [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)&[Python二级考试考纲笔记（2018全）](https://mubu.com/doc/1Bam_vCyQw)
 * [Python网络爬虫与信息提取--北理工](http://www.icourse163.org/learn/BIT-1001870001)
@@ -169,7 +150,7 @@
 * [传智播客day25网络爬虫](https://www.bilibili.com/video/av84404200?p=86)&[如果失效用这个](https://www.bilibili.com/video/av50730537)
 * [传智播客python就业班](https://www.bilibili.com/video/av81257032/?p=89) 或 [python2018就业班全集（前半部分）](https://www.bilibili.com/video/BV1b4411b74E?p=104)
 
-### tutorials
+#### tutorials
 - [微软官方教程c9-python-getting-started](https://github.com/microsoft/c9-python-getting-started)
 - [List of Algorithms implemented in Python](https://github.com/TheAlgorithms/Python/blob/master/DIRECTORY.md)
 - [pcc--Resources for Python Crash Course, from No Starch Press.](https://github.com/ehmatthes/pcc)
@@ -179,7 +160,7 @@
 - [python简单crawler教程](https://github.com/Kr1s77/awesome-python-login-model)
 - [python爬虫教程系列](https://github.com/wistbean/learn_python3_spider)
 
-### demo
+#### demo
 * [GitHub Top 45：新手入门 Python，值得推荐的优质资源！](https://mp.weixin.qq.com/s/fLZdDQE_trhKRLyQKoORzg)
 * [python projects](https://github.com/MiracleYoung/You-are-Pythonista)
 * [Python 练习册](https://github.com/Yixiaohan/show-me-the-code)
@@ -191,7 +172,29 @@
 * [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
 * [Zipline, a Pythonic Algorithmic Trading Library](https://github.com/quantopian/zipline)
 * [阿布量化交易系统(股票，期权，期货，比特币，机器学习) 基于python的开源量化交易，量化投资架构](https://github.com/bbfamily/abu)
-
+## 数据结构与算法
++ [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
++ [VisuAlgo](https://visualgo.net/zh)
++ [algorithm-visualizer](https://algorithm-visualizer.org/)
+## 计算机网络
+* [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
+* [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
+## 操作系统
+* [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
+* [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
+## 设计模式
+* [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
+## 数据库-database
+### MySQL
+* [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
+* [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
+* [21分钟 MySQL 入门教程](https://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html)
+* [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
+* [书籍](https://github.com/DodgeV/learning-programming/tree/master/books/MySQL)
+### 在线练习
++ [SQL在线学习网 - E2EE网站敏捷开发](http://sample.jimstone.com.cn/xsql/)
++ [SQLBolt - Learn SQL - Introduction to SQL](https://sqlbolt.com/)
++ [SQL Fiddle](http://sqlfiddle.com/)
 
 ## stastics
 * [统计学第三版教材-北师大出版](https://jsek.bnuic.com/BitsPressV2/reader/rpkptt/index?from=singlemessage)&[课后习题答案](https://wenku.baidu.com/view/e3bfe71b227916888486d76c.html)
@@ -211,14 +214,6 @@
 + [连 yu 君 Stata 初级(37)+高级(48)+论文](https://www.bilibili.com/video/BV1Wb411h7gx)
 + [用stata做统计分析](https://www.bilibili.com/video/BV1b5411Y7QM?p=20)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/stata/stata%E6%95%99%E7%A8%8B%E8%B5%84%E6%96%99)
 + [笔记](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
-
-## database
-### MySQL
-* [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
-* [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
-* [21分钟 MySQL 入门教程](https://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html)
-* [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
-* [书籍](https://github.com/DodgeV/learning-programming/tree/master/books/MySQL)
 
 ## data analysis
 ### videos
