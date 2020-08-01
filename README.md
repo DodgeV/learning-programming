@@ -54,7 +54,6 @@
   * [编辑器](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编辑器)
   * [NoSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#nosql)
   * [PostgreSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#postgresql)
-  * [MySQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#mysql)
   * [管理和监控](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#管理和监控)
   * [项目相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#项目相关)
   * [设计模式](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#设计模式)
@@ -213,6 +212,13 @@
 + [用stata做统计分析](https://www.bilibili.com/video/BV1b5411Y7QM?p=20)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/stata/stata%E6%95%99%E7%A8%8B%E8%B5%84%E6%96%99)
 + [笔记](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
 
+## database
+### MySQL
+* [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
+* [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
+* [21分钟 MySQL 入门教程](https://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html)
+* [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
+* [书籍]()
 
 ## data analysis
 ### videos
