@@ -1,0 +1,124 @@
+#define MAX 100
+
+int main()
+{
+	int a = 100;
+	return 0;
+}
+
+char
+short
+int
+long
+long long
+区别就是占用内存大小不同
+
+
+unsigned char a = 254;
+a += 10;//a的值是8，a的最高位丢失了，但其他位还在
+
+1111 1110 1
+1111 1111 2
+1 0000 0000 3
+1 0000 0001 4
+1 0000 0010 5
+1 0000 0011 6
+1 0000 0100 7
+1 0000 0101 8
+1 0000 0110 9
+1 0000 0111 10
+1 0000 1000 
+0x08        8
+
+
+int a;//定义了一个变量，但没有赋任何有效的值，那么这个变量的值是随机的
+a++;
+定义一个变量的时候最好的初始化一个值
+int b = 0;
+b++;
+printf("a = %d\n", a);
+
+
+long a = 0x123456789ab;
+
+
+register int a = 1;
+register int b = 2;
+register int c = a + b;
+
+signed int a;
+
+
+mov a, 1
+mov b, 2
+mov eax, a
+add eax, b
+mov c, eax
+
+
+mov a, 1
+mov b, 2
+add a, b
+mov c, a
+
+mov eax, 1
+mov ebx, 2
+add eax, ebx
+
+int a;
+scanf("%d", &a);
+scanf("%d", a);
+
+
+int a = 2;
+int b = ++a + a++;
+
+a = 4
+b = 6    b = 7
+
+
+int b = ++a++;
+
+a = (9 + (7 - 6)) * 5;
+
+
+float a = (float)7f;
+
+int a = 5;
+int b = (int)a;
+
+int i = -8;
+int x;
+if (i < 0)
+	x = -i;
+else
+	x = i;
+
+
+现代程序都有三个典型的结构
+1顺序
+2分支
+3循环
+while
+do while
+for
+
+     *
+    ***
+   *****
+  *******
+ *********
+***********
+
+*号和行号的规律是，每行输出 2 * 行号 - 1个*
+从第一行开始，每行比下一行多一个空格
+
+不能
+printf("       *\n");
+printf("      ***\n");
+printf("     *****\n");
+printf("    *******\n");
+
+
+
+
