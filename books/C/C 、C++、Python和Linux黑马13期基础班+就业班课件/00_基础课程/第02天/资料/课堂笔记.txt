@@ -1,0 +1,258 @@
+windows的书写方法：
+C:\windows\system\a.txt
+
+盘符:\路径名\文件名
+
+linux的书写方法：
+/home/test/a.txt
+
+区别：
+windows有盘符，linux没有，windows用反斜杠，linux用斜杠
+
+
+
+当前目录是C:\windows目录
+要进入windows下的system目录
+用相对路径的写法
+cd system
+相对路径总是从当前目录开始计算的
+cd .\system
+绝对路径的写法：
+cd C:\windows\system
+
+当前目录在C:\windows\system
+如果要返回上一级目录
+相对路径的写法
+cd ..
+如果绝对路径的写法
+cd C:\windows
+
+
+当前目录在C:\windows\system
+要进入c:\user目录下
+
+相对路径
+cd ..\..\user
+绝对路径
+cd c:\user
+
+
+linux
+当前目录是/home/test/1目录
+要回到/home/test
+相对路径
+cd ..
+绝对路径
+cd /home/test
+
+回到/bin
+相对路径
+cd ../../../bin
+绝对路径
+cd /bin
+
+当前在/home/test/1目录下
+在/home/test/a.txt
+相对路径
+cat ../a.txt
+
+绝对路径
+cat /home/test/a.txt
+
+要查看/home/test/1/目录下的a.txt
+相对路径
+cat a.txt     如果什么路径也不加，默认就是当前目录
+cat ./a.txt    明确的指明，要打开当前目录下的文件
+
+绝对路径
+cat /home/test/1/a.txt
+
+
+普通用户的主目录都是在/home下的子目录
+root的主目录是在/root目录下
+
+useuadd -d /abc abc
+
+a.txt
+A.txt
+a.TXT
+a.Txt
+
+TOM
+tom
+
+A.txt
+cat A.txt
+cat a.txt
+
+
+cd回车
+回到用户的主目录
+
+更改文件读写权限的命令
+chmod
+r读
+w写
+x执行
+u = user用户
+g = group组
+o = other其他用户和组
+a = all所有
++增加权限
+-去除权限
+chmod u-r a.txt
+去除用户的r权限
+
+目录的r权限代表是否可以查看目录内容
+目录的w权限代表是否可以在目录下生成文件
+目录的x权限代表是否可以cd进入这个目录
+
+--- --- ---
+rwx rwx rwx
+
+000 000 000
+111 111 111
+
+0代表没有，1代表有
+
+000 	0
+001	1
+010	2
+011	3
+100	4
+101	5
+110	6
+111	7
+
+
+rwx rwx rwx
+chmod 777 2
+
+rw- r-- r-x
+
+chmod 645
+
+vi的使用
+首次进入vi的时候是命令模式
+a代表从命令模式进入输入模式，在光标当前位置后面追加
+i代表从命令模式进入输入模式，在光标当前位置插入
+ESC代表从输入模式进入命令模式
+
+保存文件
+:w 文件名
+:q 退出
+
+vi abc.txt 如果abc.txt存在，那么就打开这个文件，如果不存在就创建一个新文件，同时打开
+:w就不需要明确的指定文件名
+
+:wq保存退出
+
+:qw这样写是错误的
+
+:q! 不保存退出
+
+如果文件内容被修改了，直接用:q退出，会提示错误，vi不允许退出
+
+
+vi替换的时候最后的/g代表globel
+
+用vi写一个a.c，文件名可以自己起，但扩展名要为.c，.c代表c语言程序
+#include <stdio.h>
+
+int main()
+{
+	printf("hello world\n");
+	return 0;
+}
+
+
+gcc -o a a.c
+-o代表指定编译后的可执行程序的名字
+编译a.c这个文件，编译后可执行文件的名字叫a
+
+执行a
+./a
+执行当前目录下的a
+
+linux默认不在当前目录下查找可执行程序
+
+怎么才能让linux也和windows一样在当前目录下就可以执行程序
+第一步回到用户的主目录
+cd
+第二步，编辑用户配置文件
+ubuntu：
+.profile
+
+redhat:
+.bash_profile
+
+在文件最后一行
+export PATH=$PATH:.
+
+第三步，保存退出
+
+第四步，重新登录用户
+
+------------一切修改只针对具体用户，test修改了test的配置文件，只对test。即使是root修改了rott配置文件，也只是对root有效
+
+如果一个文件名是.开头的，那么这个文件就是隐含文件
+
+vim的配置文件在用户的主目录下
+.vimrc，如果没有这个文件，可以手动创建这个文件
+
+
+课堂练习，自己写一个hello world c语言程序，用gcc编译，并且自己动动手配置文件，可以直接在当前目录下执行，而不需要./
+
+
+windows有一种文件扩扎名叫dll
+dll是动态链接库
+dll一般都是用c语言写的
+
+unix和linux就是so文件，等同于windows的dll文件
+
+
+0
+255
+255.255.255.255
+
+ping的功能是测试目标地址是否可达
+
+http包的用法
+第一步
+将http.tar.gz上传到linux
+
+第二步，解压
+gzip -d http.tar.gz
+
+第三步，从tar文件中提取文件
+tar -xvf http.tar
+
+第四步，进入http目录
+cd http
+
+第五步，编译源代码
+make
+
+到这里，源代码就编译为可执行程序
+
+第六步，需要设置linux的防火墙，开放80端口，如果是ubuntu，第六步省略
+
+第七步，在命令模式下，切换到root用户
+su
+
+第八步，启动软件
+./myhttp start
+
+如果看到显示
+listen 80 success
+myhttp begin
+
+代表成功了
+
+
+./myhttp stop  停止
+./myhttp status 查看状态
+
+
+
+

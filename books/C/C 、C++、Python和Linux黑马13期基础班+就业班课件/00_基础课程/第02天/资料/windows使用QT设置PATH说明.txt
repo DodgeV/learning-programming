@@ -1,0 +1,5 @@
+在系统path的环境变量中，代表windows从哪里寻找程序和相关的库，path中不同的路径用“;”分割
+
+在PATH中添加：
+C:\Qt\Qt5.3.0\Tools\mingw482_32\bin\
+C:\Qt\Qt5.3.0\5.3\mingw482_32\bin
