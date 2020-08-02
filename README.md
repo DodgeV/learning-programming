@@ -106,7 +106,7 @@
 * [二级C语言--潭州教育](https://www.bilibili.com/video/BV1Mt41147g1)
 * [《郝斌C语言自学教程》](https://www.bilibili.com/video/BV1os411h77o)
 * [【C语言】C语言程序设计.浙江大学.翁恺](https://www.bilibili.com/video/BV1Bx411u7qY)
-* [C 、C++、Python和Linux黑马13期基础班+就业班](https://www.bilibili.com/video/BV1wJ411d7iU?p=75)
+* [C 、C++、Python和Linux黑马13期基础班+就业班](https://www.bilibili.com/video/BV1wJ411d7iU?p=75)&[课件](https://github.com/DodgeV/learning-programming/tree/master/books/C/C%20%E3%80%81C%2B%2B%E3%80%81Python%E5%92%8CLinux%E9%BB%91%E9%A9%AC13%E6%9C%9F%E5%9F%BA%E7%A1%80%E7%8F%AD%2B%E5%B0%B1%E4%B8%9A%E7%8F%AD%E8%AF%BE%E4%BB%B6)
 * [2018年最值得收藏的C语言基础教程【适合C语言小白，源码，笔记，软件，案例全】](https://www.bilibili.com/video/BV1vs411n7TH)
 * [2018年计算机全国等级考试二级c语言教程](https://www.bilibili.com/video/BV1YW411W71y)
 * [iOS基础班视频教程之C语言教程day01](https://www.bilibili.com/video/BV1ix411176A)
