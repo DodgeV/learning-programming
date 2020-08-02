@@ -1,0 +1,31 @@
+
+int a; a =
+ 1;
+
+int abc;
+int 1abc;
+int abc1;
+
+int a b;
+
+int a_b;
+
+int a-b;
+
+int a+b;
+
+int ___________________;
+
+int a = 10;
+printf(a);//错误的
+
+printf("%d", a);//正确的,把变量a的值转义为一个字符串输出
+
+
+int main()
+{
+	printf("aaaaa");
+	prntf("bbbbb");
+}//没有return，所以到这里函数终止
+
+//从语法上是合法的，但不推荐这样做，
