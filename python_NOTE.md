@@ -2433,6 +2433,260 @@ Warning, log file not found starting a new one
 D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D. 
   warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)
 ```
+## 文件操作
+### 将record文件分为两个文件，原文如下
+`
+小客服:小甲鱼，今天有客户问你有没有女朋友？
+小甲鱼:咦？？
+小客服:我跟她说你有女朋友了！
+小甲鱼:。。。。。。
+小客服:她让你分手后考虑下她！然后我说:"您要买个优盘，我就帮您留意下~"
+小甲鱼:然后呢？
+小客服:她买了两个，说发一个货就好~
+小甲鱼:呃。。。。。。你真牛！
+小客服:那是，谁让我是鱼C最可爱小客服嘛~
+小甲鱼:下次有人想调戏你我不阻止~
+小客服:滚！！！
+================================================================================
+小客服:小甲鱼，有个好评很好笑哈。
+小甲鱼:哦？
+小客服:"有了小甲鱼，以后妈妈再也不用担心我的学习了~"
+小甲鱼:哈哈哈，我看到丫，我还发微博了呢~
+小客服:嗯嗯，我看了你的微博丫~
+小甲鱼:哟西~
+小客服:那个有条回复“左手拿著小甲魚，右手拿著打火機，哪裡不會點哪裡，so easy ^_^”
+小甲鱼:T_T
+================================================================================
+小客服:小甲鱼，今天一个会员想找你
+小甲鱼:哦？什么事？
+小客服:他说你一个学生月薪已经超过12k了！！
+小甲鱼:哪里的？
+小客服:上海的
+小甲鱼:那正常，哪家公司？
+小客服:他没说呀。
+小甲鱼:哦
+小客服:老大，为什么我工资那么低啊？？是时候涨涨工资了！！
+小甲鱼:啊，你说什么？我在外边呢，这里好吵吖。。。。。。
+小客服:滚！！！
+`
+### 初版
+```python
+f = open('NOTE4.txt')
+
+speak = []
+girl = []
+count = 1
+
+for each in f:
+    if each[:3] != '===':#str's split
+        [role,line] = each.split(":",1)#split one time
+        if role == 'speak':
+            speak.append(line)
+        else :
+            girl.append(line)
+    else:#ctrl+s separately
+        file_name_boy = 'speak_'+str(count)+'.txt'
+        file_name_girl = 'girl_'+str(count)+'.txt'
+
+        boy_file = open(file_name_boy,'w')
+        girl_file = open(file_name_girl,'w')
+
+        boy_file.writelines(speak)
+        girl_file.writelines(girl)
+
+        boy_file.close()
+        girl_file.close()
+        
+        speak = []
+        girl = []
+        count += 1
+        
+file_name_boy = 'speak_'+str(count)+'.txt'
+file_name_girl = 'girl_'+str(count)+'.txt'
+
+boy_file = open(file_name_boy,'w')
+girl_file = open(file_name_girl,'w')
+
+boy_file.writelines(speak)
+girl_file.writelines(girl)
+
+boy_file.close()
+girl_file.close()
+        
+f.close()
+```
+### 引入面向过程开发
+```python
+f = open('NOTE4.txt')
+speak = []
+say = []
+count = 1
+
+def new():
+    speak_file = 'speak_' + str(count) + '.txt'
+    say_file = 'say_' + str(count) + '.txt'
+
+    speak_thing = open(speak_file, 'w')
+    say_thing = open(say_file, 'w')
+
+    speak_thing.writelines(speak)
+    say_thing.writelines(say)
+
+    speak_thing.close()
+    say_thing.close()
+
+for i in f:
+    if i[:4] != '====':
+        [a,b]=i.split(":",1)
+        if a == 'speak':
+            speak.append(b)
+        else:
+            say.append(b)
+    else:
+        new()
+        speak = []
+        say = []
+        count += 1
+
+new()
+f.close()
+```
+### 最终答案
+```python
+def save(speak,girl,count):
+    file_name_boy = 'speak_'+str(count)+'.txt'
+    file_name_girl = 'girl_'+str(count)+'.txt'
+
+    boy_file = open(file_name_boy,'w')
+    girl_file = open(file_name_girl,'w')
+
+    boy_file.writelines(speak)
+    girl_file.writelines(girl)
+
+    boy_file.close()
+    girl_file.close()
+
+def split(file_name):
+    
+    f = open(file_name)
+
+    speak = []
+    girl = []
+    count = 1
+
+    for each in f:
+        if each[:3] != '===':#str's split
+            [role,line] = each.split(":",1)#split one time
+            if role == 'speak':
+                speak.append(line)
+            else :
+                girl.append(line)
+        else:#ctrl+s separately
+            save(speak,girl,count)
+            
+            speak = []
+            girl = []
+            count += 1
+    save(speak,girl,count)
+    f.close
+        
+split('note4.txt')
+```
+### 写入文件
+```python
+def file_write(file_name):
+    f = open(file_name, 'w')
+    print('请输入内容【单独输入\':w\'保存退出】：')
+
+    while True:
+        write_some = input()
+        if write_some != ':w':
+            f.write('%s\n' % write_some)
+        else:
+            break
+
+    f.close()
+
+file_name = input('请输入文件名：')
+file_write(file_name)
+```
+### 比较文件异同
+```python
+def file_compare(file1, file2):
+    f1 = open(file1)
+    f2 = open(file2)
+    count = 0  # 统计行数
+    differ = []  # 统计不一样的数量
+
+    for line1 in f1:
+        line2 = f2.readline()
+        count += 1
+        if line1 != line2:
+            differ.append(count)
+
+    f1.close()
+    f2.close()
+    return differ
+
+file1 = input('请输入需要比较的头一个文件名：')
+file2 = input('请输入需要比较的另一个文件名：')
+
+differ = file_compare(file1, file2)
+
+if len(differ) == 0:
+    print('两个文件完全一样！')
+else:
+    print('两个文件共有【%d】处不同：' % len(differ))
+    for each in differ:
+        print('第 %d 行不一样' % each)
+```
+### 输入文件及对应行数，并显示
+```python
+def file_view(file_name, line_num):
+    if line_num.strip() == ':':
+        begin = '1'
+        end = '-1'
+
+    (begin, end) = line_num.split(':')
+
+    if begin == '':
+        begin = '1'
+    if end == '':
+        end = '-1'
+
+    if begin == '1' and end == '-1':
+        prompt = '的全文'
+    elif begin == '1':
+        prompt = '从开始到%s' % end
+    elif end == '-1':
+        prompt = '从%s到结束' % begin
+    else:
+        prompt = '从第%s行到第%s行' % (begin, end)
+
+    print('\n文件%s%s的内容如下：\n' % (file_name, prompt))
+
+    begin = int(begin) - 1
+    end = int(end)
+    lines = end - begin
+
+    f = open(file_name)
+
+    for i in range(begin):  # 用于消耗掉begin之前的内容
+        f.readline()
+
+    if lines < 0:
+        print(f.read())
+    else:
+        for j in range(lines):
+            print(f.readline(), end='')
+
+    f.close()
+
+
+file_name = input(r'请输入要打开的文件（C:\\test.txt）：')
+line_num = input('请输入需要显示的行数【格式如 13:21 或 :21 或 21: 或 : 】：')
+file_view(file_name, line_num)
+```
 ## 面向对象编程(OOP(object oriented programming))
 * 1. 面向过程类似于函数,但过程只负责执行而没有返回值,函数既能执行又可以返回结果
 > + 在面向过程开发时,侧重于怎么做,逐步实现并将功能独立的代码封装为函数,最后完成就是调用不同的函数,开发过程中没有固定套路,难度很大
