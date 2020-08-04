@@ -2596,7 +2596,7 @@ split('note4.txt')
 ```python
 def file_write(file_name):
     f = open(file_name, 'w')
-    print('请输入内容【单独输入\':w\'保存退出】：')
+    print('请输入内容【单独输入':w'保存退出】：')
 
     while True:
         write_some = input()
