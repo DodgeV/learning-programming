@@ -2435,7 +2435,7 @@ D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserW
 ```
 ## 文件操作
 ### 将record文件分为两个文件，原文如下
-`
+```
 小客服:小甲鱼，今天有客户问你有没有女朋友？
 小甲鱼:咦？？
 小客服:我跟她说你有女朋友了！
@@ -2468,7 +2468,7 @@ D:\\anaconda\\lib\\site-packages\\IPython\\core\\interactiveshell.py:2969: UserW
 小客服:老大，为什么我工资那么低啊？？是时候涨涨工资了！！
 小甲鱼:啊，你说什么？我在外边呢，这里好吵吖。。。。。。
 小客服:滚！！！
-`
+```
 ### 初版
 ```python
 f = open('NOTE4.txt')
