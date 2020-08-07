@@ -9,6 +9,7 @@
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
++ [在线工具](https://tool.lu/)
 + [GDB ONLINE Debugger](https://www.onlinegdb.com/)
 + [T-compile C# online](https://rextester.com/)
 + [在线代码运行小工具123](http://www.gjw123.com/tools-runcode)
