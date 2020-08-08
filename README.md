@@ -91,6 +91,7 @@
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
 + [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
 + [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
++ [五分钟学算法](https://www.cxyxiaowu.com/)
 + [w3school](https://www.w3school.com.cn/)
 + [freecodecamp](https://www.freecodecamp.org/learn)
 + [codecademy](https://www.codecademy.com/learn)
