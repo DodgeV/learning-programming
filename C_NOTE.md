@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
 > * 其中的`1000 0000`是`-0`，但当作`-128`来用
 >> * `-128`原码为:`1 1000 0000`,反码为`1 0111 1111`,补码为`1 1000 0000`,原码和补码一样,所以把`-0`当作`-128`
 * 短整型`short`2 字节，-32,768 到 32,767
-* 长整型`long`4 字节，-2,147,483,648 到 2,147,483,647
+* 长整型`long`4 字节，`long long`8 字节
 * 无符号型`unsigned char`1 字节，0 到 255、`unsigned int`2 或 4 字节、`unsigned short`2 字节，0 到 65,535、`unsigned long`4 字节，0 到 4,294,967,295
 > * `int a,b;`定义变量，分配内存空间
 > * `extern int b;`声明变量，没有建立内存空间，不可以赋值
@@ -117,6 +117,7 @@ void main()
     printf("%d\n",b);  //以十进制方式打印 结果为-32768
     printf("%o\n",b);  //以八进制方式打印 结果为37777700000
     printf("%x\n",b);  //以十六进制方式打印，%X 也可打印大写字母 结果为ffff8000
+    printf("%hd\n",b);   //以短整型方式打印
 }
 ```
 * 1.2 **实型数据**(浮点型)
@@ -126,7 +127,6 @@ void main()
 > * 一般占4个字节，按指数形式存储，分为符号、小数部分、指数部分
 >> * 小数部分占的位(bit)数越多，数的有效数字越多，精度越高
 >> * 指数部分占的位(bit)数越多，数的值范围越大
-> * 实型变量分为单精度(`float`)、双精度(`double`)、长双精度(`long double`)三类
 ```C
 #include <stdio.h>
 #include <float.h>
@@ -139,6 +139,24 @@ int main()
    printf("精度值: %d\n", FLT_DIG );
    
    return 0;
+}
+```
+> * 实型变量分为单精度(`float`)、双精度(`double`)、长双精度(`long double`)三类
+> * 包含`math`库的文件需要用`gcc XXX.c -lm`编译
+```C
+#include <math.h>
+#include <stdio.h>
+
+void main()
+{
+        double x, s;
+        int a;
+        printf("input number:");  //只负责输出
+        scanf("%lf",&x);   //输入函数内不可写中文，阻塞等待用户按回车结束
+        s = sin(x);
+        a = sizeof(x);
+        printf("sizeof %lf is %d\n",x,a);    //sizeof也可以赋值操作
+        printf("sin of %lf is %lf\n", x, s);
 }
 ```
 > * 实型数据的舍入误差
