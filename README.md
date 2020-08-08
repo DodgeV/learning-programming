@@ -6,6 +6,7 @@
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
++ [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
 
 ## some playground
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
