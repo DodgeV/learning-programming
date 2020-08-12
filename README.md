@@ -104,6 +104,7 @@
 
 ## 语言
 ### C
+* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/C_NOTE.md)
 * [C语言网](https://www.dotcpp.com/)
 * [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
 * [二级C语言--潭州教育](https://www.bilibili.com/video/BV1Mt41147g1)
@@ -118,7 +119,6 @@
 * [C语言程序设计方法及在线实践--浙江高校在线教育平台](https://www.zjooc.cn/course/2c9180886d49d103016d49ecbb2a0833)
 * [图解C编程--智慧树](https://coursehome.zhihuishu.com/courseHome/2061105#teachTeam)
 * [C&C++参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
-* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/C_NOTE.md)
 
 ### Go
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
@@ -193,7 +193,7 @@
 ## 设计模式
 * [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
 ## 数据库-database
-* [笔记](https://github.com/DodgeV/learning-programming/blob/master/database_NOTE.md)
+* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/database_NOTE.md)
 ### MySQL
 * [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
 * [MySQL从入门到精通视频教程 (46集全)](https://www.bilibili.com/video/BV1CW411E7C7)
@@ -221,11 +221,11 @@
 + [统计学--厦门大学](https://www.bilibili.com/video/BV1jt411M79f)
 + [统计学--可汗学院](https://www.bilibili.com/video/av16250706) & [笔记](https://jentchang.github.io/contents/math/statistical.html)
 ### stata
++ [笔记本](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
 + [医咖会Stata系列教程](https://space.bilibili.com/44532954/video)
 + [Stata 统计分析软件 教程](https://www.bilibili.com/video/av36991912)
 + [连 yu 君 Stata 初级(37)+高级(48)+论文](https://www.bilibili.com/video/BV1Wb411h7gx)
 + [用stata做统计分析](https://www.bilibili.com/video/BV1b5411Y7QM?p=20)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/stata/stata%E6%95%99%E7%A8%8B%E8%B5%84%E6%96%99)
-+ [笔记](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
 
 ## data analysis
 ### videos
@@ -410,7 +410,8 @@
 * [浙江大学课件](https://github.com/zhanwen/MathModel/tree/master/%E6%95%99%E6%9D%90%E5%8F%8A%E8%AF%BE%E4%BB%B6/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/PPT%E8%AF%BE%E4%BB%B6)
 * [数学建模算法思维导图](https://github.com/zhanwen/MathModel/tree/master/Mind)
 
-### Matlab video
+### Matlab video & notebook
+* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
 + [机器学习及其MATLAB实现—从基础到实践(13节全)](https://www.bilibili.com/video/BV12W411q7Se)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%85%B6MATLAB%E5%AE%9E%E7%8E%B0)
 + [Matlab入门和在线性代数中的应用](https://github.com/zhanwen/MathModel/tree/master/Matlab%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B)
 + [数学建模比赛MATLAB教学[共23P]](https://www.bilibili.com/video/BV1db411Y7uQ)
@@ -428,13 +429,8 @@
 + [【数学建模/零基础/教程】数学建模零基础快速入门教程(附代码)](https://www.bilibili.com/video/BV1Kb41167QZ)
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
 
-### notebook
-* [my notebook](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
-
 ### 下载与使用（由于整个项目直接下载比较慢，可以看方式2）
 * 方式1
 * 可以单个文件下载，选择自己需要的某篇论文，直接在对应的页面点击下载即可。
-<img src="./images/download3.gif" height="250" width="500" align=center />
-
 * 方式2：百度云下载（推荐）
 * 使用百度云下载，正常的客户端会出现限速，导致下载的很慢，这里给大家推荐一个绕过百度云下载限速的方式。具体怎么下载，请参照 [绕过限速](https://github.com/iikira/BaiduPCS-Go)。
