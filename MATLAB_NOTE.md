@@ -30,7 +30,7 @@
 ## 15种基本的数据结构
 ### 数值类型非为整数和浮点数
 > * 单精度浮点型4个字节 single 双精度浮点型8个字节 double
-+ `a = 1.2`默认建立double型数据
++ `a = 1.2`MATLAB将所有变量均存成double的形
 + `b = single(a)`
 + `d1 = [realmin('single') realmax('single')]`找到单精度的值的范围
 
