@@ -220,9 +220,11 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > - `iostat`：查看磁盘信息
 
 - 进程相关
-> * ps [aux] ----查看进程的详细状况 默认显示当前用户通过终端启动的进程 `a`显示包括其他用户的进程 `u`显示进程的详细信息 `x`显示包括没有控制终端的进程
-> * ps -l 查看自己的进程
-> * pstree -A
+> * 在Linux中存在一个进程：`init`(initialize,初始化),进程id为1,即系统启动第一个运行的进程,该进程存在一个对应的配置文件：`inittab`(系统运行级别runlevel配置文件，在`/etc/inittab`)
+> * `ps [aux]`查看进程的详细状况 默认显示当前用户通过终端启动的进程 `a`显示包括其他用户的进程 `u`显示进程的详细信息 `x`显示包括没有控制终端的进程
+> * `ps -l`查看自己的进程
+> * `ps -ef | grep init`查看`init`进程
+> * `pstree -A`
 > * top ----动态显示运行中CPU和内存占有率比较高的进程 q退出
 > * netstat
 > * kill [-9] 进程号 ----终止进程 -9表示强制终止进程 最好只终止当前用户的进程 不要终止root身份开启的进程
