@@ -1735,18 +1735,57 @@ print(html.xpath('string(//span)').replace(' ', '').replace('\\n', ''))
 ```
 
 # scrapy
-* pip install scrapy 可能需要开个VPN;另外还需安装(PFW里面) Twisted
-* scrapy fetch --nolog （http://www.evenyan.com/post/6） 最简单的爬取网站
-* scrapy startproject 创建项目后加项目名
-* scrapy genspider 生成爬虫文件后加文件名和要爬取的域名
-* scrapy genspider -l 查看爬虫模板 后加爬虫文件名和域名
-* scrapy runspider 运行爬虫
-* scrapy settings --get botname 显示配置
-* scrapy crawl 运行爬虫后加爬虫名
-* scrapy crawl book -o book.json/book.jsonl/book.csv/book.xml 输出不同格式的文件
-* scrapy shell  --nolog 调试工具后加域名
-* scrapy view 在浏览器打开某个网页
-* scrapy check 检查爬虫是否合格
+* `pip install scrapy` 可能需要开个VPN;另外还需安装(PFW里面) Twisted
+* `scrapy startproject craw1` 创建名为craw1的项目
+> * `craw1`为核心目录
+>> * `spiders`文件夹中放置爬虫文件
+>> * `init.py`为初始化文件
+>> * `items.py`定义爬取目标
+>> * `middlewares.py`为中间件，写代理等
+>> * `pipelines.py`对爬到文件的处理
+>> * `settings.py`总体设置
+> * `scrapy.cfg`为配置文件
+> * 先从`items.py`开始运行，然后运行爬虫文件，最后运行`pipelines.py`，过程大概如图
+![架构图](https://github.com/DodgeV/learning-programming/blob/master/png/20180502174530976.png)
+> * 组件有以下几部分
+>> * Scrapy Engine：引擎负责控制数据流在系统中所有组件中流动，并在相应动作发生时触发事件
+>> * 调度器(Scheduler)：调度器从引擎接受request并将他们入队，以便之后引擎请求他们时提供给引擎。
+>> * 下载器(Downloader)：下载器负责获取页面数据并提供给引擎，而后提供给spider。
+>> * Spiders：是Scrapy用户编写用于分析response并提取item(即获取到的item)或额外跟进的URL的类。 每个spider负责处理一个特定(或一些)网站。 更多内容请看 Spiders 。
+>> * Item Pipeline：负责处理被spider提取出来的item。典型的处理有清理、 验证及持久化(例如存取到数据库中)。 更多内容查看 Item Pipeline 。
+>> * 下载器中间件(Downloader middlewares)：下载器中间件是在引擎及下载器之间的特定钩子(specific hook)，处理Downloader传递给引擎的response（也包括引擎传递给下载器的Request）。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。一句话总结就是：处理下载请求部分
+>> * Spider中间件(Spider middlewares)：Spider中间件是在引擎及Spider之间的特定钩子(specific hook)，处理spider的输入(response)和输出(items及requests)。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。一句话总结就是：处理解析部分
+* `scrapy fetch [--nolog] https://www.baidu.com` 最简单的爬取网站,直接获取整个页面,加上`--nolog`没有输出爬取过程
+* `scrapy genspider -t basic XX.py baidu.com`以basic模板,生成爬虫文件后爬取指定域名
+* `scrapy genspider -l` 查看当前系统中可以用的爬虫模板
+> * `basic`为基本模板，一般够用了
+> * `crawl`用于自动爬虫，比如百度
+> * `csvfeed`爬取csv格式数据
+> * `xmlfeed`爬取xml格式的数据
+* `scrapy runspider XX.py` 运行独立的爬虫文件
+* `scrapy settings --get botname` 显示配置,查看botname
+* `scrapy crawl XX [--nolog]` 运行爬虫文件，不含后缀
+* `scrapy crawl XX -o book.json/book.jsonl/book.csv/book.xml` 输出不同格式的文件
+* `scrapy list` 查看当前项目所有的爬虫文件
+* `scrapy parse XX https://www.baidu.com` 指定爬虫文件分析指定网页
+* `scrapy shell [--nolog] http://www.baidu.com` 调试工具,以交互模式爬取,`exit()`退出
+* `scrapy view http://news.163.com` 在浏览器打开爬取后的网页
+* `scrapy check XX` 以契约的方式检查爬虫(文件名，不含后缀)是否合格
+* `scrapy version`检测scrapy的版本信息
+* `scrapy bench`测试本地硬件的性能，即电脑如果用于爬虫最大的上限，每分钟可以爬的网页数
+
+# 分布式爬虫
+* 简单来说，分布式爬虫就是应用多台机器同时实现爬虫任务，区别于单机爬虫，难点不在于爬虫本身，而在于多机间通信(异步性)
+* 常见的分布式爬虫的架构方式：
+> 1. 多台真机+爬虫+任务共享中心(中心节点)
+> 2. 多台虚拟机(或部分虚拟)+爬虫+任务共享中心
+> 3. 多台容器级虚拟化机器(或部分真机)+爬虫+任务共享中心
+>> 1.Docker+Redis+Urllib+(MySQL)
+>> 2.Docker+Redis+Scrapy+Scrapy-Redis+(MySQL)
+> * 其中，任务共享中心可以采用redis实现
+> * 爬到的数据可以存储在各节点，也可以存在中心节点
+* Docker：轻量级虚拟化,容器级虚拟化
+* redis：常常与分布式组合使用
 
 # python基本语法
 ```python
