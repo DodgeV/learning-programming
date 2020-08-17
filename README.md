@@ -150,6 +150,7 @@
 * [零基础入门学习Python(小甲鱼)](https://www.bilibili.com/video/BV1y7411d7rW)&[全套源码课件](https://github.com/DodgeV/learning-programming/tree/master/books/python/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0Python(%E5%B0%8F%E7%94%B2%E9%B1%BC)%E5%85%A8%E5%A5%97%E6%BA%90%E7%A0%81%E8%AF%BE%E4%BB%B6)
 * [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)&[Python二级考试考纲笔记（2018全）](https://mubu.com/doc/1Bam_vCyQw)
 * [python老男孩linux运维](https://www.bilibili.com/video/BV1k54y1m7BC)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/python/python%E8%80%81%E7%94%B7%E5%AD%A9linux%E8%BF%90%E7%BB%B4)
+* [python网络程序开发-炼数成金-2012]()&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/python/python%E7%BD%91%E7%BB%9C%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91-%E7%82%BC%E6%95%B0%E6%88%90%E9%87%91-2012)
 * [Python网络爬虫与信息提取--北理工](http://www.icourse163.org/learn/BIT-1001870001)
 * [Python科学计算三维可视化--北理工](http://www.icourse163.org/learn/BIT-1001871001)
 * [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
