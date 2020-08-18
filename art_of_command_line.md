@@ -15,8 +15,8 @@
 - [冷门但有用](#冷门但有用)
 - [仅限 OS X 系统](#仅限-os-x-系统)
 - [仅限 Windows 系统](#仅限-windows-系统)
-- [更多资源](#更多资源)
 - [免责声明](#免责声明)
+- [授权条款](#授权条款)
 
 
 ![png](https://github.com/jlevy/the-art-of-command-line/blob/master/cowsay.png)
@@ -30,6 +30,7 @@
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，
 但已经迁移到了 Github，并由众多高手做出了许多改进。
 如果你在本文中发现了错误或者存在可以改善的地方，请[**贡献你的一份力量**](/CONTRIBUTING.md)。
+
 
 ## 前言
 
@@ -62,25 +63,6 @@
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：有关如何在 shell 脚本里正确处理文件名的细枝末节。
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools)：用于数据科学的一些命令和工具，摘自同名书籍。
 
-```
-deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
-deb http://archive.canonical.com/ubuntu xenial partner
-deb-src http://archive.canonical.com/ubuntu xenial partner
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
-```
 ## 基础
 - Linux本身就是针对多用户的,没有盘符,只有一个根目录`/`,
 > - `/bin`文件夹下存储一些二进制文件，文件都是可以被运行的;
@@ -93,6 +75,8 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > - `/Sbin`存放一些可以执行的二进制文件,但必须有super权限才能执行;
 > - `/Tmp`中存储系统运行时产生的临时文件,类似于Windows下的`C://windows/Temp`;
 > - `/Usr`存放用户自己安装的软件,类似于Windows下的`Program Files/`;
+>> * `/Usr/bin` 存放后期安装的一些软件
+>> * `/Usr/sbin` 超级用户的一些管理程序
 > - `/Var`中存放程序/系统的日志文件;
 > - `/mnt`中存放外接设备挂载
 - `cd ~`或`cd /home`回到家目录,`cd -`在最近两次工作目录之间来回切换, 绝对路径用`/`或者`~`开头, 相对路径 比如`..`表示当前目录的上一个目录
@@ -155,15 +139,30 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 - 查找命令的帮助文档的2种方式 `man`+ command 或 command + `--help`，注意command [-options选项] [param参数]  里括号中部分可以不写, `Enter`回车 一行一行看, 空格 一页一页看,`b`(回滚一屏),`f`(前滚一屏),`q`(退出)。学会使用 `apropos` 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type 命令` 来判断这个命令到底是可执行文件、shell 内置命令还是别名。
 
 - 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
+> * `tree >> a`把要在终端中显示的树状图追加到文件a中
+> * `ls -lha ~ | more`第一个命令的输出作为第二个命令的输入 分屏显示家目录的所有文件夹
+> * `ls -lha ~ | grep vi`利用管道 查询所有名字中含有vi的文件(夹)
+> * `echo hello`把hello打印在终端中
+> * `echo hello python > a`把hello python保存到文件a中,没有则新建一个
 
 - 学会使用通配符 `*` （或许再算上 `?` 和 `[`...`]`） 和引用以及引用中 `'` 和 `"` 的区别（后文中有一些具体的例子）。
 
+- 熟悉正则表达式，学会使用 `grep`／`egrep`，它们的参数中 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C` 这些是很常用并值得认真学习的。
+
 - 熟悉 Bash 中的任务管理工具：`&`，**ctrl-z**，**ctrl-c**，`jobs`，`fg`，`bg`，`kill` 等。
 
-- 学会使用 `ssh` 进行远程命令行登录，最好知道如何使用 `ssh-agent`，`ssh-add` 等命令来实现基础的无密码认证登录。
+- 基本的命令
+> * date ----查看系统时间
+> * cal [-y] ----查看该月的日历，-y查看一年的日历
+> * `shutdown`默认一分钟后关机
+> * `shutdown -r now`立刻重启
+> * `shutdown +10` 10分钟之后关机
+> * `shutdown 20:10` 系统会在今天20:10关机
+> * `shutdown -c` 撤销命令
 
 - 学会基本的文件管理工具：
 > - `ls` 和 `ls -l` （了解 `ls -l` 中每一列代表的意义)
+> - `ls -l`最后一列是文件名,往前3列是修改时间月/日/时,第一列显示是否是文件,`-`文件,`d`文件夹,`l`软(硬)链接,之后每3列分别是,用户的权限\用户所属组的权限\其他用户的权限,之后的数字是硬连接数,即能够访问该文件(夹)的方法的个数,比如用绝对路径或`.`或`..`,即子目录越多硬连接数越多,文件的硬连接数一般都是1
 > * `ls -a` 查看隐藏文件 以.开头的文件为隐藏文件 蓝色为文件夹 白色为文件
 > * `ls -l` 以列表方式显示文件的详细信息 如果是目录第一列为d 如果是文件第一列为-
 > * `ls -lh`将文件大小更直观的显示出来
@@ -171,12 +170,56 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > * `ls *3.txt`显示以3结尾的txt文件
 > * `ls ?2?.txt`显示文件名中有2的txt文件
 > * `ls [1-3]23.txt`显示1-3开头的文件
+> * `less`可以往前翻，加载部分，实时加载，
+> * `head`，
+> * `tail` 和 `tail -f` （甚至 `less +F`），
+> * `ln` 和 `ln -s` （了解硬链接与软链接的区别:`ln -s source dest`建立文件的软链接,类似快捷方式，源文件`source`要使用绝对路径，不能使用相对路径，这样移动链接文件的位置后，仍然能够正常使用,而`ln source dest`建立一个硬链接,即创建一个真实存在的文件,但共用一个inode,两个文件占用相同大小的硬盘空间，工作中几乎不会建立文件的硬链接,如果删除源文件,硬链接不受影响,软链接会失效,在Linux中文件数据和文件名是分开存储在硬盘上的,而软连接创建的一个新指向源文件名的路径,源文件名已删除则路径就断了,硬链接则是创建了指向源文件数据的路径,源文件名删除不会对该路径产生影响），
+> * touch ----创建文件 可以写多个文件  如果文件已经存在则修改文件的末次修改时间
+> * mkdir -p a1/a2/a3 ----一次性连续创建目录 创建的目录和文件名不能重名
+> * rm [-r] [-f] ----直接删除文件不能恢复 -r删除文件夹 -f强制删除文件 不会有任何提示
+> * tree [-d] ---- 以树状图的形式显示所有文件 -d只显示目录不显示文件
+> * tree ~ ----查看家目录的所有文件
+> * cp 源文件路径 新文件名路径 ----复制文件 默认覆盖文件
+> * cp [-i] [-r]---- -i弹出覆盖同名文件的提示 -r复制目录
+> * mv 移动目标目录 目的地目录或重命名----移动文件或文件夹
+> * mv -i ----弹出覆盖同名文件的提示
+> * cat [-b] [-n] 文件名 ---- 一次性全部显示文件的内容 -b显示内容同时输出行号 不会标注空行 -n显示内容同时输出行号 会标注空行
+> * more ----只显示一页 用空格键或`f`翻下一页`Enter`翻下一行`b`回滚一屏`q`退出
 
-> - `less`可以往前翻，加载部分，实时加载，
-> - `head`，
-> - `tail` 和 `tail -f` （甚至 `less +F`），
-> - `ln` 和 `ln -s` （了解硬链接与软链接的区别:`ln -s source dest`建立文件的软链接,类似快捷方式，源文件`source`要使用绝对路径，不能使用相对路径，这样移动链接文件的位置后，仍然能够正常使用,而`ln source dest`建立一个硬链接,即创建一个真实存在的文件,但共用一个inode,两个文件占用相同大小的硬盘空间，工作中几乎不会建立文件的硬链接,如果删除源文件,硬链接不受影响,软链接会失效,在Linux中文件数据和文件名是分开存储在硬盘上的,而软连接创建的一个新指向源文件名的路径,源文件名已删除则路径就断了,硬链接则是创建了指向源文件数据的路径,源文件名删除不会对该路径产生影响），
-> - `chown`，`chmod`，`du` （硬盘使用情况概述：`du -hs *`）。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。知道 inode 是什么（与 `ls -i` 和 `df -i` 等命令相关）。
+- 用户&权限管理
+> * 用户是Linux系统中重要的一环 每个用户对不同的文件权限都不一样 (r读，w写，x执行)
+> * 为了方便用户管理，提出了组的概念，先针对组设好权限，不同的用户再添加到不同的组中
+> * chmod +/- r/w/x 目录名/文件名 ----修改权限  一个目录若没有可执行权限x 不能进入目录 也不能查看内容 r和w分别对应阅读和修改目录的内容 x表示可执行 s表示可执行
+> * chmod [-R] 755 文件名/目录名 ----3个数字分别表示拥有者/组/其他用户的权限 R表示修改目录下的所有文件
+> * `r`-4、`w`-2、`x`-1 三种权限可以互相相加
+> * 755 - user=rwx group=rx other=rx
+> * 超级用户,root账号通常用于管理,权限很大
+> * 当标准用户想要执行系统维护,命令前加`sudo`输入一次密码 管5分钟
+> * sudo groupadd 组名 ----添加组
+> * sudo groupdel 组名 ----删除组
+> * cat -n /etc/group ----查看所有组以及相应权限 组代号等
+> * cat -n /etc/group | grep xzc ---- 查看xzc组的信息以及所有xzc用户的附加组
+> * chgrp -R 组名 文件/目录名 ----修改文件/目录的所属组
+> * chown 用户名 文件名/目录名 ----修改拥有者
+> * sudo useradd [-m] [-g 所属组] 新用户名 ---- -m自动创建家目录 否则需要手动创建 若是忘记 最快捷的方法是删了重创 -g指定用户所属组 否则会建立一个同名的组
+> * sudo passwd 用户名 ---- 设置用户密码 若不设置密码 就没法远程ssh登录 修改用户密码的程序保存在 /usr/bin/passwd 中
+> * cat -n /etc/passwd ---- 查看所有用户的信息如家目录 用户代号 所属组代号等
+> * cat -n /etc/passwd | grep xzc ---- 在文件中搜索xzc用户的信息
+> * passwd文件有6个分号组成7组信息 用户名:密码(x表示加密的密码):用户ID:组ID:用户全名或本地帐号:用户家目录:登录使用的Shell
+> * sudo userdel -r 用户名 ---- 删除用户-r默认删除家目录
+> * id [用户名] ---- 查看用户的用户代号 以及主组代号 和所有附加组的代号 不写就默认查找当前用户的信息
+> * who ----查看当前所有已登录的用户列表
+> * whoami ----查看当前用户用户名
+> * sudo usermod -g 主组名 用户名 ----改变用户的主组
+> * sudo usermod -G 附加组名 用户名 ----给用户添加附加组 以添加权限
+> * 默认使用useradd 添加的用户没有权限使用sudo 可以用sudo usermod -G sudo XX 将XX添加到sudo附加组获得权限
+> * sudo usermod -s /bin/bash 用户名 ----修改用户登录的shell
+> * 用户默认登录的shell是dash 而root身份登录的shell叫bash
+> * which ls ----可以查看执行命令所在的位置
+> * which passwd ---- /usr/bin/passwd
+> * `su -用户名` 切换用户,`-`可以同时切换到目标用户的家目录
+> * `su -` 不接用户名切换到root账户 但是并不安全 第一次切换root账户需要sudo passwd root设置root密码
+> * exit ----退出当前用户
 
 - 搜索相关
 > * `find [路径] -name \ .py\`不输入路径默认在当前文件夹查找
@@ -191,12 +234,17 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 - 文件系统
 > - 组成
 > - `Inode`：一个文件占用一个inode，记录文件属性，同时记录此文件所属的 block 编号
+> - `inode` 与 `ls -i` 和 `df -i` 等命令相关
 > - `Block`：记录文件的具体内容，文件太大会占用多个 block
 > - `Superblock`：记录文件系统的整体信息，包括inode和block的总量，文件系统的格式等
 > - `block bitmap`：记录block是否被使用的位图
 > - 类型
 > - `Exts`：要读取文件时，根据 inode来查找对应的block
 > - `Fat`：没有inode，每个block中存放着下一个block的编号
+> - `df [-h]` disk free 显示磁盘剩余空间 重点看根目录/  -h更为人性化
+> - `du` （硬盘使用情况概述：`du -hs *`）
+> - `du [-h] [目录名]` disk usage,显示目录下的文件大小,默认显示当前目录
+> - `mount`，`fdisk`，`mkfs`，`lsblk`
 
 - IO操作
 > - `select`: 一个socket连接就会分配一个文件描述符
@@ -220,7 +268,7 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > - `iostat`：查看磁盘信息
 
 - 进程相关
-> * 在Linux中存在一个进程：`init`(initialize,初始化),进程id为1,即系统启动第一个运行的进程,该进程存在一个对应的配置文件：`inittab`(系统运行级别runlevel配置文件，在`/etc/inittab`)
+> * 在Linux中存在一个进程：`init`(initialize,初始化),进程id为1,即系统启动第一个运行的进程,该进程存在一个对应的配置文件：`inittab`(系统运行级别runlevel配置文件，CentOS6.5系统在`/etc/inittab`,CentOS7以后在`/usr/lib/systemd/system/ctrl-alt-del.target`),通过调试运行级别`init 3`可以切换系统的模式,多用户模式下只有命令行,没有图形化界面,`init 5`为完整的单用户图形界面
 > * `ps [aux]`查看进程的详细状况 默认显示当前用户通过终端启动的进程 `a`显示包括其他用户的进程 `u`显示进程的详细信息 `x`显示包括没有控制终端的进程
 > * `ps -l`查看自己的进程
 > * `ps -ef | grep init`查看`init`进程
@@ -266,7 +314,6 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > - CPU使用很高，但top却没找出来的原因有哪些
 >> - 短进程太多，例如应用不停着奔溃重启
 
-
 - 打包相关,各个操作系统常用的压缩扩展名`Windows`--`rar`,`Mac`--`zip`,`Linux`--`tar/gz`
 > - `gzip -cv filename`压缩
 > - `gzip -d filename`解压
@@ -280,106 +327,61 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
 > - `tar -jcvf 打包压缩文件名.tar.bz2 被压缩文件路径`压为bz2压缩格式 语法同上
 > - `tar -jxvf 解包解压文件名.tar.bz2 [-C 目标路径]`语法同上 -C对应的目录必须实现创建
 
-- 网卡是负责网络通讯的硬件设备,IP地址是设在网卡上的地址信息,掌握基本的网络管理工具：`ip`, `ifconfig`查看计算机的网卡配置,`ifconfig | gret inet`查询IPv4和IPv6地址的值,`dig`。
+- 网络相关,网卡是负责网络通讯的硬件设备,IP地址是设在网卡上的地址信息,掌握基本的网络管理工具：
+- CentOS7系统网卡配置文件在`/etc/sysconfig/network-scripts/`,其中`ifcfg`开头的文件为网卡文件,里面包含是否自动启动等信息，最好不要改动,
+> - `service network restart`重启网卡,有些分支版本没有这个命令
+> - `/etc/init.d`这个目录里面放着很多服务的快捷方式，因此重启网卡也可使用`/etc/init.d/network restart`
+> - `ip`
+> - `ifconfig`查看计算机的网卡配置
+> - `ifconfig | grep inet`查询IPv4和IPv6地址的值
+> - `dig`
+> - `ping`检查目标IP地址连接是否正常
+> - `ping 127.0.0.1`检测本地网卡是否正常
+> - 域名是IP地址的别名,端口号用于找到服务器上面的web服务器软件
+> - ssh命令只能在Linux和UNIX下使用,Windows可以安装PUTTY或XShell
+> - SSH服务器端口号22,web服务器80,HTTPS服务器443,FTP服务器21
+> - 需要安装SSH客户端和SSH服务器,对目标服务器进行维护,进行远程命令行登录
+> - `.ssh` 文件夹保存连接过的主机的信息
+> - ssh -p 22 python@192.168.0.144 ---- -p端口号默认22 用户名@IP地址或别名
+> - 链接到目标服务器之后需要输入用户密码
+> - scp -P 22 01.py python@192.168.0.144:Desktop/01.py ----远程拷贝文件
+> - scp -P 22 python@192.168.0.144:Desktop/01.py 01.py ----把对方服务器python用户的Desktop/01.py文件拷贝到本地并命名为01.py
+> - scp -r python@192.168.0.144:Desktop demo ----包对方家目录下的Desktop目录复制到本地demo 目录
+> - `ssh-agent`，`ssh-add` 等命令来实现基础的无密码认证登录
+> - FileZilla 用于windows与Linux远程服务器文件传输 一般用FTP端口21
+> - 免密码登录的设置 利用公钥和私钥相互解密的原理
+> - 在.ssh目录下输入命令ssh-keygen----配置公钥 再输入 ssh-copy-id -p 22 用户名@IP ----让远程服务器 XX@IP地址 记住我们的公钥 之后再进程ssh就不用输入密码
+> - 在.ssh目录下设置.config文件 配置目标服务器的别名 内容如下:
+> - `Host myserver`
+> - `HostName 172.16.140.1 / User 对方用户名 /  Port 22`
+> - 之后再连接就可以简写为`ssh myserver`
 
-- 学习并使用一种版本控制管理系统，例如 `git`。
-
-- 熟悉正则表达式，学会使用 `grep`／`egrep`，它们的参数中 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C` 这些是很常用并值得认真学习的。
+- 版本控制管理系统之`git`。
 
 - 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 `pip` 来安装会很方便）。
-
-* touch ----创建文件 可以写多个文件  如果文件已经存在则修改文件的末次修改时间
-* mkdir -p a1/a2/a3 ----一次性连续创建目录 创建的目录和文件名不能重名
-* rm [-r] [-f] ----直接删除文件不能恢复 -r删除文件夹 -f强制删除文件 不会有任何提示
-* tree [-d] ---- 以树状图的形式显示所有文件 -d只显示目录不显示文件
-* tree ~ ----查看家目录的所有文件
-* cp 源文件路径 新文件名路径 ----复制文件 默认覆盖文件
-* cp [-i] [-r]---- -i弹出覆盖同名文件的提示 -r复制目录
-* mv 移动目标目录 目的地目录或重命名----移动文件或文件夹
-* mv -i ----弹出覆盖同名文件的提示
-* cat [-b] [-n] 文件名 ---- 一次性全部显示文件的内容 -b显示内容同时输出行号 不会标注空行 -n显示内容同时输出行号 会标注空行
-* more ----只显示一页 用空格键或`f`翻下一页`Enter`翻下一行`b`回滚一屏`q`退出
-
-* echo hello ----把hello打印在终端中
-* echo hello python > a ----把hello python保存到文件a中 没有则新建一个
-* tree >> a ----把要在终端中显示的树状图追加到文件a中
-* ls -lha ~ | more ----第一个命令的输出作为第二个命令的输入 分屏显示家目录的所有文件夹
-* ls -lha ~ | grep vi ----利用管道 查询所有名字中含有vi的文件(夹)
-* shutdown ----默认一分钟后关机
-* shutdown -r now ----立刻重启
-* shutdown +10 ----10分钟之后关机
-* shutdown 20:10 ----系统会在今天20:10关机
-* shutdown -c ----撤销命令
-
-* ping ----检查目标IP地址连接是否正常
-* ping 127.0.0.1 ----检测本地网卡是否正常
-* 域名是IP地址的别名 端口号用于找到服务器上面的web服务器软件
-* ssh命令只能在Linux和UNIX下使用 Windows可以安装PUTTY或XShell
-* SSH服务器端口号22 web服务器80 HTTPS服务器443 FTP服务器21
-* 需要安装 SSH客户端 和 SSH服务器 对目标服务器进行维护
-* .ssh 文件夹保存连接过的主机的信息
-* ssh -p 22 python@192.168.0.144 ---- -p端口号默认22 用户名@IP地址或别名
-* 链接到目标服务器之后需要输入用户密码
-* scp -P 22 01.py python@192.168.0.144:Desktop/01.py ----远程拷贝文件
-* scp -P 22 python@192.168.0.144:Desktop/01.py 01.py ----把对方服务器python用户的Desktop/01.py文件拷贝到本地并命名为01.py
-* scp -r python@192.168.0.144:Desktop demo ----包对方家目录下的Desktop目录复制到本地demo 目录
-* FileZilla 用于windows与Linux远程服务器文件传输 一般用FTP端口21
-* 免密码登录的设置 利用公钥和私钥相互解密的原理
-* 在.ssh目录下输入命令ssh-keygen----配置公钥 再输入 ssh-copy-id -p 22 用户名@IP ----让远程服务器 XX@IP地址 记住我们的公钥 之后再进程ssh就不用输入密码
-* 在.ssh目录下设置.config文件 配置目标服务器的别名 内容如下:
-* `Host myserver`
-* `HostName 172.16.140.1 / User 对方用户名 /  Port 22`
-* 之后再连接就可以简写为`ssh myserver`
-
-* 用户是Linux系统中重要的一环 每个用户对不同的文件权限都不一样 (r读，w写，x执行)
-* 为了方便用户管理，提出了组的概念，先针对组设好权限，不同的用户再添加到不同的组中
-* `ls -l`最后一列是文件名,往前3列是修改时间月/日/时,第一列显示是否是文件,`-`文件,`d`文件夹,之后每3列分别是,用户的权限\用户所属组的权限\其他用户的权限,之后的数字是硬连接数,即能够访问该文件(夹)的方法的个数,比如用绝对路径或`.`或`..`,即子目录越多硬连接数越多,文件的硬连接数一般都是1
-* chmod +/- r/w/x 目录名/文件名 ----修改权限  一个目录若没有可执行权限x 不能进入目录 也不能查看内容 r和w分别对应阅读和修改目录的内容 x表示可执行 s表示可执行
-* chmod [-R] 755 文件名/目录名 ----3个数字分别表示拥有者/组/其他用户的权限 R表示修改目录下的所有文件
-* `r`-4、`w`-2、`x`-1 三种权限可以互相相加
-* 755 - user=rwx group=rx other=rx
-* 超级用户 root账号通常用于管理 权限很大
-* 当标准用户想要执行系统维护,命令前加`sudo`输入一次密码 管5分钟
-* sudo groupadd 组名 ----添加组
-* sudo groupdel 组名 ----删除组
-* cat -n /etc/group ----查看所有组以及相应权限 组代号等
-* cat -n /etc/group | grep xzc ---- 查看xzc组的信息以及所有xzc用户的附加组
-* chgrp -R 组名 文件/目录名 ----修改文件/目录的所属组
-* chown 用户名 文件名/目录名 ----修改拥有者
-* sudo useradd [-m] [-g 所属组] 新用户名 ---- -m自动创建家目录 否则需要手动创建 若是忘记 最快捷的方法是删了重创 -g指定用户所属组 否则会建立一个同名的组
-* sudo passwd 用户名 ---- 设置用户密码 若不设置密码 就没法远程ssh登录 修改用户密码的程序保存在 /usr/bin/passwd 中
-* cat -n /etc/passwd ---- 查看所有用户的信息如家目录 用户代号 所属组代号等
-* cat -n /etc/passwd | grep xzc ---- 在文件中搜索xzc用户的信息
-* passwd文件有6个分号组成7组信息 用户名:密码(x表示加密的密码):用户ID:组ID:用户全名或本地帐号:用户家目录:登录使用的Shell
-* sudo userdel -r 用户名 ---- 删除用户-r默认删除家目录
-* id [用户名] ---- 查看用户的用户代号 以及主组代号 和所有附加组的代号 不写就默认查找当前用户的信息
-* who ----查看当前所有已登录的用户列表
-* whoami ----查看当前用户用户名
-* sudo usermod -g 主组名 用户名 ----改变用户的主组
-* sudo usermod -G 附加组名 用户名 ----给用户添加附加组 以添加权限
-* 默认使用useradd 添加的用户没有权限使用sudo 可以用sudo usermod -G sudo XX 将XX添加到sudo附加组获得权限
-* sudo usermod -s /bin/bash 用户名 ----修改用户登录的shell
-* 用户默认登录的shell是dash 而root身份登录的shell叫bash
-* which ls ----可以查看执行命令所在的位置
-* which passwd ---- /usr/bin/passwd
-* bin 存放二进制可执行文件
-* sbin 存放系统管理员专用的二进制可执行代码存放地
-* /usr/bin 存放后期安装的一些软件
-* /usr/sbin 超级用户的一些管理程序
-* su -用户名 ----切换用户 -可以同时切换到目标用户的家目录
-* su - ----不接用户名切换到root账户 但是并不安全 第一次切换root账户需要sudo passwd root设置root密码
-* exit ----退出当前用户
-* date ----查看系统时间
-* cal [-y] ----查看该月的日历，-y查看一年的日历
-* df [-h] ----disk free 显示磁盘剩余空间 重点看根目录/  -h更为人性化
-* du [-h] [目录名] ----disk usage 显示目录下的文件大小 默认显示当前目录
-
-
-
-* sudo apt install 软件名 ----安装软件
-* sudo apt remove 软件名 ----卸载软件
-* sudo apt upgrade ---- 更新所有软件
-* 软件源==>镜像源 
+> * `sudo apt install 软件名`安装软件
+> * `sudo apt remove 软件名`卸载软件
+> * `sudo apt upgrade`更新所有软件
+> * 软件源==>镜像源 
+```
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+```
 
 
 ## 日常使用
@@ -603,6 +605,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 为了高效地创建空文件，请使用 `truncate`（创建[稀疏文件](https://zh.wikipedia.org/wiki/稀疏文件)），`fallocate`（用于 ext4，xfs，btrf 和 ocfs2 文件系统），`xfs_mkfile`（适用于几乎所有的文件系统，包含在 xfsprogs 包中），`mkfile`（用于类 Unix 操作系统，比如 Solaris 和 Mac OS）。
 
+
 ## 系统调试
 
 - `curl` 和 `curl -I` 可以被轻松地应用于 web 调试中，它们的好兄弟 `wget` 也是如此，或者也可以试试更潮的 [`httpie`](https://github.com/jkbrzt/httpie)。
@@ -689,6 +692,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
           xmlstarlet unesc | fmt -80
       }
 ```
+
 
 ## 冷门但有用
 
@@ -857,6 +861,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `sw_vers` 获取 OS X 的版本信息。
 
+
 ## 仅限 Windows 系统
 
 以下是*仅限于* Windows 系统的技巧。
@@ -899,52 +904,32 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。然而 MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
 
-### 在Windows下使用powershell 以`.ps1`为后缀名
+### 在Windows下使用powershell,以`.ps1`为后缀名
 
 - [PowerShell cookbook](https://github.com/DodgeV/the-art-of-command-line/blob/master/books/Windows%20PowerShell%20Cookbook.pdf)
 
 - [Microsoft powershell](https://www.bilibili.com/video/av15458578)&[Microsoft官方帮助文档](https://docs.microsoft.com/zh-cn/powershell/scripting/learn/ps101/02-help-system?view=powershell-6)
 
 - `write-host 'hello world'`=`echo 'hello world'`
-
 - `cd\\` 
-
 - `set-location`=`cd`
-
 - `get-childitem`=`ls`
-
 - `md`=`mkdir`
-
 - `gal -Definition Get-Process` `get-alias`
-
 - `ipconfig /all`
-
 - `mstsc` `ping`
-
 - `copy` `xcopy`
-
 - `notepad;calc;mspaint`
-
 - `help`=`man`=`update-help`
-
 - `Get-Help g*ser*`
-
 - `Get-Help Get-Service -Detailed`
-
 - `Get-Help Get-Service -Onlined`
-
 - `Get-Help Get-Service -ShowWindow`
-
 - `Get-Process -Name f*`
-
 - `Get-Service -Name bits,bfe`
-
 - `Get-Verb [Imeasure]`
-
 - `Get-Command -Verb get`
-
 - `cls`=`clear-host`=`clear`
-
 - `shutdown -s -f -t 3`
 
 
