@@ -50,6 +50,7 @@
 参考教程资源：
 
 - [兄弟连Linux终端命令](https://www.bilibili.com/video/av18156598)
+- [Linux操作系统从入门到精通--黑马](https://www.bilibili.com/video/BV12Z4y1M7dL)
 - [黑马Linux上](https://www.bilibili.com/video/av22025899)&[p7](https://www.bilibili.com/video/av28534854)
 - [黑马Linux下](https://www.bilibili.com/video/av22588048)
 - [黑马day1](https://www.bilibili.com/video/av8012017)  
@@ -357,6 +358,7 @@
 > - 之后再连接就可以简写为`ssh myserver`
 
 - 版本控制管理系统之`git`,借助GitHub托管项目代码
+> + [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
 - 仓库(Repository):仓库用来存放项目代码，每个项目对应一个仓库
 > - 每一次修改文件，点击`Commit changes`都可以输入具体的修改信息，方便后续查看
 > - 点击`Go to file`可以查找仓库中的文件
