@@ -5,7 +5,7 @@
 + [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
-+ [最基本的命令行](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
++ [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
 + [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
 + [C语言/C++直通企业级开发的详细学习路线](https://www.bilibili.com/video/BV1G7411K7j2)
 
