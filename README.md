@@ -6,7 +6,6 @@
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
-+ [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
 + [C语言/C++直通企业级开发的详细学习路线](https://www.bilibili.com/video/BV1G7411K7j2)
 
 ## some playground
@@ -191,7 +190,6 @@
 * [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
 ## 操作系统
 * [人手一套Linux-环境搭建--CodeSheep](https://mp.weixin.qq.com/s/onVwwEQ1DAwbvK7qS2YNxg)
-* [Linux操作系统从入门到精通--黑马](https://www.bilibili.com/video/BV12Z4y1M7dL)
 * [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
 * [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
 ## 设计模式
