@@ -413,12 +413,13 @@
 * [数学建模算法思维导图](https://github.com/zhanwen/MathModel/tree/master/Mind)
 
 ### Matlab video & notebook
-* [笔记本](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
++ [笔记本](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
 + [机器学习及其MATLAB实现—从基础到实践(13节全)](https://www.bilibili.com/video/BV12W411q7Se)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%85%B6MATLAB%E5%AE%9E%E7%8E%B0)
 + [Matlab入门和在线性代数中的应用](https://github.com/zhanwen/MathModel/tree/master/Matlab%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B)
 + [数学建模比赛MATLAB教学[共23P]](https://www.bilibili.com/video/BV1db411Y7uQ)
 + [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
 + [Matlab最基础纯手写教程--Taylim](https://www.bilibili.com/video/BV1q7411g7Dh)
++ [Matlab基础入门与算法实践--老教练](https://www.bilibili.com/video/BV1FD4y1m78C)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/Matlab%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5)
 + [走进数学之数学建模（中国大学mooc）](https://www.bilibili.com/video/BV1ux411G7k3)
 + [数学建模--北航牛薇](https://www.bilibili.com/video/BV1d7411T7BK)
 + [数学建模--厦门大学](http://www.icourse163.org/learn/XMU-1001556009)
