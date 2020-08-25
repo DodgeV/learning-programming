@@ -280,6 +280,205 @@ y=sin(t);
 plot(t,y) 
 axis([0,max(t),min(y),max(y)]) 
 ```
+![坐标轴调整命令](https://github.com/DodgeV/learning-programming/blob/master/png/%E5%9D%90%E6%A0%87%E8%BD%B4%E8%B0%83%E6%95%B4%E5%91%BD%E4%BB%A4.png)
+* 5. 图形标注
+> * 坐标轴和图形标题标注 
+>> * 标注坐标轴 x、y 和 z 的命令函数为 xlabel、ylabel 和 zlabel ，调用格式为：
+>> * xlabel(’text’) 
+>> * xlabel(’text’,’Property1’,PropertyValue1,’Property2’,PropertyValue2,...)
+>> * H = xlabel(...)  返回坐标轴标注的句柄。
+>> * 其中，’text’是要添加的标注文本。’Property’是文本的属性名，’PropertyValue’是属性值（所用字体、大小、标注角度等）。
+>> * 图形加标题的函数为 title，其调用格式与坐标轴标注类似。
+> * 图例的标注 
+>> * legend命令实现不同图例的说明。其调用格式为： 
+>> * legend(string1,string2,string3, ...)   
+>> * legend(string1,string2,string3,...,Pos)   
+>> * 按顺序把字符串添加到相应的曲线线型符号之后；Pos对图例的位置作出设置和调整： 
+>> * 0 = 自动把图例置于最佳位置（ 和图中曲线重复最少）； 
+>> * 1 =  置于图形窗口的右上角（ 缺省值）； 
+>> * 2 =  置于图形窗口的左上角； 
+>> * 3 =  置于图形窗口的左下角； 
+>> * 4 =  置于图形窗口的右下角； 
+>> * -1 =  置于图形窗口的右侧（ 外部）。 
+* 6. 控制分格线对二维和三维图形都适用。
+> * 有三种用法： 
+> * grid on：打开分格线控制开关，绘制的图形都带有分格线； 
+> * grid off：关闭分格线控制开关，绘制的图形都不带分格线； 
+> * grid：用于实现分格线绘制切换。
+```Matlab
+%绘制图形，并用函数 xlabel、title 和 legend 命令进行标注。
+t=0:0.1:4*pi; y=sin(t); y1=cos(t); plot(t,y,':',t,y1,'r*') 
+xlabel('x 轴  (0--4\pi)','fontsize',12,'fontweight','bold') 
+ylabel('y 轴','fontsize',12,'fontweight','bold') 
+title('绘制正弦波和余弦波      Pos=1','fontsize',10,'fontweight','bold','fontangle','italic') 
+text(pi,0,'\leftarrowsin(\pi)=0') 
+text(pi,-1,'\leftarrowcos(\pi)=-1')
+text(pi/2,0.9,['\uparrowsin(\pi/2)=',num2str(sin(pi/2))]) 
+text(0,-0.6,['绘图日期：',date]) 
+text(0,-0.8,['MATLAB 版本：',version]) 
+legend('正弦波','余弦波') 
+figure(2) 
+plot(t,y,':',t,y1,'r*') 
+title('绘制正弦波和余弦波    Pos=0','fontsize',10,'fontweight','bold','fontangle','italic') 
+legend('正弦波','余弦波',0) 
+grid on 
+figure(3) 
+plot(t,y,':',t,y1,'r*') 
+title('绘制正弦波和余弦波  Pos=-1','fontsize',10,'fontweight','bold','fontangle','italic') 
+text(7*pi/2,0,'\rightarrowcos(\pi*7/2)=0') 
+legend('正弦波','余弦波',-1) 
+grid off
+```
+### 三维图形
+* 1. 三维曲线绘图命令
+> * `plot3(X1,Y1,Z1,s1,X2,Y2,Z2,s2,…)`其中Xn、Yn、Zn为第一到三维数据，是尺寸相等的向量/矩阵，s、s1、s2：是字符串，用来设置线型、颜色、数据点标记
+```Mablab
+t=0:0.1:8*pi; 
+plot3(sin(t),cos(t),t)   %x、y、z 是向量
+title(’绘制螺旋线’)  %用命令 title 对图形主题进行标注 
+xlabel('sin(t)')         
+ylabel('cos(t)') 
+zlabel('t')              %命令 zlabel 用来指定 z 轴的数据名称 
+grid on                      %加上网格线
+```
+```Matlab
+[X,Y]=meshgrid(-pi:0.1:pi);
+Z=sin(X)+cos(Y); 
+plot3(X,Y,Z)               %x、y、z 都是矩阵
+```
+* 2. 三维曲面绘图命令 
+* 三维曲面绘图命令可分为平面网格点的生成、在平面网格基础上绘制三维网格及对三维表面进行处理三个步骤
+> * 平面网格点的生成：`[X,Y]=meshgrid(x,y)`将由两个向量决定的区域转换为x-y 平面上对应的网格点矩阵，当x=y时，可简写为`meshgrid(x)`
+> * 参数含义如下： 
+> * x：是区间[x0,xm]上分划的向量； 
+> * y：是区间[y0,yn]上分划的向量； 
+> * [X,Y]：输出变量矩阵，矩阵 X 的行向量都是向量 x，矩阵 Y 的列向量都是向量 y。 
+> * 绘制三维网格：
+> * 调用格式为：
+> * mesh(X，Y，Z，C)：X、Y、Z、C 是同维数的矩阵，X、Y、Z 对应空间上的网格点，网格线颜色由C决定；
+> * mesh(X，Y，Z)：相当于上面的 C=Z 的情况； 
+> * mesh(x，y，Z，C)：x 和 y 是向量，Z 和 C 是同维数的矩阵，网格曲面的网格顶点是（ x(j)，y(i)，Z(i,j)），网格线的颜色由矩阵 C 决定； 
+> * mesh(x，y，Z)：相当于上面的 C=Z 的情况； 
+> * mesh(Z，C)：等价于 mesh(x，y，Z，C)，此时向量x=1:n，向量 y=1:m； 
+> * mesh(Z)：相当于上面的 C=Z 的情况
+> * mesh(...,’PropertyName’,PropertyValue,...)：给函mesh设置曲面属性。
+> * 另外还有：meshc(增加等高线) 和 meshz(在图形下面生成网格线)
+> * 三维表面处理：
+> * 函数 surf 可实现对网格曲面片进行着色，将网格曲面转化为实曲面。surf 命令的调用格式与 mesh 相同。
+> * z=peaks;              %绘制山峰的图像，将函数值赋予变量z 
+> * surf(z)  ;            %对山峰的图像进行着色处理
+> * shading interp        %函数 shading 改变着色方式 
+> * 柱面的表达 
+> * cylinder命令中，柱面的轴线定义为 z 轴，只要给出母线的描述就可完成一个柱面。 
+> * 调用格式为： 
+> * [X,Y,Z] = cylinder(R,N)；R是一描述柱面母线的向量，N是旋转柱面上的分割线条数
+> * [X,Y,Z] = cylinder(R)：缺省值 N=20； 
+> * [X,Y,Z] = cylinder：缺省值 N=20，R=[1，1]。 
+> * [X,Y,Z] 是返回的x,y,z坐标向量。 
+```Matlab 
+t=pi:0.01:3*pi; 
+r=sin(t)+t; 
+cylinder(r,30) 
+shading interp
+```
+> * 球面的表达
+> * sphere调用格式为： 
+> * [X,Y,Z]=sphere(N)：产生一个（ N+1）×（ N+1）×（ N+1）的矩阵，然后用函数 surf 命令绘制一个单位的球面，N 为设置分割线的条数； 
+[X,Y,Z] = sphere：缺省值 N = 20。
+```Mablab
+[X,Y,Z]=sphere;
+surf(X,Y,Z)  %画一个球面。
+```
+* 特殊图形的绘制:除了绘制二维、三维图形外，还要用到直方图、面积图、饼图等特殊图形
+![特殊图形-表](https://github.com/DodgeV/learning-programming/blob/master/png/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2-%E8%A1%A8.png)
+> * 1.面积图命令`area`表现各个不同部分对整体所作的贡献 
+> * area(X,Y)：与 plot 的命令的使用方法相似，将连线图到 x 轴的那部分填上了颜色； 
+> * area(Y)：缺省值 X=1:SIZE(Y)； 
+> * area(X,Y,LEVEL)或 area(Y,LEVEL)：填色部分为由连线图到 y=level 的水平线之间的部分。
+```Matlab
+X=-2:2; 
+Y=[3,5,2,4,1;5,4,2,3,5;3,4,5,2,1]; 
+area(X',Y')                       % 绘制一面积图 
+legend('因素 1','因素 2','因素 3') 
+grid on
+```
+> * 2.直方图命令`bar`常用于统计数据的作图， 有bar、bar3、barh 和 bar3h几种函数，其调用格式类似。
+> * 以函数 bar 为例： 
+> * bar(X,Y)：X 是横坐标向量，Y 可以是向量或矩阵。Y 是向量时，每一个元素对应一个竖条；Y 是 m 行 n 列矩阵时，将画出 m 组竖条，每组包括 n 个竖条； 
+> * bar(Y)：横坐标使用缺省值 X=1:M； 
+> * bar(X,Y,WIDTH)  或 bar(Y,WIDTH)：用 WIDTH 指定竖条的宽度，如果 WIDTH＞1，条与条之间将重合。缺省宽度为 0.8； 
+> * bar(...,’grouped’)：产生缺省的组合直方图； 
+> * bar(...,’stacked’)：产生累积的直方图； 
+> * bar(...,linespec)：指定条的颜色；
+> * H = bar(...)：返回条形图对象的句柄。 
+```Matlab
+X=-2:2; 
+Y=[3,5,2,4,1;5,4,2,3,5;3,4,5,2,1]; 
+subplot(2,2,1) 
+bar(X,Y','r') 
+xlabel('x')
+ylabel('y') 
+colormap(cool) 
+subplot(2,2,2) 
+barh(X,Y','grouped') 
+xlabel('y') 
+ylabel('x') 
+colormap(cool) 
+subplot(2,2,3) 
+bar(X,Y','stacked') 
+xlabel('x') 
+ylabel('\Sigma y') 
+colormap(summer) 
+subplot(2,2,4) 
+barh(X,Y','stacked') 
+xlabel('y');ylabel('\Sigma x') 
+colormap(summer)
+```
+```Matlab
+% 绘制三维直方图。
+X=-2:2; 
+Y=[3,5,2,4,1;5,4,2,3,5;3,4,5,2,1]; 
+subplot(2,2,1) 
+bar3(X,Y','r') 
+zlabel('y') 
+ylabel('x') 
+colormap(cool) 
+subplot(2,2,2) 
+bar3h(X,Y','grouped') 
+ylabel('x') 
+zlabel('y') 
+colormap(cool) 
+subplot(2,2,3) 
+bar3(X,Y','stacked') 
+ylabel('x') 
+zlabel('\Sigma y') 
+colormap(summer) 
+subplot(2,2,4) 
+bar3h(X,Y’,’stacked’) 
+zlabel(’x’) 
+ylabel(’\Sigma y’) 
+colormap(summer)
+```
+> * 3.饼图命令`pie`又叫扇形图，用于显示向量中元素所占向量元素总和的百分比
+> * pie 和 pie3分别用于绘制二维和三维饼图。
+> * 调用格式： 
+> * pie(X)：向量 X 的饼图。把 X 的每一个元素在所有元素总和中占的比例表达出来； 
+> * pie(X,EXPLODE)：向量EXPLODE（和向量X长度相等）用于指定饼图中抽出一部分的块（非零值对应的块）
+> * pie(...,LABELS)：LABELS 是用于标注饼图的字符串数组，其长度必须和向量 X相等； 
+> * H = pie(...)：返回包括饼图和文本对象句柄。 
+```
+%用函数 pie 和 pie3 绘制饼图
+x=[200,360,120,400,320]; 
+subplot(2,2,1),
+pie(x,[0 0 0 1 0]) 
+subplot(2,2,2),
+pie3(x,[0 0 0 1 0])
+subplot(2,2,3),
+pie(x(2:5)) 
+subplot(2,2,4), 
+x=[0.1,0.12,0.21,0.34,0.11];
+pie3(x ,{'A','B','C','D','E'})
+```
 > * 底层绘图：line对象和line函数
 ### 二维绘图的辅助操作
 #### 标注：图形名称，坐标轴名称，曲线标注，图例
@@ -287,9 +486,6 @@ axis([0,max(t),min(y),max(y)])
 #### 图形保持(同一坐标轴绘制多个图形)
 * 对象和句柄：MATLAB把构成图形的各个基本要素称为图形对象，产生每个图形对象时，MATLAB会自动分配一个唯一的值用于表示该对象，称为句柄
 * 对象之间的关系
-### 三维图形
-* 1. 三维曲线绘图命令
-
 * * *
 ## 符号运算
 ### 符号计算基础
