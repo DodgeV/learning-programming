@@ -389,7 +389,7 @@
 * [2004年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2004%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
 
 ### 数学建模算法
-+ [modeling 数学建模相关算法 MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
+* [数学建模相关算法MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
 * [经典算法](https://github.com/zhanwen/MathModel/tree/master/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95)
 * [现代算法](https://github.com/zhanwen/MathModel/tree/master/%E7%8E%B0%E4%BB%A3%E7%AE%97%E6%B3%95)
 * [计算机仿真](https://github.com/zhanwen/MathModel/tree/master/%E7%8E%B0%E4%BB%A3%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F) 
