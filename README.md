@@ -429,7 +429,7 @@
 + [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
 + [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
-+ [数学建模美赛/国赛 算法顶级培训(完)](https://www.bilibili.com/video/BV14b411v7dT)
++ [数学建模美赛/国赛 算法顶级培训(完)--老教练](https://www.bilibili.com/video/BV14b411v7dT)&[备用](https://www.bilibili.com/video/BV1e54y1e7cU)
 + [【数学建模/零基础/教程】数学建模零基础快速入门教程(附代码)](https://www.bilibili.com/video/BV1Kb41167QZ)
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
 
