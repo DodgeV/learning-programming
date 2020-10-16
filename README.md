@@ -146,7 +146,8 @@
 
 #### [python-patterns](https://github.com/faif/python-patterns)
 #### videos
-+ [python就业形势](https://www.bilibili.com/video/BV1Y7411v7T1?p=87)&[对应ppt](https://github.com/DodgeV/learning-programming/blob/master/books/python/python%E5%B0%B1%E4%B8%9A%E5%BD%A2%E5%8A%BF.pptx)
+* [python就业形势](https://www.bilibili.com/video/BV1Y7411v7T1?p=87)&[对应ppt](https://github.com/DodgeV/learning-programming/blob/master/books/python/python%E5%B0%B1%E4%B8%9A%E5%BD%A2%E5%8A%BF.pptx)
+* [Python3 入门与进阶](https://www.bilibili.com/video/BV1At4y1i76x)&[对应源码](https://github.com/DodgeV/learning-programming/tree/master/books/python/Python3%20%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6)
 * [python从入门到实践--bilibili](https://www.bilibili.com/video/BV1Y7411v7T1)
 * [零基础入门学习Python(小甲鱼)](https://www.bilibili.com/video/BV1y7411d7rW)&[全套源码课件](https://github.com/DodgeV/learning-programming/tree/master/books/python/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0Python(%E5%B0%8F%E7%94%B2%E9%B1%BC)%E5%85%A8%E5%A5%97%E6%BA%90%E7%A0%81%E8%AF%BE%E4%BB%B6)
 * [全国计算机二级Python科目基础知识教程](https://www.bilibili.com/video/BV1ht41187Aa)&[真题操作题部分讲解](https://www.bilibili.com/video/BV1Vb411h7K8)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/%E4%BA%8C%E7%BA%A7)&[Python二级考试考纲笔记（2018全）](https://mubu.com/doc/1Bam_vCyQw)
