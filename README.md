@@ -86,6 +86,7 @@
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
 + [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
++ [ iamshuaidi 各类CS-books](https://github.com/iamshuaidi/CS-Book)
 
 ## some websites
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
