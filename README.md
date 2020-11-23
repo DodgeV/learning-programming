@@ -1,15 +1,14 @@
-# study
-+ [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
+# basic learning
 + [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
 + [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)&[公共基础对应笔记](https://www.bilibili.com/read/cv2097828/)
 + [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
-+ [C语言/C++直通企业级开发的详细学习路线](https://www.bilibili.com/video/BV1G7411K7j2)
 
-## some playground
+## some tools
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
++ [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
 + [在线工具](https://tool.lu/)
 + [GDB ONLINE Debugger](https://www.onlinegdb.com/)
 + [T-compile C# online](https://rextester.com/)
@@ -87,9 +86,17 @@
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
 + [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
 + [ iamshuaidi 各类CS-books](https://github.com/iamshuaidi/CS-Book)
++ [图灵社区](https://www.ituring.com.cn/)
++ [博文视点](https://www.broadview.com.cn/)
++ [书栈网](https://www.bookstack.cn/)
++ [计算机书籍控](https://bestcbooks.com/)
++ [it熊猫](https://itpanda.net/book/)
+
 
 ## some websites
++ [码云](https://gitee.com/)
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
++ [BeginnersBook.com – Tutorials For Beginners](https://beginnersbook.com/)
 + [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
 + [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
 + [五分钟学算法](https://www.cxyxiaowu.com/)
@@ -100,12 +107,41 @@
 + [Web development tutorials](https://www.w3resource.com/)
 + [菜鸟教程](https://www.runoob.com/)
 + [leetcode](https://leetcode-cn.com/)
+### Small blog
++ [美团技术团队](https://tech.meituan.com)
++ [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
++ [Web前端导航](http://www.alloyteam.com/nav/)
++ [酷壳](https://coolshell.cn/)
++ [人工智能社区](https://www.captainbed.net/blog-neo/)
+### for practice
 + 练习正则表达式[regex](https://regex101.com)
++ [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode-cn.com/)
++ [LintCode - 空前强大的在线编程训练系统](https://www.lintcode.com/)
++ [牛客网-一个联网求职学习交流社区](https://www.nowcoder.com/)
+### Technology blog
++ [CSDN](https://blog.csdn.net/)
++ [博客园](https://www.cnblogs.com/)
++ [简书](https://www.jianshu.com/)
++ [思否](https://segmentfault.com/)
++ [开源中国](https://www.oschina.net)
++ [51CTO](https://www.51cto.com/)
++ [V2EX](https://www.v2ex.com)
++ [腾讯云社区](https://cloud.tencent.com/developer)
++ [阿里云社区](https://yq.aliyun.com)
++ [开发者头条](https://toutiao.io/)
++ [GitChat](https://gitbook.cn)
++ [知乎](https://www.zhihu.com/)
++ [Stack Overflow](https://stackoverflow.com)
++ [http://dev.io](https://dev.to/)
++ [DZone](https://dzone.com/)
++ [Bytes](https://bytes.com/)
++ [Google Developers](https://developers.google.com/)
 
 
 ## 语言
 ### C
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/C_NOTE.md)
++ [C语言/C++直通企业级开发的详细学习路线](https://www.bilibili.com/video/BV1G7411K7j2)
 * [C语言网](https://www.dotcpp.com/)
 * [C语言菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
 * [二级C语言--潭州教育](https://www.bilibili.com/video/BV1Mt41147g1)
@@ -127,6 +163,10 @@
 * [20个小时快速入门go语言（下）](https://www.bilibili.com/video/BV17W411W7hm)
 * [Go 语法树入门](https://github.com/chai2010/go-ast-book)
 * [其他书籍](https://github.com/DodgeV/learning-programming/tree/master/books/Golang)
+
+### Java
++ [CodeGym online Java programming](https://codegym.cc/)
++ [Java Code Examples](http://www.javased.com/)
 
 ### python
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/python_NOTE.md)
@@ -185,6 +225,7 @@
 * [链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程](https://github.com/XuefengHuang/lianjia-scrawler)
 * [Zipline, a Pythonic Algorithmic Trading Library](https://github.com/quantopian/zipline)
 * [阿布量化交易系统(股票，期权，期货，比特币，机器学习) 基于python的开源量化交易，量化投资架构](https://github.com/bbfamily/abu)
+
 ## 数据结构与算法
 + [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 + [VisuAlgo](https://visualgo.net/zh)
