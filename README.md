@@ -107,6 +107,7 @@
 + [Web development tutorials](https://www.w3resource.com/)
 + [菜鸟教程](https://www.runoob.com/)
 + [leetcode](https://leetcode-cn.com/)
++ [慕课网-程序员的梦工厂](https://www.imooc.com/)
 ### Small blog
 + [美团技术团队](https://tech.meituan.com)
 + [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
@@ -176,6 +177,7 @@
 * [学习数据科学的路线](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
 * [Python算法学习与机器学习算法](https://mp.weixin.qq.com/s/nsOt-uLJBegehVkGigmuow)
 * [完备的 AI 学习路线，最详细的资源整理！](https://mp.weixin.qq.com/s/KNaaWuaLjl8iSMemoEpEMQ)
+* [Kaggle: Your Machine Learning and Data Science Community](https://www.kaggle.com/)
 #### books
 * [Python's books](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#python)
 + [Official doc](https://docs.python.org/3/)
