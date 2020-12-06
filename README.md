@@ -91,6 +91,9 @@
 + [书栈网](https://www.bookstack.cn/)
 + [计算机书籍控](https://bestcbooks.com/)
 + [it熊猫](https://itpanda.net/book/)
++ [计算机电子书下载网-编程pdf电子书下载-码农之家](https://www.xz577.com/)
++ [SaltTiger | 每天一本编程书，每天进步一点点](https://salttiger.com/)
++ [搬书匠 - 电子书(EBook)](http://www.banshujiang.cn/)
 
 
 ## some websites
