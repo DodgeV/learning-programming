@@ -479,7 +479,7 @@
 + [数学建模--华中农业大学](http://www.icourse163.org/learn/HZAU-1001658002)
 + [数学模型--姜启源](https://www.bilibili.com/video/BV1VJ411w7r3/)
 + [数学建模--清风](https://www.bilibili.com/video/BV1DW411s7wi)
-+ [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)
++ [数学模型--清华大学](https://www.bilibili.com/video/BV1Zx411y7Ah)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1_%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A683%E8%AE%B2)
 + [数学建模美赛/国赛 算法顶级培训(完)--老教练](https://www.bilibili.com/video/BV14b411v7dT)&[备用](https://www.bilibili.com/video/BV1e54y1e7cU)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%AB%98%E9%98%B631%E5%A0%82%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99)
 + [【数学建模/零基础/教程】数学建模零基础快速入门教程(附代码)](https://www.bilibili.com/video/BV1Kb41167QZ)
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
