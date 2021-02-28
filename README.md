@@ -205,6 +205,7 @@
 * [Python机器学习--北理工](http://www.icourse163.org/learn/BIT-1001872001)
 * [用Python玩转数据--南京大学](http://www.icourse163.org/learn/NJU-1001571005)
 * [零基础学习PythonCAP--北理工](http://www.icourse163.org/learn/BIT-1002058035)
+* [python公开课]()&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/python/python%E5%85%AC%E5%BC%80%E8%AF%BE)
 * [传智播客day25网络爬虫](https://www.bilibili.com/video/av84404200?p=86)&[如果失效用这个](https://www.bilibili.com/video/av50730537)
 * [传智播客python就业班](https://www.bilibili.com/video/BV1uJ411Y7uH?p=115) 或 [python2018就业班全集（前半部分）](https://www.bilibili.com/video/BV1b4411b74E?p=116)&[Python2018就业班（后半部分）](https://www.bilibili.com/video/av53525697/)
 
