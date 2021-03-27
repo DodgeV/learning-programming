@@ -15,6 +15,20 @@
 + [在线代码运行小工具123](http://www.gjw123.com/tools-runcode)
 + [在线代码运行](https://www.toolnb.com/dev/runCode.html)
 
+## some games
++ [Learn VIM while playing a game - VIM Adventures](https://vim-adventures.com/)
++ [Tomorrow Corporation : Games](http://tomorrowcorporation.com/games)
++ [Coding with Minecraft](https://turtleappstore.com/)
++ [Code Hunt - Microsoft Research](https://www.microsoft.com/en-us/research/project/code-hunt/)
++ [Ruby Quiz](http://rubyquiz.com/)
++ [Achieve mastery through challenge | Codewars](https://www.codewars.com/)
++ [CodeMonkey](https://cm.xiaohoucode.com/#/login)
++ [cyber-dojo](https://www.cyber-dojo.org/creator/home)
++ [CheckiO - coding games and programming challenges for beginner and advanced](https://checkio.org/)
++ [Screeps - MMO strategy sandbox game for programmers](https://screeps.com/)
++ [极客战记网易官网-玩游戏学编程零基础Python入门-CodeCombat官方个人版](https://codecombat.163.com/#/)
++ [Coding Games and Programming Challenges to Code Better](https://www.codingame.com/start)
+
 ## some videos 
 + [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
 + [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
