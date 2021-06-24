@@ -14,6 +14,7 @@
 + [T-compile C# online](https://rextester.com/)
 + [在线代码运行小工具123](http://www.gjw123.com/tools-runcode)
 + [在线代码运行](https://www.toolnb.com/dev/runCode.html)
++ [在线编辑器](https://codesandbox.io/)
 
 ## some games
 + [Learn VIM while playing a game - VIM Adventures](https://vim-adventures.com/)
@@ -177,7 +178,10 @@
 
 ### HTML/CSS/JavaScript
 - [前端基础-渡一教育](https://www.bilibili.com/video/BV1yx411d7Rc)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/Html%2BCss%2BJavaScript/%E8%A2%81%E8%80%81%E5%B8%88html%2Bcss%E6%BA%90%E7%A0%81%E8%B5%84%E6%96%99)
-- [HTML 30分钟入门教程](https://deerchao.cn/tutorials/html/html.htm)
+- HTML 30分钟入门教程：https://deerchao.cn/tutorials/html/html.htm
+- web开发人员必备工具包（实现快速敲代码）:https://docs.emmet.io/
+- 让代码提交的时候先执行一次代码，如果有报错不让提交：www.npmjs.com/package/eslint-config-airbnb
+- JavaScript教程网：https://zh.javascript.info/
 
 ### Go
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
