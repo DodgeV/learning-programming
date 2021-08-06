@@ -101,6 +101,7 @@
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
 + [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
 + [ iamshuaidi 各类CS-books](https://github.com/iamshuaidi/CS-Book)
++ [Free Computer, Programming, Mathematics, Technical Books, Lecture Notes and Tutorials](https://freecomputerbooks.com/)
 + [图灵社区](https://www.ituring.com.cn/)
 + [博文视点](https://www.broadview.com.cn/)
 + [书栈网](https://www.bookstack.cn/)
