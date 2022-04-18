@@ -490,12 +490,12 @@
 
 ### Matlab video & notebook
 + [笔记本](https://github.com/DodgeV/learning-programming/blob/master/MATLAB_NOTE.md)
-+ [机器学习及其MATLAB实现—从基础到实践(13节全)](https://www.bilibili.com/video/BV12W411q7Se)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%85%B6MATLAB%E5%AE%9E%E7%8E%B0)
++ [机器学习及其MATLAB实现—从基础到实践[13节全]](https://www.bilibili.com/video/BV12W411q7Se)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%85%B6MATLAB%E5%AE%9E%E7%8E%B0)
 + [Matlab入门和在线性代数中的应用](https://github.com/zhanwen/MathModel/tree/master/Matlab%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B)
-+ [数学建模比赛MATLAB教学[共23P]](https://www.bilibili.com/video/BV1db411Y7uQ)
-+ [数学建模培训视频-小石老师-14讲](https://www.bilibili.com/video/BV1by4y1B7dk)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%9F%B9%E8%AE%AD%E8%A7%86%E9%A2%91-%E5%B0%8F%E7%9F%B3%E8%80%81%E5%B8%88-14%E8%AE%B2)
++ [数学建模比赛MATLAB教学[23P]](https://www.bilibili.com/video/BV1db411Y7uQ)
++ [数学建模培训视频-小石老师[14讲]](https://www.bilibili.com/video/BV1by4y1B7dk)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%9F%B9%E8%AE%AD%E8%A7%86%E9%A2%91-%E5%B0%8F%E7%9F%B3%E8%80%81%E5%B8%88-14%E8%AE%B2)
 + [《MATLAB函数查询及应用案例》](https://www.bilibili.com/video/BV1ry4y1C7fN)&[对应例子](https://github.com/DodgeV/learning-programming/blob/master/books/MATLAB/%E3%80%8AMATLAB%E5%87%BD%E6%95%B0%E6%9F%A5%E8%AF%A2%E5%8F%8A%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B%E3%80%8B.7z)
-+ [MATLAB数据挖掘技术系列培训视频](https://www.bilibili.com/video/bv1Tp4y1y7G7)ds&[备用](https://www.bilibili.com/video/BV1NV411n7G7?p=66)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/MATLAB%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E7%B3%BB%E5%88%97%E5%9F%B9%E8%AE%AD%E8%AF%BE%E4%BB%B6_PDF%E7%89%88)
++ [MATLAB数据挖掘技术系列培训视频[6P]](https://www.bilibili.com/video/bv1Tp4y1y7G7)ds&[备用](https://www.bilibili.com/video/BV1NV411n7G7?p=66)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/MATLAB%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E7%B3%BB%E5%88%97%E5%9F%B9%E8%AE%AD%E8%AF%BE%E4%BB%B6_PDF%E7%89%88)
 + [Matlab基础教程](https://www.bilibili.com/video/BV1VJ411p7M6)
 + [Matlab最基础纯手写教程--Taylim](https://www.bilibili.com/video/BV1q7411g7Dh)
 + [Matlab基础入门与算法实践--老教练](https://www.bilibili.com/video/BV1FD4y1m78C)&[对应资料](https://github.com/DodgeV/learning-programming/tree/master/books/MATLAB/Matlab%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5)
