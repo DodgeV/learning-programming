@@ -1,3 +1,16 @@
+# stata笔记🌍
+
+- [基本](#基础)
+- [常用命令](#常用命令)
+- [编译型语言](#编译型语言)
+- [横截面分析](#横截面分析)
+- [时间序列模型](#时间序列模型)
+- [面板数据](#面板数据)
+- [免责声明](#免责声明)
+- [参考资源](#参考资源)
+
+------
+
 ## 基本
 * stata允许第三方插件
 * 三种文件：数据文件、do文件、log文件
@@ -6,14 +19,15 @@
 > + do文件记录命令可通过按钮或`Ctrl+D`重复执行，建议将命令保存在do文件中
 > + log文件可以记录分析过程:`File`==>`Log`==>`Begin`
 > + 或直接输入命令`log using log_file_name [,[append|replace] [text|smcl] name(logname)]`
->> + `log_file_name`是log文件的名字
->> + `append`若文件存在，附加在文件上
->> + `replace`若文件存在，替换这个文件，若文件不存在则都会创造新文件，若文件已经存在而未指定则会报错
->> + `smcl`为stata默认的log文件格式，可以保存各种颜色，可以转换为`.log`
->> + `text`为单色，便于在文本编辑器中打开
->> + `name(log_for_sb)`打开不同的log文件给不同的合作者
->> + `log close [logname]`若没有起名字就不用加文件名
->> + `log close_all`关闭所有log文件，包括起名字没起名字
+> > + `log_file_name`是log文件的名字
+> > + `append`若文件存在，附加在文件上
+> > + `replace`若文件存在，替换这个文件，若文件不存在则都会创造新文件，若文件已经存在而未指定则会报错
+> > + `smcl`为stata默认的log文件格式，可以保存各种颜色，可以转换为`.log`
+> > + `text`为单色，便于在文本编辑器中打开
+> > + `name(log_for_sb)`打开不同的log文件给不同的合作者
+> > + `log close [logname]`若没有起名字就不用加文件名
+> > + `log close_all`关闭所有log文件，包括起名字没起名字
+>
 > + 读取的时候`File`==>`Log`==>`view`
 
 ## 常用命令
@@ -30,10 +44,12 @@
 
 #### Data manipulation commands
 * 可以通过命令的方式录入数据集
-> + `input X1 X2 ...`
-> + `1 2 3`
-> + `end`
-> + `save XXX,replace`    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
+```
+input X1 X2 ...
+1 2 3
+end
+save XXX,replace    // 如路径下已经存在XXX同名数据集，要指定replace(慎用)
+```
 * 也可以通过菜单窗口的方式录入数据
 > + `edit`打开窗口写入数据，如果内存有数据，可对数据进行修改
 * 还可以使用自带的auto横截面数据,命令可用`use`
@@ -196,14 +212,19 @@
 
 ## 横截面分析
 #### 回归分析
-* `use nerlove.dta,clear`
-* `reg lntc lnpf lnpk  lnpl` 
-* `reg lntc lnpf lnpk  lnpl ,noc`
-* `predict yhat`                   //  拟合被解释变量GDP
-* `predict e,residual`              //  计算残差
-* `rvfplot`  
-* `tobit depvar [indepvars] [if] [in] [weight] ,ll[(#)] ul[(#)] [options]`      //归并回归用到的命令，ll[(#)]表示left-censoringlimit， ul[(#)]表示right-censoring limit
-* `tobit y c x1 x2x3，ll(#)  ul(#)`    //其中选择项ll(#)表示左侧归并，ul(#)表示右侧归并，如果同时选择这两个，表示左右双边规定，即介于两个值之间。
+
+```
+use nerlove.dta,clear
+reg lntc lnpf lnpk  lnpl
+reg lntc lnpf lnpk  lnpl ,noc
+predict yhat    			   //  拟合被解释变量GDP
+predict e,residual             //  计算残差
+rvfplot
+tobit depvar [indepvars] [if] [in] [weight] ,ll[(#)] ul[(#)] [options]
+//归并回归用到的命令，ll[(#)]表示left-censoringlimit， ul[(#)]表示right-censoring limit
+tobit y c x1 x2x3，ll(#)  ul(#)
+//其中选择项ll(#)表示左侧归并，ul(#)表示右侧归并，如果同时选择这两个，表示左右双边规定，即介于两个值之间。
+```
 
 #### 参数检验
 * `regress lntc lnpk  lnpl`
@@ -230,19 +251,25 @@
 
 ## 时间序列模型
 #### 时间序列声明
-* `use 时间序列数据.dta, clear`
-* `tsset year   //时间序列声明`
+
+```
+use 时间序列数据.dta, clear
+tsset year   //时间序列声明
+```
 
 #### 单位根检验
-* `use 时间序列数据.dta, clear`
-* `dfuller d.m,lag(2)`                //ADF检验
-* `dfuller m,nocon regress`           //ADF检验
-* `dfuller m,trend regress`
-* `pperron m,lag(2)`                  //PP检验                   
-* `pperron m,nocon regress`           
-* `pperron d.m,regress`
-* `dfgls m`                          //DF-GLS检验
-* `kpss  m,notrend`                   //KPSS检验
+
+```
+use 时间序列数据.dta, clear
+dfuller d.m,lag(2)`                //ADF检验
+dfuller m,nocon regress`           //ADF检验
+dfuller m,trend regress
+pperron m,lag(2)`                  //PP检验    
+pperron m,nocon regress
+pperron d.m,regress
+dfgls m`                          //DF-GLS检验
+kpss  m,notrend`                   //KPSS检验
+```
 
 #### ECM单位根检验
 * `reg m s g` 
@@ -251,12 +278,15 @@
 * `reg d.m d.s d.g ecm`   //ECM模型
 
 #### VAR模型
-* `varsoc m s g ,maxlag(5)`
-* `var m s g ,lags(1/4)`
-* `varstable,graph`
-* `vargranger`
-* `irf create myrif,set(myrif) replace`
-* `irf graph irf`
+
+```
+varsoc m s g ,maxlag(5)
+var m s g ,lags(1/4)
+varstable,graph
+vargranger
+irf create myrif,set(myrif) replace
+irf graph irf
+```
 
 #### VECM模型
 * `vecrank m s g,lags(4)`
@@ -267,6 +297,17 @@
 
 ## 面板数据
 #### 面板声明
-* `use FDI.dtar, clear`
-* `xtset country year`   //在这种情况下"country"代表实体或小组(i)，“year”表示时间变量(t)。
-* > 注意事项：如果在使用xtset后出现
+````
+use FDI.dtar, clear
+xtset country year  
+//其中"country"代表实体或小组(i)，“year”表示时间变量(t)。
+//注意事项：如果在使用xtset后出现
+````
+
+## 免责声明
+除去特别小的工作，你编写的代码应当方便他人阅读。能力往往伴随着责任，你 有能力 在 Bash 中玩一些奇技淫巧并不意味着你应该去做！:)
+
+## 参考资源
++ [医咖会Stata系列教程](https://space.bilibili.com/44532954/video)
++ [Stata 统计分析软件 教程](https://www.bilibili.com/video/av36991912)
++ [用stata做统计分析](https://www.bilibili.com/video/BV1b5411Y7QM?p=20)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/stata/stata%E6%95%99%E7%A8%8B%E8%B5%84%E6%96%99)
