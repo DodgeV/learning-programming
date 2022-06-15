@@ -301,7 +301,6 @@
 + [笔记本](https://github.com/DodgeV/learning-programming/blob/master/stata_NOTE.md)
 + [医咖会Stata系列教程](https://space.bilibili.com/44532954/video)
 + [Stata 统计分析软件 教程](https://www.bilibili.com/video/av36991912)
-+ [连 yu 君 Stata 初级(37)+高级(48)+论文](https://www.bilibili.com/video/BV1Wb411h7gx)
 + [用stata做统计分析](https://www.bilibili.com/video/BV1b5411Y7QM?p=20)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/stata/stata%E6%95%99%E7%A8%8B%E8%B5%84%E6%96%99)
 
 ## data analysis
