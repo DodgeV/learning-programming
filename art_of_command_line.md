@@ -89,8 +89,17 @@
 - `ctrl`+`u`清除光标前面的所有命令行，`ctrl`+`k`清除光标后面的所有命令行
 - `ctrl`+`a`将光标移动到命令行的最前面
 - `clear` 清除屏幕上所有内容
+* `date` 查看系统时间
+* `cal` 查看该月的日历，`-y`查看一年的日历
+* `shutdown`默认一分钟后关机
+* `shutdown -r now`立刻重启
+* `shutdown +10` 10分钟之后关机
+* `shutdown 20:10` 系统会在今天20:10关机
+* `shutdown -c` 撤销命令
 
 - 学习 Bash 的基础知识。具体地，在命令行中输入 `man bash` 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的（ 如果你*只*学习 zsh，fish 或其他的 shell 的话，在你自己的设备上会显得很方便，但过度依赖这些功能会给您带来不便，例如当你需要在服务器上工作时）。
+- 查找命令的帮助文档的2种方式 `man`+ command 或 command + `--help`，注意command [-options选项] [param参数]  里括号中部分可以不写, `Enter`回车 一行一行看, 空格 一页一页看,`b`(回滚一屏),`f`(前滚一屏),`q`(退出)。学会使用 `apropos` 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type` 来判断这个命令到底是可执行文件、shell 内置命令还是别名。
+
 
 ### vim
 - 熟悉至少一个基于文本的编辑器。通常而言 Vim （`vi`） 会是你最好的选择，毕竟在终端中编辑文本时 Vim 是最好用的工具（甚至大部分情况下 Vim 要比 Emacs、大型 IDE 或是炫酷的编辑器更好用）。
@@ -140,7 +149,71 @@
 
 > * 给多行添加注释 ctrl+v 进入可视块 选中要添加注释的行 0定位到行首,大写i进入编辑模式在行首输入井号 esc退出完成
 
-- 查找命令的帮助文档的2种方式 `man`+ command 或 command + `--help`，注意command [-options选项] [param参数]  里括号中部分可以不写, `Enter`回车 一行一行看, 空格 一页一页看,`b`(回滚一屏),`f`(前滚一屏),`q`(退出)。学会使用 `apropos` 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type 命令` 来判断这个命令到底是可执行文件、shell 内置命令还是别名。
+### Git
+- 版本控制管理系统之`git`,借助GitHub托管项目代码
+> + [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
+- 仓库(Repository):仓库用来存放项目代码，每个项目对应一个仓库
+> - 每一次修改文件，点击`Commit changes`都可以输入具体的修改信息，方便后续查看
+> - 点击`Go to file`可以查找仓库中的文件
+- 事物卡片(Issue):发现bug，但没有成型代码，讨论时可使用，或者使用开源项目时使用
+> - 外部账户可以在项目主页点击`Issues`将bug的具体信息提交给仓库作者进行讨论，原作者可以在`Issues`里面回答
+> - 然后发起请求(Pull Request):将Forked的项目更新过后发送给项目原主，最后等待原作者合并请求
+- 利用命令行`git`管理GitHub，可能需要先到[官网](https://www.git-scm.com/download)下载
+> - git工作区域有3个：
+> - git repository(Git 仓库)：最终确定的文件保存在仓库，成为一个新的版本，并对他人可见
+> - 暂存区：暂存已经修改的文件最后统一提交到git仓库中
+> - 工作区(Working Dirctory)：添加、编辑、修改文件等动作
+> * 向仓库添加文件的流程：
+> * 1. 基本信息设置，设置用户名：`git config --global user.name 'XXX'`，设置用户名邮箱：`git config --global user.name 'XX'`，然后检查配置`git config list`
+> * 2. 先创建一个git文件夹，然后cd到该文件夹下
+> * 3. `git init`初始化git，把当前所在目录变成一个本地仓库，然后创建一个要上传的文件
+> * 4. `git status`查看整个仓库的状态
+> * 5. `git add [文件名]`将文件提交到暂存区，`git reset -- [文件名]`或者`git rm --cached [文件名]`即可撤销暂存区的修改，如果不加文件名就是将所有修改的撤销
+> * 6. `git status`再次查看状态，再利用`git diff`查看工作区被跟踪文件的修改情况，`git diff --cached`查看暂存区所有修改
+> * 7. `git commit -m '详细描述信息'`将文件提交到仓库，并加上描述信息
+> * 8. 想要修改文件，需要先在本地修改，然后重复上述操作
+> * 9. 想要删除文件，需要先在本地删除，然后`git rm XX`从git删除文件，最后`git commit -m '描述信息'`提交到仓库
+> + 利用git实现远程操作
+> + `git clone [仓库地址]`克隆仓库，下载在当前目录下，仓库的主目录中有个`.git`隐藏目录，里面包含所有仓库信息，不可删除
+> + `git clone -o [仓库地址] [主机名]`克隆远程仓库时，还可以修改主机名
+> + 克隆一个仓库到本地，本地仓库则会自动关联到这个远程仓库，`git remote`命令就用于管理本地仓库所关联的主机，一个本地仓库可以关联任意多个主机（即远程仓库）
+> + 执行`git remote -v`命令可以查看本地仓库所关联的远程仓库信息
+> + `git push`同步到远程仓库
+> + `vi .git/config`修改remote信息
+> * 搭建个人站点https://[用户名].github.io, 仅支持静态页面
+> * 1. 新建名为`[用户名].github.io`的仓库
+> * 2. 在仓库内新建一个名为`index.html`文件
+> * 注意：仓库里面只能有html文件
+> * 搭建个人项目主页https://[用户名].github.io/[项目名]/
+> * 1. 在项目`settings`里面自动生成主题页面
+> * 2. 新建站点基础信息设置
+> * 3. 选择主题后生成网页
+
+- 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 `pip` 来安装会很方便）。
+> * `sudo apt install 软件名`安装软件
+> * `sudo apt remove 软件名`卸载软件
+> * `sudo apt upgrade`更新所有软件
+> * 软件源==>镜像源 
+```
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+```
+
 
 - 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
 > * `tree >> a`把要在终端中显示的树状图追加到文件a中
@@ -154,15 +227,6 @@
 - 熟悉正则表达式，学会使用 `grep`／`egrep`，它们的参数中 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C` 这些是很常用并值得认真学习的。
 
 - 熟悉 Bash 中的任务管理工具：`&`，**ctrl-z**，**ctrl-c**，`jobs`，`fg`，`bg`，`kill` 等。
-
-- 基本的命令
-> * date ----查看系统时间
-> * cal [-y] ----查看该月的日历，-y查看一年的日历
-> * `shutdown`默认一分钟后关机
-> * `shutdown -r now`立刻重启
-> * `shutdown +10` 10分钟之后关机
-> * `shutdown 20:10` 系统会在今天20:10关机
-> * `shutdown -c` 撤销命令
 
 - 学会基本的文件管理工具：
 > - `ls` 和 `ls -l` （了解 `ls -l` 中每一列代表的意义)
@@ -178,17 +242,17 @@
 > * `head`，
 > * `tail` 和 `tail -f` （甚至 `less +F`），
 > * `ln` 和 `ln -s` （了解硬链接与软链接的区别:`ln -s source dest`建立文件的软链接,类似快捷方式，源文件`source`要使用绝对路径，不能使用相对路径，这样移动链接文件的位置后，仍然能够正常使用,而`ln source dest`建立一个硬链接,即创建一个真实存在的文件,但共用一个inode,两个文件占用相同大小的硬盘空间，工作中几乎不会建立文件的硬链接,如果删除源文件,硬链接不受影响,软链接会失效,在Linux中文件数据和文件名是分开存储在硬盘上的,而软连接创建的一个新指向源文件名的路径,源文件名已删除则路径就断了,硬链接则是创建了指向源文件数据的路径,源文件名删除不会对该路径产生影响），
-> * touch ----创建文件 可以写多个文件  如果文件已经存在则修改文件的末次修改时间
-> * mkdir -p a1/a2/a3 ----一次性连续创建目录 创建的目录和文件名不能重名
-> * rm [-r] [-f] ----直接删除文件不能恢复 -r删除文件夹 -f强制删除文件 不会有任何提示
-> * tree [-d] ---- 以树状图的形式显示所有文件 -d只显示目录不显示文件
-> * tree ~ ----查看家目录的所有文件
-> * cp 源文件路径 新文件名路径 ----复制文件 默认覆盖文件
-> * cp [-i] [-r]---- -i弹出覆盖同名文件的提示 -r复制目录
-> * mv 移动目标目录 目的地目录或重命名----移动文件或文件夹
-> * mv -i ----弹出覆盖同名文件的提示
-> * cat [-b] [-n] 文件名 ---- 一次性全部显示文件的内容 -b显示内容同时输出行号 不会标注空行 -n显示内容同时输出行号 会标注空行
-> * more ----只显示一页 用空格键或`f`翻下一页`Enter`翻下一行`b`回滚一屏`q`退出
+> * `touch` ----创建文件 可以写多个文件  如果文件已经存在则修改文件的末次修改时间
+> * `mkdir -p a1/a2/a3` ----一次性连续创建目录 创建的目录和文件名不能重名
+> * `rm [-r] [-f]` ----直接删除文件不能恢复 -r删除文件夹 -f强制删除文件 不会有任何提示
+> * `tree [-d]` ---- 以树状图的形式显示所有文件 -d只显示目录不显示文件
+> * `tree ~` ----查看家目录的所有文件
+> * `cp 源文件路径 新文件名路径` ----复制文件 默认覆盖文件
+> * `cp [-i] [-r]`---- -i弹出覆盖同名文件的提示 -r复制目录
+> * `mv` 移动目标目录 目的地目录或重命名----移动文件或文件夹
+> * `mv -i` ----弹出覆盖同名文件的提示
+> * `cat [-b] [-n] 文件名` ---- 一次性全部显示文件的内容 -b显示内容同时输出行号 不会标注空行 -n显示内容同时输出行号 会标注空行
+> * `more` ----只显示一页 用空格键或`f`翻下一页`Enter`翻下一行`b`回滚一屏`q`退出
 
 - 用户&权限管理
 > * 用户是Linux系统中重要的一环 每个用户对不同的文件权限都不一样 (r读，w写，x执行)
@@ -359,71 +423,6 @@
 > - `Host myserver`
 > - `HostName 172.16.140.1 / User 对方用户名 /  Port 22`
 > - 之后再连接就可以简写为`ssh myserver`
-
-### Git
-- 版本控制管理系统之`git`,借助GitHub托管项目代码
-> + [Git零基础入门到实战详解](https://www.bilibili.com/video/BV1sJ411D7xN)
-- 仓库(Repository):仓库用来存放项目代码，每个项目对应一个仓库
-> - 每一次修改文件，点击`Commit changes`都可以输入具体的修改信息，方便后续查看
-> - 点击`Go to file`可以查找仓库中的文件
-- 事物卡片(Issue):发现bug，但没有成型代码，讨论时可使用，或者使用开源项目时使用
-> - 外部账户可以在项目主页点击`Issues`将bug的具体信息提交给仓库作者进行讨论，原作者可以在`Issues`里面回答
-> - 然后发起请求(Pull Request):将Forked的项目更新过后发送给项目原主，最后等待原作者合并请求
-- 利用命令行`git`管理GitHub，可能需要先到[官网](https://www.git-scm.com/download)下载
-> - git工作区域有3个：
-> - git repository(Git 仓库)：最终确定的文件保存在仓库，成为一个新的版本，并对他人可见
-> - 暂存区：暂存已经修改的文件最后统一提交到git仓库中
-> - 工作区(Working Dirctory)：添加、编辑、修改文件等动作
-> * 向仓库添加文件的流程：
-> * 1. 基本信息设置，设置用户名：`git config --global user.name 'XXX'`，设置用户名邮箱：`git config --global user.name 'XX'`，然后检查配置`git config list`
-> * 2. 先创建一个git文件夹，然后cd到该文件夹下
-> * 3. `git init`初始化git，把当前所在目录变成一个本地仓库，然后创建一个要上传的文件
-> * 4. `git status`查看整个仓库的状态
-> * 5. `git add [文件名]`将文件提交到暂存区，`git reset -- [文件名]`或者`git rm --cached [文件名]`即可撤销暂存区的修改，如果不加文件名就是将所有修改的撤销
-> * 6. `git status`再次查看状态，再利用`git diff`查看工作区被跟踪文件的修改情况，`git diff --cached`查看暂存区所有修改
-> * 7. `git commit -m '详细描述信息'`将文件提交到仓库，并加上描述信息
-> * 8. 想要修改文件，需要先在本地修改，然后重复上述操作
-> * 9. 想要删除文件，需要先在本地删除，然后`git rm XX`从git删除文件，最后`git commit -m '描述信息'`提交到仓库
-> + 利用git实现远程操作
-> + `git clone [仓库地址]`克隆仓库，下载在当前目录下，仓库的主目录中有个`.git`隐藏目录，里面包含所有仓库信息，不可删除
-> + `git clone -o [仓库地址] [主机名]`克隆远程仓库时，还可以修改主机名
-> + 克隆一个仓库到本地，本地仓库则会自动关联到这个远程仓库，`git remote`命令就用于管理本地仓库所关联的主机，一个本地仓库可以关联任意多个主机（即远程仓库）
-> + 执行`git remote -v`命令可以查看本地仓库所关联的远程仓库信息
-> + `git push`同步到远程仓库
-> + `vi .git/config`修改remote信息
-> * 搭建个人站点https://[用户名].github.io, 仅支持静态页面
-> * 1. 新建名为`[用户名].github.io`的仓库
-> * 2. 在仓库内新建一个名为`index.html`文件
-> * 注意：仓库里面只能有html文件
-> * 搭建个人项目主页https://[用户名].github.io/[项目名]/
-> * 1. 在项目`settings`里面自动生成主题页面
-> * 2. 新建站点基础信息设置
-> * 3. 选择主题后生成网页
-
-- 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 `pip` 来安装会很方便）。
-> * `sudo apt install 软件名`安装软件
-> * `sudo apt remove 软件名`卸载软件
-> * `sudo apt upgrade`更新所有软件
-> * 软件源==>镜像源 
-```
-deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
-deb http://archive.canonical.com/ubuntu xenial partner
-deb-src http://archive.canonical.com/ubuntu xenial partner
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
-```
 
 
 ## 日常使用
