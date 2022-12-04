@@ -87,14 +87,12 @@
 + [BeginnersBook.com – Tutorials For Beginners](https://beginnersbook.com/)
 + [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
 + [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
-+ [五分钟学算法](https://www.cxyxiaowu.com/)
 + [w3school](https://www.w3school.com.cn/)
 + [freecodecamp](https://www.freecodecamp.org/learn)
 + [codecademy](https://www.codecademy.com/learn)
 + [codecademy中文官网](https://www.codecademy.cn/)
 + [Web development tutorials](https://www.w3resource.com/)
 + [菜鸟教程](https://www.runoob.com/)
-+ [leetcode](https://leetcode-cn.com/)
 + [慕课网-程序员的梦工厂](https://www.imooc.com/)
 ### Small blog
 + [美团技术团队](https://tech.meituan.com)
@@ -107,6 +105,12 @@
 + [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode-cn.com/)
 + [LintCode - 空前强大的在线编程训练系统](https://www.lintcode.com/)
 + [牛客网-一个联网求职学习交流社区](https://www.nowcoder.com/)
++ [codeforces](http://codeforces.com/)
++ [HackerRank](https://www.hackerrank.com/)
++ [北大OJ](http://poj.org/problemlist)
++ [中科大OJ](http://acm.ustc.edu.cn/ustcoj/)
++ [杭电OJ](https://acm.hdu.edu.cn/)
++ [哈工大OJ](http://acm.hit.edu.cn/)
 ### Technology blog
 + [CSDN](https://blog.csdn.net/)
 + [博客园](https://www.cnblogs.com/)
@@ -229,6 +233,10 @@
 + [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 + [VisuAlgo](https://visualgo.net/zh)
 + [algorithm-visualizer](https://algorithm-visualizer.org/)
++ [Big-O Cheat Sheet算法复杂度(https://www.bigocheatsheet.com)
++ [牛客在线编程](https://www.nowcoder.com/activity/oj)
++ [五分钟学算法](https://www.cxyxiaowu.com/)
+
 ## 计算机网络
 * [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 * [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
