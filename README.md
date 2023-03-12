@@ -1,10 +1,14 @@
-# basic learning
+## basic learning
 + [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
 + [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)&[公共基础对应笔记](https://www.bilibili.com/read/cv2097828/)
 + [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
 + [computer-science](https://github.com/ossu/computer-science)
 + [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 + [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
+
+## navigation
++ [完备的 AI 学习路线，最详细的资源整理！](https://mp.weixin.qq.com/s/KNaaWuaLjl8iSMemoEpEMQ)
++ [学习数据科学的路线-资源汇总](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
 
 ## some tools
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
@@ -30,14 +34,30 @@
 + [极客战记网易官网-玩游戏学编程零基础Python入门-CodeCombat官方个人版](https://codecombat.163.com/#/)
 + [Coding Games and Programming Challenges to Code Better](https://www.codingame.com/start)
 
-## some videos 
-+ [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
-+ [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
+## community
+- [Kaggle: Your Machine Learning and Data Science Community](https://www.kaggle.com/)
+- [码云](https://gitee.com/)
 
-## some projects
-+ [A list of practical projects](https://github.com/karan/Projects)
+## Technology blog
++ [CSDN](https://blog.csdn.net/)
++ [博客园](https://www.cnblogs.com/)
++ [简书](https://www.jianshu.com/)
++ [思否](https://segmentfault.com/)
++ [开源中国](https://www.oschina.net)
++ [51CTO](https://www.51cto.com/)
++ [V2EX](https://www.v2ex.com)
++ [腾讯云社区](https://cloud.tencent.com/developer)
++ [阿里云社区](https://yq.aliyun.com)
++ [开发者头条](https://toutiao.io/)
++ [GitChat](https://gitbook.cn)
++ [知乎](https://www.zhihu.com/)
++ [Stack Overflow](https://stackoverflow.com)
++ [http://dev.io](https://dev.to/)
++ [DZone](https://dzone.com/)
++ [Bytes](https://bytes.com/)
++ [Google Developers](https://developers.google.com/)
 
-## some books
+## some books & tutorials
 * 语言无关类
   + [操作系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#操作系统)、[awesome-windows](https://github.com/Awesome-Windows/Awesome)、[智能系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#智能系统)、[分布式系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#分布式系统)\ [编译原理](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编译原理)、[函数式概念](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#函数式概念)、[编程艺术](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编程艺术)、[编辑器](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编辑器)、 [计算机图形学](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#计算机图形学)、[WEB服务器](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#web服务器)、[版本控制](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#版本控制)、[Web](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#web)、[NoSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#nosql)、[PostgreSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#postgresql)、[项目相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#项目相关)、[设计模式](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#设计模式)、[管理和监控](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#管理和监控)、 [大数据](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#大数据)、[其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#其它)
 
@@ -73,31 +93,34 @@
 + [计算机电子书下载网-编程pdf电子书下载-码农之家](https://www.xz577.com/)
 + [SaltTiger | 每天一本编程书，每天进步一点点](https://salttiger.com/)
 + [搬书匠 - 电子书(EBook)](http://www.banshujiang.cn/)
-
-
-## some websites
-+ [码云](https://gitee.com/)
-+ [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
-+ [BeginnersBook.com – Tutorials For Beginners](https://beginnersbook.com/)
-+ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
-+ [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
 + [w3school](https://www.w3school.com.cn/)
-+ [freecodecamp](https://www.freecodecamp.org/learn)
++ [freecodecamp](https://www.freecodecamp.org/learn) 
 + [codecademy](https://www.codecademy.com/learn)
 + [codecademy中文官网](https://www.codecademy.cn/)
 + [Web development tutorials](https://www.w3resource.com/)
 + [菜鸟教程](https://www.runoob.com/)
++ [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
++ [BeginnersBook.com – Tutorials For Beginners](https://beginnersbook.com/)
+
+## some websites
++ [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
++ [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
 + [慕课网-程序员的梦工厂](https://www.imooc.com/)
 + [清华大学计算机系课程攻略 ](https://github.com/PKUanonym/REKCARC-TSC-UHT)
 + [贵校课程资料民间整理](https://github.com/lib-pku/libpku)
 + [精选大学生编程资源](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
-### Small blog
++ [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
++ [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
++ [A list of practical projects](https://github.com/karan/Projects)
+
+## Small blog
 + [美团技术团队](https://tech.meituan.com)
 + [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
 + [Web前端导航](http://www.alloyteam.com/nav/)
 + [酷壳](https://coolshell.cn/)
 + [人工智能社区](https://www.captainbed.net/blog-neo/)
-### for practice
+
+## for practice
 + 练习正则表达式[regex](https://regex101.com)
 + [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode-cn.com/)
 + [LintCode - 空前强大的在线编程训练系统](https://www.lintcode.com/)
@@ -108,25 +131,6 @@
 + [中科大OJ](http://acm.ustc.edu.cn/ustcoj/)
 + [杭电OJ](https://acm.hdu.edu.cn/)
 + [哈工大OJ](http://acm.hit.edu.cn/)
-### Technology blog
-+ [CSDN](https://blog.csdn.net/)
-+ [博客园](https://www.cnblogs.com/)
-+ [简书](https://www.jianshu.com/)
-+ [思否](https://segmentfault.com/)
-+ [开源中国](https://www.oschina.net)
-+ [51CTO](https://www.51cto.com/)
-+ [V2EX](https://www.v2ex.com)
-+ [腾讯云社区](https://cloud.tencent.com/developer)
-+ [阿里云社区](https://yq.aliyun.com)
-+ [开发者头条](https://toutiao.io/)
-+ [GitChat](https://gitbook.cn)
-+ [知乎](https://www.zhihu.com/)
-+ [Stack Overflow](https://stackoverflow.com)
-+ [http://dev.io](https://dev.to/)
-+ [DZone](https://dzone.com/)
-+ [Bytes](https://bytes.com/)
-+ [Google Developers](https://developers.google.com/)
-
 
 ## language
 ### C
@@ -179,13 +183,16 @@
 ## 计算机网络
 * [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 * [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
+
 ## 操作系统
 * [人手一套Linux-环境搭建--CodeSheep](https://mp.weixin.qq.com/s/onVwwEQ1DAwbvK7qS2YNxg)
 * [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
 * [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
 * [Open-Source OS Training Comp 2022](https://github.com/LearningOS)
+
 ## 设计模式
 * [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
+
 ## 数据库-database
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/database_NOTE.md)
 ### MySQL
@@ -237,31 +244,15 @@
 *Word 论文模版：* [**Word 论文模版（已更新最新）**](https://github.com/zhanwen/MathModel/blob/master/2019%E5%B9%B4%E8%AE%BA%E6%96%87%E6%A8%A1%E7%89%88/%E2%80%9C%E5%8D%8E%E4%B8%BA%E6%9D%AF%E2%80%9D%E7%AC%AC%E5%8D%81%E5%85%AD%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AE%BA%E6%96%87%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83.doc)  
 *LaTex 论文模版使用方式：* [**如何编译 Latex 文件**](https://github.com/zhanwen/MathModel/tree/master/2019%E5%B9%B4%E8%AE%BA%E6%96%87%E6%A8%A1%E7%89%88/latex_note.md)
 
-### 更新/添加比赛官网地址[戳这里](https://cpipc.chinadegrees.cn/)   
+### 更新/添加比赛官网地址[戳这里](https://cpipc.chinadegrees.cn/)
 * [**“华为杯”中国研究生数学建模竞赛**](https://cpipc.chinadegrees.cn/cw/hp/4)
 * [数学建模竞赛](https://cpipc.chinadegrees.cn/cw/hp/4)     
 * [电子设计竞赛](https://cpipc.chinadegrees.cn/cw/hp/6)     
 * [人工智能创新大赛](https://cpipc.chinadegrees.cn/cw/hp/2c9088a5696cbf370169a3f8101510bd)     
 * [机器人创新设计大赛](https://cpipc.chinadegrees.cn/cw/hp/2c9088a5696cbf370169a3f8934810be)
 
-	
 ### 国赛试题
-* [2019年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2019%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2018年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2018%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2017年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2017%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2016年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2016%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2015年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2015%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2014年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2014%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2013年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2013%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2012年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2012%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2011年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2011%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2010年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2010%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2009年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2009%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2008年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2008%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2007年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2007%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2006年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2006%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2005年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2005%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
-* [2004年研究生数学建模竞赛试题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2004%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
+* 研究生数学建模竞赛试题：[2019](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2019%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2018](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2018%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2017](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2017%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2016](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2016%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2015](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2015%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2014](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2014%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2013](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2013%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2012](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2012%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2011](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2011%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2010](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2010%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2009](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2009%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2008](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2008%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2007](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2007%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2006](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2006%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2005](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2005%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)、[2004](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AF%95%E9%A2%98/2004%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98)
 
 
 ### 国赛论文
@@ -366,20 +357,7 @@
 * [D题：研究生录取问题](https://github.com/zhanwen/MathModel/tree/master/%E5%9B%BD%E8%B5%9B%E8%AE%BA%E6%96%87/2004%E5%B9%B4%E4%BC%98%E7%A7%80%E8%AE%BA%E6%96%87/D) 
 
 ### 美赛论文
-* [2017年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2017%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2016年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2016%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2015年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2015%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2014年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2014%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2013年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2013%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2012年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2012%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2011年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2011%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2010年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2010%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2009年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2009%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2008年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2008%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2007年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2007%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2006年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2006%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2005年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2005%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
-* [2004年特等奖论文](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2004%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
+* 特等奖论文：[2017](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2017%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2016](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2016%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2015](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2015%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2014](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2014%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2013](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2013%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2012](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2012%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2011](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2011%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2010](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2010%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2009](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2009%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2008](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2008%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2007](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2007%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2006](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2006%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、 [2005](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2005%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)、[2004](https://github.com/zhanwen/MathModel/tree/master/%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87/2004%E7%BE%8E%E8%B5%9B%E7%89%B9%E7%AD%89%E5%A5%96%E5%8E%9F%E7%89%88%E8%AE%BA%E6%96%87%E9%9B%86)
 
 ### 数学建模算法
 * [数学建模相关算法MATLAB实现](https://github.com/HuangCongQing/Algorithms_MathModels)
@@ -428,8 +406,3 @@
 + [【数学建模/零基础/教程】数学建模零基础快速入门教程(附代码)](https://www.bilibili.com/video/BV1Kb41167QZ)
 + [数学建模清风第一次直播：传染病模型和微分方程拟合](https://www.bilibili.com/video/BV1Hi4y1t7uu)
 
-### 下载与使用（由于整个项目直接下载比较慢，可以看方式2）
-* 方式1
-* 可以单个文件下载，选择自己需要的某篇论文，直接在对应的页面点击下载即可。
-* 方式2：百度云下载（推荐）
-* 使用百度云下载，正常的客户端会出现限速，导致下载的很慢，这里给大家推荐一个绕过百度云下载限速的方式。具体怎么下载，请参照 [绕过限速](https://github.com/iikira/BaiduPCS-Go)。
