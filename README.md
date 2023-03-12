@@ -37,8 +37,7 @@
 ## community
 - [Kaggle: Your Machine Learning and Data Science Community](https://www.kaggle.com/)
 - [码云](https://gitee.com/)
-
-## Technology blog
+### Technology blog
 + [CSDN](https://blog.csdn.net/)
 + [博客园](https://www.cnblogs.com/)
 + [简书](https://www.jianshu.com/)
@@ -56,6 +55,12 @@
 + [DZone](https://dzone.com/)
 + [Bytes](https://bytes.com/)
 + [Google Developers](https://developers.google.com/)
+### Small blog
++ [美团技术团队](https://tech.meituan.com)
++ [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
++ [Web前端导航](http://www.alloyteam.com/nav/)
++ [酷壳](https://coolshell.cn/)
++ [人工智能社区](https://www.captainbed.net/blog-neo/)
 
 ## some books & tutorials
 * 语言无关类
@@ -113,14 +118,7 @@
 + [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
 + [A list of practical projects](https://github.com/karan/Projects)
 
-## Small blog
-+ [美团技术团队](https://tech.meituan.com)
-+ [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
-+ [Web前端导航](http://www.alloyteam.com/nav/)
-+ [酷壳](https://coolshell.cn/)
-+ [人工智能社区](https://www.captainbed.net/blog-neo/)
-
-## for practice
+## practice
 + 练习正则表达式[regex](https://regex101.com)
 + [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode-cn.com/)
 + [LintCode - 空前强大的在线编程训练系统](https://www.lintcode.com/)
@@ -131,6 +129,13 @@
 + [中科大OJ](http://acm.ustc.edu.cn/ustcoj/)
 + [杭电OJ](https://acm.hdu.edu.cn/)
 + [哈工大OJ](http://acm.hit.edu.cn/)
+### experiment
++ [威客-创意,创新型威客众包服务平台-一品威客网](https://www.epwk.com/)
++ [人人开发](http://renrenkf.com/)
++ [程序员客栈-领先的程序员自由工作平台](https://www.proginn.com/)
++ [兼职程序员_程序员外包_程序员兼职|接私活平台-猿急送](https://www.yuanjisong.com/)
++ [码市 - 互联网软件外包服务平台](https://codemart.com/)
++ [自由人-自由职业者协作平台](http://www.freemancn.com/)
 
 ## language
 ### C
@@ -172,7 +177,7 @@
 
 ### python
 
-## 数据结构与算法
+## data structure and algorithm
 + [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 + [VisuAlgo](https://visualgo.net/zh)
 + [algorithm-visualizer](https://algorithm-visualizer.org/)
@@ -180,20 +185,20 @@
 + [牛客在线编程](https://www.nowcoder.com/activity/oj)
 + [五分钟学算法](https://www.cxyxiaowu.com/)
 
-## 计算机网络
+## computer network
 * [tcp/ip socket](https://www.bilibili.com/video/av69214367/)
 * [计算机网络基础知识汇总](https://blog.csdn.net/vip97yigang/article/details/78306837)
 
-## 操作系统
+## operating system
 * [人手一套Linux-环境搭建--CodeSheep](https://mp.weixin.qq.com/s/onVwwEQ1DAwbvK7qS2YNxg)
 * [操作系统_清华大学(向勇、陈渝)](https://www.bilibili.com/video/BV1js411b7vg)
 * [操作系统基础知识复习总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
 * [Open-Source OS Training Comp 2022](https://github.com/LearningOS)
 
-## 设计模式
+## design pattern
 * [设计模式](https://www.runoob.com/design-pattern/design-pattern-intro.html)
 
-## 数据库-database
+## database
 * [笔记本](https://github.com/DodgeV/learning-programming/blob/master/database_NOTE.md)
 ### MySQL
 * [MySQL 基础+高级篇- 数据库 -sql -尚硅谷](https://www.bilibili.com/video/BV12b411K7Zu)
