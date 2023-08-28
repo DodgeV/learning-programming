@@ -1,16 +1,11 @@
-## basic learning
-+ [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
-+ [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)&[公共基础对应笔记](https://www.bilibili.com/read/cv2097828/)
-+ [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
-+ [computer-science](https://github.com/ossu/computer-science)
-+ [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
-+ [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
-
 ## navigation
 + [完备的 AI 学习路线，最详细的资源整理！](https://mp.weixin.qq.com/s/KNaaWuaLjl8iSMemoEpEMQ)
 + [学习数据科学的路线-资源汇总](https://mp.weixin.qq.com/s/KPQvlhrpjzHMxNKpdbBOEg)
++ [coding-interview-university](https://github.com/jwasham/coding-interview-university)
++ [developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
 
-## some tools
+## programming software&tool
+### online tools
 + [all languages](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-playgrounds.md)
 + [程序员常用资源工具集合](https://mp.weixin.qq.com/s/o943KKllzz71GAatnbrqZg)
 + [在线工具](https://tool.lu/)
@@ -19,8 +14,14 @@
 + [在线代码运行小工具123](http://www.gjw123.com/tools-runcode)
 + [在线代码运行](https://www.toolnb.com/dev/runCode.html)
 + [在线编辑器](https://codesandbox.io/)
+### Linux
++ [手把手教你Windows+Linux双系统的安装与卸载](https://mp.weixin.qq.com/s?__biz=MzU3NTgyODQ1Nw==&mid=2247488772&idx=1&sn=369c2965429c39ef2fe45ea58953412f&chksm=fd1c6d82ca6be49427f9f732043dd982aa373e7fcab0ef700b70931f28a8732a84803860cd69&mpshare=1&scene=1&srcid=0319Oy9ZG6TW8LrjBvdq8Cng&sharer_sharetime=1679189851265&sharer_shareid=ccb3982f74463770fa13a7e792141680#rd)
++ [Linux技术干货合集（不断更新中……）](https://mp.weixin.qq.com/s?__biz=MzU3NTgyODQ1Nw==&mid=100001442&idx=1&sn=a55159ef053b3de9981392dfa3fbdc55&chksm=7d1c7e244a6bf732b3db64e1c6a8faadfc7b70220ab83594ffbec2c0b45de98876290bd15956&mpshare=1&scene=1&srcid=0319P32uGyeTrKDTpw6uuxkl&sharer_sharetime=1679191028991&sharer_shareid=ccb3982f74463770fa13a7e792141680#rd)
+### command line
++ [最基本的命令行(含Linux/vim/git/powershell)](https://github.com/DodgeV/learning-programming/blob/master/art_of_command_line.md)
 
-## some games
+## recourse
+### some games
 + [Learn VIM while playing a game - VIM Adventures](https://vim-adventures.com/)
 + [Tomorrow Corporation : Games](http://tomorrowcorporation.com/games)
 + [Coding with Minecraft](https://turtleappstore.com/)
@@ -33,11 +34,10 @@
 + [Screeps - MMO strategy sandbox game for programmers](https://screeps.com/)
 + [极客战记网易官网-玩游戏学编程零基础Python入门-CodeCombat官方个人版](https://codecombat.163.com/#/)
 + [Coding Games and Programming Challenges to Code Better](https://www.codingame.com/start)
-
-## community
+### community
 - [Kaggle: Your Machine Learning and Data Science Community](https://www.kaggle.com/)
 - [码云](https://gitee.com/)
-### Technology blog
+#### Technology blog
 + [CSDN](https://blog.csdn.net/)
 + [博客园](https://www.cnblogs.com/)
 + [简书](https://www.jianshu.com/)
@@ -55,33 +55,18 @@
 + [DZone](https://dzone.com/)
 + [Bytes](https://bytes.com/)
 + [Google Developers](https://developers.google.com/)
-### Small blog
+#### Small blog
 + [美团技术团队](https://tech.meituan.com)
 + [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)
 + [Web前端导航](http://www.alloyteam.com/nav/)
 + [酷壳](https://coolshell.cn/)
 + [人工智能社区](https://www.captainbed.net/blog-neo/)
-
-## some books & tutorials
+### some books & tutorials
 * 语言无关类
   + [操作系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#操作系统)、[awesome-windows](https://github.com/Awesome-Windows/Awesome)、[智能系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#智能系统)、[分布式系统](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#分布式系统)\ [编译原理](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编译原理)、[函数式概念](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#函数式概念)、[编程艺术](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编程艺术)、[编辑器](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#编辑器)、 [计算机图形学](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#计算机图形学)、[WEB服务器](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#web服务器)、[版本控制](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#版本控制)、[Web](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#web)、[NoSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#nosql)、[PostgreSQL](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#postgresql)、[项目相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#项目相关)、[设计模式](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#设计模式)、[管理和监控](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#管理和监控)、 [大数据](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#大数据)、[其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#其它)
 
 * 语言相关类
-  * [Android](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#android)、[APP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#app)、[AWK](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#awk)
-  * [C/C++](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#cc)、[C#](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#c)、[Clojure](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#clojure)、[CSS/HTML](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#csshtml)
-  * [Dart](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#dart)
-  * [Elixir](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#elixir)、[Erlang](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#erlang)
-  * [Fortran](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#fortran)
-  * [Go](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#go)、[Groovy](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#groovy)
-  * [Haskell](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#haskell)
-  * [iOS](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ios)
-  * [Java](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#java)、[JavaScript](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#javascript)
-  * [Kotlin](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#kotlin)、
-  * [LaTeX](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#latex)、[LISP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#lisp)、[Lua](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#lua)、
-  * [OCaml](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#OCaml)、
-  * [Perl](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#perl)、[PHP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#php)、[Prolog](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#prolog)、
-  * [R](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#r)、[Ruby](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ruby)、[Rust](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#rust)、
-  * [Scala](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#scala)、[Shell](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#shell)、[Swift](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#swift)
+  * [Android](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#android)、[APP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#app)、[AWK](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#awk)、[C/C++](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#cc)、[C#](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#c)、[Clojure](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#clojure)、[CSS/HTML](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#csshtml)、[Dart](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#dart)、[Elixir](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#elixir)、[Erlang](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#erlang)、[Fortran](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#fortran)、[Go](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#go)、[Groovy](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#groovy)、[Haskell](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#haskell)、[iOS](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ios)、[Java](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#java)、[JavaScript](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#javascript)、[Kotlin](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#kotlin)、[LaTeX](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#latex)、[LISP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#lisp)、[Lua](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#lua)、[OCaml](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#OCaml)、 [Perl](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#perl)、[PHP](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#php)、[Prolog](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#prolog)、[R](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#r)、[Ruby](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#ruby)、[Rust](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#rust)、[Scala](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#scala)、[Shell](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#shell)、[Swift](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#swift)
 
 + [读书笔记及其它](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#读书笔记及其它)
 + [测试相关](https://github.com/justjavac/free-programming-books-zh_CN/blob/master/README.md#测试相关)
@@ -106,8 +91,7 @@
 + [菜鸟教程](https://www.runoob.com/)
 + [interactive tutorials](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-interactive-tutorials-en.md)
 + [BeginnersBook.com – Tutorials For Beginners](https://beginnersbook.com/)
-
-## some websites
+### some websites
 + [problem-sets](https://github.com/EbookFoundation/free-programming-books/blob/master/problem-sets-competitive-programming.md)
 + [ Stanford's CS 230 Deep Learning ](https://github.com/afshinea/stanford-cs-230-deep-learning)
 + [慕课网-程序员的梦工厂](https://www.imooc.com/)
@@ -117,8 +101,8 @@
 + [every kind of free online cources](https://github.com/EbookFoundation/free-programming-books/blob/master/free-courses-en.md)
 + [free podcasts](https://github.com/EbookFoundation/free-programming-books/blob/master/free-podcasts-screencasts-en.md)
 + [A list of practical projects](https://github.com/karan/Projects)
-
-## practice
++ [build your own X](https://github.com/codecrafters-io/build-your-own-x)
+#### websites to practice
 + 练习正则表达式[regex](https://regex101.com)
 + [力扣（LeetCode）官网 - 全球极客挚爱的技术成长平台](https://leetcode-cn.com/)
 + [LintCode - 空前强大的在线编程训练系统](https://www.lintcode.com/)
@@ -129,13 +113,20 @@
 + [中科大OJ](http://acm.ustc.edu.cn/ustcoj/)
 + [杭电OJ](https://acm.hdu.edu.cn/)
 + [哈工大OJ](http://acm.hit.edu.cn/)
-### experiment
+#### websites to experiment
 + [威客-创意,创新型威客众包服务平台-一品威客网](https://www.epwk.com/)
 + [人人开发](http://renrenkf.com/)
 + [程序员客栈-领先的程序员自由工作平台](https://www.proginn.com/)
 + [兼职程序员_程序员外包_程序员兼职|接私活平台-猿急送](https://www.yuanjisong.com/)
 + [码市 - 互联网软件外包服务平台](https://codemart.com/)
 + [自由人-自由职业者协作平台](http://www.freemancn.com/)
+
+## basic learning
++ [计算机二级 公共基础--233网校](https://www.bilibili.com/video/BV1hx411R7qp)
++ [超全面 计算机二级 公共基础知识--原恩教育](https://www.bilibili.com/video/BV1at411x7sb)&[公共基础对应笔记](https://www.bilibili.com/read/cv2097828/)
++ [计算机二级MS知识点-公共基础篇--原恩教育](https://www.bilibili.com/video/BV1rx411h73A)&[计算机基础对应笔记](https://www.bilibili.com/read/cv2096891/)
++ [computer-science](https://github.com/ossu/computer-science)
++ [哈佛大学公开课:计算机科学cs50 【中英字幕】](https://www.bilibili.com/video/BV1ks411p7js)
 
 ## language
 ### C
@@ -240,6 +231,7 @@
 + [数据分析入门学习](https://mp.weixin.qq.com/s/uYk9VEDLhJN_nsTHxiz4PQ)
 ### demo
 + [Hands-On Data Visualization: Interactive Storytelling from Spreadsheets to Code](https://github.com/handsondataviz/book)
++ [datacamp-community-tutorials](https://github.com/datacamp/datacamp-community-tutorials)
 
 ## Math modeling
 ### 论文提交（MD5使用方法）
