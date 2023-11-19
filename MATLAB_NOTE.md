@@ -27,6 +27,8 @@
 > - [符号计算基础](#符号计算基础)
 > - [六类基本符号计算](#六类基本符号计算)
 
+- [文件导入](#文件导入)
+
 - [数据预处理](#数据预处理)
 - [免责声明](#免责声明)
 - [常见问题](#常见问题)
@@ -950,6 +952,44 @@ g2 = finverse(f,t)
 * 极限
 
 ### 符号级数
+
+## 文件导入
+1. mat格式
+```matlab
+save data.mat x y1 y2
+clear all
+load data.mat
+```
+
+2. txt格式
+```matlab
+M = importdata('myfile.txt');
+
+S = M.data;
+save 'data.txt' S -ascii
+T = load('data.txt');
+
+isequal(S, T)
+```
+
+3. xls格式
+```matlab
+xlswrite('data.xls',S)
+W = xlsread('data.xls');
+isequal(S, W)
+
+xlswrite('data.xlsx',S)
+U = xlsread('data.xlsx');
+isequal(S, U)
+```
+
+4. csv格式
+```matlab
+csvwrite('data.csv',S)
+V = csvread('data.csv');
+isequal(S, V)
+```
+
 
 * * *
 
