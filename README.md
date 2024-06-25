@@ -153,9 +153,19 @@
 ### HTML/CSS/JavaScript
 - [前端基础-渡一教育](https://www.bilibili.com/video/BV1yx411d7Rc)&[资料](https://github.com/DodgeV/learning-programming/tree/master/books/Html%2BCss%2BJavaScript/%E8%A2%81%E8%80%81%E5%B8%88html%2Bcss%E6%BA%90%E7%A0%81%E8%B5%84%E6%96%99)
 - [HTML 30分钟入门教程](https://deerchao.cn/tutorials/html/html.htm)
-- [web开发人员必备工具包（实现快速敲代码）](https://docs.emmet.io/)
+- [web开发人员必备工具包（实现快速敲代码）Emmet](https://docs.emmet.io/)
 - [让代码提交的时候先执行一次代码，如果有报错不让提交](www.npmjs.com/package/eslint-config-airbnb)
 - [JavaScript教程网](https://zh.javascript.info/)
+- [html在线编辑器](https://jsbin.com/)
+- [30-seconds-of-code](https://github.com/30-seconds/30-seconds-of-code)
+- [33-js-concepts](https://github.com/leonardomso/33-js-concepts)
+- [javascript-questions](https://github.com/lydiahallie/javascript-questions)
+- [JavaScript 30](https://github.com/wesbos/JavaScript30)
+- [ES6 入门教程](https://es6.ruanyifeng.com/)
+- [JavaScript 教程](https://wangdoc.com/javascript/)
+- [MDN ](https://developer.mozilla.org/zh-CN/)
+- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
+- [TypeScript 入门教程](https://ts.xcatliu.com)
 
 ### Go
 * [20个小时快速入门go语言（上）](https://www.bilibili.com/video/BV1UW411x7v2)
@@ -168,7 +178,7 @@
 + [CodeGym online Java programming](https://codegym.cc/)
 + [Java Code Examples](http://www.javased.com/)
 
-### python
+### [python](https://github.com/DodgeV/Python-100-Days-master)
 
 ## data structure and algorithm
 + [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
@@ -235,3 +245,5 @@
 ### demo
 + [Hands-On Data Visualization: Interactive Storytelling from Spreadsheets to Code](https://github.com/handsondataviz/book)
 + [datacamp-community-tutorials](https://github.com/datacamp/datacamp-community-tutorials)
+
+## math model
